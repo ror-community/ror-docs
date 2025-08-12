@@ -24,10 +24,10 @@ Note that the `institution` element is repeatable in order to support multiple a
 Affiliations in Crossref schema align with [JATS v1.1+](https://jats.nlm.nih.gov/publishing/tag-library/1.1d1/n-tmv0.html). 
 
 > 📘 Which Crossref tools/services support ROR?
-> 
-> - ROR **is** supported in [direct XML deposits](https://www.crossref.org/documentation/register-maintain-records/choose-content-registration-method/) using [v5.3.x](https://www.crossref.org/documentation/member-setup/choose-content-registration-method/#00492). 
-> - ROR **is not yet** supported in Crossref's [Web deposit form](https://www.crossref.org/documentation/register-maintain-records/web-deposit-form/).
-> - ROR **is** supported in Crossref's web-based [Grant registration form](https://www.crossref.org/documentation/register-maintain-records/grant-registration-form/).
+>
+> * ROR **is** supported in [direct XML deposits](https://www.crossref.org/documentation/register-maintain-records/choose-content-registration-method/) using [v5.3.x](https://www.crossref.org/documentation/member-setup/choose-content-registration-method/#00492). 
+> * ROR **is not yet** supported in Crossref's [Web deposit form](https://www.crossref.org/documentation/register-maintain-records/web-deposit-form/).
+> * ROR **is** supported in Crossref's web-based [Grant registration form](https://www.crossref.org/documentation/register-maintain-records/grant-registration-form/).
 
 ## Example: Contributor affiliation (journal article)
 
