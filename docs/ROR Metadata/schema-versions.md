@@ -21,42 +21,42 @@ next:
 # Community feedback
 
 > 📘 Request a schema change
-> 
+>
 > To request a change to the ROR metadata schema, [submit a schema change request](https://github.com/ror-community/ror-roadmap/issues/new/choose)  to the ROR Roadmap on GitHub.
 
 In the autumn of 2022, ROR asked for community feedback on plans for versioning the ROR metadata schema and API. Read the draft and final proposals below.
 
-- [Handling schema & API versioning in ROR (Draft)](https://docs.google.com/document/d/1882i-nUt8rqhd1bLqMJ3hF-wq5i8HYktUYmN_gUR1xM/edit?usp=sharing) - proposal open for comment through November 2022
-- [Handling schema & API versioning in ROR (Final Draft)](https://docs.google.com/document/d/18nl6pq0kdCU5ApcdbNjKnV7xHIw9eEY7DJG1WHjaLSs/edit?usp=sharing) - proposal adopted November 2022
+* [Handling schema & API versioning in ROR (Draft)](https://docs.google.com/document/d/1882i-nUt8rqhd1bLqMJ3hF-wq5i8HYktUYmN_gUR1xM/edit?usp=sharing) - proposal open for comment through November 2022
+* [Handling schema & API versioning in ROR (Final Draft)](https://docs.google.com/document/d/18nl6pq0kdCU5ApcdbNjKnV7xHIw9eEY7DJG1WHjaLSs/edit?usp=sharing) - proposal adopted November 2022
 
 # Schema versioning
 
 The ROR metadata schema and API will be versioned in lockstep, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version. 
 
 > 📘 API versioning
-> 
+>
 > The ROR schema and API are versioned together, so a new minor or major version of the schema will be accompanies by a new major or minor version of the API. Read more about [API versioning](doc:api-versions).
 
 The ROR metadata schema will use semantic versioning:
 
-- A minor version (ex, X.1, X.2, etc) will be incremented when non-breaking changes are made, such as adding an element.
-- A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing or restructuring an element, changing the structure or data type of a schema element (e.g., changing a single value to an array), or emoving items from controlled lists of allowed values. 
+* A minor version (ex, X.1, X.2, etc) will be incremented when non-breaking changes are made, such as adding an element.
+* A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing or restructuring an element, changing the structure or data type of a schema element (e.g., changing a single value to an array), or emoving items from controlled lists of allowed values. 
 
 # Changes that require versioning
 
 ## Minor version change
 
-- Adding schema elements
+* Adding schema elements
 
 ## Major version change
 
-- Removing or renaming schema elements
-- Changing the structure or data type of a schema element (ex, changing a single value to an array)
-- Removing items from controlled lists of allowed values
+* Removing or renaming schema elements
+* Changing the structure or data type of a schema element (ex, changing a single value to an array)
+* Removing items from controlled lists of allowed values
 
 # Changes that do not require versioning
 
-- Adding items to controlled lists of allowed values
+* Adding items to controlled lists of allowed values
 
 # Deploying new schema versions
 
