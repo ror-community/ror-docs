@@ -15,26 +15,26 @@ next:
       title: Advanced query parameter
 ---
 > 👍 ROR REST API v2
-> 
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see <https://ror.readme.io/v1/docs/api-query>. You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+>
+> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-query](https://ror.readme.io/v1/docs/api-query). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
-> 
+>
 > Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
 
 # About the query parameter
 
 The query parameter is a "quick search" of only the `names` and `external_ids` fields in ROR. The query parameter works best for the following purposes:
 
-- Keyword-based searching for organization names 
-- Form field auto-suggests / typeaheads
-- Searching for exact matches of an organization name 
-- Searching for external identifiers 
+* Keyword-based searching for organization names 
+* Form field auto-suggests / typeaheads
+* Searching for exact matches of an organization name 
+* Searching for external identifiers 
 
-We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at <https://ror.org/search> also uses the query parameter. 
+We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at [https://ror.org/search](https://ror.org/search) also uses the query parameter. 
 
 > 📘 Query parameter format
-> 
+>
 > `https://api.ror.org/v2/organizations?query=[value]`
 
 # Formatting searches
@@ -45,8 +45,8 @@ All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_url
 
 Some organization names contain characters like &, (), : and /, which have special meaning in URI syntax, Elasticsearch syntax or both. To avoid error responses or bad results:
 
-- Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all query parameter values. 
-- Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \\ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
+* Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all query parameter values. 
+* Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \\ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
 
 ## Spaces and quotation marks
 
@@ -1515,7 +1515,7 @@ As with [retrieving a list of ROR records](doc:api-list), the response is a JSON
 ```
 
 > 🚧 Remember that the query parameter does not search all fields
-> 
+>
 > The query parameter searches only the `names` field, which includes acronyms, aliases, and the organization names in various languages, and the `external_ids` field.  Results from keyword searches using the query parameter **do not include** values from fields such as `links` and `locations`, for instance. To find organizations by website, location, or other criteria, use [Filtering](doc:api-filtering) or the [Advanced query parameter](doc:api-advanced-query).
 
 # Exact string searching
@@ -3307,7 +3307,7 @@ This search looks for **both** the term "Bath" **and** the term "College" and re
 ```
 
 > 🚧 Don't automatically choose the first result in a list
-> 
+>
 > The first item is often but not always the best match or desired result for a given search of the ROR API. We advise against building tools that automatically select the first result in a list of records.
 
 Searching for the exact term "Bath College" retrieves only records that contain that precise phrase in the `names` field. Remember that the `names` field can include names in several languages, acronyms, and aliases. 
@@ -4108,7 +4108,7 @@ The response returns a single record for the U.S. Department of Energy that cont
 
 # Paging and filtering
 
-Search results from the query parameter can be [paged](doc:api-paging) and [filtered](doc:api-filtering). The [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can also be appended to query parameter searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records. 
+Search results from the query parameter can be [paged](doc:api-paging) and [filtered](doc:api-filtering). The [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can also be appended to query parameter searches in order to retrieve *inactive* and *withdrawn* records as well as *active* records. 
 
 ## Example
 
