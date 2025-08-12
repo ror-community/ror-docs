@@ -25,7 +25,7 @@ When retrieving DOIs with the REST API, you'll need to add the parameter `&affil
 
 Below are examples showing just the creator and contributor sections for a DataCite DOI. For the full XML, see the [example with affiliation file](https://schema.datacite.org/meta/kernel-4.4/example/datacite-example-affiliation-v4.xml) linked from the latest [DataCite metadata schema documentation](https://schema.datacite.org/meta/kernel-4.4/). 
 
-- `affiliation` element is repeatable, to support multiple affiliations for a given creator/contributor
+* `affiliation` element is repeatable, to support multiple affiliations for a given creator/contributor
 
 ```xml
 <creator>
@@ -54,7 +54,7 @@ Below are examples showing just the creator and contributor sections for a DataC
 
 Below is an example showing just the fundingReference section for a DataCite DOI.
 
-- `fundingReference` element is repeatable, to support describing multiple funding sources
+* `fundingReference` element is repeatable, to support describing multiple funding sources
 
 ```xml
 <fundingReferences>
@@ -73,4 +73,4 @@ Below is an example showing just the fundingReference section for a DataCite DOI
 </fundingReferences>
 ```
 
-For more details see DataCite's schema documentation at <https://schema.datacite.org> (also available on the [DataCite support site](https://support.datacite.org/docs/datacite-metadata-schema-44))
+For more details see DataCite's schema documentation at [https://schema.datacite.org](https://schema.datacite.org) (also available on the [DataCite support site](https://support.datacite.org/docs/datacite-metadata-schema-44))
