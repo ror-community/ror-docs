@@ -23,7 +23,7 @@ next:
 ---
 > 👍 ROR Schema v2.1
 > 
-> This page documents ROR metadata schema v2.1. For documentation of ROR metadata schema v1, see [\<https://ror.readme.io/v1/docs/ror-data-structure>](https://ror.readme.io/v1/docs/ror-data-structure). You can also read more about ROR [Schema versions](doc:schema-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+> This page documents ROR metadata schema v2.1. For documentation of ROR metadata schema v1, see [https://ror.readme.io/v1/docs/ror-data-structure](https://ror.readme.io/v1/docs/ror-data-structure). You can also read more about ROR [Schema versions](doc:schema-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 The original ROR metadata schema inherited from GRID in 2019 is now known as version 1.0. After two rounds of community feedback in 2022/2023, [metadata schema version 2.0](doc:schema-v2) was developed and beta-tested, then launched into production in April 2024. [Schema 2.1](doc:schema-2-1), a minor update to v2 that adds additional location information, was launched in December 2024.
 
@@ -37,7 +37,7 @@ Below are listed the top-level fields (or "elements") in the v2.1 ROR metadata s
 
 Queries to the ROR API will return all fields regardless of whether they have a value. JSON will include null values and empty arrays and objects if there is no value available for the given organization. Values in fields that contain multiple values are sorted by Unicode value, which is alphabetical for characters in the Basic Latin set.
 
-The full JSON schema used for generating and validating ROR records is available at <https://github.com/ror-community/ror-schema>. 
+The full JSON schema used for generating and validating ROR records is available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema). 
 
 | Field name    | Definition                                                | Type   | Required | Value required | Remarks                                                                                                             |
 | :------------ | :-------------------------------------------------------- | :----- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------ |
