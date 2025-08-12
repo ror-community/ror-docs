@@ -21,22 +21,22 @@ Many ROR records contain equivalent organization IDs of other types in the `exte
 
 Organization ID types you'll find in ROR records include:
 
-- Crossref Funder ID (formerly FundRef)
-- GRID
-- ISNI
-- Wikidata
+* Crossref Funder ID (formerly FundRef)
+* GRID
+* ISNI
+* Wikidata
 
 Not all records contain all of the ID types above in `external_ids`. In some cases, an equivalent ID may not exist in that identifier type. 
 
 > 📘 Migrating from GRID to ROR
-> 
+>
 > **GRID published its final public release on 16 Sep 2021** (see [GRID/ROR Transition FAQ](doc:grid)) 
-> 
-> If you're migrating to ROR from GRID, the good news is that [ROR's JSON data structure](doc:ror-data-structure) is identical to GRID's _and_ every GRID ID has a one-to-one match to a ROR ID!
-> 
+>
+> If you're migrating to ROR from GRID, the good news is that [ROR's JSON data structure](doc:ror-data-structure) is identical to GRID's *and* every GRID ID has a one-to-one match to a ROR ID!
+>
 > The latest ROR data is available from Zenodo, and you can [download the ROR data dump using the Zenodo API](doc:data-dump#download-ror-data-dumps-programmatically-with-the-zenodo-api).
-> 
-> You can also find a list of ROR IDs and their equivalent GRID IDs from the Sep 2021 ROR data dump as a CSV file at <https://doi.org/10.5281/zenodo.5534785>.
+>
+> You can also find a list of ROR IDs and their equivalent GRID IDs from the Sep 2021 ROR data dump as a CSV file at [https://doi.org/10.5281/zenodo.5534785](https://doi.org/10.5281/zenodo.5534785).
 
 ## Map other IDs to ROR using the API
 
@@ -268,8 +268,8 @@ If you have a list of other IDs you'd like to map to ROR, automate this search w
 
 ### Mapping tips
 
-- In `external_ids`, each ID type has 2 fields: "all" and "preferred". For many external IDs, "preferred" is null even when "all" has only 1 value, so we recommend that you _don't_ limit your mapping to only external IDs designated as "preferred".
-- Mapping many thousands of organizations using a script that calls the ROR API can take many hours. If you require a faster approach, you may want to use the [data dump,](doc:data-dump) or an incremental approach, such as "just in time" mapping to ROR when organization data is read from or written to your system.
+* In `external_ids`, each ID type has 2 fields: "all" and "preferred". For many external IDs, "preferred" is null even when "all" has only 1 value, so we recommend that you *don't* limit your mapping to only external IDs designated as "preferred".
+* Mapping many thousands of organizations using a script that calls the ROR API can take many hours. If you require a faster approach, you may want to use the [data dump,](doc:data-dump) or an incremental approach, such as "just in time" mapping to ROR when organization data is read from or written to your system.
 
 ### Find all ROR records mapped to a certain ID type
 
@@ -285,23 +285,23 @@ Returns a list of all records in ROR mapped to a Wikidata ID.
 
 You can also use the [ROR data dump](doc:data-dump) to match other IDs to their equivalent ROR IDs using your own scripts or processing tools. Advantages of this approach include:
 
-- Fine-grained control over matching criteria
-- Faster processing in cases where you have many IDs to map
-- No chance of error responses due to network interruptions or API outages
-- Data available in both JSON and CSV format
+* Fine-grained control over matching criteria
+* Faster processing in cases where you have many IDs to map
+* No chance of error responses due to network interruptions or API outages
+* Data available in both JSON and CSV format
 
 ## Mapping Ringgold IDs to ROR
 
 Since Ringgold is a proprietary identifier system, we're currently not able to include Ringgold IDs in ROR records. In the meantime, these approaches are available:
 
-- **If you have access to the Ringgold Identify database/API**, you can map Ringgold IDs to ROR IDs using ISNI as an intermediary, as ISNI IDs are included in both ROR and Ringgold records.
-- **If you do not have access to the Ringgold Identify database/API**, you may be able to map some Ringgold IDs to ROR IDs using Wikidata as an intermediary, as many ROR records contain Wikidata IDs and some Wikidata records contain Ringgold IDs that were derived from the 2019 ORCID public data file and published in <http://doi.org/10.5281/zenodo.3241717>. See the script at <https://github.com/ror-community/ror-utilities/blob/main/general-scripts/map-ringgold-via-wikidata.py> for a Python script that performs this matching.
+* **If you have access to the Ringgold Identify database/API**, you can map Ringgold IDs to ROR IDs using ISNI as an intermediary, as ISNI IDs are included in both ROR and Ringgold records.
+* **If you do not have access to the Ringgold Identify database/API**, you may be able to map some Ringgold IDs to ROR IDs using Wikidata as an intermediary, as many ROR records contain Wikidata IDs and some Wikidata records contain Ringgold IDs that were derived from the 2019 ORCID public data file and published in [http://doi.org/10.5281/zenodo.3241717](http://doi.org/10.5281/zenodo.3241717). See the script at [https://github.com/ror-community/ror-utilities/blob/main/general-scripts/map-ringgold-via-wikidata.py](https://github.com/ror-community/ror-utilities/blob/main/general-scripts/map-ringgold-via-wikidata.py) for a Python script that performs this matching.
 
 ## Other external identifiers
 
 ROR's current policy is to include only globally unique persistent identifiers as corresponding external IDs in ROR records, which means that national and regional identifiers such as UEI and PIC are not included. If you would benefit from having these or other identifiers in the ROR record, however, you may submit a schema change request on our [roadmap](https://github.com/ror-community/ror-roadmap) or add a comment to an existing request. 
 
-- [Add European Union Participant Identifier Code (PIC)](https://github.com/ror-community/ror-roadmap/issues/97) - GitHub roadmap request for EU PIC mapping. Includes a link in the comments to a third-party-generated PIC-to-ROR mapping project that uses CORDIS data. 
-- [Add Unique Entity ID (UEI) tags as external IDs](https://github.com/ror-community/ror-roadmap/issues/203) - GitHub roadmap request for UEI mapping. Includes a third-party-generated spreadsheet in the comments that crosswalks over 950 SAM UEI, CAGE codes, DUNS numbers, and GRID IDs.
-- [US IPEDs mapping file](https://github.com/opensyllabus/institution-identifiers) - GitHub repository from the [OpenSyllabus](https://www.opensyllabus.org/) project with a CSV file that maps ROR IDs for records of type "Education" to GRID, Wikidata, and IPEDs identifiers.
-- [RRID to ROR mapping file](https://docs.google.com/spreadsheets/d/e/2PACX-1vSWoD7q1vo4j8UC15ok2uC25DfUd87em1fihCMTXeSedK1U_wqn79VO1JqpiLrtI64kGKa3nyVlHxtz/pubhtml) - Spreadsheet of mappings between RRIDs and ROR IDs as of July 2024. See also ["Understanding RRID and ROR for Facilities."](https://ror.org/blog/2024-11-26-rrid-ror-facilities/)
+* [Add European Union Participant Identifier Code (PIC)](https://github.com/ror-community/ror-roadmap/issues/97) - GitHub roadmap request for EU PIC mapping. Includes a link in the comments to a third-party-generated PIC-to-ROR mapping project that uses CORDIS data. 
+* [Add Unique Entity ID (UEI) tags as external IDs](https://github.com/ror-community/ror-roadmap/issues/203) - GitHub roadmap request for UEI mapping. Includes a third-party-generated spreadsheet in the comments that crosswalks over 950 SAM UEI, CAGE codes, DUNS numbers, and GRID IDs.
+* [US IPEDs mapping file](https://github.com/opensyllabus/institution-identifiers) - GitHub repository from the [OpenSyllabus](https://www.opensyllabus.org/) project with a CSV file that maps ROR IDs for records of type "Education" to GRID, Wikidata, and IPEDs identifiers.
+* [RRID to ROR mapping file](https://docs.google.com/spreadsheets/d/e/2PACX-1vSWoD7q1vo4j8UC15ok2uC25DfUd87em1fihCMTXeSedK1U_wqn79VO1JqpiLrtI64kGKa3nyVlHxtz/pubhtml) - Spreadsheet of mappings between RRIDs and ROR IDs as of July 2024. See also ["Understanding RRID and ROR for Facilities."](https://ror.org/blog/2024-11-26-rrid-ror-facilities/)
