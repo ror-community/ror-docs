@@ -24,7 +24,7 @@ next:
       url: https://github.com/ror-community/ror-typeahead-demos
 ---
 > 🚧 Using ROR with standard form solutions
-> 
+>
 > The information on this page is aimed at developers who are building and maintaining web applications that include custom forms. If you are using a standard form solution such as Google Forms, we recommend collecting organization names as text in your form, generating a CSV file from the form responses, and then [matching the organization names to ROR IDs](doc:matching).
 
 If your system includes fields that users enter affiliation information into, you can standardize that input and capture corresponding ROR IDs by adding a typeahead (or "autosuggest") widget that prompts users to select an organization from ROR. Learn more about best practices and implementation steps for using ROR in your application's forms here.
@@ -41,49 +41,35 @@ Use a ROR-powered typeahead to capture creator affiliations (e.g., University of
 
 The `names` field includes variations on an organization's name such as its name in other languages, acronyms, and aliases, any of which a user might and should be able to search for. The `?query` parameter of the ROR API will search an index of all these name fields, but if you build your own search logic, make sure you configure your typeahead to allow searching for all the values in the `names` field. Read more about [names](https://ror.readme.io/v2/docs/data-structure#names).
 
-In the below example, the ROR record for the University of Wisconsin-Madison, <https://ror.org/01y2jtd41>, contains several values in the `names` field: the `ror_display` name "University of Wisconsin-Madison", the `alias` "UW-Madison", the `acronym` "UW",  and `labels` for the organization's name in French and Spanish. All values are searchable. 
+In the below example, the ROR record for the University of Wisconsin-Madison, [https://ror.org/01y2jtd41](https://ror.org/01y2jtd41), contains several values in the `names` field: the `ror_display` name "University of Wisconsin-Madison", the `alias` "UW-Madison", the `acronym` "UW",  and `labels` for the organization's name in French and Spanish. All values are searchable. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png" />
 
 ## Show information beyond the primary organization name
 
 In addition to the primary organization name, display other ROR record fields in order to help users select the correct organization. We recommend including:
 
-- Name variations such as acronyms, aliases, and names in other languages. This is particularly important because a user's query should be able to match a name variation rather than the primary name in a ROR record.
+* Name variations such as acronyms, aliases, and names in other languages. This is particularly important because a user's query should be able to match a name variation rather than the primary name in a ROR record.
 
-- Geographic information such as city and country.
+* Geographic information such as city and country.
 
-- Organization type.
+* Organization type.
 
 We do not recommend displaying ROR IDs to end users.
 
 > 📘 Special considerations for displaying geographical information from ROR
-> 
+>
 > ### Multiple locations
-> 
+>
 > Beginning with [Schema 2.0](doc:schema-v2), ROR metadata supports multiple locations in a single ROR record. The large majority of ROR records include only a single location; [ROR metadata policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#multiple-locations) outline the rare circumstances in which a ROR record will qualify for multiple locations. Developers who wish to pull location information from ROR should plan to accommodate multiple locations, for example by displaying all locations in a drop down or typeahead. In cases where records have multiple locations, no priority is specified and order is not significant. For this reason, displaying only the first location may not be appropriate for all cases.  Additionally, in some cases, developers may wish to allow users to edit location fields within their application(s) to reflect the actual location of the user rather than forcing the use of a location from a ROR record.
 
 ## Do not require the ROR ID
 
 We strongly discourage requiring users to enter only organizations with ROR IDs, because there are many valid reasons why a user may be unable to select an organization with a ROR ID as their affiliation: 
 
-- The user may be affiliated with a research organization that is in scope for ROR but has not yet been added to the registry
-- The user may be affiliated with a research organization that is not in scope for ROR, such as a single-person consultancy
-- The user may be an independent researcher
+* The user may be affiliated with a research organization that is in scope for ROR but has not yet been added to the registry
+* The user may be affiliated with a research organization that is not in scope for ROR, such as a single-person consultancy
+* The user may be an independent researcher
 
 Forms can still require users to give an institutional affiliation by allowing users to enter free text strings if no appropriate suggestion is made by the ROR typeahead.
 
@@ -111,15 +97,15 @@ See [ROR hierarchies and relationships](doc:relationships) for more information 
 
 Follow accessibility best practices for form controls, such [W3C Web accessibility initiative (WAI)](https://www.w3.org/WAI/), including:
 
-- Label and group form controls correctly
+* Label and group form controls correctly
 
-- Include form instructions in a way that can be read by assistive technologies, such as screen readers
+* Include form instructions in a way that can be read by assistive technologies, such as screen readers
 
-- Ensure that keyboard/tab navigation is possible
+* Ensure that keyboard/tab navigation is possible
 
-- Ensure that form controls function at a variety of screen sizes/zoom levels
+* Ensure that form controls function at a variety of screen sizes/zoom levels
 
-- Ensure that colors with sufficient contrast are used, and that color alone is not used to convey information
+* Ensure that colors with sufficient contrast are used, and that color alone is not used to convey information
 
 ## Consider filtering the list of suggestions displayed to the user
 
@@ -139,11 +125,11 @@ Consider populating other fields in your form automatically using data from the 
 
 A simple way to populate a typeahead widget is to query the ROR [REST API](doc:rest-api) in real time as the user types. While this approach has the advantage of being easy to implement, it comes with some disadvantages:
 
-- Slower/more variable response time vs querying data stored locally
+* Slower/more variable response time vs querying data stored locally
 
-- Depends on being able to reach the ROR API
+* Depends on being able to reach the ROR API
 
-- Performance may be impacted by other ROR API users
+* Performance may be impacted by other ROR API users
 
 Steps to implement a typeahead widget using the ROR [REST API](doc:rest-api) will vary depending on your system architecture, but may include the following:
 
@@ -161,7 +147,7 @@ Display the top results to the user. In addition to the name, include informatio
 
 4. Store selected result.
 
-Store the ROR ID for the selected result in your system along with any other required information. We recommend storing and displaying ROR IDs as full URLs in the form <https://ror.org/01y2jtd41>. Read more about the [ROR identifier pattern](doc:identifier).
+Store the ROR ID for the selected result in your system along with any other required information. We recommend storing and displaying ROR IDs as full URLs in the form [https://ror.org/01y2jtd41](https://ror.org/01y2jtd41). Read more about the [ROR identifier pattern](doc:identifier).
 
 ## ROR data dump
 
@@ -183,5 +169,5 @@ Steps to implement a widget using the ROR [data dump](doc:data-dump) vary depend
 
 # Typeahead demos and code
 
-- Try our demonstration version of a ROR typeahead at <https://ror-community.github.io/ror-typeahead-demos/>
-- Take a look at the code for our ROR typeahead demos at <https://github.com/ror-community/ror-typeahead-demos>
+* Try our demonstration version of a ROR typeahead at [https://ror-community.github.io/ror-typeahead-demos/](https://ror-community.github.io/ror-typeahead-demos/)
+* Take a look at the code for our ROR typeahead demos at [https://github.com/ror-community/ror-typeahead-demos](https://github.com/ror-community/ror-typeahead-demos)
