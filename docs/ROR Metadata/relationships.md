@@ -22,7 +22,7 @@ next:
         https://ror.org/blog/2023-02-27-parents-children-and-other-relationships-in-ror/
 ---
 > 👍 ROR Schema v2.1
-> 
+>
 > This page documents relationships in ROR metadata schema v2.1 For documentation of relationships in ROR metadata schema v1, see [\<https://ror.readme.io/v1/docs/relationships>](https://ror.readme.io/v1/docs/relationships). You can also read more about ROR [schema versions](doc:schema-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 # How ROR handles relationships
@@ -181,37 +181,10 @@ The US [National Cancer Institute](https://ror.org/040gcmg81) is a child organiz
 
 In the [ROR search interface](https://ror.org/search), the number of relationships (if any) is shown on each record in the list view, and clicking the "View Details" button will take the user to the individual record, where all relationships are displayed. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4e6a01d-Screenshot_2024-04-03_at_1.50.11_PM.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/4e6a01d-Screenshot_2024-04-03_at_1.50.11_PM.png" />
 
 Pictured below is an image of an organizational "family tree" created from ROR records with an [organization tree script](https://github.com/ror-community/ror-utilities/tree/main/organization-tree-scripts). The United States Department of Energy is the top node and has many "children" and "grandchildren" and one "great-grandchild" organization. (Laterally related organizations are not shown in this view.)
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/be45520-ror-doe-hierarchy.png",
-        "ror-doe-hierarchy.png",
-        1050
-      ],
-      "align": "center",
-      "caption": "List of University of California system children and grandchildren expressed as nodes in an indented list from the ROR organization tree script written by Sandra Mierz."
-    }
-  ]
-}
-[/block]
+<Image title="ror-doe-hierarchy.png" alt={1050} align="center" src="https://files.readme.io/be45520-ror-doe-hierarchy.png">
+  List of University of California system children and grandchildren expressed as nodes in an indented list from the ROR organization tree script written by Sandra Mierz.
+</Image>
