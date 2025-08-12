@@ -15,35 +15,35 @@ next:
       title: Paging
 ---
 > 👍 ROR REST API v2
-> 
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see <https://ror.readme.io/v1/docs/api-filtering>. You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+>
+> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-filtering](https://ror.readme.io/v1/docs/api-filtering). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
-> 
+>
 > Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
 
 # About filtering
 
 Results can be filtered by record status, organization type, [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, country name, continent code, and continent name. 
 
-- `status` - filter records by record status
-- `types` - filter records by organization type 
-- `country.country_code` and `locations.geonames_details.country_code` - filter records by country code
-- `country.country_name` and `locations.geonames_details.country_name` - filter records by country name
-- `locations.geonames_details.continent_code` - filter records by continent code
-- `locations.geonames_details.continent_name` - filter records by continent name
+* `status` - filter records by record status
+* `types` - filter records by organization type 
+* `country.country_code` and `locations.geonames_details.country_code` - filter records by country code
+* `country.country_name` and `locations.geonames_details.country_name` - filter records by country name
+* `locations.geonames_details.continent_code` - filter records by continent code
+* `locations.geonames_details.continent_name` - filter records by continent name
 
 See [Data structure](doc:ror-data-structure) and [Fields and sub-fields](doc:fields) for more details about these fields.
 
 Note that in version 2 of the ROR API and schema, values formerly in the v1 field `country.country_code` are now in the field `locations.geonames_details.country_code`and values formerly in the v1 field `country.country_name` are now in the field `locations.geonames_details.country_name`. To maintain continuity for v1 users, we have ensured that the v1 and v2 field names for country names and country codes can be used interchangeably as filters in v2 of the ROR API.
 
 > 📘 Filter format
-> 
+>
 > `https://api.ror.org/v2/organizations?filter=[filter]:[value]`
 
 # Filter by record status
 
-Available statuses: _active_, _inactive_, and _withdrawn_. Requests for a specific record by its exact ROR ID will always return the record regardless of its status without need for the [all_status parameter](doc:api-list#retrieve-a-list-of-records-with-all-statuses) or for status filters.
+Available statuses: *active*, *inactive*, and *withdrawn*. Requests for a specific record by its exact ROR ID will always return the record regardless of its status without need for the [all\_status parameter](doc:api-list#retrieve-a-list-of-records-with-all-statuses) or for status filters.
 
 ## Example
 
@@ -2020,15 +2020,15 @@ Retrieves a list of records for inactive research organizations.
 
 Available organization types: 
 
-- education 
-- funder
-- healthcare 
-- company 
-- archive 
-- nonprofit 
-- government 
-- facility 
-- other
+* education 
+* funder
+* healthcare 
+* company 
+* archive 
+* nonprofit 
+* government 
+* facility 
+* other
 
 ## Example
 
@@ -9691,7 +9691,7 @@ The response is a list of research organizations in South America.
 You can combine multiple filters in a single request.
 
 > 📘 Format: Combined filters
-> 
+>
 > `https://api.ror.org/v2/organizations?filter=<filter>:<value>,<filter>:<value>`
 
 ## Example
