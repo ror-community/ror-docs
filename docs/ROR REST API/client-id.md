@@ -26,7 +26,7 @@ ROR client IDs are free and easy to obtain. You will fill out [a brief form](htt
 
 Note that ROR API client IDs are not used for either authentication or authorization, and therefore they are not secret and can be transmitted in plain text. They are used only to differentiate users of the API.
 
-**Register now for a ROR API client ID at <https://ror.org/api-client-id>.**
+**Register now for a ROR API client ID at[https://ror.org/api-client-id](https://ror.org/api-client-id).**
 
 ## When to register a client ID
 
@@ -50,9 +50,9 @@ We do not provide a way to recover, reset, or revoke a lost client ID. If you lo
 
 ## More about client IDs
 
-- Client IDs are free to obtain.
-- The only information needed to obtain a client ID is a contact email address. Additional fields in the [client ID registration form](https://ror.org/api-client-id) such as name, organization, country and ROR use case are optional.
-- Email addresses supplied at registration are used only to contact API users for support and troubleshooting purposes. Email addresses supplied at registration are not used for any other purpose and are not shared outside of ROR technical infrastructure.
-- Initially, there will be no hard limit on the number of client IDs that can be generated with a single email address, but we may impose a limit in the future if issues arise.
-- Rate limits listed above may be subject to change in the future. 
-- For help with client IDs, please contact [support@ror.org.](mailto:support@ror.org.)
+* Client IDs are free to obtain.
+* The only information needed to obtain a client ID is a contact email address. Additional fields in the [client ID registration form](https://ror.org/api-client-id) such as name, organization, country and ROR use case are optional.
+* Email addresses supplied at registration are used only to contact API users for support and troubleshooting purposes. Email addresses supplied at registration are not used for any other purpose and are not shared outside of ROR technical infrastructure.
+* Initially, there will be no hard limit on the number of client IDs that can be generated with a single email address, but we may impose a limit in the future if issues arise.
+* Rate limits listed above may be subject to change in the future. 
+* For help with client IDs, please contact [support@ror.org.](mailto:support@ror.org.)
