@@ -18,9 +18,9 @@ next:
 ---
 > 👍 ROR Schema v2.1
 > 
-> This page documents the fields and sub-fields in v2.1 of the ROR metadata schema. For documentation of ROR schema v1 fields and subfields, see <https://ror.readme.io/v1/docs/fields>. You can also read more about ROR [schema versions](doc:schema-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+> This page documents the fields and sub-fields in v2.1 of the ROR metadata schema. For documentation of ROR schema v1 fields and subfields, see [https://ror.readme.io/v1/docs/fields](https://ror.readme.io/v1/docs/fields). You can also read more about ROR [schema versions](doc:schema-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
-The following list includes all available fields and sub-fields in version 2.1 of the ROR metadata schema. For a list of top-level fields only, see [ROR data structure](doc:ror-data-structure). The full JSON schema used for generating and validating ROR records is available at <https://github.com/ror-community/ror-schema>.
+The following list includes all available fields and sub-fields in version 2.1 of the ROR metadata schema. For a list of top-level fields only, see [ROR data structure](doc:ror-data-structure). The full JSON schema used for generating and validating ROR records is available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
 
 If you'd like to request a change to the ROR metadata schema, please [submit a schema change request on our roadmap](https://github.com/ror-community/ror-roadmap/issues/new/choose).
 
