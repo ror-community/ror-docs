@@ -17,11 +17,11 @@ next:
       title: Query parameter
 ---
 > 👍 ROR REST API v2
-> 
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see <https://ror.readme.io/v1/docs/api-paging>. You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+>
+> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-paging](https://ror.readme.io/v1/docs/api-paging). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
-> 
+>
 > Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](2025-07-01-sunhttps://ror.readme.io/changelog/2025-07-01-sunset-of-version-1set-of-version-1).
 
 # About paging
@@ -29,7 +29,7 @@ next:
 Responses to queries of the ROR API are broken into pages with a maximum of 20 results per page beginning at page 1. If `metadata.number_of_results` is greater than 20, you can retrieve subsequent records by specifying the page number of the result. 
 
 > 📘 Paging format
-> 
+>
 > `https://api.ror.org/v2/organizations?page=[page number]`
 
 The maximum number of pages that can be retrieved is 500, which means that the maximum number of ROR records that can be retrieved via the ROR API is 10,000. If you send a request for a page beyond 500, you will receive a 200 status, but also an error response like `{"errors":["page '5144' outside of range 1-500”]}`
@@ -37,7 +37,7 @@ The maximum number of pages that can be retrieved is 500, which means that the m
 To determine how many pages you will need to retrieve in order to obtain your entire result set, check `metadata.number_of_results` and divide by 20. Regardless of which page you are on, `metadata.number_of_results` indicates the total number of results returned by your request.
 
 > ❗️ It is not possible to retrieve all ROR records from the API
-> 
+>
 > The API is best for use cases that involve searching for or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API. If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump).
 
 ## Example
