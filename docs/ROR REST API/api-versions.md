@@ -16,44 +16,44 @@ next:
   description: ''
 ---
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
-> 
+>
 > Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
 
 # Community feedback
 
 In the autumn of 2022, ROR asked for community feedback on plans for versioning the ROR metadata schema and API. Read the draft and final proposals below.
 
-- [Handling schema & API versioning in ROR (Draft)](https://docs.google.com/document/d/1882i-nUt8rqhd1bLqMJ3hF-wq5i8HYktUYmN_gUR1xM/edit?usp=sharing) - proposal open for comment through November 2022
-- [Handling schema & API versioning in ROR (Final Draft)](https://docs.google.com/document/d/18nl6pq0kdCU5ApcdbNjKnV7xHIw9eEY7DJG1WHjaLSs/edit?usp=sharing) - proposal adopted November 2022
+* [Handling schema & API versioning in ROR (Draft)](https://docs.google.com/document/d/1882i-nUt8rqhd1bLqMJ3hF-wq5i8HYktUYmN_gUR1xM/edit?usp=sharing) - proposal open for comment through November 2022
+* [Handling schema & API versioning in ROR (Final Draft)](https://docs.google.com/document/d/18nl6pq0kdCU5ApcdbNjKnV7xHIw9eEY7DJG1WHjaLSs/edit?usp=sharing) - proposal adopted November 2022
 
 # API versioning
 
 The ROR metadata schema and API will be versioned in lockstep, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version. 
 
 > 📘 Schema versioning
-> 
+>
 > The ROR API and schema are versioned together, so a new minor or major version of the API will be accompanied by a new major or minor version of the schema. Read more about [schema versioning](doc:schema-versions-copy).
 
 The ROR API will use semantic versioning:
 
-- A minor version (ex, X.1, X.2, etc) will be incremented when substantial non-breaking changes are made, such as changing existing API functionality so that the response to a given request has the same structure but a different meaning, e.g., changing the ?query search behavior to include ?query.advanced behavior.
-- A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing existing API functionality or significantly changing existing API functionality so that the response to a given request is different in structure, e.g., removing the container element from the ?affiliation response. 
+* A minor version (ex, X.1, X.2, etc) will be incremented when substantial non-breaking changes are made, such as changing existing API functionality so that the response to a given request has the same structure but a different meaning, e.g., changing the ?query search behavior to include ?query.advanced behavior.
+* A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing existing API functionality or significantly changing existing API functionality so that the response to a given request is different in structure, e.g., removing the container element from the ?affiliation response. 
 
 # Changes that require versioning
 
 ## Minor version change
 
-- Changing existing API functionality such that the response to a given request has the same structure but a different meaning or nature (e.g., current `?query` search behavior is changed to `?query.advanced` behavior)
+* Changing existing API functionality such that the response to a given request has the same structure but a different meaning or nature (e.g., current `?query` search behavior is changed to `?query.advanced` behavior)
 
 ## Major version change
 
-- Removing API functionality
-- Significantly changing existing API functionality such that the response to a given request is different in structure (e.g., removing container element from `?affiliation` response)
+* Removing API functionality
+* Significantly changing existing API functionality such that the response to a given request is different in structure (e.g., removing container element from `?affiliation` response)
 
 # Changes that do not require versioning
 
-- Minor (non-breaking) changes to existing API functionality, such as bug fixes and incremental improvements to search behavior to improve performance/accuracy
-- Adding new features to the API that do not impact existing features/functionality (e.g., adding a new endpoint)
+* Minor (non-breaking) changes to existing API functionality, such as bug fixes and incremental improvements to search behavior to improve performance/accuracy
+* Adding new features to the API that do not impact existing features/functionality (e.g., adding a new endpoint)
 
 # Deploying new API versions
 
