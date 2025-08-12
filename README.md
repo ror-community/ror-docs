@@ -1,1 +1,1 @@
-ROR Technical documentation synced from https://ror.readme.io.
+ROR technical documentation synced from https://ror.readme.io.
