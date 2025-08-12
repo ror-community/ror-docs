@@ -15,11 +15,11 @@ next:
       title: Filtering
 ---
 > 👍 ROR REST API v2
-> 
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see <https://ror.readme.io/v1/docs/api-list>. You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+>
+> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-list](https://ror.readme.io/v1/docs/api-list). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
-> 
+>
 > Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
 
 # Retrieve a list of active records with summary counts
@@ -2122,16 +2122,16 @@ The response is a JSON object containing full records for the first 20 organizat
 ```
 
 > ❗️ It is not possible to retrieve all ROR records from the API
-> 
+>
 > The API is best for use cases that involve querying or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API, even with [Paging](doc:api-paging). If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump).
 
 # Retrieve a list of records with all statuses
 
-As of 1 Dec 2022 the ROR API will return only records with a status of _active_ by default: [see release notes](https://ror.readme.io/changelog/2022-12-01-organization-status-changes). 
+As of 1 Dec 2022 the ROR API will return only records with a status of *active* by default: [see release notes](https://ror.readme.io/changelog/2022-12-01-organization-status-changes). 
 
-Records with _active_ status indicate organizations that maintain current operations, while records with _inactive_ status indicate organizations that have ceased functioning, and records with _withdrawn_ status indicate records that were added to ROR in error (e.g., duplicate records and out-of-scope organizations). See [ROR data structure](doc:data-structure#status) for more information about record status.
+Records with *active* status indicate organizations that maintain current operations, while records with *inactive* status indicate organizations that have ceased functioning, and records with *withdrawn* status indicate records that were added to ROR in error (e.g., duplicate records and out-of-scope organizations). See [ROR data structure](doc:data-structure#status) for more information about record status.
 
-Add the query parameter `all_status` to return records with all statuses, including _active_, _inactive_, and _withdrawn_). 
+Add the query parameter `all_status` to return records with all statuses, including *active*, *inactive*, and *withdrawn*). 
 
 ## Example
 
