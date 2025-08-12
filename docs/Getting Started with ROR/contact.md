@@ -31,4 +31,4 @@ Want to talk to a live person in real time? You can [book a 30-minute Zoom call]
 
 ## Ask a general question
 
-For any other questions not answered on our website <https://ror.org> or in this [documentation](doc:ror-basics), please contact [info@ror.org](mailto:info@ror.org).
+For any other questions not answered on our website [https://ror.org](https://ror.org) or in this [documentation](doc:ror-basics), please contact [info@ror.org](mailto:info@ror.org).
