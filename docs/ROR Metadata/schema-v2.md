@@ -17,16 +17,16 @@ next:
   description: ''
 ---
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
-> 
+>
 > Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
 
 # Community feedback
 
 In the spring of 2023, ROR asked for community feedback on the specifics of major, breaking changes to the ROR metadata schema.
 
-- [ROR Schema v2.0 draft proposal](https://docs.google.com/document/d/1JNDMoKmjR2y0quWXwFfoJTsIttbltJVN0l5Wddw1cIk/edit?usp=sharing) - proposal open for comment through February 2023
-- [ROR Schema v2.0 second draft proposal](https://docs.google.com/document/d/18Qg6-lv2Fxkc97SLpD8gdS0V8p0y9fdaZEywyeyKJWM/edit?usp=sharing) - proposal open for comment through April 2023
-- [ROR Schema v2.0 final proposal](https://docs.google.com/document/d/1lYybpmtFW3cSitNAUzuVgFieco17PfuIbeVlcqcwync/edit?usp=sharing) - proposal adopted April 2023
+* [ROR Schema v2.0 draft proposal](https://docs.google.com/document/d/1JNDMoKmjR2y0quWXwFfoJTsIttbltJVN0l5Wddw1cIk/edit?usp=sharing) - proposal open for comment through February 2023
+* [ROR Schema v2.0 second draft proposal](https://docs.google.com/document/d/18Qg6-lv2Fxkc97SLpD8gdS0V8p0y9fdaZEywyeyKJWM/edit?usp=sharing) - proposal open for comment through April 2023
+* [ROR Schema v2.0 final proposal](https://docs.google.com/document/d/1lYybpmtFW3cSitNAUzuVgFieco17PfuIbeVlcqcwync/edit?usp=sharing) - proposal adopted April 2023
 
 # Planned changes
 
@@ -38,8 +38,8 @@ Read more about how ROR will handle [Schema versions](doc:schema-versions).
 
 ROR records in version 1 currently include 4 separate fields that represent variations of an organization’s name: `name`, `aliases`, `labels` and `acronyms`.  User-reported problems with these fields include 
 
-- the lack of language code in the `name` field, which makes it difficult to utilize ROR data in internationalized applications or in cases where names need to be displayed in a single preferred language, and 
-- issues with the concept of a "primary" name that can have only one value, since in multilingual countries  such as Canada and Switzerland it is important that names in different languages be given equal weight. 
+* the lack of language code in the `name` field, which makes it difficult to utilize ROR data in internationalized applications or in cases where names need to be displayed in a single preferred language, and 
+* issues with the concept of a "primary" name that can have only one value, since in multilingual countries  such as Canada and Switzerland it is important that names in different languages be given equal weight. 
 
 We are therefore "flattening" all name-related fields into one `names` field that can hold an array of values, types, and languages. For use cases where a single "default" name for an organization is desired, we have added the `ror_display` type to indicate that this is the name that ROR has chosen to display in its [web-based search](https://ror.org/search).  
 
@@ -97,8 +97,8 @@ The current `addresses` field contains data from [GeoNames](https://www.geonames
 We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information. Since most countries do not have states, we are removing the `state` and `state_code` fields. Users who wish to use location information at the level of the "state" are advised to retrieve it from GeoNames using the `geonames_id`. 
 
 > 📘 Identifying organizations without U.S. state information
-> 
-> ROR is a global registry, and most countries do not have an administrative region corresponding to the U.S. state. Note that our analysis shows that **there appear to be no records with duplicate name, city, and country** in the ROR registry, so users should be able to choose the correct organization based on name, city, and country alone, e.g., "York College, York, United States" (<https://ror.org/022jz8688>) and "York College, York, United Kingdom" (<https://ror.org/04gaeyc40>).
+>
+> ROR is a global registry, and most countries do not have an administrative region corresponding to the U.S. state. Note that our analysis shows that **there appear to be no records with duplicate name, city, and country** in the ROR registry, so users should be able to choose the correct organization based on name, city, and country alone, e.g., "York College, York, United States" ([https://ror.org/022jz8688](https://ror.org/022jz8688)) and "York College, York, United Kingdom" ([https://ror.org/04gaeyc40](https://ror.org/04gaeyc40)).
 
 ### Current v1.0 example
 
@@ -167,7 +167,7 @@ We are therefore removing empty or overly detailed GeoNames sub-fields within th
    ]
 ```
 
-## Web domain information (links, ip_addresses, email_address, wikipedia_url)
+## Web domain information (links, ip\_addresses, email\_address, wikipedia\_url)
 
 ROR contains four fields related to an organization’s web domain/presence (`links`, `ip_address`, `email_address` and `wikipedia_url`), two of which have never had any values (`ip_address` and `email_address`). URLs in the field `links` are inconsistently formatted, and there is no consensus across the data about what value this field should represent (a home page? an About page? something else?). 
 
@@ -204,7 +204,7 @@ We are therefore removing the `ip_addresses` and `email_addresses` fields, addin
   ],
 ```
 
-## External identifiers (external_ids)
+## External identifiers (external\_ids)
 
 The current structure of the `external_ids` field is problematic because it uses the identifier type as a field name. This means that a significant schema change is required to add a new identifier type or remove a deprecated type. ROR currently includes a significant number of records with deprecated external IDs (e.g., CNRS, HESA, and OrgRef) and has received several requests to add new external ID types.
 
