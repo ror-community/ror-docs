@@ -15,9 +15,9 @@ next:
 ---
 ROR is intended to help connect people (researchers), places (organizations, like funders and research institutions) and things  (research outputs, like publications and datasets) through the power of open persistent identifiers (PIDs), in order to easily answer questions like:
 
-- Which publications and datasets were authored by researchers at a particular institution?
-- Which publications and datasets are the result of research supported by a particular funding agency?
-- Which researchers are affiliated with a given institution?
+* Which publications and datasets were authored by researchers at a particular institution?
+* Which publications and datasets are the result of research supported by a particular funding agency?
+* Which researchers are affiliated with a given institution?
 
 To harness the power of PIDs in this way, ROR identifiers need to be included in metadata for other identifiers, such as [ORCID](https://orcid.org/) records for researcher
 
@@ -27,22 +27,7 @@ To harness the power of PIDs in this way, ROR identifiers need to be included in
 
 Researchers who add or update these activities in their profile will see a list of suggestions as they begin to type that come from both ROR and the Crossref Open Funder Registry. Once they select an organization and save the activity, the update will appear in the profile. Clicking "Show more detail" will reveal the identifier and metadata associated with the selected organization. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ebcb7e8fc76b1416dd195b6cf0f95d892d77611eea1947867eb63a48984e82d0-ror-orcid-uva.gif",
-        "",
-        "Adding an organization in ORCID."
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/ebcb7e8fc76b1416dd195b6cf0f95d892d77611eea1947867eb63a48984e82d0-ror-orcid-uva.gif" />
 
 ## ROR in the ORCID API
 
@@ -69,5 +54,5 @@ For more information on using the ORCID API, see the [ORCID API Guide](https://g
 
 Those using the [Affiliation Manager tool](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/) in the [ORCID Member Portal](https://info.orcid.org/documentation/member-portal/) can include ROR IDs in affiliations added to ORCID records. 
 
-- If you are using the [CSV bulk upload](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Bulk_upload_CSV), include the full ROR URL in the `disambiguated-organization-identifier` column
-- If you are using the [manual entry form](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Add_affiliations_manually), include the full ROR URL in the Organization ID field
+* If you are using the [CSV bulk upload](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Bulk_upload_CSV), include the full ROR URL in the `disambiguated-organization-identifier` column
+* If you are using the [manual entry form](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Add_affiliations_manually), include the full ROR URL in the Organization ID field
