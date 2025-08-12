@@ -20,11 +20,11 @@ next:
       url: https://github.com/ror-community/ror-utilities
 ---
 > 👍 ROR REST API v2
-> 
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see <https://ror.readme.io/v1/docs/api-affiliation>. You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+>
+> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-affiliation](https://ror.readme.io/v1/docs/api-affiliation). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
-> 
+>
 > Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
 
 # About the affiliation parameter
@@ -33,13 +33,13 @@ The affiliation parameter is designed to match messy text to ROR records. It bre
 
 The affiliation parameter is designed for the following purposes: 
 
-- Matching ROR IDs to legacy author affiliations in publishing systems 
-- Matching ROR IDs to long and heavily-punctuated text strings that contain not just organization names, but also extraneous information such as addresses and academic departments
+* Matching ROR IDs to legacy author affiliations in publishing systems 
+* Matching ROR IDs to long and heavily-punctuated text strings that contain not just organization names, but also extraneous information such as addresses and academic departments
 
 The affiliation parameter service can match messy text strings to ROR IDs at about 85% efficacy depending on the text data and the affiliation implementation. Because of the high number of identical and similar names among research institutions globally, we recommend human review of suggested matches. 
 
 > 📘 Affiliation parameter format
-> 
+>
 > `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]`
 
 # Formatting searches
@@ -51,9 +51,9 @@ All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_url
 The affiliation parameter **does not accept filters** and results **are not paginated**. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search. All results will be returned, not just the first 20, since this approach typically returns a small number of results. Results are listed in descending order by matching confidence score.
 
 > 🚧 Be aware of differences between the affiliation parameter and the query parameters
-> 
+>
 > Unlike the query and advanced query parameters, the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search. 
-> 
+>
 > Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
 
 # Matching long, messy text strings to ROR records
@@ -68,25 +68,25 @@ curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Civil%2
 
 The response is a JSON object that contains an array of items with the following fields:
 
-- `organization`: ROR record for matched organization
+* `organization`: ROR record for matched organization
 
-- `substring`: substring of the supplied string that generated this match
+* `substring`: substring of the supplied string that generated this match
 
-- `score`: matching confidence score, with values between .5 and 1 (inclusive)
+* `score`: matching confidence score, with values between .5 and 1 (inclusive)
 
-- `chosen`: binary indicator of whether the score is high enough to consider the organization correctly matched
+* `chosen`: binary indicator of whether the score is high enough to consider the organization correctly matched
 
-- `matching_type`: type of matching algorithm applied in this case, possible values:
-  - `PHRASE`: the entire phrase matched to a variant of the organization's name
-  - `COMMON TERMS`: the matching was done by comparing the words separately
-  - `FUZZY`: the matching was done by fuzzy-comparing the words separately
-  - `HEURISTICS`: "University of X" was matched to "X University"
-  - `ACRONYM`: matched by acronym
-  - `EXACT`: exact match of the entered string in name values in the `names` field excluding acronyms
+* `matching_type`: type of matching algorithm applied in this case, possible values:
+  * `PHRASE`: the entire phrase matched to a variant of the organization's name
+  * `COMMON TERMS`: the matching was done by comparing the words separately
+  * `FUZZY`: the matching was done by fuzzy-comparing the words separately
+  * `HEURISTICS`: "University of X" was matched to "X University"
+  * `ACRONYM`: matched by acronym
+  * `EXACT`: exact match of the entered string in name values in the `names` field excluding acronyms
 
-The first item in the array, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. **Not all affiliation searches will produce a "chosen" result.**
+The first item in the array, the ROR record for the University of Pisa, has a `chosen` value of *true*, indicating that the affiliation service considers this record a sufficiently likely match to the text string. **Not all affiliation searches will produce a "chosen" result.**
 
-The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. **Only results with a score of at least .5 are returned.** Results are listed in descending order by matching confidence score.
+The `matching_type` is given as *"COMMON TERMS"*, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. **Only results with a score of at least .5 are returned.** Results are listed in descending order by matching confidence score.
 
 The substring used to find the match in this case is "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa Italy", or the entire text content of the entered string excluding the numeric postcode. 
 
@@ -1126,7 +1126,7 @@ The substring used to find the match in this case is "Department of Civil and In
 ```
 
 > 📘 Is it a match?
-> 
+>
 > When using affiliation matching, look for results with `"chosen": true` if you want a simple approach to choosing the best match. When there's no result with `"chosen": true` it can mean either that there are no particularly good matches or that there are several good matches but no clear winner. If there is no result with `"chosen": true`, some additional review (either by humans or machines) is almost always needed.
 
 ## Example
@@ -2236,7 +2236,7 @@ The response returns 11 results with confidence scores ranging from .7 to .54 li
 ```
 
 > 🚧 Don't automatically select the first "unchosen" result of an ?affiliation query with no `chosen: true` result
-> 
+>
 > When no result has `"chosen": true`, the first result is not necessarily the best match for a given affiliation string. In that case, several results may have the exact same score and/or there may be no match with a high score. Because the affiliation service breaks a given affiliation string into multiple substrings and performs searches of each substring on its own as well as in combination with other substrings, a high scoring match that is not chosen may be a match to only a small portion of the entire affiliation string. In these cases, it is best to respect the absence of `"chosen": true` and leave the string unmatched or add a layer of human or machine assignment, at your discretion.
 
 # Other ways to match affiliations to ROR records
