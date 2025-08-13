@@ -23,7 +23,7 @@ next:
 
 The current ROR data structure was revised in April of 2024 and formalized into [schema v2.0](doc:schema-v2) as a JSON schema document. In schema v2.0, significant changes were made to fields that contained geographic information, including removing fields related to administrative subdivisions corresponding to units such as Canadian provinces, Japanese prefectures, and US states.
 
-While no issues were raised with these changes during the v2.0 feedback process, since the launch of this schema version, the need for additional location details to be included in our records was identified by users. As a result, a [proposal for schema v2.1](https://docs.google.com/document/d/11-bDfQWK038uoUBkL_CBZxP__xB6nBy0dVPH7tWxNnY), which adds country subdivision and continent fields, was circulated for public comment and finalized in Nov 2024. 
+While no issues were raised with these changes during the v2.0 feedback process, since the launch of this schema version, the need for additional location details to be included in our records was identified by users. As a result, a [proposal for schema v2.1](https://docs.google.com/document/d/11-bDfQWK038uoUBkL_CBZxP__xB6nBy0dVPH7tWxNnY), which adds country subdivision and continent fields, was circulated for public comment and finalized in Nov 2024.
 
 This is a non-breaking change, and schema v2.1 changes have been incorporated directly into the v2 API with **no version change needed in the API URL**, per ROR's [schema and API versioning policy](https://ror.readme.io/v2/docs/api-versions).
 
@@ -51,13 +51,13 @@ New fields listed above are included in the JSON and CSV v2 [Data dump](doc:data
 
 ## v2 API
 
-Requests to the v2 API at `https://api.ror.org/v2/organizations` now return new fields, values, and facets. 
+Requests to the v2 API at `https://api.ror.org/v2/organizations` now return new fields, values, and facets.
 
-The above new `locations` fields now appear in each record in when using the v2 API. A `continents` facet now appears in the meta section of list results in the v2 API. 
+The above new `locations` fields now appear in each record in when using the v2 API. A `continents` facet now appears in the meta section of list results in the v2 API.
 
-New [filters](doc:api-filtering) for continent name and code are now available in the v2 API: 
+New [filters](doc:api-filtering) for continent name and code are now available in the v2 API:
 
-`https://api.ror.org/v2/organizations?filter=locations.geonames_details.continent_name:Asia` 
+`https://api.ror.org/v2/organizations?filter=locations.geonames_details.continent_name:Asia`
 
 `https://api.ror.org/v2/organizations?filter=locations.geonames_details.continent_code:AS`
 
@@ -65,11 +65,11 @@ Data in `locations` fields in all records has been updated using the latest valu
 
 ## v1 API
 
-Requests to the v1 API at `https://api.ror.org/v1/organizations` now return records with the `Funder` value in the `types` field when the corresponding v2 record also includes `funder` in the `types` field. 
+Requests to the v1 API at `https://api.ror.org/v1/organizations` now return records with the `Funder` value in the `types` field when the corresponding v2 record also includes `funder` in the `types` field.
 
-`Funder` is now an allowed value for the `types` [filter](doc:api-filtering) on v1 API requests: 
+`Funder` is now an allowed value for the `types` [filter](doc:api-filtering) on v1 API requests:
 
-`https://api.ror.org/organizations?filter=types:Funder`
+`https://api.ror.org/v1/organizations?filter=types:Funder`
 
 Data in `addresses` fields in all records was updated using the latest values from GeoNames.
 
