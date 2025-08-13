@@ -22,7 +22,7 @@ Search the ROR registry in your web browser at [https://ror.org/search](https://
 
 # About the web search
 
-The ROR web search uses version 2 of the [ROR REST API](doc:rest-api) and performs searches using the [query parameter](doc:api-query), which is optimized for searching for an organization by keywords in its name. Advanced searches of other metadata fields such as an organization's location or website can be performed using the [Advanced query parameter](doc:api-advanced-query) of the ROR API. Only active organizations are returned by default: use the Record status filter widget to retrieve inactive and withdrawn organizations. 
+The ROR web search uses version 2 of the [ROR REST API](doc:rest-api) and performs searches using the [query parameter](doc:api-query), which is optimized for searching for an organization by keywords in its name. Advanced searches of other metadata fields such as an organization's location or website can be performed using the [Advanced query parameter](doc:api-advanced-query) of the ROR API. Only active organizations are returned by default: use the Record status filter widget to retrieve inactive and withdrawn organizations.
 
 > 🚧 Remember that the web search does not search all fields
 >
@@ -30,55 +30,47 @@ The ROR web search uses version 2 of the [ROR REST API](doc:rest-api) and perfor
 
 # Keywords
 
-Search for an organization by keywords in its name. 
+Search for an organization by keywords in its name.
 
 ## Example
 
-Search for active organizations with the keyword "Solar" in the name. 
+Search for active organizations with the keyword "Solar" in the name.
 
-<Image alt="Results list in ROR web search from keyword search" align="center" border={true} src="https://files.readme.io/809eb8b-Screenshot_2024-04-03_at_8.22.12_PM.png">
-  Beginning of results list from keyword search
-</Image>
+<Image align="center" alt="Results list in ROR web search from keyword search" border={true} caption="Beginning of results list from keyword search" src="https://files.readme.io/809eb8b-Screenshot_2024-04-03_at_8.22.12_PM.png" />
 
 # Record status
 
-Search results include only records with a status of `active` by default. Use the Record status filter widget in the left column to include records with a status of `inactive` and/or `withdrawn`. 
+Search results include only records with a status of `active` by default. Use the Record status filter widget in the left column to include records with a status of `inactive` and/or `withdrawn`.
 
 Records with a status of `inactive` or `withdrawn` include a banner in the top right and link(s) to Successor organization(s), if applicable. [Learn more about record status in ROR](doc:data-structure#status).
 
 ## Example
 
-Search for inactive and withdrawn records with the word "energy" in the name. 
+Search for inactive and withdrawn records with the word "energy" in the name.
 
-<Image alt="List of inactive and withdrawn ROR records" align="center" border={true} src="https://files.readme.io/652ba17-Screenshot_2024-04-12_at_10.17.40_AM.png">
-  Beginning of ROR web search results list with inactive and withdrawn filters applied
-</Image>
+<Image align="center" alt="List of inactive and withdrawn ROR records" border={true} caption="Beginning of ROR web search results list with inactive and withdrawn filters applied" src="https://files.readme.io/652ba17-Screenshot_2024-04-12_at_10.17.40_AM.png" />
 
 # Exact strings
 
-Search for an exact phrase in an organization name by surrounding it with quotation marks. 
+Search for an exact phrase in an organization name by surrounding it with quotation marks.
 
 ## Example
 
 Search for an active organization with the exact phrase "solar energy" in the name by surrounding it with quotation marks. .
 
-<Image alt="Results list from ROR web search for exact phrase search" align="center" border={true} src="https://files.readme.io/724fc38-Screenshot_2024-04-03_at_8.25.21_PM.png">
-  Beginning of results list from exact phrase search
-</Image>
+<Image align="center" alt="Results list from ROR web search for exact phrase search" border={true} caption="Beginning of results list from exact phrase search" src="https://files.readme.io/724fc38-Screenshot_2024-04-03_at_8.25.21_PM.png" />
 
-Note that searching for the phrase "solar energy" **without** using quotation marks produces many more results, since the ROR web search is looking for records with *either* the term "solar" *or* the term "energy" in the organization name. 
+Note that searching for the phrase "solar energy" **without** using quotation marks produces many more results, since the ROR web search is looking for records with *either* the term "solar" *or* the term "energy" in the organization name.
 
-<Image alt="Results from multiple keyword search in ROR web search" align="center" border={true} src="https://files.readme.io/eb65a74-Screenshot_2024-04-03_at_8.29.30_PM.png">
-  Beginning of results list from multiple keyword search
-</Image>
+<Image align="center" alt="Results from multiple keyword search in ROR web search" border={true} caption="Beginning of results list from multiple keyword search" src="https://files.readme.io/eb65a74-Screenshot_2024-04-03_at_8.29.30_PM.png" />
 
 # Identifiers
 
-Search for the ROR record that corresponds to a given GRID ID, Wikidata ID, or Crossref Open Funder Registry ID by surrounding the ID with quotation marks. 
+Search for the ROR record that corresponds to a given GRID ID, Wikidata ID, or Crossref Open Funder Registry ID by surrounding the ID with quotation marks.
 
 ## Example - GRID
 
-Find the active ROR record that correponds to GRID ID grid.11780.3f. 
+Find the active ROR record that correponds to GRID ID grid.11780.3f.
 
 <Image align="center" className="border" border={true} src="https://files.readme.io/3341162-Screenshot_2024-04-03_at_8.53.19_PM.png" />
 
@@ -88,12 +80,14 @@ Find the active ROR record that corresponds to Funder ID 501100003246.
 
 <Image align="center" className="border" border={true} src="https://files.readme.io/0df8031-Screenshot_2024-04-03_at_8.34.34_PM.png" />
 
+## Example - ISNI
+
+<br />
+
 # Detail view
 
-Clicking on either the ROR ID or on "View details" will take you to the individual landing page for the record with additional details about the record. The detailed view will show the full list of other names for the organization by type and the full list of and links to related organizations in ROR. Note that the URL for the record landing page is exactly the same as the [ROR ID](doc:identifier). 
+Clicking on either the ROR ID or on "View details" will take you to the individual landing page for the record with additional details about the record. The detailed view will show the full list of other names for the organization by type and the full list of and links to related organizations in ROR. Note that the URL for the record landing page is exactly the same as the [ROR ID](doc:identifier).
 
 On the ROR record landing page, you can choose to view the underlying JSON data by clicking "See JSON view for full record data".
 
-<Image alt="ROR record for Baystate Medical Center" align="center" border={true} src="https://files.readme.io/4d2876e-Screenshot_2024-04-03_at_3.09.03_PM.png">
-  Landing page for ROR ID [https://ror.org/04jq4p608](https://ror.org/04jq4p608) 
-</Image>
+<Image align="center" alt="ROR record for Baystate Medical Center" border={true} caption="Landing page for ROR ID [https://ror.org/04jq4p608](https://ror.org/04jq4p608)" src="https://files.readme.io/4d2876e-Screenshot_2024-04-03_at_3.09.03_PM.png" />
