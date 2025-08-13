@@ -82,6 +82,8 @@ Find the active ROR record that corresponds to Funder ID 501100003246.
 
 ## Example - ISNI
 
+Find the active ROR record that corresponds to ISNI 0000 0004 9155 2707.
+
 <Image align="center" alt="ROR record for Universidade Federal de Rondonópolis." className="border" border={true} src="https://files.readme.io/ec7dedf0015052d99870fc6c41c5deb9d25db4ccb7ea3a13fec904a2504e60ef-Screenshot_2025-08-13_at_11.28.52_AM.png" />
 
 # Detail view
