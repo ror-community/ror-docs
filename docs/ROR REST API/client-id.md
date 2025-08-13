@@ -26,7 +26,7 @@ ROR client IDs are free and easy to obtain. You will fill out [a brief form](htt
 
 Note that ROR API client IDs are not used for either authentication or authorization, and therefore they are not secret and can be transmitted in plain text. They are used only to differentiate users of the API.
 
-**Register now for a ROR API client ID at[https://ror.org/api-client-id](https://ror.org/api-client-id).**
+**Register now for a ROR API client ID:[ https://ror.org/api-client-id](https://ror.org/api-client-id).**
 
 ## When to register a client ID
 
