@@ -24,10 +24,10 @@ next:
 
 # About filtering
 
-Results can be filtered by record status, organization type, [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, country name, continent code, and continent name. 
+Results can be filtered by record status, organization type, [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, country name, continent code, and continent name.
 
 * `status` - filter records by record status
-* `types` - filter records by organization type 
+* `types` - filter records by organization type
 * `country.country_code` and `locations.geonames_details.country_code` - filter records by country code
 * `country.country_name` and `locations.geonames_details.country_name` - filter records by country name
 * `locations.geonames_details.continent_code` - filter records by continent code
@@ -51,7 +51,7 @@ Available statuses: *active*, *inactive*, and *withdrawn*. Requests for a specif
 curl 'https://api.ror.org/v2/organizations?filter=status:inactive' | json_pp
 ```
 
-Retrieves a list of records for inactive research organizations. 
+Retrieves a list of records for inactive research organizations.
 
 ```json
 {
@@ -2018,16 +2018,16 @@ Retrieves a list of records for inactive research organizations.
 
 # Filter by organization type
 
-Available organization types: 
+Available organization types:
 
-* education 
+* education
 * funder
-* healthcare 
-* company 
-* archive 
-* nonprofit 
-* government 
-* facility 
+* healthcare
+* company
+* archive
+* nonprofit
+* government
+* facility
 * other
 
 ## Example
@@ -2036,7 +2036,7 @@ Available organization types:
 curl 'https://api.ror.org/v2/organizations?filter=types:facility' | json_pp
 ```
 
-Retrieves a list of research facilities.  
+Retrieves a list of research facilities.
 
 ```json
 {
@@ -4042,7 +4042,7 @@ Available country codes are those in the [ISO 3166 alpha-2 list](https://en.wiki
 curl 'https://api.ror.org/v2/organizations?filter=country.country_code:ZA' | json_pp
 ```
 
-Returns a list of research organizations in South Africa. 
+Returns a list of research organizations in South Africa.
 
 ```json
 {
@@ -5761,7 +5761,7 @@ Available country names are those [provided by Geonames](https://www.geonames.or
 curl 'https://api.ror.org/v2/organizations?filter=locations.geonames_details.country_name:Djibouti' | json_pp
 ```
 
-Returns a list of research organizations in Djibouti. 
+Returns a list of research organizations in Djibouti.
 
 ```json
 {
@@ -5970,7 +5970,7 @@ Returns a list of research organizations in Djibouti.
 
 # Filter by continent code
 
-Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).  
+Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
 
 ## Example
 
@@ -5978,7 +5978,7 @@ Continent codes and names are provided by [GeoNames](https://geonames.org): AF (
 curl 'https://api.ror.org/v2/organizations?filter=locations.geonames_details.continent_code:AF' | json_pp
 ```
 
-The response returns a list of research organizations in Africa. 
+The response returns a list of research organizations in Africa.
 
 ```json
 {
@@ -9700,7 +9700,7 @@ You can combine multiple filters in a single request.
 curl 'https://api.ror.org/v2/organizations?filter=status:inactive,status:withdrawn' | json_pp
 ```
 
-Returns a list of both inactive and withdrawn records in ROR. 
+Returns a list of both inactive and withdrawn records in ROR.
 
 ```json
 {
@@ -11391,7 +11391,7 @@ Returns a list of both inactive and withdrawn records in ROR.
 curl 'https://api.ror.org/v2/organizations?filter=types:facility,country.country_code:GB' | json_pp
 ```
 
-Returns a list of research facilities in Great Britain. 
+Returns a list of research facilities in Great Britain.
 
 ```json
 {
@@ -13308,7 +13308,7 @@ Returns a list of research facilities in Great Britain.
 curl 'https://api.ror.org/v2/organizations?filter=status:inactive,types:company,locations.geonames_details.country_code:AU' | json_pp
 ```
 
-Returns a list of inactive companies in Australia. 
+Returns a list of inactive companies in Australia.
 
 ```json
 {
