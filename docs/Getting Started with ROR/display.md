@@ -89,16 +89,13 @@ Approved ROR logo files are available for download from the sources listed under
 
   <p>
     <a href="https://ror.org/03yrm5c26">
-      California Digital Library
-
-      <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
+      California Digital Library <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
     </a>
   </p>
 
 ```html Code sample
 <a href="https://ror.org/03yrm5c26">
-        California Digital Library
-        <img alt="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
+        California Digital Library <img alt="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
     </a>
 ```
 
