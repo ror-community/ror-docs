@@ -63,7 +63,7 @@ Approved ROR logo files are available for download from the sources listed under
 
   <p>
     <a href="https://ror.org/03yrm5c26">
-      <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+      <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
     </a>
   </p>
 
