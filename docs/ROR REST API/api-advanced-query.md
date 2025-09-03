@@ -15911,6 +15911,2123 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell&qu
 * 500 error due to non-terminated or non-escaped special characters
 * Unexpected or non-relevant results due to special characters being interpreted as query operators rather than as part of your search terms
 
+Be especially sure to escape colons when searching for URLs and ROR IDs.
+
+### Example
+
+```curl
+curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:"https://ror.org/02en5vm52"&filter=status:inactive' | json_pp
+
+{
+   "errors" : [
+      "string '\"https' contains an illegal field name"
+   ]
+}
+```
+
+The query for a ROR ID in the `relationships.id` field fails because the colon is not escaped, even though the search term is surrounded by quotation marks. Escaping forward slashes might not be necessary when the search term is surrounded by quotation marks but might be necessary when the search term is not surrounded by quotation marks.
+
+```curl
+curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:"https\://ror.org/02en5vm52"&filter=status:inactive' | json_pp
+```
+
+```curl
+curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:https\:\/\/ror.org\/02en5vm52&filter=status:inactive' | json_pp
+```
+
+When the colon in the ROR ID is escaped in this query, ROR API returns a list of inactive records with the ROR ID for Sorbonne Université in the `relationships.id` field.
+
+```json
+{
+   "items" : [
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-02-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1998,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.464088.6"
+               ],
+               "preferred" : "grid.464088.6",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0000 9482 2072"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30262445"
+               ],
+               "preferred" : "Q30262445",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/03tdef037",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://syrte.obspm.fr/spip"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "SYRTE"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Systèmes de Référence Temps-Espace"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/04kdfz702",
+               "label" : "Institut National des Sciences de l'Univers",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/01ph39d13",
+               "label" : "Laboratoire National de Métrologie et d'Essais",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/029nkcm90",
+               "label" : "Observatoire de Paris",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/03hgsyv65",
+               "label" : "Laboratoire Temps Espace",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1997,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463951.c"
+               ],
+               "preferred" : "grid.463951.c",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 1957 7318"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q3214479"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/04hjc7403",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.proba.jussieu.fr/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LPMA"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratoire de Probabilités et Modèles Aléatoires"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/050jcm728",
+               "label" : "Institut National des Sciences Mathématiques et de leurs Interactions",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne University",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05f82e368",
+               "label" : "Université Paris Cité",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02vnd0e65",
+               "label" : "Laboratoire de Probabilités, Statistique et Modélisation",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2015,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463964.a"
+               ],
+               "preferred" : "grid.463964.a",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0468 1077"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/01vnn4t89",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.lsta.lab.upmc.fr/en/index.html"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LSTA"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratoire de Statistique Théorique et Appliquée"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/050jcm728",
+               "label" : "Institut National des Sciences Mathématiques et de leurs Interactions",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne University",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02vnd0e65",
+               "label" : "Laboratoire de Probabilités, Statistique et Modélisation",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2019-02-17",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2007,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.503242.2"
+               ],
+               "preferred" : "grid.503242.2",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0369 188X"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q3152182"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00801j392",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.iscc.cnrs.fr/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "ISCC"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Institut des sciences de la communication"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Institute for Communication Sciences"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02ft5tp06",
+               "label" : "Délégation Ile-de-France Ouest et Nord",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne University",
+               "type" : "parent"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.464085.b"
+               ],
+               "preferred" : "grid.464085.b",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0367 1053"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/031ve0e22",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.ird.fr/infos-pratiques/archives/unites-fermees/unites-fermees-en-decembre-2013/148-systematique-adaptation-evolution"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "SAE"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Systematics, Adaptation, Evolution"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Systématique, adaptation, évolution"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/05q3vnk25",
+               "label" : "Institut de Recherche pour le Développement",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2019-02-17",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1965,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.503446.0"
+               ],
+               "preferred" : "grid.503446.0",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q51782084"
+               ],
+               "preferred" : "Q51782084",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00kapac04",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://krctnn.com"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Des Maladies Rénales Rares aux Maladies Fréquentes, Remodelage et Réparation"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "KRCTNN"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02e0y6e06",
+               "label" : "Délégation Paris 5",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.497628.6"
+               ],
+               "preferred" : "grid.497628.6",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/03yc0ew57",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://recherche.univ-paris-diderot.fr/laboratoires/genomique-fonctionnelle-des-tumeurs-solides"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Génomique Fonctionnelle des Tumeurs Solides"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/00bw5n526",
+               "label" : "Délégation Paris 7",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne University",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05f82e368",
+               "label" : "Université Paris Cité",
+               "type" : "parent"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2009,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.493859.a"
+               ],
+               "preferred" : "grid.493859.a",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/03ct0te27",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.sb-roscoff.fr/fr/phosphorylation-de-proteines-et-pathologies-humaines"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "BRE",
+                  "country_subdivision_name" : "Brittany",
+                  "lat" : 48.72381,
+                  "lng" : -3.98709,
+                  "name" : "Roscoff"
+               },
+               "geonames_id" : 2982809
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "P3H"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Phosphorylation de protéines et Pathologies Humaines"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02t220m45",
+               "label" : "Délégation Bretagne et Pays de la Loire",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne University",
+               "type" : "parent"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2009,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463975.a"
+               ],
+               "preferred" : "grid.463975.a",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 6003 953X"
+               ],
+               "preferred" : "0000 0004 6003 953X",
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30262347"
+               ],
+               "preferred" : "Q30262347",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/05vd6h165",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.chimie.ens.fr/recherche/laboratoire-lbm/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "LBM Laboratory"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Laboratoire LBM"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratoire des Biomolécules"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02vjkv261",
+               "label" : "Inserm",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02cte4b68",
+               "label" : "Institut de Chimie",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05a0dhs15",
+               "label" : "École Normale Supérieure - PSL",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05ebxsr90",
+               "label" : "Chimie Physique et Chimie du Vivant",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1998,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.462619.e"
+               ],
+               "preferred" : "grid.462619.e",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0368 9974"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30261511"
+               ],
+               "preferred" : "Q30261511",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/033t7vz72",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.chimie.ens.fr/recherche/laboratoire-pasteur/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Laboratoire PASTEUR"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "PASTEUR"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Processus d'Activation Sélective par Transfert d'Énergie Uni-électronique ou Radiatif"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02cte4b68",
+               "label" : "Institut de Chimie",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05a0dhs15",
+               "label" : "École Normale Supérieure - PSL",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05ebxsr90",
+               "label" : "Chimie Physique et Chimie du Vivant",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1997,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.462949.4"
+               ],
+               "preferred" : "grid.462949.4",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0370 0838"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30261609"
+               ],
+               "preferred" : "Q30261609",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/024hnwe62",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.ibps.sorbonne-universite.fr/fr/Recherche/umr-biologie-developpement"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Developmental Biology Laboratory"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LBD"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratoire de Biologie du Développement"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02vjkv261",
+               "label" : "Inserm",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/00rydyx93",
+               "label" : "Institut des Sciences Biologiques",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/03p96ke84",
+               "label" : "Développement Adaptation et Vieillissement",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1998,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.462516.2"
+               ],
+               "preferred" : "grid.462516.2",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 0672 5780"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q3152052"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/002zc3t08",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.imcce.fr"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Institut_de_m%C3%A9canique_c%C3%A9leste_et_de_calcul_des_%C3%A9ph%C3%A9m%C3%A9rides"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "IMCCE"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institut de Mécanique Céleste et de Calcul des Éphémérides"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/04kdfz702",
+               "label" : "Institut National des Sciences de l'Univers",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/029nkcm90",
+               "label" : "Observatoire de Paris",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02kzqn938",
+               "label" : "Université de Lille",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02feahw73",
+               "label" : "Centre National de la Recherche Scientifique",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/03hgsyv65",
+               "label" : "Laboratoire Temps Espace",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-12-07",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2015,
+         "external_ids" : [
+            {
+               "all" : [
+                  "Q123695066"
+               ],
+               "preferred" : "Q123695066",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/04nc8v966",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://sante.sorbonne-universite.fr/structures-de-recherche/psydev"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "alias"
+               ],
+               "value" : "GRC 15"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "GRC PSYDEV"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "PSYDEV"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Troubles psychiatriques et développement"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "enec.cnrs.fr"
+         ],
+         "established" : 2006,
+         "external_ids" : [
+            {
+               "all" : [
+                  "0000 0001 1463 8724"
+               ],
+               "preferred" : "0000 0001 1463 8724",
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q51779660"
+               ],
+               "preferred" : "Q51779660",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00yphsh03",
+         "links" : [],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "ENeC"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Espaces, Nature et Culture"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "alias"
+               ],
+               "value" : "FRE 2026"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Laboratoire ENeC"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Laboratoire Espaces, nature et culture"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Spaces, Nature and Culture"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "alias"
+               ],
+               "value" : "UMR 8185"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/04tb23024",
+               "label" : "Laboratoire Médiations",
+               "type" : "related"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-12-07",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2014,
+         "external_ids" : [
+            {
+               "all" : [
+                  "Q51781440"
+               ],
+               "preferred" : "Q51781440",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/05edayg07",
+         "links" : [],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Fédération de Physico-Chimie Analytique et Biologique"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "PCAB"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Physico-Chimie Analytique et Biologique"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/05q65zh81",
+               "label" : "Chimie ParisTech",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/04ex24z53",
+               "label" : "Collège de France",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/03wkt5x30",
+               "label" : "Muséum national d'Histoire naturelle",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/02feahw73",
+               "label" : "Centre National de la Recherche Scientifique",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/02vjkv261",
+               "label" : "Inserm",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/013cjyk83",
+               "label" : "Université Paris Sciences et Lettres",
+               "type" : "related"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "other"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2002,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.482824.0"
+               ],
+               "preferred" : "grid.482824.0",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0370 8434"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30274423"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02eptjh02",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.lesia.obspm.fr"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.81381,
+                  "lng" : 2.235,
+                  "name" : "Meudon"
+               },
+               "geonames_id" : 2994144
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LESIA"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratoire d’études spatiales et d’instrumentation en astrophysique"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Laboratory of Space Studies and Instrumentation in Astrophysics"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/04kdfz702",
+               "label" : "Institut National des Sciences de l'Univers",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/029nkcm90",
+               "label" : "Observatoire de Paris",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05f82e368",
+               "label" : "Université Paris Cité",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/017zz7s54",
+               "label" : "LIRA - Laboratoire d'instrumentation et de recherche en astrophysique",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2019-02-17",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2002,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.503281.d"
+               ],
+               "preferred" : "grid.503281.d",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0370 8645"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q51780993"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/01g5pq328",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://lerma.obspm.fr"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LERMA"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratoire d’Etudes du Rayonnement et de la Matière en Astrophysique et Atmosphères"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Laboratory for Studies of Radiation and Matter in Astrophysics and Atmospheres"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/043htjv09",
+               "label" : "CY Cergy Paris Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/04kdfz702",
+               "label" : "Institut National des Sciences de l'Univers",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/029nkcm90",
+               "label" : "Observatoire de Paris",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05a0dhs15",
+               "label" : "École Normale Supérieure - PSL",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/03a26mh11",
+               "label" : "Laboratoire de Physique de l'ENS",
+               "type" : "successor"
+            },
+            {
+               "id" : "https://ror.org/017zz7s54",
+               "label" : "LIRA - Laboratoire d'instrumentation et de recherche en astrophysique",
+               "type" : "successor"
+            },
+            {
+               "id" : "https://ror.org/00cpdar66",
+               "label" : "Laboratoire d'Étude de l'Univers et des Phénomènes Extrêmes",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-12-07",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2014,
+         "external_ids" : [
+            {
+               "all" : [
+                  "Q51781831"
+               ],
+               "preferred" : "Q51781831",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02sps6z09",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.ibps.sorbonne-universite.fr/fr/Recherche/umr-8246"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "NPS"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "NPS-IBPS"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Neuroscience Paris Seine"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Neuroscience Paris Seine-IBPS"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Neurosciences Paris-Seine"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02feahw73",
+               "label" : "Centre National de la Recherche Scientifique",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02vjkv261",
+               "label" : "Inserm",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02pgsjq66",
+               "label" : "Neuro-SU",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-12-07",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2019,
+         "external_ids" : [
+            {
+               "all" : [
+                  "Q123694994"
+               ],
+               "preferred" : "Q123694994",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00b4yme84",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://sante.sorbonne-universite.fr/structures-de-recherche/grc-27-greco"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "GRC 27"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "GRC GRECO"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "GRECO"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Groupe de REcherche en Cardio Oncologie"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Groupe de REcherche en Cardio Oncologie - GRC 27"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-12-07",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2014,
+         "external_ids" : [
+            {
+               "all" : [
+                  "Q51784461"
+               ],
+               "preferred" : "Q51784461",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02y2c2646",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.ibps.sorbonne-universite.fr/fr/Recherche/umr-8256"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "FR",
+                  "country_name" : "France",
+                  "country_subdivision_code" : "IDF",
+                  "country_subdivision_name" : "Île-de-France",
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
+               },
+               "geonames_id" : 2988507
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Adaptation Biologique et Vieillissement"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "B2A"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Biological Adaptation and Ageing"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02feahw73",
+               "label" : "Centre National de la Recherche Scientifique",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/02vjkv261",
+               "label" : "Inserm",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/03p96ke84",
+               "label" : "Développement Adaptation et Vieillissement",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "facility"
+         ]
+      }
+   ],
+   "meta" : {
+      "continents" : [
+         {
+            "count" : 22,
+            "id" : "eu",
+            "title" : "Europe"
+         }
+      ],
+      "countries" : [
+         {
+            "count" : 22,
+            "id" : "fr",
+            "title" : "France"
+         }
+      ],
+      "statuses" : [
+         {
+            "count" : 22,
+            "id" : "inactive",
+            "title" : "inactive"
+         }
+      ],
+      "types" : [
+         {
+            "count" : 21,
+            "id" : "facility",
+            "title" : "facility"
+         },
+         {
+            "count" : 1,
+            "id" : "other",
+            "title" : "other"
+         }
+      ]
+   },
+   "number_of_results" : 22,
+   "time_taken" : 2
+}
+```
+
 ## Search strings with spaces
 
 [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) will treat words separated by a space as separate parts of a query. It is therefore advisable to surround multi-word search terms of the ROR API with URL-encoded quotation marks.
