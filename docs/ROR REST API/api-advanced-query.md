@@ -15916,7 +15916,7 @@ Be especially sure to escape colons when searching for URLs and ROR IDs.
 ### Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:"https://ror.org/02en5vm52"&filter=status:inactive' | json_pp
+curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22https://ror.org/02en5vm52%22&filter=status:inactive' | json_pp
 
 {
    "errors" : [
@@ -15928,7 +15928,7 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:"http
 The query for a ROR ID in the `relationships.id` field fails because the colon is not escaped, even though the search term is surrounded by quotation marks. Escaping forward slashes might not be necessary when the search term is surrounded by quotation marks but might be necessary when the search term is not surrounded by quotation marks.
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:"https\://ror.org/02en5vm52"&filter=status:inactive' | json_pp
+curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22https\://ror.org/02en5vm52%22&filter=status:inactive' | json_pp
 ```
 
 ```curl
