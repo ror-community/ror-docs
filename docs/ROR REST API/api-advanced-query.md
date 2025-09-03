@@ -15935,7 +15935,7 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22ht
 curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:https\:\/\/ror.org\/02en5vm52&filter=status:inactive' | json_pp
 ```
 
-When the colon in the ROR ID is escaped in this query, ROR API returns a list of inactive records with the ROR ID for Sorbonne Université in the `relationships.id` field.
+When the colon in the ROR ID is escaped in this query, the ROR API returns a list of inactive records with the ROR ID for Sorbonne Université in the `relationships.id` field.
 
 ```json
 {
