@@ -27,22 +27,22 @@ next:
 The advanced query parameter allows thorough and precise searching of any and all ROR record fields. Complex queries using field names, wildcards, and Boolean operators can be constructed using [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax). The advanced query approach is recommended for the following purposes:
 
 * Analysis of the ROR registry to answer research questions
-* Searching for records with very specific characteristics or combinations of characteristics 
+* Searching for records with very specific characteristics or combinations of characteristics
 
-While the [Query parameter](doc:api-query) is designed to help users find organization names quickly with a lightweight keyword search, the advanced query parameter is designed to help users construct more complex and powerful searches. The query parameter searches only the `names` and `external_ids` fields in a ROR record, whereas the advanced query parameter allows for searching of **all fields and sub-fields** in ROR records, including location fields, web address fields, relationship fields, and more. 
+While the [Query parameter](doc:api-query) is designed to help users find organization names quickly with a lightweight keyword search, the advanced query parameter is designed to help users construct more complex and powerful searches. The query parameter searches only the `names` and `external_ids` fields in a ROR record, whereas the advanced query parameter allows for searching of **all fields and sub-fields** in ROR records, including location fields, web address fields, relationship fields, and more.
 
 See [All ROR fields and sub-fields](doc:fields) for a complete alphabetical list of the fields and sub-fields that can be searched with the advanced query parameter.
 
 # Formatting searches
 
-All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp). 
+All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp).
 
 ## Special characters
 
 Some organization names contain characters like &, (), : and /, which have special meaning in URI syntax, Elasticsearch syntax or both. To avoid error responses or bad results:
 
-* Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all advanced query parameter values. 
-* Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \\ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
+* Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all advanced query parameter values.
+* Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
 
 ## Spaces and quotation marks
 
@@ -50,15 +50,15 @@ Some organization names contain characters like &, (), : and /, which have speci
 
 ## Wildcards, Boolean operators, and date ranges
 
-Consult the [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) documentation for any additional help not provided by the examples below on how to search within single fields and use wildcards, Boolean operators, and date ranges with the advanced query parameter of the ROR REST API. 
+Consult the [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) documentation for any additional help not provided by the examples below on how to search within single fields and use wildcards, Boolean operators, and date ranges with the advanced query parameter of the ROR REST API.
 
 ## Case sensitivity
 
-Currently, the advanced query parameter is case-sensitive, meaning that the same search may return different results depending on the letter case of the input string. For best results, capitalize location names (*Panama* not *panama*) and be aware of uppercase and lowercase differences in other field data. We [may change this behavior in future](https://github.com/ror-community/ror-roadmap/issues/175) to support case insensitivity for all searches.
+Currently, the advanced query parameter is case-sensitive, meaning that the same search may return different results depending on the letter case of the input string. For best results, capitalize location names (_Panama_ not _panama_) and be aware of uppercase and lowercase differences in other field data. We [may change this behavior in future](https://github.com/ror-community/ror-roadmap/issues/175) to support case insensitivity for all searches.
 
 # Search by date
 
-In version 2 of the ROR API, you can search by created and last modified dates using an [Elasticsearch range query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges). Note that the reserved characters `[ ] { }` must be used in range queries. This is the use case they are reserved for! These characters may need to be URL-encoded or escaped depending on the language/application you are using. 
+In version 2 of the ROR API, you can search by created and last modified dates using an [Elasticsearch range query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges). Note that the reserved characters `[ ] { }` must be used in range queries. This is the use case they are reserved for! These characters may need to be URL-encoded or escaped depending on the language/application you are using.
 
 ## Example
 
@@ -68,7 +68,7 @@ Search for all records of any [status](https://ror.readme.io/v2/docs/data-struct
 curl 'https://api.ror.org/v2/organizations?query.advanced=admin.last_modified.date:%5B2024-12-27%20TO%202025-01-27%5D&all_status' | json_pp
 ```
 
-The response is a list of all records -- including active, inactive, and withdrawn records -- modified between 2024-12-27 and 2025-01-27. 
+The response is a list of all records -- including active, inactive, and withdrawn records -- modified between 2024-12-27 and 2025-01-27.
 
 ```
 {
@@ -1739,13 +1739,13 @@ The response is a list of all records -- including active, inactive, and withdra
 
 ## Example
 
-Search for active records created before or after a specific date by using a wildcard in the range query. 
+Search for active records created before or after a specific date by using a wildcard in the range query.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query.advanced=admin.created.date:\{*%20TO%202019-12-31\}' | json_pp
 ```
 
-The response is a list of active records created before 2019-12-31. 
+The response is a list of active records created before 2019-12-31.
 
 ```json
 {
@@ -3830,7 +3830,7 @@ The response is a list of active records created before 2019-12-31.
 
 # Search all fields
 
-The advanced query parameter allows you to perform a keyword search of all ROR record fields and sub-fields. 
+The advanced query parameter allows you to perform a keyword search of all ROR record fields and sub-fields.
 
 > 📘 Advanced query parameter format, all fields
 >
@@ -5943,7 +5943,7 @@ The response returns all instances of the exact phrase "Harvard University" in a
 
 # Search a single field
 
-[Elastic Search field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) `fieldname:query` can be used to search within a single field. When using this syntax, `fieldname` must exactly match a field name in the list of [All ROR fields and sub-fields](doc:fields), e.g.,  `locations.geonames_details.name:Melbourne` not `locations:Melbourne`. 
+[Elastic Search field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) `fieldname:query` can be used to search within a single field. When using this syntax, `fieldname` must exactly match a field name in the list of [All ROR fields and sub-fields](doc:fields), e.g.,  `locations.geonames_details.name:Melbourne` not `locations:Melbourne`.
 
 > 📘 Advanced query parameter format, single field
 >
@@ -5955,7 +5955,7 @@ The response returns all instances of the exact phrase "Harvard University" in a
 curl 'https://api.ror.org/v2/organizations?query.advanced=links.value:%22vcrlter.virginia.edu%22' | json_pp
 ```
 
-The response is a single result with the value `vcrlter.virginia.edu` in the `links` field. 
+The response is a single result with the value `vcrlter.virginia.edu` in the `links` field.
 
 ```json
 {
@@ -6731,7 +6731,7 @@ Search multiple fields and form complex queries with [Elasticsearch Boolean oper
 curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell+AND+locations.geonames_details.name:Ithaca' | json_pp
 ```
 
-The response is a list of records with the keyword "Cornell" in a `names.value` field **and** the city "Ithaca" in the `locations.geonames_details.name` field. Remember that the `names` field can contain multiple values with different name types. 
+The response is a list of records with the keyword "Cornell" in a `names.value` field **and** the city "Ithaca" in the `locations.geonames_details.name` field. Remember that the `names` field can contain multiple values with different name types.
 
 ```json
 {
@@ -7820,7 +7820,7 @@ The response is a list of records with the keyword "Cornell" in a `names.value` 
 curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell+NOT+locations.geonames_details.name:Ithaca' | json_pp
 ```
 
-The response is a list of records with the keyword "Cornell" in a `names.value` field **without** the city "Ithaca" in the `locations.geonames_details.name` field. Remember that the `names` field can contain multiple different values with different name types. 
+The response is a list of records with the keyword "Cornell" in a `names.value` field **without** the city "Ithaca" in the `locations.geonames_details.name` field. Remember that the `names` field can contain multiple different values with different name types.
 
 ```json
 {
@@ -8483,13 +8483,13 @@ The response is a list of records with the keyword "Cornell" in a `names.value` 
 
 # Search all sub-fields of a parent field
 
-[Elasticsearch field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) can be used to search all sub-fields of a parent field. 
+[Elasticsearch field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) can be used to search all sub-fields of a parent field.
 
 > 📘 Advanced query parameter format, sub-fields of a parent field
 >
 > `https://api.ror.org/v2/organizations?query.advanced=[parent fieldname]%5c*:[value]`
 >
-> Note that \\ characters must be URL-encoded.
+> Note that \ characters must be URL-encoded.
 
 ## Example
 
@@ -10515,7 +10515,7 @@ The response is a list of records in which the term "Melbourne" appears in one o
 
 # Find records with a non-null value in a field
 
-[Elasticsearch field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) can be used to return records that have any non-null value in a field. 
+[Elasticsearch field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) can be used to return records that have any non-null value in a field.
 
 > 📘 Advanced query parameter format, non-null values in a field
 >
@@ -10523,7 +10523,7 @@ The response is a list of records in which the term "Melbourne" appears in one o
 
 > 🚧 Null vs. empty string
 >
-> Most ROR record fields that have no value are set to *null*, but `_exists_:[fieldname]` may include results with empty strings for some fields.
+> Most ROR record fields that have no value are set to _null_, but `_exists_:[fieldname]` may include results with empty strings for some fields.
 
 ## Example
 
@@ -10531,7 +10531,7 @@ The response is a list of records in which the term "Melbourne" appears in one o
 curl 'https://api.ror.org/v2/organizations?query.advanced=_exists_:domains' | json_pp
 ```
 
-The response is a list of ROR records with a value in the `domains` field. 
+The response is a list of ROR records with a value in the `domains` field.
 
 ```json
 {
@@ -12652,7 +12652,9 @@ The response is a list of ROR records with a value in the `domains` field.
 
 # Find inactive child organizations of an active parent organization
 
-Many complex queries can be constructed with the advanced query parameter and [Elasticsearch Boolean operator syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_boolean_operators). In this example, Boolean syntax is used to look for inactive records that include a `parent` relationship type to a specific ROR record. Note that certain relationships to inactive records are removed from active records but retained in the inactive records. Learn more about record [relationships](doc:data-structure#relationships) and record [status](doc:data-structure#status) on the [Data structure](doc:ror-data-structure) page. 
+Many complex queries can be constructed with the advanced query parameter and [Elasticsearch Boolean operator syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_boolean_operators). In this example, Boolean syntax is used to look for inactive records that include a `parent` relationship type to a specific ROR record. Note that certain relationships to inactive records are removed from active records but retained in the inactive records. Learn more about record [relationships](doc:data-structure#relationships) and record [status](doc:data-structure#status) on the [Data structure](doc:ror-data-structure) page.
+
+When searching for ROR IDs and other URLs, be sure to escape the colon. See [Non-escaped reserved characters](https://ror.readme.io/docs/api-advanced-query#/non-escaped-reserved-characters) below for more guidance.
 
 ## Example
 
@@ -12660,7 +12662,7 @@ Many complex queries can be constructed with the advanced query parameter and [E
 curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22https\://ror.org/00pg6eq24%22+AND+relationships.type:parent+AND+status:inactive' | json_pp
 ```
 
-The response is a list of records for inactive child organizations of Université de Strasbourg. 
+The response is a list of records for inactive child organizations of Université de Strasbourg.
 
 ```json
 {
@@ -13412,7 +13414,7 @@ The response is a list of records for inactive child organizations of Universit�
 
 # Paging and filtering
 
-Search results from the advanced query parameter are [paginated](doc:api-paging) and can be [filtered](doc:api-filtering) by status, type, country name, country code, continent name, and continent code. The [all\_status](doc:api-list) parameter can also be appended to advanced query parameter searches in order to retrieve *inactive* and *withdrawn* records as well as *active* records. See [Paging](doc:api-paging) and [Filtering](doc:api-filtering) for more information.
+Search results from the advanced query parameter are [paginated](doc:api-paging) and can be [filtered](doc:api-filtering) by status, type, country name, country code, continent name, and continent code. The [all_status](doc:api-list) parameter can also be appended to advanced query parameter searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records. See [Paging](doc:api-paging) and [Filtering](doc:api-filtering) for more information.
 
 ## Example
 
@@ -15887,7 +15889,7 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=locations.city:Melbour
 
 ## Multiple query parameters
 
-Use either the `query` or the `query.advanced` parameter, not both. A query that attempts to use both will return an error. 
+Use either the `query` or the `query.advanced` parameter, not both. A query that attempts to use both will return an error.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell&query=Ithaca' | json_pp
@@ -15911,7 +15913,7 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell&qu
 
 ## Search strings with spaces
 
-[Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) will treat words separated by a space as separate parts of a query. It is therefore advisable to surround multi-word search terms of the ROR API with URL-encoded quotation marks. 
+[Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) will treat words separated by a space as separate parts of a query. It is therefore advisable to surround multi-word search terms of the ROR API with URL-encoded quotation marks.
 
 ### Example
 
@@ -15919,7 +15921,7 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell&qu
 curl 'https://api.ror.org/v2/organizations?query.advanced=locations.geonames_details.name:San%20Francisco' | json_pp
 ```
 
-The ROR API returns no results because the sample advanced query is looking for records whose city is exactly "San", not "San Francisco". The request terminates at the space between "San" and "Francisco". 
+The ROR API returns no results because the sample advanced query is looking for records whose city is exactly "San", not "San Francisco". The request terminates at the space between "San" and "Francisco".
 
 ```json
 {
@@ -15939,7 +15941,7 @@ The ROR API returns no results because the sample advanced query is looking for 
 curl 'https://api.ror.org/v2/organizations?query.advanced=locations.geonames_details.name:%22San%20Francisco%22' | json_pp
 ```
 
-When the term "San Francisco" is enclosed in URL-encoded quotation marks, the response is a list of research organizations whose city is "San Francisco". 
+When the term "San Francisco" is enclosed in URL-encoded quotation marks, the response is a list of research organizations whose city is "San Francisco".
 
 ```json
 {
@@ -17605,7 +17607,7 @@ When the term "San Francisco" is enclosed in URL-encoded quotation marks, the re
 
 ## Uppercase and lowercase
 
-Currently, the advanced query parameter is case-sensitive, meaning that the same search may return different results depending on the letter case of the input string. For best results, capitalize location names (*Panama* not *panama*). We [may change this behavior in future](https://github.com/ror-community/ror-roadmap/issues/175) to support case insensitivity for all searches.
+Currently, the advanced query parameter is case-sensitive, meaning that the same search may return different results depending on the letter case of the input string. For best results, capitalize location names (_Panama_ not _panama_). We [may change this behavior in future](https://github.com/ror-community/ror-roadmap/issues/175) to support case insensitivity for all searches.
 
 ### Example
 
@@ -17613,7 +17615,7 @@ Currently, the advanced query parameter is case-sensitive, meaning that the same
 curl 'https://api.ror.org/v2/organizations?query.advanced=locations.geonames_details.name:berlin' | json_pp
 ```
 
-The ROR API returns no results because the sample advanced query is looking for records whose city is exactly *berlin*. 
+The ROR API returns no results because the sample advanced query is looking for records whose city is exactly _berlin_.
 
 ```json
 {
@@ -17635,7 +17637,7 @@ Capitalizing the name of the city returns better results.
 curl 'https://api.ror.org/v2/organizations?query.advanced=locations.geonames_details.name:Berlin' | json_pp
 ```
 
-The response includes all records whose city contains the capitalized term *Berlin*. 
+The response includes all records whose city contains the capitalized term _Berlin_.
 
 ```json
 {
