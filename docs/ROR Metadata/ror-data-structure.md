@@ -45,10 +45,10 @@ The full JSON schema used for generating and validating ROR records is available
 | admin         | Container for administrative information about the record | Object | TRUE     | TRUE           |                                                                                                                     |
 | domains       | The domains registered to a particular institution        | Array  | TRUE     | FALSE          |                                                                                                                     |
 | established   | Year the organization was established (CE)                | Number | TRUE     | FALSE          |                                                                                                                     |
-| external\_ids | Other identifiers for the organization                    | Array  | TRUE     | FALSE          | Allowed ID types: fundref, grid, isni, wikidata                                                                     |
+| external_ids  | Other identifiers for the organization                    | Array  | TRUE     | FALSE          | Allowed ID types: fundref, grid, isni, wikidata                                                                     |
 | links         | The organization's website and Wikipedia page             | Array  | TRUE     | FALSE          |                                                                                                                     |
 | locations     | The location of the organization                          | Array  | TRUE     | TRUE           |                                                                                                                     |
-| names         | Names the organization goes by                            | Array  | TRUE     | TRUE           | Allowed name types: acronym, alias, label, ror\_display                                                             |
+| names         | Names the organization goes by                            | Array  | TRUE     | TRUE           | Allowed name types: acronym, alias, label, ror_display                                                              |
 | relationships | Related organizations in ROR                              | Array  | TRUE     | FALSE          | Allowed relationship types: related, parent, child, predecessor, successor                                          |
 | status        | Whether the organization is active                        | String | TRUE     | TRUE           | Allowed values: active, inactive, withdrawn                                                                         |
 | types         | Organization type                                         | Array  | TRUE     | TRUE           | Allowed organization types: education, funder, healthcare, company, archive, nonprofit, government, facility, other |
@@ -61,7 +61,7 @@ The full JSON schema used for generating and validating ROR records is available
 
 Policies and expanded definitions for top-level metadata elements. See also [ROR Metadata Policies on GitHub](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies).
 
-*\* indicates a value is required*
+_* indicates a value is required_
 
 ## `id*`
 
@@ -121,9 +121,9 @@ Each name variant has a corresponding language tag with the two-letter [ISO-639]
 
   With the release of v2 of ROR's schema, ROR no longer assigns a "primary" name for any organization, since these decisions are highly subjective and are often inappropriately Anglocentric. Additionally, a single “primary” name in only one language is inappropriate for organizations located in countries with multiple official languages.
 
-  At the same time, many ROR users require a default name for use in their applications. Therefore, each record will have exactly one name of type *ror\_display*. The *ror\_display* name will be used as the main heading on the organization record in the ROR web search and can be used by those who want to select exactly one name for use in their applications.
+  At the same time, many ROR users require a default name for use in their applications. Therefore, each record will have exactly one name of type _ror_display_. The _ror_display_ name will be used as the main heading on the organization record in the ROR web search and can be used by those who want to select exactly one name for use in their applications.
 
-  The primary data source for the *ror\_display* name and the formatting thereof is the organization's website. This may be different than the organization's legal name. Many of the name values in *ror\_display* are in English due to legacy data, but *ror\_display* names may also be in non-English languages, so long as said names are also written in Latin characters. Display limitations in many users' systems require this constraint, but as indicated in the *labels* section, all label forms, including those in non-Latin character scripts, are considered equivalent.
+  The primary data source for the _ror_display_ name and the formatting thereof is the organization's website. This may be different than the organization's legal name. Many of the name values in _ror_display_ are in English due to legacy data, but _ror_display_ names may also be in non-English languages, so long as said names are also written in Latin characters. Display limitations in many users' systems require this constraint, but as indicated in the _labels_ section, all label forms, including those in non-Latin character scripts, are considered equivalent.
 
 ## `relationships`
 
@@ -133,11 +133,15 @@ Five types of relationships are supported: `parent`, `child`, `related`, `predec
 
 * ### `parent`, `child`, and `related`
 
+  `Parent` / `child` relationships indicate a relationship where the parent exercises control (supervisory, administrative, or financial) over the child, or the child is a component of the parent entity, like a research center within a university. The `related` relationship type denotes less defined connections, such as resource sharing or participation without direct control. 
+
   **Active records:** A `parent`, `child`, or `related` relationship in an active record will always have a corresponding relationship in the related active record. For example, if Organization A's record contains a relationship to Organization B with type `parent` (and both records have status `active`), Organization B's record must contain a corresponding relationship to Organization A with type `child`. If Organization C contains a relationship to Organization D with type `related` (and both records have status `active`), then Organization D must also contain a corresponding relationship with type `related`.
 
   **Inactive and withdrawn records:** When the status of a record is set to `inactive`, any `parent`, `child`, and `related` relationships are **retained** in the inactive record as a tombstone and **removed** from related active records. An active record must not contain a  `parent`, `child`, or `related` relationship to a record with a status of `inactive` or `withdrawn` since the relationship is no longer considered current. However, a record with a status of `inactive` may contain a `parent`, `child`, or `related` relationship to a record with a status of `active` in order to preserve the history of the organizational relationship. Records with a status of `withdrawn` generally do not retain `parent`, `child`, and `related` relationships.
 
 * ### `predecessor` and `successor`
+
+  `Successor` and `predecessor` relationships track organizational continuity and are used when an entity ceases operations or to redirect from erroneous records to correct ones.
 
   A `successor` relationship indicates that an organization continues the work of a `predecessor` organization that has ceased operations. If an organization simply changes its name, it will not receive a `successor` relationship; instead, the `names` field of the record for the organization will be modified with the new name added and the previous name retained. The `successor` relationship also appears in records with a status of `withdrawn` that were added to ROR in error in order to point users to the correct record in ROR.
 
