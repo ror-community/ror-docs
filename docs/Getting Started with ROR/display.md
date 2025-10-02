@@ -55,10 +55,10 @@ Approved ROR logo files are available for download from the sources listed under
 
 ### Full ROR ID
 
-Full ROR ID URL (including scheme, host and path) linked to the corresponding ROR record:
-[https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+* Full ROR ID URL (including scheme, host and path) linked to the corresponding ROR record:
 
-Optionally, include the ROR icon before or after the ID URL:
+  [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+* Optionally, include the ROR icon before or after the ID URL:
 
 <p>
   <a href="https://ror.org/03yrm5c26">
@@ -80,15 +80,13 @@ Optionally, include the ROR icon before or after the ID URL:
 
 ### Short ROR ID
 
-ROR ID domain and unique string, linked to the corresponding ROR record:
+* ROR ID domain and unique string, linked to the corresponding ROR record: 
 
-[ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+  [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+* Optionally, include the name of the organization before the short ROR ID:
 
-Optionally, include the name of the organization before the short ROR ID:
-
-California Digial Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
-
-Optionally, include the ROR icon before or after the short ROR ID:
+  California Digial Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+* Optionally, include the ROR icon before or after the short ROR ID:
 
 <p>
   <a href="https://ror.org/03yrm5c26">
