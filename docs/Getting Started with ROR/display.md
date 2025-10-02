@@ -33,7 +33,7 @@ ROR IDs are primarily intended for use in underlying metadata and for internal u
 
 If you do choose to display ROR IDs, please follow the below guidelines.
 
-* Include a link to the ROR record.
+* Include a link to the ROR record, e.g., https://ror.org/03yrm5c26 
 
 * Do not link an organization's name to a ROR record, since users expect that a linked organization name will lead to the organization's website.
 
