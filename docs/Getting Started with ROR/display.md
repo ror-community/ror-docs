@@ -93,10 +93,9 @@ California Digital Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
 Optionally, include the ROR icon before or after the short ROR ID:
 
-\<p>
-&#x20; California Digital Library \<a href="https\://ror.org/03yrm5c26">\[ror.org/03yrm5c26]\(https\://ror.org/03yrm5c26) \<img alt="ROR logo" src="https\://raw\.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
-&#x20; \</a>
-\</p>
+<p>
+  California Digital Library <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26 <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /></a>
+</p>
 
 ```html Code sample
 California Digital Library <a href="https://ror.org/03yrm5c26">
