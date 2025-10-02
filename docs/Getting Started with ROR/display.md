@@ -55,6 +55,8 @@ Approved ROR logo files are available for download from the sources listed under
 
 ## ROR ID display formats
 
+The preferred form of the ROR ID is the full URL, as explained in our guidance to the ROR [Identifier pattern](doc:identifier). However, the ROR ID may also be displayed in a shortened form that is also resolvable by web browsers and the ROR API. 
+
 ### Full ROR ID
 
 Full ROR ID URL (including scheme, host and path) linked to the corresponding ROR record:
