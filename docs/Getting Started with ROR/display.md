@@ -104,7 +104,7 @@ California Digital Library <a href="https://ror.org/03yrm5c26">
 
 > 📘 When to use the inline ROR ID format
 >
-> * When including a ROR ID within a sentence: “. . . the team at California Digital Library <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26 <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="20" /></a> recently launched . . .”
+> * When including a ROR ID within a sentence: “. . . the team at California Digital Library <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26</a> recently launched . . .”
 > * When there is not sufficient space to include the full URL of the ROR ID.
 > * When display of the protocol is undesirable.
 
