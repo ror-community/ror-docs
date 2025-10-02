@@ -51,13 +51,15 @@ If you do choose to display ROR IDs, please follow the below guidelines.
 
 Approved ROR logo files are available for download from the sources listed under [ROR logo files](#ror-logo-files).
 
-## ROR ID display format
+## ROR ID display formats
+
+### Full ROR ID
 
 * Full ROR ID URL (including scheme, host and path) linked to the corresponding ROR record:
 
   [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
-* Optionally, include the ROR icon before the ID URL:
+* Optionally, include the ROR icon before or after the ID URL:
 
   <p>
     <a href="https://ror.org/03yrm5c26">
@@ -77,30 +79,35 @@ Approved ROR logo files are available for download from the sources listed under
 >
 > * When ROR IDs are shown within a list of organizations and there is sufficient space to show the full ROR ID for each organization.
 
-### Inline ROR ID
+### Short ROR ID
 
-* Organization name, linked to the corresponding ROR record:
+* ROR ID domain and unique string, linked to the corresponding ROR record:
 
-  [California Digital Library](https://ror.org/03yrm5c26)
+  [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
-* Optionally, include the ROR icon after the organization name:
+* Optionally, include the name of the organization before the short ROR ID: 
 
-  <p>
-    <a href="https://ror.org/03yrm5c26">
-      California Digital Library <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
-    </a>
-  </p>
+  California Digial Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+
+* Optionally, include the ROR icon before or after the short ROR ID:
+
+  \<p>
+  &#x20; California Digital Library \<a href="https\://ror.org/03yrm5c26">
+  &#x20;   ror.org/03yrm5c26 \<img alt="ROR logo" src="https\://raw\.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
+  &#x20; \</a>
+  \</p>
 
 ```html Code sample
-<a href="https://ror.org/03yrm5c26">
-        California Digital Library <img alt="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
+California Digital Library <a href="https://ror.org/03yrm5c26">
+        ror.org/03yrm5c26 <img alt="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" />
     </a>
 ```
 
 > 📘 When to use the inline ROR ID format
 >
-> * When referring to a ROR ID within a sentence: “. . . the team at <a href="https://ror.org/03yrm5c26">California Digital Library <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="20" /></a> recently launched . . .”
+> * When including a ROR ID within a sentence: “. . . the team at California Digital Library <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26 <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="20" /></a> recently launched . . .”
 > * When there is not sufficient space to include the full URL of the ROR ID.
+> * When display of the protocol is undesirable. 
 
 ## ROR logo files
 
