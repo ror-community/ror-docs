@@ -61,6 +61,8 @@ Full ROR ID URL (including scheme, host and path) linked to the corresponding RO
 
 [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
+<br />
+
 Optionally, include the ROR icon before or after the ID URL:
 
 <p>
@@ -87,9 +89,13 @@ ROR ID domain and unique string, linked to the corresponding ROR record:
 
 [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
+<br />
+
 Optionally, include the name of the organization before the short ROR ID:
 
 California Digital Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+
+<br />
 
 Optionally, include the ROR icon before or after the short ROR ID:
 
