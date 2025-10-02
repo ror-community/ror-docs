@@ -63,6 +63,12 @@ Full ROR ID URL (including scheme, host and path) linked to the corresponding RO
 
 ***
 
+Optionally, include the name of the organization and the term "ROR ID" before the full ROR ID: 
+
+California Digital Library, ROR ID [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+
+***
+
 Optionally, include the ROR icon before or after the ID URL:
 
 <p>
@@ -73,10 +79,14 @@ Optionally, include the ROR icon before or after the ID URL:
 
 ***
 
+<br />
+
 ```html Code sample
-<a href="https://ror.org/03yrm5c26">
+<p>
+California Digital Library <a href="https://ror.org/03yrm5c26">
         <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> https://ror.org/03yrm5c26
-    </a>
+</a>
+</p>
 ```
 
 > 📘 When to use the full ROR ID format
@@ -93,9 +103,9 @@ ROR ID domain and unique string, linked to the corresponding ROR record:
 
 ***
 
-Optionally, include the name of the organization before the short ROR ID:
+Optionally, include the name of the organization and the term "ROR ID" before the short ROR ID:
 
-California Digital Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+California Digital Library, ROR ID [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
 ***
 
@@ -114,7 +124,7 @@ California Digital Library <a href="https://ror.org/03yrm5c26">
 
 > 📘 When to use the inline ROR ID format
 >
-> * When including a ROR ID within a sentence: “. . . the team at California Digital Library (<a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26</a>) recently launched . . .”
+> * When including a ROR ID within a sentence: “. . . the team at California Digital Library (ROR ID <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26</a>) recently launched . . .”
 > * When there is not sufficient space to include the full URL of the ROR ID.
 > * When display of the protocol is undesirable.
 
