@@ -77,7 +77,7 @@ Optionally, include the ROR icon before or after the ID URL:
 
 > 📘 When to use the full ROR ID format
 >
-> * When a ROR ID is shown on its own, where the organization name may or may not be displayed, for example within a profile or account page for a single institution.
+> * When a ROR ID is shown on its own, for example within a profile or account page for a single institution.
 >
 > * When ROR IDs are shown within a list of organizations and there is sufficient space to show the full ROR ID for each organization.
 
@@ -89,15 +89,15 @@ ROR ID domain and unique string, linked to the corresponding ROR record:
 
 Optionally, include the name of the organization before the short ROR ID:
 
-California Digial Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+California Digital Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
 Optionally, include the ROR icon before or after the short ROR ID:
 
-<p>
-  <a href="https://ror.org/03yrm5c26">
-    <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
-  </a>
-</p>
+\<p>
+&#x20; California Digital Library \<a href="https\://ror.org/03yrm5c26">
+&#x20;   \<img alt="ROR logo" src="https\://raw\.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> \[ror.org/03yrm5c26]\(https\://ror.org/03yrm5c26)
+&#x20; \</a>
+\</p>
 
 ```html Code sample
 California Digital Library <a href="https://ror.org/03yrm5c26">
