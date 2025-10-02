@@ -93,13 +93,13 @@ ROR ID domain and unique string, linked to the corresponding ROR record:
 
 ***
 
-2. Optionally, include the name of the organization before the short ROR ID:
+Optionally, include the name of the organization before the short ROR ID:
 
 California Digital Library [ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
 ***
 
-3. Optionally, include the ROR icon before or after the short ROR ID:
+Optionally, include the ROR icon before or after the short ROR ID:
 
 <p>
   California Digital Library <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26 <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /></a>
