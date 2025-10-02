@@ -118,7 +118,6 @@ Optionally, include the ROR icon before or after the short ROR ID:
 
 > 📘 When to use the short ROR ID format
 >
-> * When including a ROR ID within a sentence: “. . . the team at California Digital Library (ROR ID <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26</a>) recently launched . . .”
 > * When there is not sufficient space to include the full URL of the ROR ID.
 > * When display of the protocol is undesirable.
 
