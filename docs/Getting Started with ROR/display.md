@@ -51,9 +51,7 @@ If you do choose to display ROR IDs, please follow the below guidelines.
 
 Approved ROR logo files are available for download from the sources listed under [ROR logo files](#ror-logo-files).
 
-## ROR ID display formats
-
-### Full ROR ID
+## ROR ID display format
 
 * Full ROR ID URL (including scheme, host and path) linked to the corresponding ROR record:
 
@@ -110,7 +108,7 @@ Approved ROR logo image files (png, svg) for use in graphics, slides, websites, 
 
 * **GitHub:** [https://github.com/ror-community/ror-logos](https://github.com/ror-community/ror-logos)
 * **Zenodo:** [https://doi.org/10.5281/zenodo.4701802](https://doi.org/10.5281/zenodo.4701802)
-* **Wikimedia Commons:**  [https://commons.wikimedia.org/wiki/File:ROR_logo.svg](https://commons.wikimedia.org/wiki/File:ROR_logo.svg)
+* **Wikimedia Commons:**  [https://commons.wikimedia.org/wiki/File:ROR\_logo.svg](https://commons.wikimedia.org/wiki/File:ROR_logo.svg)
 
 Remember that all ROR image files are available under a [CC BY-ND 4.0 license](https://creativecommons.org/licenses/by-nd/4.0/), which means that you must credit ROR (a link is sufficient) and that you may not make derivatives of the image.
 
