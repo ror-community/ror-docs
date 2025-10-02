@@ -63,7 +63,7 @@ Full ROR ID URL (including scheme, host and path) linked to the corresponding RO
 
 ***
 
-Optionally, include the name of the organization and the term "ROR ID" before the full ROR ID: 
+Optionally, include the name of the organization and the term "ROR ID" before the full ROR ID:
 
 California Digital Library, ROR ID [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
 
@@ -78,8 +78,6 @@ Optionally, include the ROR icon before or after the ID URL:
 </p>
 
 ***
-
-<br />
 
 ```html Code sample
 <p>
