@@ -35,6 +35,8 @@ If you do choose to display ROR IDs, please follow the below guidelines.
 
 * Include a link to the ROR record.
 
+* Do not link an organization's name to a ROR record, since users expect that a linked organization name will lead to the organization's website. 
+
 * If you choose to display a ROR logo or icon, please use an [approved ROR image file](#ror-logo-files) rather than one from another source.
 
 * For accessibility and usability, link both the ROR ID text (e.g., [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26) and the icon rather than just the icon.
