@@ -83,12 +83,6 @@ Optionally, include the ROR icon before or after the ID URL:
 </a>
 ```
 
-> 📘 When to use the full ROR ID format
->
-> * When a ROR ID is shown on its own, for example within a profile or account page for a single institution.
->
-> * When ROR IDs are shown within a list of organizations and there is sufficient space to show the full ROR ID for each organization.
-
 ### Short ROR ID
 
 ROR ID domain and unique string, linked to the corresponding ROR record:
@@ -111,11 +105,6 @@ Optionally, include the ROR icon before or after the short ROR ID:
 <a href="https://ror.org/03yrm5c26">
         ror.org/03yrm5c26 <img alt="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /></a>
 ```
-
-> 📘 When to use the short ROR ID format
->
-> * When there is not sufficient space to include the full URL of the ROR ID.
-> * When display of the protocol is undesirable.
 
 ## ROR logo files
 
