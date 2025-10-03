@@ -33,13 +33,13 @@ ROR IDs are primarily intended for use in underlying metadata and for internal u
 
 If you do choose to display ROR IDs, please follow the below guidelines.
 
-* Include a link to the ROR record, e.g., [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+* Include a link to the ROR record.
 
 * Do not link an organization's name to a ROR record, since users expect that a linked organization name will lead to the organization's website.
 
 * If you choose to display a ROR logo or icon, please use an [approved ROR image file](#ror-logo-files) rather than one from another source.
 
-* For accessibility and usability, link both the ROR ID and the icon rather than just the icon.
+* For accessibility and usability, link both the ROR ID text (e.g., [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26) and the icon rather than just the icon.
 
 * Use the [scalable SVG icon version](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg) wherever possible for best image quality.
 
@@ -55,7 +55,7 @@ Approved ROR logo files are available for download from the sources listed under
 
 ## ROR ID display formats
 
-The preferred form of the ROR ID is the full URL, as explained in our guide to the ROR [Identifier pattern](doc:identifier). However, the ROR ID may also be displayed in a short form that is still resolvable by web browsers and the ROR API.
+The preferred form of the ROR ID is the full URL, as explained in our guidance to the ROR [Identifier pattern](doc:identifier). However, the ROR ID may be displayed in a shortened form that is also resolvable by web browsers and the ROR API.
 
 ### Full ROR ID
 
@@ -73,19 +73,21 @@ California Digital Library, ROR ID [https://ror.org/03yrm5c26](https://ror.org/0
 
 Optionally, include the ROR icon before or after the ID URL:
 
-<p>
-  <a href="https://ror.org/03yrm5c26">
-    <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
-  </a>
-</p>
+<a href="https://ror.org/03yrm5c26">
+  <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
+</a>
 
 ```html Code sample
-<p>
 <a href="https://ror.org/03yrm5c26">
-        <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> https://ror.org/03yrm5c26
+	<img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> https://ror.org/03yrm5c26
 </a>
-</p>
 ```
+
+> 📘 When to use the full ROR ID format
+>
+> * When a ROR ID is shown on its own, for example within a profile or account page for a single institution.
+>
+> * When ROR IDs are shown within a list of organizations and there is sufficient space to show the full ROR ID for each organization.
 
 ### Short ROR ID
 
@@ -103,14 +105,17 @@ California Digital Library, ROR ID [ror.org/03yrm5c26](https://ror.org/03yrm5c26
 
 Optionally, include the ROR icon before or after the short ROR ID:
 
-<p>
-  <a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26 <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /></a>
-</p>
+<a href="https://ror.org/03yrm5c26">ror.org/03yrm5c26 <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /></a>
 
 ```html Code sample
 <a href="https://ror.org/03yrm5c26">
         ror.org/03yrm5c26 <img alt="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /></a>
 ```
+
+> 📘 When to use the short ROR ID format
+>
+> * When there is not sufficient space to include the full URL of the ROR ID.
+> * When display of the protocol is undesirable.
 
 ## ROR logo files
 
