@@ -22,11 +22,11 @@ next:
 
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](2025-07-01-sunhttps://ror.readme.io/changelog/2025-07-01-sunset-of-version-1set-of-version-1).
+> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # About paging
 
-Responses to queries of the ROR API are broken into pages with a maximum of 20 results per page beginning at page 1. If `metadata.number_of_results` is greater than 20, you can retrieve subsequent records by specifying the page number of the result. 
+Responses to queries of the ROR API are broken into pages with a maximum of 20 results per page beginning at page 1. If `metadata.number_of_results` is greater than 20, you can retrieve subsequent records by specifying the page number of the result.
 
 > 📘 Paging format
 >
@@ -46,7 +46,7 @@ To determine how many pages you will need to retrieve in order to obtain your en
 curl 'https://api.ror.org/v2/organizations?page=4' | json_pp
 ```
 
-The response is a list of the 20 organization records from the fourth page of results of a request to list all active records in ROR. Counts in `<metadata>` pertain to the entire results list, not the individual page. 
+The response is a list of the 20 organization records from the fourth page of results of a request to list all active records in ROR. Counts in `<metadata>` pertain to the entire results list, not the individual page.
 
 ```json
 {
