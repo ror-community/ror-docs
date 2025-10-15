@@ -32,7 +32,7 @@ To see which organizations are already included in the registry, you can:
   * [https://api.ror.org/v2/organizations](https://api.ror.org/v2/organizations) (v2)
 * Download the entire ROR data file: [https://zenodo.org/communities/ror-data](https://zenodo.org/communities/ror-data)
 
-ROR is the first and only organization identifier that is openly available ([CC0]() data available via an open REST API and public data dump), specifically focused on identifying affiliations in scholarly metadata, developed as a community initiative to meet community use cases, and designed to be integrated into open scholarly infrastructure. It is the preferred organization identifier of Crossref, DataCite, and ORCID.
+ROR is the first and only organization identifier that is openly available (<Anchor label="CC0" target="_blank" href="https://creativecommons.org/public-domain/cc0/">CC0</Anchor> data available via an open REST API and public data dump), specifically focused on identifying affiliations in scholarly metadata, developed as a community initiative to meet community use cases, and designed to be integrated into open scholarly infrastructure. It is the preferred organization identifier of Crossref, DataCite, and ORCID.
 
 For more information, see ROR's [About page](https://ror.org/about) and [FAQs](https://ror.org/about/faqs).
 
@@ -67,6 +67,6 @@ See [ROR history](https://ror.org/about/#history) for more about ROR's origins a
 
 # Glossary
 
-* \*\*ROR, ROR registry:\*\* The Research Organization Registry, available in the UI at \[https\://ror.org/search]\(https\://ror.org/search) or the API at \[\<https\://api.ror.org/v2/organizations>]\(https\://api.ror.org/v2/organizations)
+* **ROR, ROR registry:** The Research Organization Registry, available in the UI at [[https://ror.org/search](https://ror.org/search)](https://ror.org/search) or the API at [\<[https://api.ror.org/v2/organizations>](https://api.ror.org/v2/organizations)](https://api.ror.org/v2/organizations)
 * **ROR identifier/ROR ID:** The identifier for a particular organization, ex: [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
-* \*\*ROR record:\*\* The metadata associated with a ROR identifier, ex:  \[https\://ror.org/03yrm5c26]\(https\://ror.org/03yrm5c26) or \[\<https\://api.ror.org/v2/organizations/https\://ror.org/03yrm5c26>]\(https\://api.ror.org/v2/organizations/https\://ror.org/03yrm5c26)
+* **ROR record:** The metadata associated with a ROR identifier, ex:  [[https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)](https://ror.org/03yrm5c26) or [\<[https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26>](https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26)](https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26)
