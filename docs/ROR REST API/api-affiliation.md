@@ -14,12 +14,12 @@ next:
     - slug: matching
       title: Match organization names to ROR IDs
       type: basic
-    - title: ror-utilities matching scripts
-      type: link
-      url: https://github.com/ror-community/ror-utilities
     - title: ROR blog posts on matching
       type: link
       url: http://ror.org/categories/matching
+    - title: ror-utilities matching scripts
+      type: link
+      url: https://github.com/ror-community/ror-utilities
 ---
 > 👍 ROR REST API v2
 >
