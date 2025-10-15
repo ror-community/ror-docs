@@ -21,7 +21,7 @@ next:
 
 # Community feedback
 
-The current ROR data structure was revised in April of 2024 and formalized into [schema v2.0](doc:schema-v2) as a JSON schema document. In schema v2.0, significant changes were made to fields that contained geographic information, including removing fields related to administrative subdivisions corresponding to units such as Canadian provinces, Japanese prefectures, and US states.
+The current ROR data structure was revised in April of 2024 and formalized into [Schema 2.0](doc:schema-v2) as a JSON schema document. In schema v2.0, significant changes were made to fields that contained geographic information, including removing fields related to administrative subdivisions corresponding to units such as Canadian provinces, Japanese prefectures, and US states.
 
 While no issues were raised with these changes during the v2.0 feedback process, since the launch of this schema version, the need for additional location details to be included in our records was identified by users. As a result, a [proposal for schema v2.1](https://docs.google.com/document/d/11-bDfQWK038uoUBkL_CBZxP__xB6nBy0dVPH7tWxNnY), which adds country subdivision and continent fields, was circulated for public comment and finalized in Nov 2024.
 
@@ -31,13 +31,13 @@ This is a non-breaking change, and schema v2.1 changes have been incorporated di
 
 In schema v2.1, the following fields have been added to the `geonames_details` sub-field within the `locations` field:
 
-* `continent_code` (required) 2-character code for the continent that the organization is located in, from the GeoNames record for the GeoNames ID in locations.geonames\_id. All records have a value in the field.
+* `continent_code` (required) 2-character code for the continent that the organization is located in, from the GeoNames record for the GeoNames ID in locations.geonames_id. All records have a value in the field.
 
-* `continent_name` (required) Name of the continent that the organization is located in, from the GeoNames record for the GeoNames ID in locations.geonames\_id. All records have a value in the field.
+* `continent_name` (required) Name of the continent that the organization is located in, from the GeoNames record for the GeoNames ID in locations.geonames_id. All records have a value in the field.
 
-* `country_subdivision_code` 2 or 3-character code for the highest-level country subdivision that the organization is located in, from the admin1Codes field of the GeoNames record for the GeoNames ID in locations.geonames\_id. These are derived from ISO-3166-2.
+* `country_subdivision_code` 2 or 3-character code for the highest-level country subdivision that the organization is located in, from the admin1Codes field of the GeoNames record for the GeoNames ID in locations.geonames_id. These are derived from ISO-3166-2.
 
-* `country_subdivision_name` Name of the highest-level country subdivision that the organization is located in, from the admin1Codes field of the GeoNames record for the GeoNames ID in locations.geonames\_id. These are derived from ISO-3166-2.
+* `country_subdivision_name` Name of the highest-level country subdivision that the organization is located in, from the admin1Codes field of the GeoNames record for the GeoNames ID in locations.geonames_id. These are derived from ISO-3166-2.
 
 **Continents:** GeoNames uses a 7-continent name and code convention, so continent name and code values are as follows: Africa (AF), Antarctica (AN), Asia (AS), Europe (EU), North America (NA), Oceania (OC), and South America (SA).
 
