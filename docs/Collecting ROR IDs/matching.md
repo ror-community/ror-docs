@@ -12,20 +12,22 @@ metadata:
     ROR data dump, OpenRefine, and third-party tools for this purpose.
   robots: index
 next:
-  description: ''
   pages:
-    - type: basic
-      slug: openrefine-reconciler
+    - slug: openrefine-reconciler
       title: OpenRefine reconciler
-    - type: link
-      title: 'Video: Strategies for Matching Affiliation Strings to ROR IDs'
+      type: basic
+    - title: 'Video: Strategies for Matching Affiliation Strings to ROR IDs'
+      type: link
       url: https://youtu.be/Tx5y7lX030U
-    - type: link
-      title: 'Video: Smart matching enabled by the ROR API for the OA Switchboard'
-      url: https://www.youtube.com/watch?v=MzfeUJwtDBg
-    - type: link
-      title: ror-utilities matching and mapping scripts
+    - title: ror-utilities matching and mapping scripts
+      type: link
       url: https://github.com/ror-community/ror-utilities
+    - slug: api-affiliation
+      title: Affiliation parameter
+      type: basic
+    - title: ROR blog posts on matching
+      type: link
+      url: https://ror.org/categories/matching
 ---
 If you have organization names or full affiliation strings stored in your system as text, there are several approaches to matching those text strings to ROR IDs. 
 
