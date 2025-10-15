@@ -1,5 +1,5 @@
 ---
-title: Single search parameter
+title: Affiliation parameter (new)
 deprecated: false
 hidden: true
 link:
@@ -51,7 +51,6 @@ If you have messy, unstructured text data that includes organization names, you 
 ```curl
 curl 'https://api.ror.org/v2/organizations?TKTKTK' | json_pp
 ```
-
 
 # Other ways to match affiliations to ROR records
 
