@@ -7,7 +7,7 @@ metadata:
 ---
 > 👍 ROR REST API v2
 >
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-affiliation](https://ror.readme.io/v1/docs/api-affiliation). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see TKTKTK. You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
 > 🚧 Changes to the ROR API begin the week of July 28, 2025
 >
@@ -15,41 +15,39 @@ metadata:
 
 # About the single search parameter
 
-The single search parameter is designed to match messy text to ROR records. It breaks long search strings into multiple substrings, performs multiple searches of only the `names` field in ROR using several different search algorithms, limits results to records matching any country names or ISO codes in the text, and finally returns (if possible!) its best guess about the mostly likely match to a ROR record, plus additional possibilities ranked in descending order by matching confidence score.
+The single search parameter is designed to match messy text to ROR records. It is a newer and faster parameter designed as a replacement for the [affiliation parameter](/api-affiliation) of the ROR API. The single search parameter is designed to be used for for the following purposes:
 
-The affiliation parameter is designed for the following purposes:
-
-* Matching ROR IDs to legacy author affiliations in publishing systems
+* Matching ROR IDs to legacy author affiliations in large-scale knowledge graphs and scholarly publishing systems 
 * Matching ROR IDs to long and heavily-punctuated text strings that contain not just organization names, but also extraneous information such as addresses and academic departments
 
-The affiliation parameter service can match messy text strings to ROR IDs at about 85% efficacy depending on the text data and the affiliation implementation. Because of the high number of identical and similar names among research institutions globally, we recommend human review of suggested matches.
+The single search parameter can match messy text strings to ROR IDs at about 85% efficacy depending on the text data and the affiliation implementation. Because of the high number of identical and similar names among research institutions globally, we recommend human review of suggested matches.
 
-> 📘 Affiliation parameter format
+> 📘 Single search parameter format
 >
-> `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]`
+> `https://api.ror.org/v2/organizations?XXX`
 
 # Formatting searches
 
-All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp). The affiliation parameter is specifically designed to handle strings with punctuation, special characters, and spaces, so **it is not necessary to enclose multi-term search strings in quotation marks or to escape special characters**.
+All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp). The single parameter is specifically designed to handle strings with punctuation, special characters, and spaces, so **it is not necessary to enclose multi-term search strings in quotation marks or to escape special characters**.
 
 # Paging and filtering
 
-The affiliation parameter **does not accept filters** and results **are not paginated**. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search. All results will be returned, not just the first 20, since this approach typically returns a small number of results. Results are listed in descending order by matching confidence score.
+The single search parameter **does not accept filters** and results **are not paginated**. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search. All results will be returned, not just the first 20, since this approach typically returns a small number of results. Results are listed in descending order by matching confidence score.
 
-> 🚧 Be aware of differences between the affiliation parameter and the query parameters
+> 🚧 Be aware of differences between the single search parameter and the query parameters
 >
-> Unlike the query and advanced query parameters, the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.
+> Unlike the query and advanced query parameters, the single search parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.
 >
-> Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
+> Also unlike the query and advanced query parameters, the single search parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the single search parameter.
 
 # Matching long, messy text strings to ROR records
 
-If you have messy, unstructured text data that includes organization names, you can use the affiliation parameter to look for ROR records that match the organization names buried within those text strings. One such messy text string might be "Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy".
+If you have messy, unstructured text data that includes organization names, you can use the single search parameter to look for ROR records that match the organization names buried within those text strings. One such messy text string might be "Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy".
 
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Civil%20and%20Industrial%20Engineering%2C%20University%20of%20Pisa%2C%20Largo%20Lucio%20Lazzarino%202%2C%20Pisa%2056126%2C%20Italy' | json_pp
+curl 'https://api.ror.org/v2/organizations?single_search=Department%20of%20Civil%20and%20Industrial%20Engineering%2C%20University%20of%20Pisa%2C%20Largo%20Lucio%20Lazzarino%202%2C%20Pisa%2056126%2C%20Italy' | json_pp
 ```
 
 The response is a JSON object that contains an array of items with the following fields:
@@ -72,7 +70,7 @@ The response is a JSON object that contains an array of items with the following
 
 The first item in the array, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. **Not all affiliation searches will produce a "chosen" result.**
 
-The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. **Only results with a score of at least .5 are returned.** Results are listed in descending order by matching confidence score.
+The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the single search parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. **Only results with a score of at least .5 are returned.** Results are listed in descending order by matching confidence score.
 
 The substring used to find the match in this case is "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa Italy", or the entire text content of the entered string excluding the numeric postcode.
 
@@ -1120,7 +1118,7 @@ The substring used to find the match in this case is "Department of Civil and In
 An affiliation string such as "UCL School of Slavonic and East European Studies" does not contain enough identifying information for the ROR API affiliation matching service to choose a matching ROR record.
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?affiliation=UCL%20School%20of%20Slavonic%20and%20East%20European%20Studies' | json_pp
+curl 'https://api.ror.org/v2/organizations?single_search=UCL%20School%20of%20Slavonic%20and%20East%20European%20Studies' | json_pp
 ```
 
 The response returns 11 results with confidence scores ranging from .7 to .54 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match.
@@ -2221,11 +2219,11 @@ The response returns 11 results with confidence scores ranging from .7 to .54 li
 }
 ```
 
-> 🚧 Don't automatically select the first "unchosen" result of an ?affiliation query with no `chosen: true` result
+> 🚧 Don't automatically select the first "unchosen" result of an ?single_search query with no `chosen: true` result
 >
 > When no result has `"chosen": true`, the first result is not necessarily the best match for a given affiliation string. In that case, several results may have the exact same score and/or there may be no match with a high score. Because the affiliation service breaks a given affiliation string into multiple substrings and performs searches of each substring on its own as well as in combination with other substrings, a high scoring match that is not chosen may be a match to only a small portion of the entire affiliation string. In these cases, it is best to respect the absence of `"chosen": true` and leave the string unmatched or add a layer of human or machine assignment, at your discretion.
 
 # Other ways to match affiliations to ROR records
 
-See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the affiliation parameter and other methods, including third-party machine learning models, to match long, messy affiliation strings to ROR records.
+See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the single search parameter and other methods, including third-party machine learning models, to match long, messy affiliation strings to ROR records.
 
