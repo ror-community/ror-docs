@@ -39,7 +39,7 @@ If you do choose to display ROR IDs, please follow the below guidelines.
 
 * If you choose to display a ROR logo or icon, please use an [approved ROR image file](#ror-logo-files) rather than one from another source.
 
-* For accessibility and usability, link both the ROR ID text (e.g., [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26) and the icon rather than just the icon.
+* For accessibility and usability, link both the ROR ID text (e.g., [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)) and the icon rather than just the icon.
 
 * Use the [scalable SVG icon version](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg) wherever possible for best image quality.
 
@@ -112,7 +112,7 @@ Approved ROR logo image files (png, svg) for use in graphics, slides, websites, 
 
 * **GitHub:** [https://github.com/ror-community/ror-logos](https://github.com/ror-community/ror-logos)
 * **Zenodo:** [https://doi.org/10.5281/zenodo.4701802](https://doi.org/10.5281/zenodo.4701802)
-* **Wikimedia Commons:**  [https://commons.wikimedia.org/wiki/File:ROR\_logo.svg](https://commons.wikimedia.org/wiki/File:ROR_logo.svg)
+* **Wikimedia Commons:**  [https://commons.wikimedia.org/wiki/File:ROR_logo.svg](https://commons.wikimedia.org/wiki/File:ROR_logo.svg)
 
 Remember that all ROR image files are available under a [CC BY-ND 4.0 license](https://creativecommons.org/licenses/by-nd/4.0/), which means that you must credit ROR (a link is sufficient) and that you may not make derivatives of the image.
 
