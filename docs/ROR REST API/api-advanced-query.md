@@ -43,6 +43,7 @@ Some organization names contain characters like &, (), : and /, which have speci
 
 * Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all advanced query parameter values.
 * Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
+* When searching for URLs and ROR IDs as values, make sure that colons and slashes are both escaped and URL-encoded. For example, `https://ror.org/` is `https%5C%3A%5C%2F%5C%2Fror.org%5C%2F`.
 
 ## Spaces and quotation marks
 
@@ -1742,7 +1743,7 @@ The response is a list of all records -- including active, inactive, and withdra
 Search for active records created before or after a specific date by using a wildcard in the range query.
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?query.advanced=admin.created.date:\{*%20TO%202019-12-31\}' | json_pp
+curl 'https://api.ror.org/v2/organizations?query.advanced=admin.created.date:%7B%2A%20TO%202019-12-31%7D' | json_pp
 ```
 
 The response is a list of active records created before 2019-12-31.
@@ -15911,7 +15912,7 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell&qu
 * 500 error due to non-terminated or non-escaped special characters
 * Unexpected or non-relevant results due to special characters being interpreted as query operators rather than as part of your search terms
 
-Be especially sure to escape colons when searching for URLs and ROR IDs.
+Be especially sure to escape and URL-encode colons and slashes if necessary when searching for URLs and ROR IDs.
 
 ### Example
 
@@ -15926,10 +15927,6 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22ht
 ```
 
 The query for a ROR ID in the `relationships.id` field fails because the colon is not escaped, even though the search term is surrounded by quotation marks. Escaping forward slashes might not be necessary when the search term is surrounded by quotation marks but might be necessary when the search term is not surrounded by quotation marks.
-
-```curl
-curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22https\://ror.org/02en5vm52%22&filter=status:inactive' | json_pp
-```
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:https\:\/\/ror.org\/02en5vm52&filter=status:inactive' | json_pp
