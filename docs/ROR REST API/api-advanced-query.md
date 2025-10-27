@@ -6150,7 +6150,13 @@ The response is a single result with the value `vcrlter.virginia.edu` in the `li
 Search for multiple terms in a single field and form complex queries with [Elasticsearch Boolean operator syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_boolean_operators) (AND, OR, NOT). Note that the Boolean operator must be surrounded by URL-encoded spaces and that multiple query terms must be surrounded by parentheses in accordance with [Elasticsearch Boolean operator syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_boolean_operators).
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?query.advanced=id:(https\:\/\/ror.org\/02bfwt286+OR+https\:\/\/ror.org\/00rqy9422+OR+https\:\/\/ror.org\/01sf06y89+OR+https\:\/\/ror.org\/045s9b323)' | json_pp
+curl 'https://api.ror.org/v2/organizations?query.advanced=id:(https%5C%3A%5C%2F%5C%2Fror.org%5C%2F02bfwt286+OR+https%5C%3A%5C%2F%5C%2Fror.org%5C%2F00rqy9422+OR+https%5C%3A%5C%2F%5C%2Fror.org%5C%2F01sf06y89+OR+https%5C%3A%5C%2F%5C%2Fror.org%5C%2F045s9b323)' | json_pp
+```
+
+Alternately, use the wildcard `*` (which can be URL-encoded at `%2A`) in place of the ROR ID protocol and domain.
+
+```curl
+curl 'https://api.ror.org/v2/organizations?query.advanced=id:(*02bfwt286+OR+*00rqy9422+OR+*01sf06y89+OR+*045s9b323)' | json_pp
 ```
 
 The response is a list of 4 records, each of which has one of the 4 specified ROR IDs in the `id` field.
@@ -12659,7 +12665,7 @@ The response is a list of ROR records with a value in the `domains` field.
 
 Many complex queries can be constructed with the advanced query parameter and [Elasticsearch Boolean operator syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_boolean_operators). In this example, Boolean syntax is used to look for inactive records that include a `parent` relationship type to a specific ROR record. Note that certain relationships to inactive records are removed from active records but retained in the inactive records. Learn more about record [relationships](doc:data-structure#relationships) and record [status](doc:data-structure#status) on the [Data structure](doc:ror-data-structure) page.
 
-When searching for ROR IDs and other URLs, be sure to URL-encode and escape colons and slashes. See [Non-escaped reserved characters](https://ror.readme.io/docs/api-advanced-query#/non-escaped-reserved-characters) below for more guidance.  
+When searching for ROR IDs and other URLs, be sure to URL-encode and escape colons and slashes. See [Non-escaped reserved characters](https://ror.readme.io/docs/api-advanced-query#/non-escaped-reserved-characters) below for more guidance.
 
 > 📘 Advanced query parameter format, find inactive child organizations
 >
