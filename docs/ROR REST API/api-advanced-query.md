@@ -12659,7 +12659,7 @@ When searching for ROR IDs and other URLs, be sure to escape the colon. See [Non
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22https\://ror.org/00pg6eq24%22+AND+relationships.type:parent+AND+status:inactive' | json_pp
+curl 'https://api.ror.org/v2/organizations?query.advanced=relationships.id:%22https%5C%3A%5C%2F%5C%2Fror.org%5C%2F00pg6eq24%22+AND+relationships.type:parent+AND+status:inactive' | json_pp
 ```
 
 The response is a list of records for inactive child organizations of Université de Strasbourg.
