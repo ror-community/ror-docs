@@ -21,9 +21,9 @@ next:
 >
 > This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-single](https://ror.readme.io/v1/docs/api-single). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
-> 🚧 Changes to the ROR API begin the week of July 28, 2025
+> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # Formatting single ROR ID requests
 
@@ -31,7 +31,7 @@ When retrieving a single record, you can use any of these formats in the ID port
 
 * **Full ROR ID URL:**  [https://ror.org/015w2mp89](https://ror.org/015w2mp89)
 * **Domain and ID:** ror.org/015w2mp89
-* **ID only:** 015w2mp89 
+* **ID only:** 015w2mp89
 
 All formats will return the same record. See [ROR identifier pattern](doc:identifier) for more on ROR ID formats.
 
@@ -41,7 +41,7 @@ All formats will return the same record. See [ROR identifier pattern](doc:identi
 
 ## Example
 
-Request the ROR record for Keimyung University. 
+Request the ROR record for Keimyung University.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations/00tjv0s33' | json_pp
@@ -169,7 +169,7 @@ The response is a JSON object containing a full ROR record. See [ROR data struct
 
 # Status and single ROR ID requests
 
-Although [as of December 2022](https://ror.readme.io/changelog/2022-12-01-organization-status-changes) the ROR API defaults to returning only records whose status is *active* in lists of results, requests for a single specific record by its ROR ID will always return the record even when its status is *inactive* or *withdrawn*. Read more about [status in ROR data](doc:data-structure#status).
+Although [as of December 2022](https://ror.readme.io/changelog/2022-12-01-organization-status-changes) the ROR API defaults to returning only records whose status is _active_ in lists of results, requests for a single specific record by its ROR ID will always return the record even when its status is _inactive_ or _withdrawn_. Read more about [status in ROR data](doc:data-structure#status).
 
 ## Example
 
@@ -177,7 +177,7 @@ Although [as of December 2022](https://ror.readme.io/changelog/2022-12-01-organi
 curl 'https://api.ror.org/v2/organizations/03fyd9f03' | json_pp
 ```
 
-Returns the inactive record for Alcatel-Lucent (United Kingdom). 
+Returns the inactive record for Alcatel-Lucent (United Kingdom).
 
 ```json
 {
