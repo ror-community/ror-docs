@@ -3,9 +3,9 @@
 - api-single
 - api-list
 - api-query
+- api-advanced-query
 - api-filtering
 - api-paging
-- api-advanced-query
 - api-affiliation
 - api-affiliation-new
 - api-versions
