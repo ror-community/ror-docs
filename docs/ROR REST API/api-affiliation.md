@@ -25,20 +25,20 @@ next:
 >
 > This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-affiliation](https://ror.readme.io/v1/docs/api-affiliation). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
-> 🚧 Changes to the ROR API begin the week of July 28, 2025
+> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # About the affiliation parameter
 
-The affiliation parameter is designed to match messy text to ROR records. It breaks long search strings into multiple substrings, performs multiple searches of only the `names` field in ROR using several different search algorithms, limits results to records matching any country names or ISO codes in the text, and finally returns (if possible!) its best guess about the mostly likely match to a ROR record, plus additional possibilities ranked in descending order by matching confidence score. 
+The affiliation parameter is designed to match messy text to ROR records. It breaks long search strings into multiple substrings, performs multiple searches of only the `names` field in ROR using several different search algorithms, limits results to records matching any country names or ISO codes in the text, and finally returns (if possible!) its best guess about the mostly likely match to a ROR record, plus additional possibilities ranked in descending order by matching confidence score.
 
-The affiliation parameter is designed for the following purposes: 
+The affiliation parameter is designed for the following purposes:
 
-* Matching ROR IDs to legacy author affiliations in publishing systems 
+* Matching ROR IDs to legacy author affiliations in publishing systems
 * Matching ROR IDs to long and heavily-punctuated text strings that contain not just organization names, but also extraneous information such as addresses and academic departments
 
-The affiliation parameter service can match messy text strings to ROR IDs at about 85% efficacy depending on the text data and the affiliation implementation. Because of the high number of identical and similar names among research institutions globally, we recommend human review of suggested matches. 
+The affiliation parameter service can match messy text strings to ROR IDs at about 85% efficacy depending on the text data and the affiliation implementation. Because of the high number of identical and similar names among research institutions globally, we recommend human review of suggested matches.
 
 > 📘 Affiliation parameter format
 >
@@ -46,7 +46,7 @@ The affiliation parameter service can match messy text strings to ROR IDs at abo
 
 # Formatting searches
 
-All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp). The affiliation parameter is specifically designed to handle strings with punctuation, special characters, and spaces, so **it is not necessary to enclose multi-term search strings in quotation marks or to escape special characters**. 
+All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp). The affiliation parameter is specifically designed to handle strings with punctuation, special characters, and spaces, so **it is not necessary to enclose multi-term search strings in quotation marks or to escape special characters**.
 
 # Paging and filtering
 
@@ -54,7 +54,7 @@ The affiliation parameter **does not accept filters** and results **are not pagi
 
 > 🚧 Be aware of differences between the affiliation parameter and the query parameters
 >
-> Unlike the query and advanced query parameters, the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search. 
+> Unlike the query and advanced query parameters, the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. When filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.
 >
 > Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
 
@@ -86,11 +86,11 @@ The response is a JSON object that contains an array of items with the following
   * `ACRONYM`: matched by acronym
   * `EXACT`: exact match of the entered string in name values in the `names` field excluding acronyms
 
-The first item in the array, the ROR record for the University of Pisa, has a `chosen` value of *true*, indicating that the affiliation service considers this record a sufficiently likely match to the text string. **Not all affiliation searches will produce a "chosen" result.**
+The first item in the array, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. **Not all affiliation searches will produce a "chosen" result.**
 
-The `matching_type` is given as *"COMMON TERMS"*, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. **Only results with a score of at least .5 are returned.** Results are listed in descending order by matching confidence score.
+The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. **Only results with a score of at least .5 are returned.** Results are listed in descending order by matching confidence score.
 
-The substring used to find the match in this case is "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa Italy", or the entire text content of the entered string excluding the numeric postcode. 
+The substring used to find the match in this case is "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa Italy", or the entire text content of the entered string excluding the numeric postcode.
 
 ```json
 {
@@ -1133,7 +1133,7 @@ The substring used to find the match in this case is "Department of Civil and In
 
 ## Example
 
-An affiliation string such as "UCL School of Slavonic and East European Studies" does not contain enough identifying information for the ROR API affiliation matching service to choose a matching ROR record. 
+An affiliation string such as "UCL School of Slavonic and East European Studies" does not contain enough identifying information for the ROR API affiliation matching service to choose a matching ROR record.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?affiliation=UCL%20School%20of%20Slavonic%20and%20East%20European%20Studies' | json_pp
