@@ -18,6 +18,11 @@ next:
       title: ROR Data on Zenodo
       url: https://doi.org/10.5281/zenodo.6347574
 ---
+
+> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
+>
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
+
 The entire ROR registry dataset is freely available on Zenodo at [https://zenodo.org/doi/10.5281/zenodo.6347574](https://zenodo.org/doi/10.5281/zenodo.6347574) in both JSON and CSV formats for both v1 and v2 of the ROR metadata schema. All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//).
 
 # Data format
@@ -70,7 +75,7 @@ See [ROR data structure](doc:ror-data-structure) for more information about stat
 
 1. Get a list of the records in the ror-data community
 
-   **New request (after 13 Oct 2023 Zenodo update)**\
+   **New request (after 13 Oct 2023 Zenodo update)**  
    Request path and query structure have changed. The community name `ror-data` is now part of the path portion and the sort parameter value is now `newest`.
 
    ```curl
@@ -84,7 +89,7 @@ See [ROR data structure](doc:ror-data-structure) for more information about stat
    ```
 2. In the response, the most recent record will be `hits.hits[0]`. Find the latest file attached to this record by checking the last item in `hits.hits[0].files`.  The file download URL is in `[files.links.download](files.links.self)`.
 
-   **New response (after 13 Oct 2023 Zenodo update)**\
+   **New response (after 13 Oct 2023 Zenodo update)**  
    Record structure has changed. Only the URL for the most recent file download is located in`files.links.self`. Previously, download URLs for all versions were included in  `files`, with the first files item being the most recent version. To obtain previous versions, get a list of previous version records using the URL in `hits.hits[0].links.versions`.
 
 ```Text json
@@ -153,7 +158,7 @@ See [ROR data structure](doc:ror-data-structure) for more information about stat
 
 3. Download the file to a local directory using the link
 
-**New request (after 13 Oct 2023 Zenodo update)**\
+**New request (after 13 Oct 2023 Zenodo update)**  
 Request path has changed; make sure to specify file output option in cURL request.
 
 ```curl curl
