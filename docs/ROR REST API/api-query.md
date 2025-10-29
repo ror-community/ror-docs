@@ -18,20 +18,20 @@ next:
 >
 > This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-query](https://ror.readme.io/v1/docs/api-query). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
-> 🚧 Changes to the ROR API begin the week of July 28, 2025
+> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # About the query parameter
 
 The query parameter is a "quick search" of only the `names` and `external_ids` fields in ROR. The query parameter works best for the following purposes:
 
-* Keyword-based searching for organization names 
+* Keyword-based searching for organization names
 * Form field auto-suggests / typeaheads
-* Searching for exact matches of an organization name 
-* Searching for external identifiers 
+* Searching for exact matches of an organization name
+* Searching for external identifiers
 
-We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at [https://ror.org/search](https://ror.org/search) also uses the query parameter. 
+We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at [https://ror.org/search](https://ror.org/search) also uses the query parameter.
 
 > 📘 Query parameter format
 >
@@ -39,22 +39,22 @@ We recommend using the query parameter to build [ROR-powered typeaheads in forms
 
 # Formatting searches
 
-All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp). 
+All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_urlencode.asp).
 
 ## Special characters
 
 Some organization names contain characters like &, (), : and /, which have special meaning in URI syntax, Elasticsearch syntax or both. To avoid error responses or bad results:
 
-* Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all query parameter values. 
-* Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \\ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
+* Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all query parameter values.
+* Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
 
 ## Spaces and quotation marks
 
-[Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) will treat words separated by a space as separate parts of a query. It is therefore advisable to surround multi-word search terms of the ROR API with URL-encoded quotation marks. 
+[Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) will treat words separated by a space as separate parts of a query. It is therefore advisable to surround multi-word search terms of the ROR API with URL-encoded quotation marks.
 
 # Keyword searching
 
-The query parameter can be used to search for relatively unique keywords in organization names. 
+The query parameter can be used to search for relatively unique keywords in organization names.
 
 ## Example
 
@@ -1520,17 +1520,17 @@ As with [retrieving a list of ROR records](doc:api-list), the response is a JSON
 
 # Exact string searching
 
-Keyword searches can produce hundreds or thousands of results, especially when the string contains common terms in research organization names such as "University," "Health," or "Ministry." Surrounding a string with quotation marks will reduce the number of results in the response, limiting the results to records with exact matches to that string. Quotation marks must be [URL-encoded](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding). 
+Keyword searches can produce hundreds or thousands of results, especially when the string contains common terms in research organization names such as "University," "Health," or "Ministry." Surrounding a string with quotation marks will reduce the number of results in the response, limiting the results to records with exact matches to that string. Quotation marks must be [URL-encoded](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding).
 
 ## Example
 
-Compare the following searches to see the difference quotation marks make for multiple-term search strings with spaces. The first example shows a search for Bath College. 
+Compare the following searches to see the difference quotation marks make for multiple-term search strings with spaces. The first example shows a search for Bath College.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query=Bath%20College' | json_pp
 ```
 
-This search looks for **both** the term "Bath" **and** the term "College" and returns over 4800 results because the term "College" appears in many organization names. A search on the single term "Bath" produces only 17 results, because it is a much less common term in organization names. The organization record for Bath College is the first of over 4800 results, but many factors can affect the order of results, so we strongly recommend against automatically selecting the first item in any list of search results. 
+This search looks for **both** the term "Bath" **and** the term "College" and returns over 4800 results because the term "College" appears in many organization names. A search on the single term "Bath" produces only 17 results, because it is a much less common term in organization names. The organization record for Bath College is the first of over 4800 results, but many factors can affect the order of results, so we strongly recommend against automatically selecting the first item in any list of search results.
 
 ```json
 {
@@ -3310,7 +3310,7 @@ This search looks for **both** the term "Bath" **and** the term "College" and re
 >
 > The first item is often but not always the best match or desired result for a given search of the ROR API. We advise against building tools that automatically select the first result in a list of records.
 
-Searching for the exact term "Bath College" retrieves only records that contain that precise phrase in the `names` field. Remember that the `names` field can include names in several languages, acronyms, and aliases. 
+Searching for the exact term "Bath College" retrieves only records that contain that precise phrase in the `names` field. Remember that the `names` field can include names in several languages, acronyms, and aliases.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query=%22Bath%20College%22' | json_pp
@@ -3546,13 +3546,13 @@ The response returns 2 records: the record for Bath College and the record for B
 
 ## Example
 
-Remember to URL-encode and if necessary escape special characters in multi-term search strings, as when searching for "Franklin & all College". The single & character is not reserved in Elasticsearch and therefore is not escaped. 
+Remember to URL-encode and if necessary escape special characters in multi-term search strings, as when searching for "Franklin & all College". The single & character is not reserved in Elasticsearch and therefore is not escaped.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query=%22Franklin%20%26%20Marshall%20College%22' | json_pp
 ```
 
-When the & is URL-encoded, the response returns the single record for Franklin & Marshall College. When the & is not URL-encoded, the response is an error. 
+When the & is URL-encoded, the response returns the single record for Franklin & Marshall College. When the & is not URL-encoded, the response is an error.
 
 ```json
 {
@@ -3698,17 +3698,17 @@ When the & is URL-encoded, the response returns the single record for Franklin &
 
 # Searching for identifiers
 
-The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. 
+The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry.
 
 ## Example
 
-Search for a ROR record corresponding to the GRID ID for the U.S. Department of Energy. 
+Search for a ROR record corresponding to the GRID ID for the U.S. Department of Energy.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query=%22grid.85084.31%22' | json_pp
 ```
 
-The response returns a single record for the U.S. Department of Energy that contains the searched-for identifier in `external_ids`. 
+The response returns a single record for the U.S. Department of Energy that contains the searched-for identifier in `external_ids`.
 
 ```json
 {
@@ -4108,7 +4108,7 @@ The response returns a single record for the U.S. Department of Energy that cont
 
 # Paging and filtering
 
-Search results from the query parameter can be [paged](doc:api-paging) and [filtered](doc:api-filtering). The [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can also be appended to query parameter searches in order to retrieve *inactive* and *withdrawn* records as well as *active* records. 
+Search results from the query parameter can be [paged](doc:api-paging) and [filtered](doc:api-filtering). The [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can also be appended to query parameter searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records.
 
 ## Example
 
@@ -4116,7 +4116,7 @@ Search results from the query parameter can be [paged](doc:api-paging) and [filt
 curl 'https://api.ror.org/v2/organizations?query=Harvard&page=2&all_status' | json_pp
 ```
 
-The response returns the second page of results of a keyword search for "Harvard" that includes records of all status types. Note that the number of results given is the total number of results, not the number of results on the page. 
+The response returns the second page of results of a keyword search for "Harvard" that includes records of all status types. Note that the number of results given is the total number of results, not the number of results on the page.
 
 ```json
 {
@@ -5318,7 +5318,7 @@ The response returns the second page of results of a keyword search for "Harvard
 curl 'https://api.ror.org/v2/organizations?query=Technology&filter=country.country_name:Jordan' | json_pp
 ```
 
-The response returns a list of research organizations in the country of Jordan whose names include the keyword "Technology." Note that the v2 field name `locations.geonames_details.country_name` is interchangeable with the field name `country.country_name`.  
+The response returns a list of research organizations in the country of Jordan whose names include the keyword "Technology." Note that the v2 field name `locations.geonames_details.country_name` is interchangeable with the field name `country.country_name`.
 
 ```json
 {
@@ -5780,7 +5780,7 @@ The response returns a single research facility in Great Britain whose name cont
 curl 'https://api.ror.org/v2/organizations?query=Osaka&filter=status:inactive,locations.geonames_details.country_name:Japan' | json_pp
 ```
 
-The response returns a list of inactive research organizations in Japan whose names contain the keyword "Osaka". Note that the v2 field name `locations.geonames_details.country_name` is interchangeable with the field name `country.country_name`. 
+The response returns a list of inactive research organizations in Japan whose names contain the keyword "Osaka". Note that the v2 field name `locations.geonames_details.country_name` is interchangeable with the field name `country.country_name`.
 
 ```json
 {
@@ -6326,11 +6326,11 @@ The response returns a list of inactive research organizations in Japan whose na
 
 # Technical details
 
-The query parameter searches abbreviated Elasticsearch documents (called `names_ids`) that combine all the values from each ROR record's `names`  and `external_ids` fields. Only the values, not the language code or type, are included. Field names are removed, and each value is simply categorized as a "name" or an "id". 
+The query parameter searches abbreviated Elasticsearch documents (called `names_ids`) that combine all the values from each ROR record's `names`  and `external_ids` fields. Only the values, not the language code or type, are included. Field names are removed, and each value is simply categorized as a "name" or an "id".
 
 ## Example
 
-Here is a truncated example of a `names_ids` document searched by the query parameter. 
+Here is a truncated example of a `names_ids` document searched by the query parameter.
 
 ```json
 "names_ids" : [
