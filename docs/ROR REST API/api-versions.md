@@ -15,9 +15,9 @@ metadata:
 next:
   description: ''
 ---
-> 🚧 Changes to the ROR API begin the week of July 28, 2025
+> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # Community feedback
 
@@ -28,7 +28,7 @@ In the autumn of 2022, ROR asked for community feedback on plans for versioning 
 
 # API versioning
 
-The ROR metadata schema and API will be versioned in lockstep, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version. 
+The ROR metadata schema and API will be versioned in lockstep, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version.
 
 > 📘 Schema versioning
 >
@@ -37,7 +37,7 @@ The ROR metadata schema and API will be versioned in lockstep, meaning that when
 The ROR API will use semantic versioning:
 
 * A minor version (ex, X.1, X.2, etc) will be incremented when substantial non-breaking changes are made, such as changing existing API functionality so that the response to a given request has the same structure but a different meaning, e.g., changing the ?query search behavior to include ?query.advanced behavior.
-* A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing existing API functionality or significantly changing existing API functionality so that the response to a given request is different in structure, e.g., removing the container element from the ?affiliation response. 
+* A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing existing API functionality or significantly changing existing API functionality so that the response to a given request is different in structure, e.g., removing the container element from the ?affiliation response.
 
 # Changes that require versioning
 
@@ -65,7 +65,7 @@ New versions will be made available in the ROR [staging environment](https://api
 
 When a new API version is deployed to production, any supported previous versions will continue to be supported until their planned sunset date. This may sometimes result in supporting 3 versions concurrently.
 
-Plans to sunset a previous version will be announced at least 1 year prior to the planned sunset date, via the [ROR community meetings](https://ror.org/events) and other communication channels such as the [ROR blog](https://ror.org/blog), [Mastodon](https://mastodon.social/@ResearchOrgs), the [PID Forum](https://pidforum.org), the [Crossref Community Forum](http://community.crossref.org), and the [ROR Technical Forum](https://groups.google.com/a/ror.org/g/ror-tech). Regular reminders will continue prior to the sunset date. 
+Plans to sunset a previous version will be announced at least 1 year prior to the planned sunset date, via the [ROR community meetings](https://ror.org/events) and other communication channels such as the [ROR blog](https://ror.org/blog), [Mastodon](https://mastodon.social/@ResearchOrgs), the [PID Forum](https://pidforum.org), the [Crossref Community Forum](http://community.crossref.org), and the [ROR Technical Forum](https://groups.google.com/a/ror.org/g/ror-tech). Regular reminders will continue prior to the sunset date.
 
 # Implementing API versions
 
