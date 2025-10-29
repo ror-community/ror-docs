@@ -2,9 +2,9 @@
 - client-id
 - api-single
 - api-list
+- api-query
 - api-filtering
 - api-paging
-- api-query
 - api-advanced-query
 - api-affiliation
 - api-affiliation-new
