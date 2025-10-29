@@ -15,9 +15,9 @@ metadata:
 next:
   description: ''
 ---
-> 🚧 Changes to the ROR API begin the week of July 28, 2025
+> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # Community feedback
 
