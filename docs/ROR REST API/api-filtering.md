@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
   pages:
-    - type: basic
-      slug: api-paging
+    - slug: api-paging
       title: Paging
+      type: basic
 ---
 > 👍 ROR REST API v2
 >
@@ -24,7 +24,7 @@ next:
 
 # About filtering
 
-Results can be filtered by record status, organization type, [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, country name, continent code, and continent name.
+Results from standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query) can be filtered by record status, organization type, [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, country name, continent code, and continent name.
 
 * `status` - filter records by record status
 * `types` - filter records by organization type
