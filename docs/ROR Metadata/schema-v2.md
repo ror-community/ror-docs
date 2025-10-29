@@ -16,9 +16,9 @@ metadata:
 next:
   description: ''
 ---
-> 🚧 Changes to the ROR API begin the week of July 28, 2025
+> 🚧 Version 1 of the ROR schema and API will be sunset December 25
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # Community feedback
 
@@ -30,18 +30,18 @@ In the spring of 2023, ROR asked for community feedback on the specifics of majo
 
 # Planned changes
 
-Work to implement the below agreed-upon changes to the current ROR metadata schema  will continue throughout 2023 , and version 2.0 of the ROR metadata schema is expected to be released in the last quarter of 2023 or early in 2024. The current version (unofficially v1.0) will be maintained for at least a year after the release of v2.0. 
+Work to implement the below agreed-upon changes to the current ROR metadata schema  will continue throughout 2023 , and version 2.0 of the ROR metadata schema is expected to be released in the last quarter of 2023 or early in 2024. The current version (unofficially v1.0) will be maintained for at least a year after the release of v2.0.
 
-Read more about how ROR will handle [Schema versions](doc:schema-versions). 
+Read more about how ROR will handle [Schema versions](doc:schema-versions).
 
 ## Name information (name, acronyms, aliases, labels)
 
-ROR records in version 1 currently include 4 separate fields that represent variations of an organization’s name: `name`, `aliases`, `labels` and `acronyms`.  User-reported problems with these fields include 
+ROR records in version 1 currently include 4 separate fields that represent variations of an organization’s name: `name`, `aliases`, `labels` and `acronyms`.  User-reported problems with these fields include
 
-* the lack of language code in the `name` field, which makes it difficult to utilize ROR data in internationalized applications or in cases where names need to be displayed in a single preferred language, and 
-* issues with the concept of a "primary" name that can have only one value, since in multilingual countries  such as Canada and Switzerland it is important that names in different languages be given equal weight. 
+* the lack of language code in the `name` field, which makes it difficult to utilize ROR data in internationalized applications or in cases where names need to be displayed in a single preferred language, and
+* issues with the concept of a "primary" name that can have only one value, since in multilingual countries  such as Canada and Switzerland it is important that names in different languages be given equal weight.
 
-We are therefore "flattening" all name-related fields into one `names` field that can hold an array of values, types, and languages. For use cases where a single "default" name for an organization is desired, we have added the `ror_display` type to indicate that this is the name that ROR has chosen to display in its [web-based search](https://ror.org/search).  
+We are therefore "flattening" all name-related fields into one `names` field that can hold an array of values, types, and languages. For use cases where a single "default" name for an organization is desired, we have added the `ror_display` type to indicate that this is the name that ROR has chosen to display in its [web-based search](https://ror.org/search).
 
 ### Current v1.0 example
 
@@ -92,9 +92,9 @@ We are therefore "flattening" all name-related fields into one `names` field tha
 
 ## ​​​​Location information (addresses, country)
 
-The current `addresses` field contains data from [GeoNames](https://www.geonames.org/). It contains several sub-fields that contain no values and are therefore not usable, and the ROR team also spends a disproportionate amount of time handling issues with validating and retrieving very granular GeoNames data within `addresses` (e.g., `geonames_admin2`, `nuts_level1`, `nuts_level2`, etc.) that users could easily retrieve themselves directly from GeoNames using the GeoNames ID provided in each ROR record. There is also a `country` field in each ROR record that duplicates the country information in the `addresses` field. 
+The current `addresses` field contains data from [GeoNames](https://www.geonames.org/). It contains several sub-fields that contain no values and are therefore not usable, and the ROR team also spends a disproportionate amount of time handling issues with validating and retrieving very granular GeoNames data within `addresses` (e.g., `geonames_admin2`, `nuts_level1`, `nuts_level2`, etc.) that users could easily retrieve themselves directly from GeoNames using the GeoNames ID provided in each ROR record. There is also a `country` field in each ROR record that duplicates the country information in the `addresses` field.
 
-We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information. Since most countries do not have states, we are removing the `state` and `state_code` fields. Users who wish to use location information at the level of the "state" are advised to retrieve it from GeoNames using the `geonames_id`. 
+We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information. Since most countries do not have states, we are removing the `state` and `state_code` fields. Users who wish to use location information at the level of the "state" are advised to retrieve it from GeoNames using the `geonames_id`.
 
 > 📘 Identifying organizations without U.S. state information
 >
@@ -167,9 +167,9 @@ We are therefore removing empty or overly detailed GeoNames sub-fields within th
    ]
 ```
 
-## Web domain information (links, ip\_addresses, email\_address, wikipedia\_url)
+## Web domain information (links, ip_addresses, email_address, wikipedia_url)
 
-ROR contains four fields related to an organization’s web domain/presence (`links`, `ip_address`, `email_address` and `wikipedia_url`), two of which have never had any values (`ip_address` and `email_address`). URLs in the field `links` are inconsistently formatted, and there is no consensus across the data about what value this field should represent (a home page? an About page? something else?). 
+ROR contains four fields related to an organization’s web domain/presence (`links`, `ip_address`, `email_address` and `wikipedia_url`), two of which have never had any values (`ip_address` and `email_address`). URLs in the field `links` are inconsistently formatted, and there is no consensus across the data about what value this field should represent (a home page? an About page? something else?).
 
 Further, use cases from the community point to the domain registered to a particular institution (not including protocol, path portions, query parameters, etc.) as being much more useful than a full URL, as it can be unambiguously mapped to records in other services, such as identity management systems. Also, while full URLs may fail to resolve over time, domains are much more persistent, and certainly more persistent than IP addresses, given the rise of public cloud computing.
 
@@ -204,11 +204,11 @@ We are therefore removing the `ip_addresses` and `email_addresses` fields, addin
   ],
 ```
 
-## External identifiers (external\_ids)
+## External identifiers (external_ids)
 
 The current structure of the `external_ids` field is problematic because it uses the identifier type as a field name. This means that a significant schema change is required to add a new identifier type or remove a deprecated type. ROR currently includes a significant number of records with deprecated external IDs (e.g., CNRS, HESA, and OrgRef) and has received several requests to add new external ID types.
 
-We are therefore revising the `external_ids` field to be more flexible, with external identifier schemes expressed as type values rather than field names. We are also removing fields for deprecated identifier schemes. 
+We are therefore revising the `external_ids` field to be more flexible, with external identifier schemes expressed as type values rather than field names. We are also removing fields for deprecated identifier schemes.
 
 ### Current v1.0 example
 
