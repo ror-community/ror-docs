@@ -18,9 +18,9 @@ next:
 >
 > This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-filtering](https://ror.readme.io/v1/docs/api-filtering). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
-> 🚧 Changes to the ROR API begin the week of July 28, 2025
+> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
 >
-> Beginning the week of July 28, 2025, **ROR API requests with no version in the path will default to responses that use version 2 of the ROR schema instead of version 1**. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1).
+> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
 # About filtering
 
@@ -43,7 +43,7 @@ Note that in version 2 of the ROR API and schema, values formerly in the v1 fiel
 
 # Filter by record status
 
-Available statuses: *active*, *inactive*, and *withdrawn*. Requests for a specific record by its exact ROR ID will always return the record regardless of its status without need for the [all\_status parameter](doc:api-list#retrieve-a-list-of-records-with-all-statuses) or for status filters.
+Available statuses: _active_, _inactive_, and _withdrawn_. Requests for a specific record by its exact ROR ID will always return the record regardless of its status without need for the [all_status parameter](doc:api-list#retrieve-a-list-of-records-with-all-statuses) or for status filters.
 
 ## Example
 
