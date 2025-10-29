@@ -26,11 +26,11 @@ next:
 
 # About paging
 
-Responses to queries of the ROR API are broken into pages with a maximum of 20 results per page beginning at page 1. If `metadata.number_of_results` is greater than 20, you can retrieve subsequent records by specifying the page number of the result.
+Responses to queries of the ROR API are broken into pages with a maximum of 20 results per page beginning at page 1. If `metadata.number_of_results` is greater than 20, you can retrieve subsequent records by specifying the page number of the result. You can page through results of both standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query).
 
 > 📘 Paging format
 >
-> `https://api.ror.org/v2/organizations?page=[page number]`
+> `https://api.ror.org/v2/organizations?query=[query]&page=[page number]`
 
 The maximum number of pages that can be retrieved is 500, which means that the maximum number of ROR records that can be retrieved via the ROR API is 10,000. If you send a request for a page beyond 500, you will receive a 200 status, but also an error response like `{"errors":["page '5144' outside of range 1-500”]}`
 
@@ -43,10 +43,10 @@ To determine how many pages you will need to retrieve in order to obtain your en
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?page=4' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Hospital&page=2' | json_pp
 ```
 
-The response is a list of the 20 organization records from the fourth page of results of a request to list all active records in ROR. Counts in `<metadata>` pertain to the entire results list, not the individual page.
+The response is a list of the 20 organization records from the second page of results of a request to list all active records in ROR with the term "Hospital" in a name field. Counts in `<metadata>` pertain to the entire results list, not the individual page.
 
 ```json
 {
@@ -63,28 +63,39 @@ The response is a list of the 20 organization records from the fourth page of re
             }
          },
          "domains" : [],
-         "established" : 1978,
+         "established" : 2001,
          "external_ids" : [
             {
                "all" : [
-                  "grid.6276.5"
+                  "grid.439492.1"
                ],
-               "preferred" : "grid.6276.5",
+               "preferred" : "grid.439492.1",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0618 8606"
+                  "0000 0004 0486 5909"
                ],
                "preferred" : null,
                "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30292908"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/00b7dkt53",
+         "id" : "https://ror.org/02se1sp19",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.crf.it/EN"
+               "value" : "https://www.nhs.uk/Services/hospitals/Overview/DefaultView.aspx?id=2905"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Harplands_Hospital"
             }
          ],
          "locations" : [
@@ -92,44 +103,118 @@ The response is a list of the 20 organization records from the fourth page of re
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "IT",
-                  "country_name" : "Italy",
-                  "country_subdivision_code" : "21",
-                  "country_subdivision_name" : "Piedmont",
-                  "lat" : 45.00547,
-                  "lng" : 7.53813,
-                  "name" : "Orbassano"
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 53.00415,
+                  "lng" : -2.18538,
+                  "name" : "Stoke-on-Trent"
                },
-               "geonames_id" : 3171986
+               "geonames_id" : 2636841
             }
          ],
          "names" : [
             {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CRF"
-            },
-            {
-               "lang" : "it",
+               "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Centro Ricerche FIAT"
+               "value" : "Harplands Hospital"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/005m6rn77",
-               "label" : "Fiat Chrysler Automobiles (Italy)",
-               "type" : "related"
+               "id" : "https://ror.org/02d5d0r05",
+               "label" : "North Staffordshire Combined Healthcare NHS Trust",
+               "type" : "parent"
             }
          ],
          "status" : "active",
          "types" : [
-            "facility"
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2005,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439502.9"
+               ],
+               "preferred" : "grid.439502.9",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0400 3460"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30292918"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/046rmzh87",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.qegateshead.nhs.uk/benshamhospital"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 54.96209,
+                  "lng" : -1.60168,
+                  "name" : "Gateshead"
+               },
+               "geonames_id" : 2648773
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Bensham Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/01aye5y64",
+               "label" : "Gateshead Health NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
          ]
       },
       {
@@ -148,160 +233,31 @@ The response is a list of the 20 organization records from the fourth page of re
          "external_ids" : [
             {
                "all" : [
-                  "grid.6287.b"
+                  "grid.439506.d"
                ],
-               "preferred" : "grid.6287.b",
+               "preferred" : "grid.439506.d",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 6009 976X"
+                  "0000 0004 0578 7850"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q30252678"
+                  "Q30292922"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/00qt5ka73",
+         "id" : "https://ror.org/03caevp73",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.arttic.eu/pages/en/home.php"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.85341,
-                  "lng" : 2.3488,
-                  "name" : "Paris"
-               },
-               "geonames_id" : 2988507
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Arttic (France)"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1957,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.6467.3"
-               ],
-               "preferred" : "grid.6467.3",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/035gy9016",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.tecnatom.es/en/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "ES",
-                  "country_name" : "Spain",
-                  "country_subdivision_code" : "MD",
-                  "country_subdivision_name" : "Madrid",
-                  "lat" : 40.55555,
-                  "lng" : -3.62733,
-                  "name" : "San Sebastián de los Reyes"
-               },
-               "geonames_id" : 3110040
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Tecnatom (Spain)"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1985,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.6484.e"
-               ],
-               "preferred" : "grid.6484.e",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q30252785"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04vfyfx73",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.teercoatings.co.uk/"
+               "value" : "https://www.renacreshospital.co.uk/"
             }
          ],
          "locations" : [
@@ -313,34 +269,27 @@ The response is a list of the 20 organization records from the fourth page of re
                   "country_name" : "United Kingdom",
                   "country_subdivision_code" : "ENG",
                   "country_subdivision_name" : "England",
-                  "lat" : 52.26667,
-                  "lng" : -2.15,
-                  "name" : "Droitwich"
+                  "lat" : 53.56685,
+                  "lng" : -2.88178,
+                  "name" : "Ormskirk"
                },
-               "geonames_id" : 2650983
+               "geonames_id" : 2640908
             }
          ],
          "names" : [
             {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "TCL"
-            },
-            {
-               "lang" : null,
+               "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Teer Coatings (United Kingdom)"
+               "value" : "Renacres Hospital"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "company"
+            "healthcare"
          ]
       },
       {
@@ -355,121 +304,35 @@ The response is a list of the 20 organization records from the fourth page of re
             }
          },
          "domains" : [],
-         "established" : 1981,
+         "established" : 1922,
          "external_ids" : [
             {
                "all" : [
-                  "grid.6496.d"
+                  "grid.439508.3"
                ],
-               "preferred" : "grid.6496.d",
+               "preferred" : "grid.439508.3",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 1763 8481"
+                  "0000 0004 0398 6581"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q30252786"
+                  "Q30292924"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/033vryh36",
+         "id" : "https://ror.org/04f4nzq23",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.tekniker.es/es"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "ES",
-                  "country_name" : "Spain",
-                  "country_subdivision_code" : "PV",
-                  "country_subdivision_name" : "Basque Country",
-                  "lat" : 43.18493,
-                  "lng" : -2.47158,
-                  "name" : "Eibar"
-               },
-               "geonames_id" : 3123709
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "es",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Tekniker"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "nonprofit"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1900,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100000855"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.6572.6"
-               ],
-               "preferred" : "grid.6572.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 1936 7486"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q223429"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03angcq70",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.birmingham.ac.uk/index.aspx"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/University_of_Birmingham"
+               "value" : "https://www.dbth.nhs.uk/locations/retford-hospital/"
             }
          ],
          "locations" : [
@@ -481,381 +344,33 @@ The response is a list of the 20 organization records from the fourth page of re
                   "country_name" : "United Kingdom",
                   "country_subdivision_code" : "ENG",
                   "country_subdivision_name" : "England",
-                  "lat" : 52.48142,
-                  "lng" : -1.89983,
-                  "name" : "Birmingham"
+                  "lat" : 53.32213,
+                  "lng" : -0.94315,
+                  "name" : "East Retford"
                },
-               "geonames_id" : 2655603
+               "geonames_id" : 2650346
             }
          ],
          "names" : [
             {
                "lang" : "en",
                "types" : [
-                  "alias"
-               ],
-               "value" : "Birmingham University"
-            },
-            {
-               "lang" : "cy",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Prifysgol Birmingham"
-            },
-            {
-               "lang" : "en",
-               "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "University of Birmingham"
+               "value" : "Retford Hospital"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/03qxptw71",
-               "label" : "Cancer Research UK Clinical Trials Unit",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/05a9avq33",
-               "label" : "Centre for Printing History and Culture",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/05c24ew78",
-               "label" : "Walsall College",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/017k80q27",
-               "label" : "Birmingham Children's Hospital",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/02smq5q54",
-               "label" : "Birmingham City Hospital",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/01xhmje49",
-               "label" : "Birmingham Dental Hospital",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/015hfw664",
-               "label" : "Good Hope Hospital",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/00k5pte35",
-               "label" : "NIHR Birmingham Liver Biomedical Research Unit",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/05w3e4z48",
-               "label" : "New Cross Hospital",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/048emj907",
-               "label" : "Queen Elizabeth Hospital Birmingham",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/041jyhr41",
-               "label" : "Selly Oak Hospital",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1999,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.6606.6"
-               ],
-               "preferred" : "grid.6606.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q29576195"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/042e7c302",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.multitel.be/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "BE",
-                  "country_name" : "Belgium",
-                  "country_subdivision_code" : "WAL",
-                  "country_subdivision_name" : "Wallonia",
-                  "lat" : 50.45413,
-                  "lng" : 3.95229,
-                  "name" : "Mons"
-               },
-               "geonames_id" : 2790869
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Multitel"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1842,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100005895"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.6615.4"
-               ],
-               "preferred" : "grid.6615.4",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2364 3824"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q137910"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02vbxt202",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.thyssenkrupp.com/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/ThyssenKrupp"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "DE",
-                  "country_name" : "Germany",
-                  "country_subdivision_code" : "NW",
-                  "country_subdivision_name" : "North Rhine-Westphalia",
-                  "lat" : 51.45657,
-                  "lng" : 7.01228,
-                  "name" : "Essen"
-               },
-               "geonames_id" : 2928810
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "ThyssenKrupp (Germany)"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00akjja53",
-               "label" : "Atlas Elektronik (Germany)",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/04y0ypp13",
-               "label" : "ThyssenKrupp (Brazil)",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/0034dyb91",
-               "label" : "ThyssenKrupp (China)",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/01zbqc597",
-               "label" : "ThyssenKrupp (Italy)",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/026kmj910",
-               "label" : "ThyssenKrupp (Liechtenstein)",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/03w3b4f85",
-               "label" : "ThyssenKrupp (United Kingdom)",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/01hcney72",
-               "label" : "Thyssenkrupp (Slovakia)",
-               "type" : "child"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "company",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1957,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.6625.7"
-               ],
-               "preferred" : "grid.6625.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0623 4115"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q29123664"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/01c74sd89",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.st.com/content/st_com/en.html"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/STMicroelectronicsce"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.8162,
-                  "lng" : 2.31393,
-                  "name" : "Montrouge"
-               },
-               "geonames_id" : 2992017
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "ST"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "STMicroelectronics (France)"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00wm3b005",
-               "label" : "STMicroelectronics (Switzerland)",
+               "id" : "https://ror.org/01yc93g67",
+               "label" : "Doncaster and Bassetlaw Teaching Hospitals NHS Foundation Trust",
                "type" : "parent"
             }
          ],
          "status" : "active",
          "types" : [
-            "company"
+            "healthcare"
          ]
       },
       {
@@ -870,28 +385,39 @@ The response is a list of the 20 organization records from the fourth page of re
             }
          },
          "domains" : [],
-         "established" : 1952,
+         "established" : 2010,
          "external_ids" : [
             {
                "all" : [
-                  "grid.6933.f"
+                  "grid.439515.f"
                ],
-               "preferred" : "grid.6933.f",
+               "preferred" : "grid.439515.f",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 2369 3573"
+                  "0000 0004 0490 5923"
                ],
                "preferred" : null,
                "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q4894895"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/02q8h2f47",
+         "id" : "https://ror.org/03zbds496",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.fcba.fr/"
+               "value" : "https://www.nhft.nhs.uk/berrywood/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Berrywood_Hospital"
             }
          ],
          "locations" : [
@@ -899,117 +425,1035 @@ The response is a list of the 20 organization records from the fourth page of re
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.85341,
-                  "lng" : 2.3488,
-                  "name" : "Paris"
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.25,
+                  "lng" : -0.88333,
+                  "name" : "Northampton"
                },
-               "geonames_id" : 2988507
+               "geonames_id" : 2641430
             }
          ],
          "names" : [
             {
-               "lang" : null,
+               "lang" : "en",
                "types" : [
-                  "acronym"
+                  "ror_display",
+                  "label"
                ],
-               "value" : "FCBA"
+               "value" : "Berrywood Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0358tcd02",
+               "label" : "Northamptonshire Healthcare NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1933,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439516.c"
+               ],
+               "preferred" : "grid.439516.c",
+               "type" : "grid"
             },
             {
-               "lang" : "fr",
+               "all" : [
+                  "0000 0004 0502 5098"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30292928"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/0279qd249",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.esht.nhs.uk/hospitals-and-community/bexhill-hospital/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Bexhill_Hospital"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 50.85023,
+                  "lng" : 0.47095,
+                  "name" : "Bexhill"
+               },
+               "geonames_id" : 2655777
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Bexhill Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/04tvjvp97",
+               "label" : "East Sussex Healthcare NHS Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2012,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439517.d"
+               ],
+               "preferred" : "grid.439517.d",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q30292929"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/032kn8622",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.norfolkcommunityhealthandcare.nhs.uk/The-care-we-offer/Service-search/colman-hospital/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.62783,
+                  "lng" : 1.29834,
+                  "name" : "Norwich"
+               },
+               "geonames_id" : 2641181
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Colman Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/00xkkpn05",
+               "label" : "Norfolk Community Health and Care NHS Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1893,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439519.3"
+               ],
+               "preferred" : "grid.439519.3",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0399 9817"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q5169736"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00f147v33",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.nhs.uk/Services/hospitals/Overview/DefaultView.aspx?id=RNA04"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Corbett_Hospital"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.45608,
+                  "lng" : -2.14317,
+                  "name" : "Stourbridge"
+               },
+               "geonames_id" : 2636769
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Corbett Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/014hmqv77",
+               "label" : "Dudley Group NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2002,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439520.9"
+               ],
+               "preferred" : "grid.439520.9",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0579 513X"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30292931"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00ekntx28",
+         "links" : [],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 54.33901,
+                  "lng" : -1.43243,
+                  "name" : "Northallerton"
+               },
+               "geonames_id" : 2641435
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Rutson Hospital"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1907,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439524.d"
+               ],
+               "preferred" : "grid.439524.d",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0417 1253"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q5174706"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/04e0p7290",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.nbt.nhs.uk/our-hospitals/cossham-hospital"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 51.45523,
+                  "lng" : -2.59665,
+                  "name" : "Bristol"
+               },
+               "geonames_id" : 2654675
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Cossham Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/036x6gt55",
+               "label" : "North Bristol NHS Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1983,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439527.e"
+               ],
+               "preferred" : "grid.439527.e",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0648 9687"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q7596631"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02xphqm22",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.uhnm.nhs.uk/OurServices/Maternity/Pages/County-Hospital-service.aspx"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.80521,
+                  "lng" : -2.11636,
+                  "name" : "Stafford"
+               },
+               "geonames_id" : 2637142
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "County Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/03g47g866",
+               "label" : "University Hospitals of North Midlands NHS Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1961,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439532.a"
+               ],
+               "preferred" : "grid.439532.a",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 1756 6342"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q5182983"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02vh6gg23",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.surreyandsussex.nhs.uk/crawley-hospital/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Crawley_Hospital"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 51.11303,
+                  "lng" : -0.18312,
+                  "name" : "Crawley"
+               },
+               "geonames_id" : 2652053
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Crawley Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0480vrj36",
+               "label" : "Surrey and Sussex Healthcare NHS Trust",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/04e4sh030",
+               "label" : "Sussex Community NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1932,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439538.0"
+               ],
+               "preferred" : "grid.439538.0",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q5187593"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/0457fah73",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.nnuh.nhs.uk/our-services/our-hospitals/cromer-and-district-hospital/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Cromer_Hospital"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.93123,
+                  "lng" : 1.29892,
+                  "name" : "Cromer"
+               },
+               "geonames_id" : 2651930
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Cromer Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/01wspv808",
+               "label" : "Norfolk and Norwich University Hospitals NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2006,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439549.6"
+               ],
+               "preferred" : "grid.439549.6",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q30292950"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/003dyzj34",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.nhft.nhs.uk/danetre/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.25688,
+                  "lng" : -1.16066,
+                  "name" : "Daventry"
+               },
+               "geonames_id" : 2651485
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Danetre Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0358tcd02",
+               "label" : "Northamptonshire Healthcare NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2006,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439550.e"
+               ],
+               "preferred" : "grid.439550.e",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q30292951"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/024mswg55",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.blakelandshospital.co.uk/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.04172,
+                  "lng" : -0.75583,
+                  "name" : "Milton Keynes"
+               },
+               "geonames_id" : 2642465
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Blakelands Hospital"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439554.a"
+               ],
+               "preferred" : "grid.439554.a",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q30292954"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02j3qj605",
+         "links" : [],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 50.3522,
+                  "lng" : -3.5794,
+                  "name" : "Dartmouth"
+               },
+               "geonames_id" : 2651498
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Dartmouth Hospital"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439555.b"
+               ],
+               "preferred" : "grid.439555.b",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0497 2181"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30292955"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/03jjx5w61",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.merseycare.nhs.uk/our-services/our-sites/rathbone-hospital/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 53.41058,
+                  "lng" : -2.97794,
+                  "name" : "Liverpool"
+               },
+               "geonames_id" : 2644210
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Rathbone Hospital"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/03vtyzs10",
+               "label" : "Mersey Care NHS Trust",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "healthcare"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2002,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.439561.c"
+               ],
+               "preferred" : "grid.439561.c",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0520 7609"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q4936671"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02q2vkv24",
+         "links" : [
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Bodmin_Hospital"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "EU",
+                  "continent_name" : "Europe",
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 50.47151,
+                  "lng" : -4.7243,
+                  "name" : "Bodmin"
+               },
+               "geonames_id" : 2655273
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
                "types" : [
                   "alias"
                ],
-               "value" : "Institut Technologique FCBA"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institut Technologique Forêt Cellulose Bois-Construction Ameublement"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1945,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.6975.d"
-               ],
-               "preferred" : "grid.6975.d",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0410 5926"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q21015571"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/030wyr187",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.ttl.fi/en/Pages/default.aspx"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Finnish_Institute_of_Occupational_Health"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FI",
-                  "country_name" : "Finland",
-                  "country_subdivision_code" : "18",
-                  "country_subdivision_name" : "Uusimaa",
-                  "lat" : 60.16952,
-                  "lng" : 24.93545,
-                  "name" : "Helsinki"
-               },
-               "geonames_id" : 658225
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "FIOH"
+               "value" : "Bodmin Community Hospital"
             },
             {
                "lang" : "en",
@@ -1017,311 +1461,19 @@ The response is a list of the 20 organization records from the fourth page of re
                   "ror_display",
                   "label"
                ],
-               "value" : "Finnish Institute of Occupational Health"
-            },
-            {
-               "lang" : "fi",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Työterveyslaitos"
+               "value" : "Bodmin Hospital"
             }
          ],
-         "relationships" : [],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0517ad239",
+               "label" : "Cornwall Partnership NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
          "status" : "active",
          "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1998,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100001588"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.7088.7"
-               ],
-               "preferred" : "grid.7088.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 1759 4183"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5380326"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/023z51242",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.enterprise-ireland.com/en/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Enterprise_Ireland"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "IE",
-                  "country_name" : "Ireland",
-                  "country_subdivision_code" : "L",
-                  "country_subdivision_name" : "Leinster",
-                  "lat" : 53.33306,
-                  "lng" : -6.24889,
-                  "name" : "Dublin"
-               },
-               "geonames_id" : 2964574
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Enterprise Ireland"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "funder",
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1970,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.7151.2"
-               ],
-               "preferred" : "grid.7151.2",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0170 2635"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5088071"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/0261g6j35",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.hau.ernet.in/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Chaudhary_Charan_Singh_Haryana_Agricultural_University"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AS",
-                  "continent_name" : "Asia",
-                  "country_code" : "IN",
-                  "country_name" : "India",
-                  "country_subdivision_code" : "HR",
-                  "country_subdivision_name" : "Haryana",
-                  "lat" : 29.15394,
-                  "lng" : 75.72294,
-                  "name" : "Hisar"
-               },
-               "geonames_id" : 1270022
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CCS HAU"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Chaudhary Charan Singh Haryana Agricultural University"
-            },
-            {
-               "lang" : "hi",
-               "types" : [
-                  "label"
-               ],
-               "value" : "चौधरी चरण सिंह हरियाणा कृषि विश्वविद्यालय"
-            },
-            {
-               "lang" : "ta",
-               "types" : [
-                  "label"
-               ],
-               "value" : "சௌதரி சரண் சிங் அரியானா வேளாண்மை பல்கலைக்கழகம்"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1974,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100004173"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.7220.7"
-               ],
-               "preferred" : "grid.7220.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2157 0393"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q972553",
-                  "Q6156345",
-                  "Q7863746",
-                  "Q7863745"
-               ],
-               "preferred" : "Q972553",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02kta5139",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.uam.mx/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Universidad_Aut%C3%B3noma_Metropolitana"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "MX",
-                  "country_name" : "Mexico",
-                  "country_subdivision_code" : "CMX",
-                  "country_subdivision_name" : "Mexico City",
-                  "lat" : 19.42847,
-                  "lng" : -99.12766,
-                  "name" : "Mexico City"
-               },
-               "geonames_id" : 3530597
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Metropolitan Autonomous University"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UAM"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Universidad Autónoma Metropolitana"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
+            "healthcare"
          ]
       },
       {
@@ -1340,132 +1492,31 @@ The response is a list of the 20 organization records from the fourth page of re
          "external_ids" : [
             {
                "all" : [
-                  "501100002352",
-                  "501100002374"
+                  "grid.439565.8"
                ],
-               "preferred" : "501100002352",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.7269.a"
-               ],
-               "preferred" : "grid.7269.a",
+               "preferred" : "grid.439565.8",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0621 1570"
+                  "0000 0004 7669 1012"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q2723670"
+                  "Q30292963"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/00cb9w016",
+         "id" : "https://ror.org/049q27a79",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.asu.edu.eg/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Ain_Shams_University"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "EG",
-                  "country_name" : "Egypt",
-                  "country_subdivision_code" : "C",
-                  "country_subdivision_name" : "Cairo",
-                  "lat" : 30.06263,
-                  "lng" : 31.24967,
-                  "name" : "Cairo"
-               },
-               "geonames_id" : 360630
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "ASU"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Ain Shams University"
-            },
-            {
-               "lang" : "ar",
-               "types" : [
-                  "label"
-               ],
-               "value" : "جامعة عين شمس"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00p59qs14",
-               "label" : "Ain Shams University Hospital",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2004,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.7280.d"
-               ],
-               "preferred" : "grid.7280.d",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0561 4976"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/01jm19r53",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://tutech.net/index.php/page/about-us-2011-03-04#1"
+               "value" : "https://www.norfolkcommunityhealthandcare.nhs.uk/The-care-we-offer/Service-search/dereham-hospital/"
             }
          ],
          "locations" : [
@@ -1473,107 +1524,15 @@ The response is a list of the 20 organization records from the fourth page of re
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "DE",
-                  "country_name" : "Germany",
-                  "country_subdivision_code" : "HH",
-                  "country_subdivision_name" : "Hamburg",
-                  "lat" : 53.55073,
-                  "lng" : 9.99302,
-                  "name" : "Hamburg"
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.68333,
+                  "lng" : 0.93333,
+                  "name" : "Dereham"
                },
-               "geonames_id" : 2911298
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "alias"
-               ],
-               "value" : "TuTech"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "TuTech Innovation (Germany)"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/013e7et93",
-               "label" : "Leipziger Institut für Energie",
-               "type" : "child"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1970,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.7307.3"
-               ],
-               "preferred" : "grid.7307.3",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2108 9006"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q616905"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03p14d497",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.uni-augsburg.de/en/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/University_of_Augsburg"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "DE",
-                  "country_name" : "Germany",
-                  "country_subdivision_code" : "BY",
-                  "country_subdivision_name" : "Bavaria",
-                  "lat" : 48.37154,
-                  "lng" : 10.89851,
-                  "name" : "Augsburg"
-               },
-               "geonames_id" : 2954172
+               "geonames_id" : 2650470
             }
          ],
          "names" : [
@@ -1583,26 +1542,19 @@ The response is a list of the 20 organization records from the fourth page of re
                   "ror_display",
                   "label"
                ],
-               "value" : "University of Augsburg"
-            },
-            {
-               "lang" : "de",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Universität Augsburg"
+               "value" : "Dereham Hospital"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/03b0k9c14",
-               "label" : "University Hospital Augsburg",
-               "type" : "related"
+               "id" : "https://ror.org/00xkkpn05",
+               "label" : "Norfolk Community Health and Care NHS Trust",
+               "type" : "parent"
             }
          ],
          "status" : "active",
          "types" : [
-            "education"
+            "healthcare"
          ]
       },
       {
@@ -1617,35 +1569,35 @@ The response is a list of the 20 organization records from the fourth page of re
             }
          },
          "domains" : [],
-         "established" : 1940,
+         "established" : null,
          "external_ids" : [
             {
                "all" : [
-                  "grid.7320.6"
+                  "grid.439573.f"
                ],
-               "preferred" : "grid.7320.6",
+               "preferred" : "grid.439573.f",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0606 8858"
+                  "0000 0004 0447 0915"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q30252789"
+                  "Q30292968"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/006rhxn50",
+         "id" : "https://ror.org/05w3scj59",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://forcetechnology.com/en"
+               "value" : "https://www.nhs.uk/Services/hospitals/Overview/DefaultView.aspx?id=RT133"
             }
          ],
          "locations" : [
@@ -1653,370 +1605,181 @@ The response is a list of the 20 organization records from the fourth page of re
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "DK",
-                  "country_name" : "Denmark",
-                  "country_subdivision_code" : "84",
-                  "country_subdivision_name" : "Capital Region",
-                  "lat" : 55.6455,
-                  "lng" : 12.41008,
-                  "name" : "Brøndby"
+                  "country_code" : "GB",
+                  "country_name" : "United Kingdom",
+                  "country_subdivision_code" : "ENG",
+                  "country_subdivision_name" : "England",
+                  "lat" : 52.55131,
+                  "lng" : 0.08828,
+                  "name" : "March"
                },
-               "geonames_id" : 2623340
+               "geonames_id" : 2643071
             }
          ],
          "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "FORCE Technology (Denmark)"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/03whc3s66",
-               "label" : "Delta (Denmark)",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/04rccsv84",
-               "label" : "FORCE Technology (Norway)",
-               "type" : "child"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1934,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.7324.2"
-               ],
-               "preferred" : "grid.7324.2",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0643 3659"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q128929"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00bxsm637",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.mtu.de/?fc=1"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/MTU_Aero_Engines"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "DE",
-                  "country_name" : "Germany",
-                  "country_subdivision_code" : "BY",
-                  "country_subdivision_name" : "Bavaria",
-                  "lat" : 48.13743,
-                  "lng" : 11.57549,
-                  "name" : "Munich"
-               },
-               "geonames_id" : 2867714
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "MTU Aero Engines (Germany)"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "alias"
-               ],
-               "value" : "MTU München"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1949,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.7336.1"
-               ],
-               "preferred" : "grid.7336.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0203 5854"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q606815"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03y5egs41",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://englishweb.uni-pannon.hu/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/University_of_Pannonia"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "HU",
-                  "country_name" : "Hungary",
-                  "country_subdivision_code" : "VE",
-                  "country_subdivision_name" : "Veszprém",
-                  "lat" : 47.09327,
-                  "lng" : 17.91149,
-                  "name" : "Veszprém"
-               },
-               "geonames_id" : 3042929
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "hu",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Pannon Egyetem"
-            },
             {
                "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "University of Pannonia"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "University of Veszprém"
+               "value" : "Doddington Hospital"
             }
          ],
-         "relationships" : [],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/040ch0e11",
+               "label" : "Cambridgeshire and Peterborough NHS Foundation Trust",
+               "type" : "parent"
+            }
+         ],
          "status" : "active",
          "types" : [
-            "education"
+            "healthcare"
          ]
       }
    ],
    "meta" : {
       "continents" : [
          {
-            "count" : 43168,
-            "id" : "eu",
-            "title" : "Europe"
-         },
-         {
-            "count" : 36887,
-            "id" : "na",
-            "title" : "North America"
-         },
-         {
-            "count" : 20748,
+            "count" : 3344,
             "id" : "as",
             "title" : "Asia"
          },
          {
-            "count" : 3640,
+            "count" : 1991,
+            "id" : "eu",
+            "title" : "Europe"
+         },
+         {
+            "count" : 1475,
+            "id" : "na",
+            "title" : "North America"
+         },
+         {
+            "count" : 274,
             "id" : "af",
             "title" : "Africa"
          },
          {
-            "count" : 3446,
+            "count" : 236,
             "id" : "sa",
             "title" : "South America"
          },
          {
-            "count" : 1917,
+            "count" : 186,
             "id" : "oc",
             "title" : "Oceania"
-         },
-         {
-            "count" : 2,
-            "id" : "an",
-            "title" : "Antarctica"
          }
       ],
       "countries" : [
          {
-            "count" : 31919,
+            "count" : 1259,
             "id" : "us",
             "title" : "United States"
          },
          {
-            "count" : 7546,
-            "id" : "gb",
-            "title" : "United Kingdom"
-         },
-         {
-            "count" : 5299,
-            "id" : "de",
-            "title" : "Germany"
-         },
-         {
-            "count" : 4919,
-            "id" : "cn",
-            "title" : "China"
-         },
-         {
-            "count" : 4799,
-            "id" : "fr",
-            "title" : "France"
-         },
-         {
-            "count" : 4007,
+            "count" : 1040,
             "id" : "jp",
             "title" : "Japan"
          },
          {
-            "count" : 3557,
-            "id" : "ca",
-            "title" : "Canada"
+            "count" : 995,
+            "id" : "gb",
+            "title" : "United Kingdom"
          },
          {
-            "count" : 3208,
+            "count" : 980,
+            "id" : "cn",
+            "title" : "China"
+         },
+         {
+            "count" : 464,
             "id" : "in",
             "title" : "India"
          },
          {
-            "count" : 2804,
-            "id" : "cz",
-            "title" : "Czech Republic"
+            "count" : 220,
+            "id" : "es",
+            "title" : "Spain"
          },
          {
-            "count" : 2137,
-            "id" : "it",
-            "title" : "Italy"
+            "count" : 213,
+            "id" : "kr",
+            "title" : "South Korea"
+         },
+         {
+            "count" : 159,
+            "id" : "au",
+            "title" : "Australia"
+         },
+         {
+            "count" : 152,
+            "id" : "ca",
+            "title" : "Canada"
+         },
+         {
+            "count" : 111,
+            "id" : "br",
+            "title" : "Brazil"
          }
       ],
       "statuses" : [
          {
-            "count" : 109806,
+            "count" : 7506,
             "id" : "active",
             "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 30199,
-            "id" : "company",
-            "title" : "company"
-         },
-         {
-            "count" : 21507,
-            "id" : "education",
-            "title" : "education"
-         },
-         {
-            "count" : 16948,
-            "id" : "funder",
-            "title" : "funder"
-         },
-         {
-            "count" : 14648,
-            "id" : "nonprofit",
-            "title" : "nonprofit"
-         },
-         {
-            "count" : 13376,
+            "count" : 7245,
             "id" : "healthcare",
             "title" : "healthcare"
          },
          {
-            "count" : 11437,
-            "id" : "facility",
-            "title" : "facility"
+            "count" : 358,
+            "id" : "funder",
+            "title" : "funder"
          },
          {
-            "count" : 8643,
+            "count" : 154,
+            "id" : "education",
+            "title" : "education"
+         },
+         {
+            "count" : 51,
+            "id" : "nonprofit",
+            "title" : "nonprofit"
+         },
+         {
+            "count" : 20,
             "id" : "other",
             "title" : "other"
          },
          {
-            "count" : 7122,
+            "count" : 15,
+            "id" : "facility",
+            "title" : "facility"
+         },
+         {
+            "count" : 11,
+            "id" : "company",
+            "title" : "company"
+         },
+         {
+            "count" : 9,
             "id" : "government",
             "title" : "government"
          },
          {
-            "count" : 3024,
+            "count" : 2,
             "id" : "archive",
             "title" : "archive"
          }
       ]
    },
-   "number_of_results" : 109806,
-   "time_taken" : 20
+   "number_of_results" : 7506,
+   "time_taken" : 10
 }
 ```
