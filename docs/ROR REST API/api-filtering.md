@@ -2129,10 +2129,10 @@ Available country codes are those in the [ISO 3166 alpha-2 list](https://en.wiki
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=country.country_code:ZA' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Mandela&filter=country.country_code:ZA' | json_pp
 ```
 
-Returns a list of research organizations in South Africa.
+Returns a list of research organizations in South Africa with the keyword "Mandela" in a `names` field.
 
 ```json
 {
@@ -2148,209 +2148,50 @@ Returns a list of research organizations in South Africa.
                "schema_version" : "2.1"
             }
          },
-         "domains" : [],
-         "established" : 1879,
+         "domains" : [
+            "mandela.ac.za"
+         ],
+         "established" : 2005,
          "external_ids" : [
             {
                "all" : [
-                  "grid.413302.7"
+                  "501100001340",
+                  "501100013969"
                ],
-               "preferred" : "grid.413302.7",
+               "preferred" : "501100013969",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.412139.c"
+               ],
+               "preferred" : "grid.412139.c",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 0044 1330"
+                  "0000 0001 2191 3608"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q30254227"
+                  "Q1331614"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/01vx7zt03",
+         "id" : "https://ror.org/03r1jm528",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/addingtonhospital.htm"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -29.8579,
-                  "lng" : 31.0292,
-                  "name" : "Durban"
-               },
-               "geonames_id" : 1007311
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Addington Hospital"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "The Bayside Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1855,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413331.7"
-               ],
-               "preferred" : "grid.413331.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0635 1477"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30254236"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00xnmcq32",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/greyshospital.htm"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -29.61679,
-                  "lng" : 30.39278,
-                  "name" : "Pietermaritzburg"
-               },
-               "geonames_id" : 965301
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Grey's Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1938,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413335.3"
-               ],
-               "preferred" : "grid.413335.3",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0635 1506"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q368400"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00c879s84",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.westerncape.gov.za/your_gov/163"
+               "value" : "https://www.mandela.ac.za"
             },
             {
                "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Groote_Schuur_Hospital"
+               "value" : "https://en.wikipedia.org/wiki/Nelson_Mandela_University"
             }
          ],
          "locations" : [
@@ -2360,320 +2201,13 @@ Returns a list of research organizations in South Africa.
                   "continent_name" : "Africa",
                   "country_code" : "ZA",
                   "country_name" : "South Africa",
-                  "country_subdivision_code" : "WC",
-                  "country_subdivision_name" : "Western Cape",
-                  "lat" : -33.92584,
-                  "lng" : 18.42322,
-                  "name" : "Cape Town"
+                  "country_subdivision_code" : "EC",
+                  "country_subdivision_name" : "Eastern Cape",
+                  "lat" : -33.96109,
+                  "lng" : 25.61494,
+                  "name" : "Port Elizabeth"
                },
-               "geonames_id" : 3369157
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Groote Schuur Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02nys7898",
-               "label" : "Western Cape Department of Health",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/03p74gp79",
-               "label" : "University of Cape Town",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1884,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413821.d"
-               ],
-               "preferred" : "grid.413821.d",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/000vg5909",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.samj.org.za/index.php/samj"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "WC",
-                  "country_subdivision_name" : "Western Cape",
-                  "lat" : -33.92584,
-                  "lng" : 18.42322,
-                  "name" : "Cape Town"
-               },
-               "geonames_id" : 3369157
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Health & Medical Publishing Group"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SAMJ"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "South African Medical Journal"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1998,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.414087.e"
-               ],
-               "preferred" : "grid.414087.e",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0635 7844"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/01tcy5w98",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.auruminstitute.org/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Aurum Institute"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "nonprofit"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1999,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.414191.8"
-               ],
-               "preferred" : "grid.414191.8",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q30279920"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04ap0ew90",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/hlabisahospital.htm"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -28.14519,
-                  "lng" : 31.87719,
-                  "name" : "Hlabisa"
-               },
-               "geonames_id" : 996377
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Hlabisa Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1941,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.414240.7"
-               ],
-               "preferred" : "grid.414240.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0367 6954"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q1077277"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02g48bh60",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.chrishanibaragwanathhospital.co.za/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Chris_Hani_Baragwanath_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
+               "geonames_id" : 964420
             }
          ],
          "names" : [
@@ -2682,7 +2216,21 @@ Returns a list of research organizations in South Africa.
                "types" : [
                   "acronym"
                ],
-               "value" : "CHBH"
+               "value" : "NMU"
+            },
+            {
+               "lang" : "af",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Nelson Mandela Metropolitaanse Universiteit"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Nelson Mandela Metropolitan University"
             },
             {
                "lang" : "en",
@@ -2690,104 +2238,30 @@ Returns a list of research organizations in South Africa.
                   "ror_display",
                   "label"
                ],
-               "value" : "Chris Hani Baragwanath Hospital"
+               "value" : "Nelson Mandela University"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/03rp50x72",
-               "label" : "University of the Witwatersrand",
+               "id" : "https://ror.org/02qgf1459",
+               "label" : "Dora Nginza Hospital",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/00f0wme23",
+               "label" : "Livingstone Hospital",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/01ypqqm93",
+               "label" : "Port Elizabeth Provincial Hospital",
                "type" : "related"
             }
          ],
          "status" : "active",
          "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1954,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.414386.c"
-               ],
-               "preferred" : "grid.414386.c",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0576 7753"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5336985"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03gvpk069",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/edendalehospital.htm"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Edendale_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -29.61679,
-                  "lng" : 30.39278,
-                  "name" : "Pietermaritzburg"
-               },
-               "geonames_id" : 965301
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Edendale Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
+            "education",
+            "funder"
          ]
       },
       {
@@ -2806,228 +2280,35 @@ Returns a list of research organizations in South Africa.
          "external_ids" : [
             {
                "all" : [
-                  "grid.414707.1"
+                  "grid.461156.1"
                ],
-               "preferred" : "grid.414707.1",
+               "preferred" : "grid.461156.1",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 0364 9292"
+                  "0000 0004 0490 0241"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q5086067"
+                  "Q6990620"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/047x96110",
+         "id" : "https://ror.org/036z4hp15",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.johannesburghospital.org.za/"
+               "value" : "http://www.ecdoh.gov.za/hospitals/71/Nelson_Mandela_Academic_Hospital"
             },
             {
                "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Charlotte_Maxeke_Johannesburg_Academic_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Charlotte Maxeke Johannesburg Academic Hospital"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Johannesburg General Hospital"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Johannesburg Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/03rp50x72",
-               "label" : "University of the Witwatersrand",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1969,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100001322"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.415021.3"
-               ],
-               "preferred" : "grid.415021.3",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 9155 0024"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q7565733"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05q60vz69",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.mrc.ac.za/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/South_African_Medical_Research_Council"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "WC",
-                  "country_subdivision_name" : "Western Cape",
-                  "lat" : -33.92584,
-                  "lng" : 18.42322,
-                  "name" : "Cape Town"
-               },
-               "geonames_id" : 3369157
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SAMRC"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "South African Medical Research Council"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "funder",
-            "other"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1881,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.415061.7"
-               ],
-               "preferred" : "grid.415061.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 8669 9369"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5502892"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/044sjfg03",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.fh.echealth.gov.za/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Frere_Hospital"
+               "value" : "https://en.wikipedia.org/wiki/Nelson_Mandela_Academic_Hospital"
             }
          ],
          "locations" : [
@@ -3039,11 +2320,11 @@ Returns a list of research organizations in South Africa.
                   "country_name" : "South Africa",
                   "country_subdivision_code" : "EC",
                   "country_subdivision_name" : "Eastern Cape",
-                  "lat" : -33.01529,
-                  "lng" : 27.91162,
-                  "name" : "East London"
+                  "lat" : -31.58893,
+                  "lng" : 28.78443,
+                  "name" : "Mthatha"
                },
-               "geonames_id" : 1006984
+               "geonames_id" : 946058
             }
          ],
          "names" : [
@@ -3053,7 +2334,7 @@ Returns a list of research organizations in South Africa.
                   "ror_display",
                   "label"
                ],
-               "value" : "Frere Hospital"
+               "value" : "Nelson Mandela Academic Hospital"
             }
          ],
          "relationships" : [
@@ -3071,7 +2352,7 @@ Returns a list of research organizations in South Africa.
       {
          "admin" : {
             "created" : {
-               "date" : "2018-11-14",
+               "date" : "2020-03-15",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -3080,35 +2361,32 @@ Returns a list of research organizations in South Africa.
             }
          },
          "domains" : [],
-         "established" : 1936,
+         "established" : 2010,
          "external_ids" : [
             {
                "all" : [
-                  "grid.415293.8"
+                  "grid.507727.0"
                ],
-               "preferred" : "grid.415293.8",
+               "preferred" : "grid.507727.0",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0383 9602"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30280419"
+                  "Q19787384"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/03r56rv89",
+         "id" : "https://ror.org/01pxptg16",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/kingedwardhospital.htm"
+               "value" : "https://minds-africa.org"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Mandela_Institute_for_Development_Studies"
             }
          ],
          "locations" : [
@@ -3118,13 +2396,13 @@ Returns a list of research organizations in South Africa.
                   "continent_name" : "Africa",
                   "country_code" : "ZA",
                   "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -29.8579,
-                  "lng" : 31.0292,
-                  "name" : "Durban"
+                  "country_subdivision_code" : "GP",
+                  "country_subdivision_name" : "Gauteng",
+                  "lat" : -26.104,
+                  "lng" : 28.054,
+                  "name" : "Sandton"
                },
-               "geonames_id" : 1007311
+               "geonames_id" : 957654
             }
          ],
          "names" : [
@@ -3133,7 +2411,7 @@ Returns a list of research organizations in South Africa.
                "types" : [
                   "acronym"
                ],
-               "value" : "KEH"
+               "value" : "MINDS"
             },
             {
                "lang" : "en",
@@ -3141,717 +2419,72 @@ Returns a list of research organizations in South Africa.
                   "ror_display",
                   "label"
                ],
-               "value" : "King Edward VIII Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1967,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.415447.7"
-               ],
-               "preferred" : "grid.415447.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q30280483"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04nrs5002",
-         "links" : [
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Helen_Joseph_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Helen Joseph Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/03rp50x72",
-               "label" : "University of the Witwatersrand",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1996,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.415523.4"
-               ],
-               "preferred" : "grid.415523.4",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/00f9c2f73",
-         "links" : [],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "WC",
-                  "country_subdivision_name" : "Western Cape",
-                  "lat" : -33.92584,
-                  "lng" : 18.42322,
-                  "name" : "Cape Town"
-               },
-               "geonames_id" : 3369157
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "GF Jooste Hospital"
+               "value" : "Mandela Institute for Development Studies"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1969,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.415623.7"
-               ],
-               "preferred" : "grid.415623.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0576 6654"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30280568"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04xz2c768",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/rkkhanhospital.htm"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -29.8579,
-                  "lng" : 31.0292,
-                  "name" : "Durban"
-               },
-               "geonames_id" : 1007311
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "R. K. Khan Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.415666.6"
-               ],
-               "preferred" : "grid.415666.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0634 9246"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q6860699"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03wwnw466",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.netcare.co.za/live/netcare_content.php?Item_ID=5585"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Milpark_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Milpark Hospital"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Netcare Milpark Hospital"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1956,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.415742.1"
-               ],
-               "preferred" : "grid.415742.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2296 3850"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q7303965"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04d6eav07",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.westerncape.gov.za/your_gov/149"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Red_Cross_War_Memorial_Children%27s_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "WC",
-                  "country_subdivision_name" : "Western Cape",
-                  "lat" : -33.92584,
-                  "lng" : 18.42322,
-                  "name" : "Cape Town"
-               },
-               "geonames_id" : 3369157
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Red Cross War Memorial Children's Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02nys7898",
-               "label" : "Western Cape Department of Health",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/05bk57929",
-               "label" : "Stellenbosch University",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/03p74gp79",
-               "label" : "University of Cape Town",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/00h2vm590",
-               "label" : "University of the Western Cape",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1912,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.416148.e"
-               ],
-               "preferred" : "grid.416148.e",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/05q7jp496",
-         "links" : [],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SAIMR"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "South African Institute for Medical Research"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00znvbk37",
-               "label" : "National Health Laboratory Service",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1950,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.416583.d"
-               ],
-               "preferred" : "grid.416583.d",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0635 2963"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/04hzm4679",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.nioh.ac.za/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "NIOH"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "National Institute for Occupational Health"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.416734.3"
-               ],
-               "preferred" : "grid.416734.3",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0400 8421"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/05g42cb02",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.netcare.co.za/71/netcare-sunninghill-hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "GP",
-                  "country_subdivision_name" : "Gauteng",
-                  "lat" : -26.20227,
-                  "lng" : 28.04363,
-                  "name" : "Johannesburg"
-               },
-               "geonames_id" : 993800
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Netcare Sunninghill Hospital"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "healthcare"
+            "education"
          ]
       }
    ],
    "meta" : {
       "continents" : [
          {
-            "count" : 515,
+            "count" : 3,
             "id" : "af",
             "title" : "Africa"
          }
       ],
       "countries" : [
          {
-            "count" : 515,
+            "count" : 3,
             "id" : "za",
             "title" : "South Africa"
          }
       ],
       "statuses" : [
          {
-            "count" : 515,
+            "count" : 3,
             "id" : "active",
             "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 132,
-            "id" : "nonprofit",
-            "title" : "nonprofit"
-         },
-         {
-            "count" : 118,
-            "id" : "healthcare",
-            "title" : "healthcare"
-         },
-         {
-            "count" : 94,
-            "id" : "funder",
-            "title" : "funder"
-         },
-         {
-            "count" : 62,
+            "count" : 2,
             "id" : "education",
             "title" : "education"
          },
          {
-            "count" : 60,
-            "id" : "company",
-            "title" : "company"
+            "count" : 1,
+            "id" : "funder",
+            "title" : "funder"
          },
          {
-            "count" : 59,
-            "id" : "other",
-            "title" : "other"
-         },
-         {
-            "count" : 40,
-            "id" : "facility",
-            "title" : "facility"
-         },
-         {
-            "count" : 35,
-            "id" : "government",
-            "title" : "government"
-         },
-         {
-            "count" : 10,
-            "id" : "archive",
-            "title" : "archive"
+            "count" : 1,
+            "id" : "healthcare",
+            "title" : "healthcare"
          }
       ]
    },
-   "number_of_results" : 515,
+   "number_of_results" : 3,
    "time_taken" : 2
 }
 ```
 
 # Filter by country name
 
-Available country names are those [provided by Geonames](https://www.geonames.org/countries/).
+Find organizations in a particular country or countries. Available country names are those <Anchor label="provided by Geonames" target="_blank" href="https://www.geonames.org/countries/">provided by Geonames</Anchor>.
 
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=locations.geonames_details.country_name:Djibouti' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Recherche&filter=locations.geonames_details.country_name:Senegal' | json_pp
 ```
 
-Returns a list of research organizations in Djibouti.
+Returns a list of research organizations in Senegal with the keyword "Recherche" in a `names` field.
 
 ```json
 {
@@ -3868,39 +2501,39 @@ Returns a list of research organizations in Djibouti.
             }
          },
          "domains" : [],
-         "established" : 2006,
+         "established" : 1937,
          "external_ids" : [
             {
                "all" : [
-                  "grid.449656.c"
+                  "grid.418291.7"
                ],
-               "preferred" : "grid.449656.c",
+               "preferred" : "grid.418291.7",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0000 8895 9179"
+                  "0000 0004 0456 337X"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q3551582"
+                  "Q28974592"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/04wk53b95",
+         "id" : "https://ror.org/015q23935",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.univ.edu.dj/"
+               "value" : "http://www.senegal.ird.fr/"
             },
             {
                "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/University_of_Djibouti"
+               "value" : "https://en.wikipedia.org/wiki/Institut_de_recherche_pour_le_d%C3%A9veloppement"
             }
          ],
          "locations" : [
@@ -3908,45 +2541,61 @@ Returns a list of research organizations in Djibouti.
                "geonames_details" : {
                   "continent_code" : "AF",
                   "continent_name" : "Africa",
-                  "country_code" : "DJ",
-                  "country_name" : "Djibouti",
-                  "country_subdivision_code" : "DJ",
-                  "country_subdivision_name" : "Djibouti",
-                  "lat" : 11.58901,
-                  "lng" : 43.14503,
-                  "name" : "Djibouti"
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
                },
-               "geonames_id" : 223817
+               "geonames_id" : 2253354
             }
          ],
          "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "French Research Institute for Development"
+            },
             {
                "lang" : null,
                "types" : [
                   "acronym"
                ],
-               "value" : "UD"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "University of Djibouti"
+               "value" : "IRD"
             },
             {
                "lang" : "fr",
                "types" : [
+                  "ror_display",
                   "label"
                ],
-               "value" : "Université de djibouti"
+               "value" : "Institut de Recherche pour le Développement"
             }
          ],
-         "relationships" : [],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/011xg1225",
+               "label" : "Montpellier Interdisciplinary center on Sustainable Agri-food systems: social and nutritional sciences",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/03vte9x46",
+               "label" : "Observatoire des Sciences de l'Univers de Grenoble",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05q3vnk25",
+               "label" : "Institut de Recherche pour le Développement",
+               "type" : "parent"
+            }
+         ],
          "status" : "active",
          "types" : [
-            "education"
+            "government"
          ]
       },
       {
@@ -4016,46 +2665,1033 @@ Returns a list of research organizations in Djibouti.
          "types" : [
             "facility"
          ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2004,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463194.d"
+               ],
+               "preferred" : "grid.463194.d",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/04aa9w798",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.cres-sn.org/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CRES"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Consortium pour la recherche économique et sociale"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "other"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.436924.e"
+               ],
+               "preferred" : "grid.436924.e",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/05nkfrm56",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.mesr.gouv.sn/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministère de l'Enseignement Superieur et de la Recherche"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2019-02-17",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2017,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.503074.5"
+               ],
+               "preferred" : "grid.503074.5",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/01psmkn05",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://iressef.org/en/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "IRESSEF"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Institut de Recherche en Santé, de Surveillance Épidémiologique et de Formation"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institute of Health Research, Epidemiological Surveillance and Training"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "nonprofit"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1973,
+         "external_ids" : [
+            {
+               "all" : [
+                  "501100001902"
+               ],
+               "preferred" : null,
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.469327.d"
+               ],
+               "preferred" : "grid.469327.d",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 1401 0777"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q2044761"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02rs18x11",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.codesria.org/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Council_for_the_Development_of_Social_Science_Research_in_Africa"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CODESRIA"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conseil pour le développement de la recherche en sciences sociales en Afrique"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conselho para o Desenvolvimento da Pesquisa em Ciências Sociais em África"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Council for the Development of Social Science Research in Africa"
+            },
+            {
+               "lang" : "ar",
+               "types" : [
+                  "label"
+               ],
+               "value" : "مجلس تنمية البحوث الإجتماعية في أفريقي"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "funder",
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1987,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463266.3"
+               ],
+               "preferred" : "grid.463266.3",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 2289 3215"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/00hcr7c15",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.coraf.org/en/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CORAF/WECARD"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conseil ouest et centre africain pour la recherche et le développement agricoles"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "West and Central African Council for Agricultural Research and Development"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "other"
+         ]
       }
    ],
    "meta" : {
       "continents" : [
          {
-            "count" : 2,
+            "count" : 7,
             "id" : "af",
             "title" : "Africa"
          }
       ],
       "countries" : [
          {
-            "count" : 2,
+            "count" : 6,
+            "id" : "sn",
+            "title" : "Senegal"
+         },
+         {
+            "count" : 1,
             "id" : "dj",
             "title" : "Djibouti"
          }
       ],
       "statuses" : [
          {
-            "count" : 2,
+            "count" : 7,
             "id" : "active",
             "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 1,
-            "id" : "education",
-            "title" : "education"
+            "count" : 3,
+            "id" : "government",
+            "title" : "government"
+         },
+         {
+            "count" : 2,
+            "id" : "other",
+            "title" : "other"
          },
          {
             "count" : 1,
             "id" : "facility",
             "title" : "facility"
+         },
+         {
+            "count" : 1,
+            "id" : "funder",
+            "title" : "funder"
+         },
+         {
+            "count" : 1,
+            "id" : "nonprofit",
+            "title" : "nonprofit"
          }
       ]
    },
-   "number_of_results" : 2,
-   "time_taken" : 1
+   "number_of_results" : 7,
+   "time_taken" : 30
 }
+(base) amandafrench@MacBook-Pro-8 Websites % curl 'https://api.ror.org/v2/organizations?query=Recherche&filter=locations.geonames_details.country_name:Senegal' | json_pp 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  7093  100  7093    0     0  20205      0 --:--:-- --:--:-- --:--:-- 20207
+{
+   "items" : [
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1937,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.418291.7"
+               ],
+               "preferred" : "grid.418291.7",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0456 337X"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q28974592"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/015q23935",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.senegal.ird.fr/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Institut_de_recherche_pour_le_d%C3%A9veloppement"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "French Research Institute for Development"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "IRD"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institut de Recherche pour le Développement"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/011xg1225",
+               "label" : "Montpellier Interdisciplinary center on Sustainable Agri-food systems: social and nutritional sciences",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/03vte9x46",
+               "label" : "Observatoire des Sciences de l'Univers de Grenoble",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05q3vnk25",
+               "label" : "Institut de Recherche pour le Développement",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2004,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463194.d"
+               ],
+               "preferred" : "grid.463194.d",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/04aa9w798",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.cres-sn.org/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CRES"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Consortium pour la recherche économique et sociale"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "other"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.436924.e"
+               ],
+               "preferred" : "grid.436924.e",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/05nkfrm56",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.mesr.gouv.sn/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministère de l'Enseignement Superieur et de la Recherche"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2019-02-17",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2017,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.503074.5"
+               ],
+               "preferred" : "grid.503074.5",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/01psmkn05",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://iressef.org/en/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "IRESSEF"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Institut de Recherche en Santé, de Surveillance Épidémiologique et de Formation"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institute of Health Research, Epidemiological Surveillance and Training"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "nonprofit"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1987,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463266.3"
+               ],
+               "preferred" : "grid.463266.3",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 2289 3215"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/00hcr7c15",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.coraf.org/en/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CORAF/WECARD"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conseil ouest et centre africain pour la recherche et le développement agricoles"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "West and Central African Council for Agricultural Research and Development"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "other"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1973,
+         "external_ids" : [
+            {
+               "all" : [
+                  "501100001902"
+               ],
+               "preferred" : null,
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.469327.d"
+               ],
+               "preferred" : "grid.469327.d",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 1401 0777"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q2044761"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02rs18x11",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.codesria.org/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Council_for_the_Development_of_Social_Science_Research_in_Africa"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
+               },
+               "geonames_id" : 2253354
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CODESRIA"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conseil pour le développement de la recherche en sciences sociales en Afrique"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conselho para o Desenvolvimento da Pesquisa em Ciências Sociais em África"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Council for the Development of Social Science Research in Africa"
+            },
+            {
+               "lang" : "ar",
+               "types" : [
+                  "label"
+               ],
+               "value" : "مجلس تنمية البحوث الإجتماعية في أفريقي"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "funder",
+            "government"
+         ]
+      }
+   ],
+   "meta" : {
+      "continents" : [
+         {
+            "count" : 6,
+            "id" : "af",
+            "title" : "Africa"
+         }
+      ],
+      "countries" : [
+         {
+            "count" : 6,
+            "id" : "sn",
+            "title" : "Senegal"
+         }
+      ],
+      "statuses" : [
+         {
+            "count" : 6,
+            "id" : "active",
+            "title" : "active"
+         }
+      ],
+      "types" : [
+         {
+            "count" : 3,
+            "id" : "government",
+            "title" : "government"
+         },
+         {
+            "count" : 2,
+            "id" : "other",
+            "title" : "other"
+         },
+         {
+            "count" : 1,
+            "id" : "funder",
+            "title" : "funder"
+         },
+         {
+            "count" : 1,
+            "id" : "nonprofit",
+            "title" : "nonprofit"
+         }
+      ]
+   },
+   "number_of_results" : 6,
+   "time_taken" : 3
+}
+
 ```
 
 # Filter by continent code
