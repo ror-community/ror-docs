@@ -7,12 +7,6 @@ metadata:
   title: ROR API Advanced query parameter
   description: Instructions for using the advanced query parameter of the ROR API.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: api-affiliation
-      title: Affiliation parameter
 ---
 > 👍 ROR REST API v2
 >
