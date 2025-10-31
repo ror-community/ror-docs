@@ -5331,10 +5331,10 @@ Limit search results by continent name. Continent codes and names are provided b
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=locations.geonames_details.continent_name:South+America' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Laboratorio&filter=locations.geonames_details.continent_name:South+America' | json_pp
 ```
 
-The response is a list of research organizations in South America.
+The response is a list of research organizations in South America with the keyword "Laboratorio" in a `names` field.
 
 ```json
 {
@@ -5351,42 +5351,353 @@ The response is a list of research organizations in South America.
             }
          },
          "domains" : [],
-         "established" : 2006,
+         "established" : 1997,
          "external_ids" : [
             {
                "all" : [
-                  "501100016217"
+                  "grid.456714.5"
                ],
-               "preferred" : "501100016217",
-               "type" : "fundref"
+               "preferred" : "grid.456714.5",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/00nsej663",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.labbacchi.com.br/conspat/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -22.88583,
+                  "lng" : -48.445,
+                  "name" : "Botucatu"
+               },
+               "geonames_id" : 3469136
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "pt",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratório Bacchi"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2024-11-18",
+               "schema_version" : "2.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "labcedro.com.br"
+         ],
+         "established" : 1986,
+         "external_ids" : [],
+         "id" : "https://ror.org/01t80g375",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://labcedro.com.br"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "MA",
+                  "country_subdivision_name" : "Maranhão",
+                  "lat" : -2.52972,
+                  "lng" : -44.30278,
+                  "name" : "São Luís"
+               },
+               "geonames_id" : 3388368
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "pt",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Cedro"
             },
             {
-               "all" : [
-                  "grid.418532.9"
+               "lang" : "pt",
+               "types" : [
+                  "alias"
                ],
-               "preferred" : "grid.418532.9",
+               "value" : "Lab Cedro"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Laboratório Cedro"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Laboratório Cedro (Brazil)"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Laboratório Cedro, Ltda."
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "company"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-11-08",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2014,
+         "external_ids" : [],
+         "id" : "https://ror.org/01khfdf61",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.laboratorioflores.cl"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "CL",
+                  "country_name" : "Chile",
+                  "country_subdivision_code" : "RM",
+                  "country_subdivision_name" : "Santiago Metropolitan",
+                  "lat" : -33.45694,
+                  "lng" : -70.64827,
+                  "name" : "Santiago"
+               },
+               "geonames_id" : 3871336
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "es",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Fundación Flores"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "alias"
+               ],
+               "value" : "LABFLORES"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Laboratorio Flores"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "other"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2021-09-23",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2000,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.512178.8"
+               ],
+               "preferred" : "grid.512178.8",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/00tr5rr68",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.dnacenter.com.br/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "RN",
+                  "country_subdivision_name" : "Rio Grande do Norte",
+                  "lat" : -5.795,
+                  "lng" : -35.20944,
+                  "name" : "Natal"
+               },
+               "geonames_id" : 3394023
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "pt",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratório DNA Center"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2019-02-17",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1947,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.501306.1"
+               ],
+               "preferred" : "grid.501306.1",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0403 6035"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5917646"
+                  "Q10315156"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/04dpm2z73",
+         "id" : "https://ror.org/04f02tt58",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.pasteur.edu.uy/"
+               "value" : "http://www.teuto.com.br/en"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "GO",
+                  "country_subdivision_name" : "Goiás",
+                  "lat" : -16.32667,
+                  "lng" : -48.95278,
+                  "name" : "Anápolis"
+               },
+               "geonames_id" : 3472287
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratório Teuto (Brazil)"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "company"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-08-17",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [],
+         "id" : "https://ror.org/02pzme005",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.gub.uy/ministerio-industria-energia-mineria/tramites-y-servicios/servicios/laboratorio-tecnogestion"
             }
          ],
          "locations" : [
@@ -5409,1430 +5720,28 @@ The response is a list of research organizations in South America.
             {
                "lang" : "es",
                "types" : [
-                  "alias"
-               ],
-               "value" : "IP Montevideo"
-            },
-            {
-               "lang" : "es",
-               "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Institut Pasteur de Montevideo"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/0495fxg12",
-               "label" : "Institut Pasteur",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "fumc.edu.co"
-         ],
-         "established" : 1987,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.441812.a"
-               ],
-               "preferred" : "grid.441812.a",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0415 8286"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5871656"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03cvv1m29",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.fumc.edu.co"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "CO",
-                  "country_name" : "Colombia",
-                  "country_subdivision_code" : "ANT",
-                  "country_subdivision_name" : "Antioquia",
-                  "lat" : 6.25184,
-                  "lng" : -75.56359,
-                  "name" : "Medellín"
-               },
-               "geonames_id" : 3674962
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "es",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Fundación Universitaria María Cano"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "aesga.edu.br"
-         ],
-         "established" : 1985,
-         "external_ids" : [],
-         "id" : "https://ror.org/02pt9a543",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.aesga.edu.br"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "BR",
-                  "country_name" : "Brazil",
-                  "country_subdivision_code" : "PE",
-                  "country_subdivision_name" : "Pernambuco",
-                  "lat" : -8.9308,
-                  "lng" : -36.50767,
-                  "name" : "Garanhuns"
-               },
-               "geonames_id" : 6320507
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "pt",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "AESGA"
-            },
-            {
-               "lang" : "pt",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Autarquia de Ensino Superior de Garanhuns"
-            },
-            {
-               "lang" : "pt",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Autarquia de Ensino Superior de Garanhuns - AESGA"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1961,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.441990.1"
-               ],
-               "preferred" : "grid.441990.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2226 7599"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5053268"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/027ryxs60",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.ucsm.edu.pe/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Catholic_University_of_Santa_Mar%C3%ADa"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "PE",
-                  "country_name" : "Peru",
-                  "country_subdivision_code" : "ARE",
-                  "country_subdivision_name" : "Arequipa",
-                  "lat" : -16.39889,
-                  "lng" : -71.535,
-                  "name" : "Arequipa"
-               },
-               "geonames_id" : 3947322
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Catholic University of Santa María"
+               "value" : "Laboratorio de Tecnogestión"
             },
             {
                "lang" : null,
                "types" : [
                   "acronym"
                ],
-               "value" : "UCSM"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Universidad Católica de Santa María"
+               "value" : "MIEM-LSMRI"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/01j6ykv32",
-               "label" : "Instituto de Investigación e Innovación en Energías Renovables y Medio Ambiente",
-               "type" : "child"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "fatecsp.br"
-         ],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "Q18477197"
-               ],
-               "preferred" : "Q18477197",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03jbcxj66",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.fatecsp.br"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "BR",
-                  "country_name" : "Brazil",
-                  "country_subdivision_code" : "SP",
-                  "country_subdivision_name" : "São Paulo",
-                  "lat" : -23.5475,
-                  "lng" : -46.63611,
-                  "name" : "São Paulo"
-               },
-               "geonames_id" : 3448439
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "pt",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Faculdade de Tecnologia de São Paulo"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "cataventoinstituto.com.br"
-         ],
-         "established" : 2021,
-         "external_ids" : [],
-         "id" : "https://ror.org/02zm1vy19",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://cataventoinstituto.com.br"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "BR",
-                  "country_name" : "Brazil",
-                  "country_subdivision_code" : "BA",
-                  "country_subdivision_name" : "Bahia",
-                  "lat" : -12.97563,
-                  "lng" : -38.49096,
-                  "name" : "Salvador"
-               },
-               "geonames_id" : 3450554
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "pt",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Catavento Instituto"
-            },
-            {
-               "lang" : "pt",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Catavento Instituto - Ensino para melhor assistência em Psicologia Hospitalar"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "upla.cl"
-         ],
-         "established" : 1948,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100009547"
-               ],
-               "preferred" : "501100009547",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.441843.e"
-               ],
-               "preferred" : "grid.441843.e",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0694 2144"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q634259"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/0171wr661",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.upla.cl"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Playa_Ancha_University"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "CL",
-                  "country_name" : "Chile",
-                  "country_subdivision_code" : "VS",
-                  "country_subdivision_name" : "Valparaíso",
-                  "lat" : -33.036,
-                  "lng" : -71.62963,
-                  "name" : "Valparaíso"
-               },
-               "geonames_id" : 3868626
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Playa Ancha University of Educational Sciences"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UPLA"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Universidad de Playa Ancha de Ciencias de la Educación"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1982,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.442021.1"
-               ],
-               "preferred" : "grid.442021.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0467 1725"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q5917112"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00n4xrr40",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.unicesmag.edu.co"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "CO",
-                  "country_name" : "Colombia",
-                  "country_subdivision_code" : "NAR",
-                  "country_subdivision_name" : "Nariño",
-                  "lat" : 1.21361,
-                  "lng" : -77.28111,
-                  "name" : "Pasto"
-               },
-               "geonames_id" : 3672778
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "IU CESMAG"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institución Universitaria Centro de Estudios Superiores María Goretti"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UNICESMAG"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Universidad CESMAG"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Universidad Centro de Estudios Superiores María Goretti"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [],
-         "id" : "https://ror.org/00za68765",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://portal.estacio.br/unidades/centro-universit%C3%A1rio-est%C3%A1cio-de-santa-catarina/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "BR",
-                  "country_name" : "Brazil",
-                  "country_subdivision_code" : "SC",
-                  "country_subdivision_name" : "Santa Catarina",
-                  "lat" : -28.21344,
-                  "lng" : -49.16383,
-                  "name" : "São José"
-               },
-               "geonames_id" : 3448742
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "pt",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Centro Universitário Estácio de Santa Catarina"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "ifpb.edu.br"
-         ],
-         "established" : 2008,
-         "external_ids" : [
-            {
-               "all" : [
-                  "100019080"
-               ],
-               "preferred" : "100019080",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.454344.6"
-               ],
-               "preferred" : "grid.454344.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 9895 745X"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/01xc5jm57",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.ifpb.edu.br"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "BR",
-                  "country_name" : "Brazil",
-                  "country_subdivision_code" : "PB",
-                  "country_subdivision_name" : "Paraíba",
-                  "lat" : -7.115,
-                  "lng" : -34.86306,
-                  "name" : "João Pessoa"
-               },
-               "geonames_id" : 3397277
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CEFET-PB"
-            },
-            {
-               "lang" : "pt",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "IFPB"
-            },
-            {
-               "lang" : "pt",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Instituto Federal da Paraíba"
-            },
-            {
-               "lang" : "pt",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Instituto Federal de Educação Ciência e Tecnologia da Paraíba"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "isalud.edu.ar"
-         ],
-         "established" : 1991,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.441634.0"
-               ],
-               "preferred" : "grid.441634.0",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 4690 323X"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q29045289"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/01sewfq88",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.isalud.edu.ar"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "AR",
-                  "country_name" : "Argentina",
-                  "country_subdivision_code" : "C",
-                  "country_subdivision_name" : "Buenos Aires F.D.",
-                  "lat" : -34.61315,
-                  "lng" : -58.37723,
-                  "name" : "Buenos Aires"
-               },
-               "geonames_id" : 3435910
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "ISALUD University"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Universidad Isalud"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [],
-         "id" : "https://ror.org/01j6ykv32",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://investigacion.ucsm.edu.pe/instituto-innovergy/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "PE",
-                  "country_name" : "Peru",
-                  "country_subdivision_code" : "ARE",
-                  "country_subdivision_name" : "Arequipa",
-                  "lat" : -16.39889,
-                  "lng" : -71.535,
-                  "name" : "Arequipa"
-               },
-               "geonames_id" : 3947322
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Innovergy Institute"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Instituto Innovergy"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Instituto de Investigación e Innovación en Energías Renovables y Medio Ambiente"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Research Institute for Innovation in Renewable Energy and Environment"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/027ryxs60",
-               "label" : "Catholic University of Santa María",
+               "id" : "https://ror.org/03e8mf369",
+               "label" : "Ministerio de Industria, Energía y Minería",
                "type" : "parent"
             }
          ],
          "status" : "active",
          "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "anhanguera.com"
-         ],
-         "established" : null,
-         "external_ids" : [],
-         "id" : "https://ror.org/04k6k8h87",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.anhanguera.com"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "BR",
-                  "country_name" : "Brazil",
-                  "country_subdivision_code" : "SP",
-                  "country_subdivision_name" : "São Paulo",
-                  "lat" : -23.02639,
-                  "lng" : -45.55528,
-                  "name" : "Taubaté"
-               },
-               "geonames_id" : 3446682
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "pt",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Faculdade Anhanguera"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "solca.med.ec"
-         ],
-         "established" : 1951,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0000 9905 0083"
-               ],
-               "preferred" : "0000 0000 9905 0083",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q7551895"
-               ],
-               "preferred" : "Q7551895",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02wm3rq58",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.solca.med.ec"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Sociedad_de_Lucha_Contra_el_Cancer"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "EC",
-                  "country_name" : "Ecuador",
-                  "country_subdivision_code" : "G",
-                  "country_subdivision_name" : "Guayas",
-                  "lat" : -2.19616,
-                  "lng" : -79.88621,
-                  "name" : "Guayaquil"
-               },
-               "geonames_id" : 3657509
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "es",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SOLCA"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "SOLCA - Guayaquil"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Sociedad de Lucha Contra el Cáncer del Ecuador"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Society to Fight Cancer"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1940,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.418525.f"
-               ],
-               "preferred" : "grid.418525.f",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2206 8813"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30281759"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/01fp8z436",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.pasteur-cayenne.fr/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "GF",
-                  "country_name" : "French Guiana",
-                  "country_subdivision_code" : null,
-                  "country_subdivision_name" : "Guyane",
-                  "lat" : 4.93333,
-                  "lng" : -52.33333,
-                  "name" : "Cayenne"
-               },
-               "geonames_id" : 3382160
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institut Pasteur de la Guyane"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/0495fxg12",
-               "label" : "Institut Pasteur",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-04-30",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1903,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0005 0955 754X"
-               ],
-               "preferred" : "0000 0005 0955 754X",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q4201403"
-               ],
-               "preferred" : "Q4201403",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/046fcjp93",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.saude.sp.gov.br/instituto-pasteur/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://pt.wikipedia.org/wiki/Instituto_Pasteur_(S%C3%A3o_Paulo)"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "BR",
-                  "country_name" : "Brazil",
-                  "country_subdivision_code" : "SP",
-                  "country_subdivision_name" : "São Paulo",
-                  "lat" : -23.5475,
-                  "lng" : -46.63611,
-                  "name" : "São Paulo"
-               },
-               "geonames_id" : 3448439
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "pt",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Instituto Pasteur"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Instituto Pasteur São Paulo"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Pasteur Institute"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Pasteur Institute São Paulo"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/0495fxg12",
-               "label" : "Institut Pasteur",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "uamerica.edu.co"
-         ],
-         "established" : 1956,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.442159.f"
-               ],
-               "preferred" : "grid.442159.f",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0486 5407"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q11050122"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00kcjks51",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.uamerica.edu.co"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/University_of_America"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "CO",
-                  "country_name" : "Colombia",
-                  "country_subdivision_code" : "DC",
-                  "country_subdivision_name" : "Bogota D.C.",
-                  "lat" : 4.60971,
-                  "lng" : -74.08175,
-                  "name" : "Bogotá"
-               },
-               "geonames_id" : 3688689
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "es",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Fundación Universidad de América"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Universidad de América"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label",
-                  "alias"
-               ],
-               "value" : "University of America"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100013409"
-               ],
-               "preferred" : "501100013409",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "0000 0004 7777 4928"
-               ],
-               "preferred" : "0000 0004 7777 4928",
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/05x7bg352",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.sgr.gov.co"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "SA",
-                  "continent_name" : "South America",
-                  "country_code" : "CO",
-                  "country_name" : "Colombia",
-                  "country_subdivision_code" : "DC",
-                  "country_subdivision_name" : "Bogota D.C.",
-                  "lat" : 4.60971,
-                  "lng" : -74.08175,
-                  "name" : "Bogotá"
-               },
-               "geonames_id" : 3688689
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "General Royalties System"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SGR"
-            },
-            {
-               "lang" : "es",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Sistema General de Regalías de Colombia"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "funder",
             "government"
          ]
       },
@@ -6847,49 +5756,29 @@ The response is a list of research organizations in South America.
                "schema_version" : "2.1"
             }
          },
-         "domains" : [
-            "ces.edu.co"
-         ],
-         "established" : 1977,
+         "domains" : [],
+         "established" : 1985,
          "external_ids" : [
             {
                "all" : [
-                  "100018005"
+                  "grid.472887.6"
                ],
-               "preferred" : "100018005",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.411140.1"
-               ],
-               "preferred" : "grid.411140.1",
+               "preferred" : "grid.472887.6",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 0812 5789"
+                  "0000 0004 0480 4831"
                ],
                "preferred" : null,
                "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q6156377"
-               ],
-               "preferred" : "Q6156377",
-               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/037p13h95",
+         "id" : "https://ror.org/055v9fh02",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.ces.edu.co"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://es.wikipedia.org/wiki/Universidad_CES"
+               "value" : "http://lnapadrao.lna.br/"
             }
          ],
          "locations" : [
@@ -6897,81 +5786,80 @@ The response is a list of research organizations in South America.
                "geonames_details" : {
                   "continent_code" : "SA",
                   "continent_name" : "South America",
-                  "country_code" : "CO",
-                  "country_name" : "Colombia",
-                  "country_subdivision_code" : "ANT",
-                  "country_subdivision_name" : "Antioquia",
-                  "lat" : 6.25184,
-                  "lng" : -75.56359,
-                  "name" : "Medellín"
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "MG",
+                  "country_subdivision_name" : "Minas Gerais",
+                  "lat" : -22.42556,
+                  "lng" : -45.45278,
+                  "name" : "Itajubá"
                },
-               "geonames_id" : 3674962
+               "geonames_id" : 3460834
             }
          ],
          "names" : [
             {
-               "lang" : "en",
+               "lang" : null,
                "types" : [
-                  "alias"
+                  "acronym"
                ],
-               "value" : "CES University"
+               "value" : "LNA"
             },
             {
-               "lang" : "es",
+               "lang" : "pt",
                "types" : [
-                  "label",
-                  "ror_display"
+                  "ror_display",
+                  "label"
                ],
-               "value" : "Universidad CES"
+               "value" : "Laboratório Nacional de Astrofísica"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "National Astrophysics Laboratory"
             }
          ],
-         "relationships" : [],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/050zdnc69",
+               "label" : "Ministry of Science, Technology and Innovation",
+               "type" : "parent"
+            }
+         ],
          "status" : "active",
          "types" : [
-            "education",
-            "funder"
+            "facility"
          ]
       },
       {
          "admin" : {
             "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
             },
             "last_modified" : {
                "date" : "2024-12-11",
                "schema_version" : "2.1"
             }
          },
-         "domains" : [
-            "eaesp.fgv.br"
-         ],
-         "established" : null,
+         "domains" : [],
+         "established" : 2008,
          "external_ids" : [
             {
                "all" : [
-                  "0000 0001 2301 4016"
+                  "grid.456710.1"
                ],
-               "preferred" : "0000 0001 2301 4016",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q10274560"
-               ],
-               "preferred" : "Q10274560",
-               "type" : "wikidata"
+               "preferred" : "grid.456710.1",
+               "type" : "grid"
             }
          ],
-         "id" : "https://ror.org/02c0rrp38",
+         "id" : "https://ror.org/04dj9qm44",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://eaesp.fgv.br"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Escola_de_Administra%C3%A7%C3%A3o_de_Empresas_de_S%C3%A3o_Paulo"
+               "value" : "http://biosintesis.com.br/"
             }
          ],
          "locations" : [
@@ -6994,137 +5882,1146 @@ The response is a list of research organizations in South America.
             {
                "lang" : "pt",
                "types" : [
-                  "label",
-                  "ror_display"
+                  "ror_display",
+                  "label"
                ],
-               "value" : "Escola de Administração de Empresas de São Paulo"
+               "value" : "Laboratório Biosintesis P&D"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "education"
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2025-03-26",
+               "schema_version" : "2.1"
+            },
+            "last_modified" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "geoint.mx"
+         ],
+         "established" : null,
+         "external_ids" : [],
+         "id" : "https://ror.org/022b6wh61",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://geoint.mx"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "NA",
+                  "continent_name" : "North America",
+                  "country_code" : "MX",
+                  "country_name" : "Mexico",
+                  "country_subdivision_code" : "AGU",
+                  "country_subdivision_name" : "Aguascalientes",
+                  "lat" : 21.88262,
+                  "lng" : -102.2843,
+                  "name" : "Aguascalientes"
+               },
+               "geonames_id" : 4019233
+            },
+            {
+               "geonames_details" : {
+                  "continent_code" : "NA",
+                  "continent_name" : "North America",
+                  "country_code" : "MX",
+                  "country_name" : "Mexico",
+                  "country_subdivision_code" : "CMX",
+                  "country_subdivision_name" : "Mexico City",
+                  "lat" : 19.42847,
+                  "lng" : -99.12766,
+                  "name" : "Mexico City"
+               },
+               "geonames_id" : 3530597
+            },
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "VE",
+                  "country_name" : "Venezuela",
+                  "country_subdivision_code" : "L",
+                  "country_subdivision_name" : "Mérida",
+                  "lat" : 8.57899,
+                  "lng" : -71.16922,
+                  "name" : "Merida"
+               },
+               "geonames_id" : 3632308
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "es",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "GeoINT"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Laboratorio Nacional de GeoInteligencia"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "National Geointelligence Laboratory"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/059ex5q34",
+               "label" : "Secretaría de Ciencia, Humanidades, Tecnología e Innovación",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2020-12-21",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2000,
+         "external_ids" : [
+            {
+               "all" : [
+                  "501100011876"
+               ],
+               "preferred" : "501100011876",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.509794.6"
+               ],
+               "preferred" : "grid.509794.6",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0445 080X"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q65171876"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/04kjcjc51",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://lnbio.cnpem.br/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -22.90556,
+                  "lng" : -47.06083,
+                  "name" : "Campinas"
+               },
+               "geonames_id" : 3467865
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Brazilian Biosciences National Laboratory"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LNBio"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Laboratório Nacional de Biociências"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/05m235j20",
+               "label" : "Brazilian Center for Research in Energy and Materials",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility",
+            "funder"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2024-02-13",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2011,
+         "external_ids" : [
+            {
+               "all" : [
+                  "501100011877"
+               ],
+               "preferred" : "501100011877",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "0000 0004 0559 4469"
+               ],
+               "preferred" : "0000 0004 0559 4469",
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q47462549"
+               ],
+               "preferred" : "Q47462549",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/03e51yr27",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://lnnano.cnpem.br"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://pt.wikipedia.org/wiki/Laborat%C3%B3rio_Nacional_de_Nanotecnologia"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -22.90556,
+                  "lng" : -47.06083,
+                  "name" : "Campinas"
+               },
+               "geonames_id" : 3467865
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Brazilian Nanotechnology National Laboratory"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Brazilian National Laboratory of Nanotechnology"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LNN"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "LNNano"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratório Nacional de Nanotecnologia"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/050zdnc69",
+               "label" : "Ministry of Science, Technology and Innovation",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/05m235j20",
+               "label" : "Brazilian Center for Research in Energy and Materials",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility",
+            "funder",
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2023-06-22",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1965,
+         "external_ids" : [
+            {
+               "all" : [
+                  "0000 0001 0357 2504"
+               ],
+               "preferred" : "0000 0001 0357 2504",
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q5968611"
+               ],
+               "preferred" : "Q5968611",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/05gaped89",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.latu.org.uy"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "UY",
+                  "country_name" : "Uruguay",
+                  "country_subdivision_code" : "MO",
+                  "country_subdivision_name" : "Montevideo Department",
+                  "lat" : -34.90328,
+                  "lng" : -56.18816,
+                  "name" : "Montevideo"
+               },
+               "geonames_id" : 3441575
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LATU"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratorio Tecnológico del Uruguay"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.450337.6"
+               ],
+               "preferred" : "grid.450337.6",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q30294862"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/05b9w0m88",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.linea.gov.br/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "RJ",
+                  "country_subdivision_name" : "Rio de Janeiro",
+                  "lat" : -22.90642,
+                  "lng" : -43.18223,
+                  "name" : "Rio de Janeiro"
+               },
+               "geonames_id" : 3451190
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LIneA"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratório Interinstitucional de e-Astronomia"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1999,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.456718.9"
+               ],
+               "preferred" : "grid.456718.9",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/00wp8rt14",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.lsitec.org.br/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -23.5475,
+                  "lng" : -46.63611,
+                  "name" : "São Paulo"
+               },
+               "geonames_id" : 3448439
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Association of the Technological Integrated Systems Laboratory"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LSI TEC"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Laboratório de Sistemas Integráveis Tecnológico"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "nonprofit"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "lncc.br"
+         ],
+         "established" : 1998,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.452576.7"
+               ],
+               "preferred" : "grid.452576.7",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0602 9007"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/0498ekt05",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.gov.br/lncc/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "RJ",
+                  "country_subdivision_name" : "Rio de Janeiro",
+                  "lat" : -22.505,
+                  "lng" : -43.17861,
+                  "name" : "Petrópolis"
+               },
+               "geonames_id" : 3454031
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LNCC"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratório Nacional de Computação Científica"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2020-12-21",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1997,
+         "external_ids" : [
+            {
+               "all" : [
+                  "501100011873"
+               ],
+               "preferred" : "501100011873",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.509791.3"
+               ],
+               "preferred" : "grid.509791.3",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0000 9593 7568"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q6467316"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/01p6gzq21",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.lnls.cnpem.br/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -22.90556,
+                  "lng" : -47.06083,
+                  "name" : "Campinas"
+               },
+               "geonames_id" : 3467865
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Brazilian Synchrotron Light Laboratory"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LNLS"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Laboratório Nacional de Luz Síncrotron"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0451nna70",
+               "label" : "Sirius",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05m235j20",
+               "label" : "Brazilian Center for Research in Energy and Materials",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility",
+            "funder"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2024-06-19",
+               "schema_version" : "2.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [],
+         "id" : "https://ror.org/049hngf66",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.fau.unlp.edu.ar/contenido/institucional/institutos-centros-y-laboratorios/lpge/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "AR",
+                  "country_name" : "Argentina",
+                  "country_subdivision_code" : "B",
+                  "country_subdivision_name" : "Buenos Aires",
+                  "lat" : -34.92145,
+                  "lng" : -57.95453,
+                  "name" : "La Plata"
+               },
+               "geonames_id" : 3432043
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "es",
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LPGE"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LPGE UNLP-CONICET"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Laboratorio de Planificación y Gestión Estratégica"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/01tjs6929",
+               "label" : "Universidad Nacional de La Plata",
+               "type" : "parent"
+            },
+            {
+               "id" : "https://ror.org/03cqe8w59",
+               "label" : "Consejo Nacional de Investigaciones Científicas y Técnicas",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 2010,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.452574.5"
+               ],
+               "preferred" : "grid.452574.5",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 1797 1452"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/00w1v8g84",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://ctbe.cnpem.br/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -22.90556,
+                  "lng" : -47.06083,
+                  "name" : "Campinas"
+               },
+               "geonames_id" : 3467865
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CTBE"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Laboratório Nacional de Ciência e Tecnologia do Bioetanol"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "other"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            },
+            "last_modified" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "linta.cic.gba.gob.ar"
+         ],
+         "established" : 1991,
+         "external_ids" : [],
+         "id" : "https://ror.org/03w9ctg72",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://linta.cic.gba.gob.ar"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "AR",
+                  "country_name" : "Argentina",
+                  "country_subdivision_code" : "B",
+                  "country_subdivision_name" : "Buenos Aires",
+                  "lat" : -34.92126,
+                  "lng" : -57.95442,
+                  "name" : "La Plata"
+               },
+               "geonames_id" : 3432043
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "es",
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LINTA"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "LINTA-CIC"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Laboratorio de Investigaciones del Territorio y el Ambiente"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02s7sax82",
+               "label" : "Comisión de Investigaciones Científicas",
+               "type" : "parent"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility",
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1996,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.456529.9"
+               ],
+               "preferred" : "grid.456529.9",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 1456 6310"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/035y1f917",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.celafiscs.org.br/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -23.62306,
+                  "lng" : -46.55111,
+                  "name" : "São Caetano do Sul"
+               },
+               "geonames_id" : 3449324
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CELAFISCS"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Centro de Estudos do Laboratório de Aptidão Física de São Caetano do Sul"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "other"
          ]
       }
    ],
    "meta" : {
       "continents" : [
          {
-            "count" : 3446,
+            "count" : 20,
             "id" : "sa",
             "title" : "South America"
+         },
+         {
+            "count" : 1,
+            "id" : "na",
+            "title" : "North America"
          }
       ],
       "countries" : [
          {
-            "count" : 1860,
+            "count" : 14,
             "id" : "br",
             "title" : "Brazil"
          },
          {
-            "count" : 390,
+            "count" : 2,
             "id" : "ar",
             "title" : "Argentina"
          },
          {
-            "count" : 363,
-            "id" : "co",
-            "title" : "Colombia"
-         },
-         {
-            "count" : 239,
-            "id" : "cl",
-            "title" : "Chile"
-         },
-         {
-            "count" : 195,
-            "id" : "pe",
-            "title" : "Peru"
-         },
-         {
-            "count" : 120,
-            "id" : "ec",
-            "title" : "Ecuador"
-         },
-         {
-            "count" : 84,
-            "id" : "ve",
-            "title" : "Venezuela"
-         },
-         {
-            "count" : 75,
-            "id" : "bo",
-            "title" : "Bolivia"
-         },
-         {
-            "count" : 57,
+            "count" : 2,
             "id" : "uy",
             "title" : "Uruguay"
          },
          {
-            "count" : 40,
-            "id" : "py",
-            "title" : "Paraguay"
+            "count" : 1,
+            "id" : "cl",
+            "title" : "Chile"
+         },
+         {
+            "count" : 1,
+            "id" : "mx",
+            "title" : "Mexico"
+         },
+         {
+            "count" : 1,
+            "id" : "ve",
+            "title" : "Venezuela"
          }
       ],
       "statuses" : [
          {
-            "count" : 3446,
+            "count" : 20,
             "id" : "active",
             "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 1270,
-            "id" : "education",
-            "title" : "education"
-         },
-         {
-            "count" : 544,
-            "id" : "company",
-            "title" : "company"
-         },
-         {
-            "count" : 447,
-            "id" : "funder",
-            "title" : "funder"
-         },
-         {
-            "count" : 392,
-            "id" : "nonprofit",
-            "title" : "nonprofit"
-         },
-         {
-            "count" : 350,
-            "id" : "healthcare",
-            "title" : "healthcare"
-         },
-         {
-            "count" : 328,
+            "count" : 10,
             "id" : "facility",
             "title" : "facility"
          },
          {
-            "count" : 302,
+            "count" : 6,
             "id" : "government",
             "title" : "government"
          },
          {
-            "count" : 229,
+            "count" : 3,
+            "id" : "funder",
+            "title" : "funder"
+         },
+         {
+            "count" : 3,
             "id" : "other",
             "title" : "other"
          },
          {
-            "count" : 34,
-            "id" : "archive",
-            "title" : "archive"
+            "count" : 2,
+            "id" : "company",
+            "title" : "company"
+         },
+         {
+            "count" : 1,
+            "id" : "nonprofit",
+            "title" : "nonprofit"
          }
       ]
    },
-   "number_of_results" : 3446,
-   "time_taken" : 4
-}
+   "number_of_results" : 20,
+
 ```
 
 # Combine filters
