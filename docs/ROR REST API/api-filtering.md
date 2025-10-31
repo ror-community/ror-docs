@@ -42,10 +42,10 @@ Available statuses: _active_, _inactive_, and _withdrawn_. Requests for a specif
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=status:inactive' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Sorbonne&filter=status:inactive' | json_pp
 ```
 
-Retrieves a list of records for inactive research organizations.
+Retrieves a list of records for inactive research organizations with the keyword "Sorbonne" in a `names` field.
 
 ```json
 {
@@ -62,21 +62,46 @@ Retrieves a list of records for inactive research organizations.
             }
          },
          "domains" : [],
-         "established" : 2004,
+         "established" : 2010,
          "external_ids" : [
             {
                "all" : [
-                  "grid.464121.4"
+                  "501100009516"
                ],
-               "preferred" : "grid.464121.4",
+               "preferred" : "501100009516",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.469994.f"
+               ],
+               "preferred" : "grid.469994.f",
                "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 1788 6194"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q3491149"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/03s92mv58",
+         "id" : "https://ror.org/001z21q04",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://geops.geol.u-psud.fr/"
+               "value" : "http://www.sorbonne-paris-cite.fr/en"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Sorbonne_Paris_Cit%C3%A9_University_(group)"
             }
          ],
          "locations" : [
@@ -88,99 +113,96 @@ Retrieves a list of records for inactive research organizations.
                   "country_name" : "France",
                   "country_subdivision_code" : "IDF",
                   "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.69572,
-                  "lng" : 2.18727,
-                  "name" : "Orsay"
+                  "lat" : 48.85341,
+                  "lng" : 2.3488,
+                  "name" : "Paris"
                },
-               "geonames_id" : 2989204
+               "geonames_id" : 2988507
             }
          ],
          "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Center for Research and Higher Education Sorbonne Paris Cité"
+            },
             {
                "lang" : null,
                "types" : [
                   "acronym"
                ],
-               "value" : "GEOPS"
+               "value" : "PRES"
             },
             {
-               "lang" : "en",
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Pôle de Recherche et d’Enseignement Supérieur Sorbonne Paris Cité"
+            },
+            {
+               "lang" : "fr",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Geosciences Paris Sud"
+               "value" : "Sorbonne Paris Cité"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Université Sorbonne Paris Cité"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/04kdfz702",
-               "label" : "Institut National des Sciences de l'Univers",
-               "type" : "parent"
+               "id" : "https://ror.org/03saykv37",
+               "label" : "Laboratoire Vision Action Cognition",
+               "type" : "child"
             },
             {
-               "id" : "https://ror.org/028rypz17",
-               "label" : "Université Paris-Sud",
-               "type" : "parent"
+               "id" : "https://ror.org/00kneq391",
+               "label" : "Laboratory Orofacial Pathologies, Imaging and Biotherapies",
+               "type" : "child"
             }
          ],
          "status" : "inactive",
          "types" : [
-            "facility"
+            "funder",
+            "other"
          ]
       },
       {
          "admin" : {
             "created" : {
-               "date" : "2018-11-14",
+               "date" : "2023-12-07",
                "schema_version" : "1.0"
             },
             "last_modified" : {
-               "date" : "2024-12-11",
+               "date" : "2025-08-26",
                "schema_version" : "2.1"
             }
          },
          "domains" : [],
-         "established" : null,
+         "established" : 2019,
          "external_ids" : [
             {
                "all" : [
-                  "501100006488"
+                  "Q123695093"
                ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.414548.8"
-               ],
-               "preferred" : "grid.414548.8",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2169 1988"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q1665106"
-               ],
-               "preferred" : null,
+               "preferred" : "Q123695093",
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/01x3gbx83",
+         "id" : "https://ror.org/01zpxh127",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://institut.inra.fr/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Institut_national_de_la_recherche_agronomique"
+               "value" : "https://sante.sorbonne-universite.fr/structures-de-recherche/groupe-de-recherche-clinique-amylose-aa-sorbonne-universite-graasu"
             }
          ],
          "locations" : [
@@ -205,96 +227,28 @@ Retrieves a list of records for inactive research organizations.
                "types" : [
                   "label"
                ],
-               "value" : "French National Institute for Agricultural Research"
+               "value" : "Clinical Research Group on Inflammatory Amyloidosis (AA) Sorbonne University"
             },
             {
                "lang" : null,
                "types" : [
                   "acronym"
                ],
-               "value" : "INRA"
+               "value" : "GRAASU"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "alias"
+               ],
+               "value" : "GRC 28"
             },
             {
                "lang" : "fr",
                "types" : [
-                  "label",
-                  "ror_display"
+                  "alias"
                ],
-               "value" : "Institut National de la Recherche Agronomique"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/003vg9w96",
-               "label" : "Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "funder",
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1997,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.464074.5"
-               ],
-               "preferred" : "grid.464074.5",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0384 8293"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/00x5jmr79",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://inac.cea.fr/spram/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "ARA",
-                  "country_subdivision_name" : "Auvergne-Rhône-Alpes",
-                  "lat" : 45.17869,
-                  "lng" : 5.71479,
-                  "name" : "Grenoble"
-               },
-               "geonames_id" : 3014728
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SPrAM"
+               "value" : "GRC Amylose AA Sorbonne Université"
             },
             {
                "lang" : "fr",
@@ -302,1561 +256,14 @@ Retrieves a list of records for inactive research organizations.
                   "ror_display",
                   "label"
                ],
-               "value" : "Structure et Propriétés d'Architectures Moléculaires"
+               "value" : "Groupe de recherche clinique Amylose AA Sorbonne Université"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/00jjx8s55",
-               "label" : "Commissariat à l'Énergie Atomique et aux Énergies Alternatives",
+               "id" : "https://ror.org/02en5vm52",
+               "label" : "Sorbonne Université",
                "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/00z54nq84",
-               "label" : "Institut de Physique",
-               "type" : "parent"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-04-12",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1970,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0001 2097 0141"
-               ],
-               "preferred" : "0000 0001 2097 0141",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q902688"
-               ],
-               "preferred" : "Q902688",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00wh4bp03",
-         "links" : [],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "OCC",
-                  "country_subdivision_name" : "Occitanie",
-                  "lat" : 43.61093,
-                  "lng" : 3.87635,
-                  "name" : "Montpellier"
-               },
-               "geonames_id" : 2992166
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Montpellier 2 University"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Montpellier II University"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "University of Montpellier 2"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Université Montpellier 2"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Université de Montpellier II"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/051escj72",
-               "label" : "Université de Montpellier",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1838,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.431175.5"
-               ],
-               "preferred" : "grid.431175.5",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0431 3522"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q6304221"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04z066j96",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.judson.edu/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Judson_College_(Alabama)"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "AL",
-                  "country_subdivision_name" : "Alabama",
-                  "lat" : 32.63235,
-                  "lng" : -87.31917,
-                  "name" : "Marion"
-               },
-               "geonames_id" : 4074673
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Judson College"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2007,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100006459"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.412143.1"
-               ],
-               "preferred" : "grid.412143.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2359 716X"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q3551779"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/033c46s90",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.ueb.eu/versionAnglaiseV2/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/European_University_of_Brittany"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "BRE",
-                  "country_subdivision_name" : "Brittany",
-                  "lat" : 48.11198,
-                  "lng" : -1.67429,
-                  "name" : "Rennes"
-               },
-               "geonames_id" : 2983990
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "European University of Brittany"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UEB"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Université Européenne de Bretagne"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2012,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.460792.e"
-               ],
-               "preferred" : "grid.460792.e",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q3247880"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/0033vhx30",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.universiteparisseine.fr/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/University_of_Paris-Seine"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 49.03645,
-                  "lng" : 2.07613,
-                  "name" : "Cergy"
-               },
-               "geonames_id" : 3027883
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "University of Paris-Seine"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Université Paris-Seine"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1968,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100000617",
-                  "501100020171"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.421514.7"
-               ],
-               "preferred" : "grid.421514.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0421 7848"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/02vtmh618",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.gov.uk/government/organisations/foreign-commonwealth-office"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Foreign_and_Commonwealth_Office"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "FCO"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Foreign Office"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Foreign and Commonwealth Office"
-            },
-            {
-               "lang" : "cy",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Y Swyddfa Dramor a Chymanwlad"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/009twqt47",
-               "label" : "Official Development Assistance",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/05wnh3t63",
-               "label" : "Government of the United Kingdom",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/037wke960",
-               "label" : "Foreign, Commonwealth & Development Office",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "funder",
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-04-12",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1970,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0001 2186 5845"
-               ],
-               "preferred" : "0000 0001 2186 5845",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q903888"
-               ],
-               "preferred" : "Q903888",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/0227fbx80",
-         "links" : [
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/University_of_Montpellier_1"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "OCC",
-                  "country_subdivision_name" : "Occitanie",
-                  "lat" : 43.61093,
-                  "lng" : 3.87635,
-                  "name" : "Montpellier"
-               },
-               "geonames_id" : 2992166
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Montpellier 1 University"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Montpellier I University"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "University of Montpellier 1"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Université Montpellier 1"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Université de Montpellier I"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/051escj72",
-               "label" : "Université de Montpellier",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2005,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.488279.8"
-               ],
-               "preferred" : "grid.488279.8",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 1798 7163"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/01zss5v68",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.icloire.com/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "ARA",
-                  "country_subdivision_name" : "Auvergne-Rhône-Alpes",
-                  "lat" : 45.4739,
-                  "lng" : 4.37678,
-                  "name" : "Saint-Priest-en-Jarez"
-               },
-               "geonames_id" : 2977350
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "ICLN"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institute Cancer De La Loire Lucien Neuwirth"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1949,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.420049.b"
-               ],
-               "preferred" : "grid.420049.b",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0152 412X"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q8039905"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02zeryz43",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://kbr.com/markets/government/kbr-wyle/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Wyle_Laboratories"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "CA",
-                  "country_subdivision_name" : "California",
-                  "lat" : 33.91918,
-                  "lng" : -118.41647,
-                  "name" : "El Segundo"
-               },
-               "geonames_id" : 5345860
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "alias"
-               ],
-               "value" : "KBRwyle"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Wyle (United States)"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/01g1xae87",
-               "label" : "KBR (United States)",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-11-21",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1929,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0000 9563 1913"
-               ],
-               "preferred" : "0000 0000 9563 1913",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q16987718"
-               ],
-               "preferred" : "Q16987718",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04neq5659",
-         "links" : [
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Avco"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "CT",
-                  "country_subdivision_name" : "Connecticut",
-                  "lat" : 41.02649,
-                  "lng" : -73.62846,
-                  "name" : "Greenwich"
-               },
-               "geonames_id" : 4835395
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Avco"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Avco (United States)"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Aviation Corporation"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04h6azc67",
-               "label" : "Textron (United States)",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1997,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100000278",
-                  "501100002992"
-               ],
-               "preferred" : "501100000278",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.433527.4"
-               ],
-               "preferred" : "grid.433527.4",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 1018 290X"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q2748702"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05rf29967",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.gov.uk/government/organisations/department-for-international-development"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Department_for_International_Development"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "DFID"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Department for International Development"
-            },
-            {
-               "lang" : "cy",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Yr Adran dros Ddatblygu Rhyngwladol"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/05wnh3t63",
-               "label" : "Government of the United Kingdom",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/037wke960",
-               "label" : "Foreign, Commonwealth & Development Office",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "funder",
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-07-08",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [],
-         "id" : "https://ror.org/05x4mwp36",
-         "links" : [
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Bethany_College_%28Saskatchewan%29"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "CA",
-                  "country_name" : "Canada",
-                  "country_subdivision_code" : "SK",
-                  "country_subdivision_name" : "Saskatchewan",
-                  "lat" : 52.52431,
-                  "lng" : -106.7311,
-                  "name" : "Hepburn"
-               },
-               "geonames_id" : 12822874
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Bethany College"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "usk.edu"
-         ],
-         "established" : 2010,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.469262.d"
-               ],
-               "preferred" : "grid.469262.d",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 4652 9882"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q16900576"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05f1eky95",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.usk.edu"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/St._Katherine_College"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "CA",
-                  "country_subdivision_name" : "California",
-                  "lat" : 33.14337,
-                  "lng" : -117.16614,
-                  "name" : "San Marcos"
-               },
-               "geonames_id" : 5392368
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SKC"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Saint Katherine College"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "USK"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "University of Saint Katherine"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.448010.9"
-               ],
-               "preferred" : "grid.448010.9",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/0436nxt45",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.hbu.cas.cz/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "CZ",
-                  "country_name" : "Czechia",
-                  "country_subdivision_code" : "31",
-                  "country_subdivision_name" : "Jihočeský kraj",
-                  "lat" : 48.97447,
-                  "lng" : 14.47434,
-                  "name" : "České Budějovice"
-               },
-               "geonames_id" : 3077916
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Academy of Sciences of the Czech Republic Institute of Hydrobiology"
-            },
-            {
-               "lang" : "cs",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Akademie Ved Ceske Republiky Hydrobiologicky Ustav"
-            },
-            {
-               "lang" : "cs",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Hydrobiologický Ústav Biologické Centrum AV ČR"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institute of Hydrobiology, Biology Centre, Academy of Sciences of the Czech Republic"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/05pq4yn02",
-               "label" : "Czech Academy of Sciences, Biology Centre",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1889,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.466958.0"
-               ],
-               "preferred" : "grid.466958.0",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 9413 8836"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q14942414"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02p4sx080",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.northamptonshire.gov.uk/en/Pages/HomePage.aspx"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Northamptonshire_County_Council"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 52.25,
-                  "lng" : -0.88333,
-                  "name" : "Northampton"
-               },
-               "geonames_id" : 2641430
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Northamptonshire County Council"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00b03qn53",
-               "label" : "North Northamptonshire Council",
-               "type" : "successor"
-            },
-            {
-               "id" : "https://ror.org/00s2fy654",
-               "label" : "West Northamptonshire Council",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1991,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.416057.1"
-               ],
-               "preferred" : "grid.416057.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 8764 9988"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q6898230"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05p96ba03",
-         "links" : [
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Monash_Institute_of_Medical_Research"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "OC",
-                  "continent_name" : "Oceania",
-                  "country_code" : "AU",
-                  "country_name" : "Australia",
-                  "country_subdivision_code" : "VIC",
-                  "country_subdivision_name" : "Victoria",
-                  "lat" : -37.91667,
-                  "lng" : 145.11667,
-                  "name" : "Clayton"
-               },
-               "geonames_id" : 2171400
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "MIMR"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Monash Institute of Medical Research"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02bfwt286",
-               "label" : "Monash University",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/0083mf965",
-               "label" : "Hudson Institute of Medical Research",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1962,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.447761.7"
-               ],
-               "preferred" : "grid.447761.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0396 9503"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/039nazg33",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.entu.cas.cz/en/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "CZ",
-                  "country_name" : "Czechia",
-                  "country_subdivision_code" : "31",
-                  "country_subdivision_name" : "Jihočeský kraj",
-                  "lat" : 48.97447,
-                  "lng" : 14.47434,
-                  "name" : "České Budějovice"
-               },
-               "geonames_id" : 3077916
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "cs",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Entomologický Ústav"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institute of Entomology"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/053avzc18",
-               "label" : "Czech Academy of Sciences",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/05pq4yn02",
-               "label" : "Czech Academy of Sciences, Biology Centre",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1986,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.448363.e"
-               ],
-               "preferred" : "grid.448363.e",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/02tz8r820",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.upb.cas.cz/en"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "CZ",
-                  "country_name" : "Czechia",
-                  "country_subdivision_code" : "31",
-                  "country_subdivision_name" : "Jihočeský kraj",
-                  "lat" : 48.97447,
-                  "lng" : 14.47434,
-                  "name" : "České Budějovice"
-               },
-               "geonames_id" : 3077916
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "ISB"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institute of Soil Biology"
-            },
-            {
-               "lang" : "cs",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Ústav Půdní Biologie"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/053avzc18",
-               "label" : "Czech Academy of Sciences",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/05pq4yn02",
-               "label" : "Czech Academy of Sciences, Biology Centre",
-               "type" : "successor"
             }
          ],
          "status" : "inactive",
@@ -1868,145 +275,45 @@ Retrieves a list of records for inactive research organizations.
    "meta" : {
       "continents" : [
          {
-            "count" : 446,
+            "count" : 2,
             "id" : "eu",
             "title" : "Europe"
-         },
-         {
-            "count" : 186,
-            "id" : "na",
-            "title" : "North America"
-         },
-         {
-            "count" : 89,
-            "id" : "as",
-            "title" : "Asia"
-         },
-         {
-            "count" : 33,
-            "id" : "oc",
-            "title" : "Oceania"
-         },
-         {
-            "count" : 3,
-            "id" : "af",
-            "title" : "Africa"
-         },
-         {
-            "count" : 1,
-            "id" : "sa",
-            "title" : "South America"
          }
       ],
       "countries" : [
          {
-            "count" : 185,
+            "count" : 2,
             "id" : "fr",
             "title" : "France"
-         },
-         {
-            "count" : 163,
-            "id" : "us",
-            "title" : "United States"
-         },
-         {
-            "count" : 70,
-            "id" : "gb",
-            "title" : "United Kingdom"
-         },
-         {
-            "count" : 45,
-            "id" : "es",
-            "title" : "Spain"
-         },
-         {
-            "count" : 43,
-            "id" : "jp",
-            "title" : "Japan"
-         },
-         {
-            "count" : 30,
-            "id" : "au",
-            "title" : "Australia"
-         },
-         {
-            "count" : 26,
-            "id" : "de",
-            "title" : "Germany"
-         },
-         {
-            "count" : 22,
-            "id" : "ca",
-            "title" : "Canada"
-         },
-         {
-            "count" : 17,
-            "id" : "ie",
-            "title" : "Ireland"
-         },
-         {
-            "count" : 12,
-            "id" : "it",
-            "title" : "Italy"
          }
       ],
       "statuses" : [
          {
-            "count" : 758,
+            "count" : 2,
             "id" : "inactive",
             "title" : "inactive"
          }
       ],
       "types" : [
          {
-            "count" : 212,
+            "count" : 1,
             "id" : "facility",
             "title" : "facility"
          },
          {
-            "count" : 173,
-            "id" : "company",
-            "title" : "company"
-         },
-         {
-            "count" : 162,
-            "id" : "education",
-            "title" : "education"
-         },
-         {
-            "count" : 156,
+            "count" : 1,
             "id" : "funder",
             "title" : "funder"
          },
          {
-            "count" : 104,
-            "id" : "government",
-            "title" : "government"
-         },
-         {
-            "count" : 52,
-            "id" : "nonprofit",
-            "title" : "nonprofit"
-         },
-         {
-            "count" : 41,
-            "id" : "healthcare",
-            "title" : "healthcare"
-         },
-         {
-            "count" : 26,
+            "count" : 1,
             "id" : "other",
             "title" : "other"
-         },
-         {
-            "count" : 1,
-            "id" : "archive",
-            "title" : "archive"
          }
       ]
    },
-   "number_of_results" : 758,
-   "time_taken" : 4
+   "number_of_results" : 2,
+   "time_taken" : 3
 }
 ```
 
@@ -2027,10 +334,10 @@ Available organization types:
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=types:facility' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Pasteur&filter=types:facility' | json_pp
 ```
 
-Retrieves a list of research facilities.
+Retrieves a list of research facilities with the keyword "Pasteur" in a `names` field.
 
 ```json
 {
@@ -2038,116 +345,6 @@ Retrieves a list of research facilities.
       {
          "admin" : {
             "created" : {
-               "date" : "2019-02-17",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2011,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.503348.9"
-               ],
-               "preferred" : "grid.503348.9",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0620 5541"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q51780760"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03bbjky47",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://carmen.univ-lyon1.fr/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "ARA",
-                  "country_subdivision_name" : "Auvergne-Rhône-Alpes",
-                  "lat" : 45.71404,
-                  "lng" : 4.80755,
-                  "name" : "Oullins"
-               },
-               "geonames_id" : 2988998
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CarMeN"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Laboratoire CarMeN"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Laboratoire de Recherche en Cardiovasculaire, Métabolisme, Diabétologie et Nutrition"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/029brtt94",
-               "label" : "Université Claude Bernard Lyon 1",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02vjkv261",
-               "label" : "Inserm",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/050jn9y42",
-               "label" : "Institut National des Sciences Appliquées de Lyon",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/003vg9w96",
-               "label" : "Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
                "date" : "2018-11-14",
                "schema_version" : "1.0"
             },
@@ -2157,204 +354,186 @@ Retrieves a list of research facilities.
             }
          },
          "domains" : [],
-         "established" : 2012,
+         "established" : 1913,
          "external_ids" : [
             {
                "all" : [
-                  "grid.462942.f"
+                  "grid.418828.f"
                ],
-               "preferred" : "grid.462942.f",
+               "preferred" : "grid.418828.f",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 0822 6088"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30261606"
+                  "Q587434"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/02ek9wp67",
+         "id" : "https://ror.org/00akhwn95",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.greqam.fr/en"
+               "value" : "http://www.saovabha.com/en/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Queen_Saovabha_Memorial_Institute"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "PAC",
-                  "country_subdivision_name" : "Provence-Alpes-Côte d'Azur",
-                  "lat" : 43.29695,
-                  "lng" : 5.38107,
-                  "name" : "Marseille"
+                  "continent_code" : "AS",
+                  "continent_name" : "Asia",
+                  "country_code" : "TH",
+                  "country_name" : "Thailand",
+                  "country_subdivision_code" : "10",
+                  "country_subdivision_name" : "Bangkok",
+                  "lat" : 13.75398,
+                  "lng" : 100.50144,
+                  "name" : "Bangkok"
                },
-               "geonames_id" : 2995469
+               "geonames_id" : 1609350
             }
          ],
          "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "GREQAM"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Groupement de Recherche en Économie Quantitative d’Aix-Marseille"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/035xkbk20",
-               "label" : "Aix-Marseille Université",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/040baw385",
-               "label" : "Centrale Marseille",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/04b0z7q78",
-               "label" : "Institut des Sciences Humaines et Sociales",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02d9dg697",
-               "label" : "École des hautes études en sciences sociales",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1960,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.483349.1"
-               ],
-               "preferred" : "grid.483349.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0382 3475"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q2945466"
-               ],
-               "preferred" : "Q2945466",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/0266y7j75",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.sciencespo.fr/cevipof/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.85341,
-                  "lng" : 2.3488,
-                  "name" : "Paris"
-               },
-               "geonames_id" : 2988507
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CEVIPOF"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Centre de Recherches Politiques"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Centre de Recherches Politiques de Sciences Po"
-            },
             {
                "lang" : "en",
                "types" : [
                   "alias"
                ],
-               "value" : "Centre for Political Research at Sciences"
+               "value" : "Pasteur Institute"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "QSMI"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Queen Saovabha Memorial Institute"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Sathan Pasteur"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Sathan Saovabha"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2024-04-30",
+               "schema_version" : "2.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1903,
+         "external_ids" : [
+            {
+               "all" : [
+                  "0000 0005 0955 754X"
+               ],
+               "preferred" : "0000 0005 0955 754X",
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q4201403"
+               ],
+               "preferred" : "Q4201403",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/046fcjp93",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.saude.sp.gov.br/instituto-pasteur/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://pt.wikipedia.org/wiki/Instituto_Pasteur_(S%C3%A3o_Paulo)"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "BR",
+                  "country_name" : "Brazil",
+                  "country_subdivision_code" : "SP",
+                  "country_subdivision_name" : "São Paulo",
+                  "lat" : -23.5475,
+                  "lng" : -46.63611,
+                  "name" : "São Paulo"
+               },
+               "geonames_id" : 3448439
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Instituto Pasteur"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Instituto Pasteur São Paulo"
             },
             {
                "lang" : "en",
                "types" : [
                   "label"
                ],
-               "value" : "Centre for Political Research at Sciences Po"
+               "value" : "Pasteur Institute"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Pasteur Institute São Paulo"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/04b0z7q78",
-               "label" : "Institut des Sciences Humaines et Sociales",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/05fe7ax82",
-               "label" : "Institut d'Etudes Politiques de Paris",
-               "type" : "parent"
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
             }
          ],
          "status" : "active",
@@ -2374,28 +553,46 @@ Retrieves a list of research facilities.
             }
          },
          "domains" : [],
-         "established" : 1981,
+         "established" : 1854,
          "external_ids" : [
             {
                "all" : [
-                  "grid.462261.5"
+                  "501100013340"
                ],
-               "preferred" : "grid.462261.5",
+               "preferred" : "501100013340",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.8970.6"
+               ],
+               "preferred" : "grid.8970.6",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0452 2471"
+                  "0000 0001 2159 9858"
                ],
                "preferred" : null,
                "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q3151788"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/0075hvk77",
+         "id" : "https://ror.org/05k9skc85",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.hds.utc.fr/?lang=en"
+               "value" : "http://www.pasteur-lille.fr/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Pasteur_Institute_of_Lille"
             }
          ],
          "locations" : [
@@ -2407,659 +604,103 @@ Retrieves a list of research facilities.
                   "country_name" : "France",
                   "country_subdivision_code" : "HDF",
                   "country_subdivision_name" : "Hauts-de-France",
-                  "lat" : 49.41794,
-                  "lng" : 2.82606,
-                  "name" : "Compiègne"
+                  "lat" : 50.63297,
+                  "lng" : 3.05858,
+                  "name" : "Lille"
                },
-               "geonames_id" : 3024066
+               "geonames_id" : 2998324
             }
          ],
          "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "HEUDIASYC"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Heuristics and Diagnostics for Complex Systems"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Heuristique et Diagnostic des Systèmes Complexes"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04z22qz54",
-               "label" : "Institut des Sciences de l'Information et de leurs Interactions",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/04y5kwa70",
-               "label" : "Université de Technologie de Compiègne",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2004,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.464083.d"
-               ],
-               "preferred" : "grid.464083.d",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0384 1227"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/04qq0qp34",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.lof.cnrs.fr/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "NAQ",
-                  "country_subdivision_name" : "Nouvelle-Aquitaine",
-                  "lat" : 44.80565,
-                  "lng" : -0.6324,
-                  "name" : "Pessac"
-               },
-               "geonames_id" : 2987805
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "LOF"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Laboratoire du Futur"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/054qv7y42",
-               "label" : "Institut Polytechnique de Bordeaux",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02cte4b68",
-               "label" : "Institut de Chimie",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/01jyh4590",
-               "label" : "Solvay (France)",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/057qpr032",
-               "label" : "Université de Bordeaux",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2019-02-17",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2015,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.503376.4"
-               ],
-               "preferred" : "grid.503376.4",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q51784880"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05qdnns64",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://maiage.jouy.inra.fr"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.75909,
-                  "lng" : 2.16966,
-                  "name" : "Jouy-en-Josas"
-               },
-               "geonames_id" : 3012165
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Applied Mathematics and Computer Science, from Genomes to the Environment"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "MAIAGE"
-            },
             {
                "lang" : "fr",
                "types" : [
                   "label",
                   "ror_display"
                ],
-               "value" : "Mathématiques et Informatique Appliquées du Génome à l'Environnement"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00gtg0p11",
-               "label" : "Centre Île-de-France - Jouy-en-Josas - Antony",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-11-08",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0004 9334 1831"
-               ],
-               "preferred" : "0000 0004 9334 1831",
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/0502xk698",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.navsea.navy.mil/Home/Warfare-Centers/NSWC-Philadelphia/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "PA",
-                  "country_subdivision_name" : "Pennsylvania",
-                  "lat" : 39.95238,
-                  "lng" : -75.16362,
-                  "name" : "Philadelphia"
-               },
-               "geonames_id" : 4560349
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "NSWC Philadelphia"
+               "value" : "Institut Pasteur de Lille"
             },
             {
                "lang" : "en",
                "types" : [
-                  "ror_display",
                   "label"
                ],
-               "value" : "NSWC Philadelphia Division"
+               "value" : "Pasteur Institute of Lille"
             },
             {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "NSWCPD"
-            },
-            {
-               "lang" : "en",
+               "lang" : "fr",
                "types" : [
                   "alias"
                ],
-               "value" : "Naval Surface Warfare Center Philadelphia Division"
+               "value" : "Pasteur-Lille"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/03d4ecn10",
-               "label" : "Naval Surface Warfare Center",
-               "type" : "parent"
+               "id" : "https://ror.org/00dyt5s15",
+               "label" : "Center for Infection and Immunity of Lille",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05gd4yq49",
+               "label" : "Institut de Biologie de Lille",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/0300mzg60",
+               "label" : "Integrated Genomics and Metabolic Diseases Modeling",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05xanhp90",
+               "label" : "Récepteurs Nucléaires, Maladies Cardiovasculaires et Diabète",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05x9zmx47",
+               "label" : "CANTHER - Hétérogénéité, Plasticité et Résistance aux Thérapies des Cancers",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/04k5h2q42",
+               "label" : "(Epi)génomique fonctionnelle métabolique et des dysfonctions dans le diabète de type 2 et des maladies associées",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/0455vgw31",
+               "label" : "IMPact de l'Environnement Chimique sur la Santé humaine",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/0086epd30",
+               "label" : "Médicaments et Molécules pour Agir sur les Systèmes Vivants",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/056hav897",
+               "label" : "Plateformes Lilloises en Biologie et Santé",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/03rvrjk28",
+               "label" : "Facteurs de risque et déterminants moléculaires des maladies liées au vieillissement",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/03pbmtd68",
+               "label" : "Recherche translationnelle sur le diabète",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
             }
          ],
          "status" : "active",
          "types" : [
             "facility",
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.420339.f"
-               ],
-               "preferred" : "grid.420339.f",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0464 6124"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30282483"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/0454zjr22",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www6.val-de-loire.inrae.fr/infectiologie-santepublique"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "CVL",
-                  "country_subdivision_name" : "Centre-Val de Loire",
-                  "lat" : 47.54499,
-                  "lng" : 0.74623,
-                  "name" : "Nouzilly"
-               },
-               "geonames_id" : 2989945
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Infectiologie Animale et Santé Publique"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02wwzvj46",
-               "label" : "Université de Tours",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/003vg9w96",
-               "label" : "Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2012,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.463924.e"
-               ],
-               "preferred" : "grid.463924.e",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0452 4645"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30262302"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04kgf6p94",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://piim.univ-amu.fr/?lang=en"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "PAC",
-                  "country_subdivision_name" : "Provence-Alpes-Côte d'Azur",
-                  "lat" : 43.29695,
-                  "lng" : 5.38107,
-                  "name" : "Marseille"
-               },
-               "geonames_id" : 2995469
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "P2IM"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Physics of Ionic and Molecular Interactions"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Physique des interactions ioniques et moléculaires"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/035xkbk20",
-               "label" : "Aix-Marseille Université",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/00s19x989",
-               "label" : "CNRS Ingénierie",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-03-30",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2000,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0001 2253 9574"
-               ],
-               "preferred" : "0000 0001 2253 9574",
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/045q3tp69",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://sites-recherche.univ-rennes2.fr/cellam/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "BRE",
-                  "country_subdivision_name" : "Brittany",
-                  "lat" : 48.11198,
-                  "lng" : -1.67429,
-                  "name" : "Rennes"
-               },
-               "geonames_id" : 2983990
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CELLAM"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Centre d’études des langues et littératures anciennes et modernes"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UR CELLAM"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/01m84wm78",
-               "label" : "Université Rennes 2",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2007,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.482748.5"
-               ],
-               "preferred" : "grid.482748.5",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/048ryj409",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://passagesxx-xxi.univ-lyon2.fr/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "ARA",
-                  "country_subdivision_name" : "Auvergne-Rhône-Alpes",
-                  "lat" : 45.74846,
-                  "lng" : 4.84671,
-                  "name" : "Lyon"
-               },
-               "geonames_id" : 2996944
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Laboratoire Passages XX_XXI"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/03rth4p18",
-               "label" : "Université Lumière Lyon 2",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
+            "funder"
          ]
       },
       {
@@ -3069,26 +710,26 @@ Retrieves a list of research facilities.
                "schema_version" : "1.0"
             },
             "last_modified" : {
-               "date" : "2024-12-11",
+               "date" : "2025-10-06",
                "schema_version" : "2.1"
             }
          },
          "domains" : [],
-         "established" : 2014,
+         "established" : 2005,
          "external_ids" : [
             {
                "all" : [
-                  "Q51781870"
+                  "Q51780559"
                ],
-               "preferred" : "Q51781870",
+               "preferred" : "Q51780559",
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/05hqep952",
+         "id" : "https://ror.org/01c1p7750",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.iame-research.center"
+               "value" : "https://hopitauxcentre-u-pariscite.aphp.fr/cic-vaccinologie-cochin-pasteur/"
             }
          ],
          "locations" : [
@@ -3111,31 +752,31 @@ Retrieves a list of research facilities.
             {
                "lang" : null,
                "types" : [
-                  "acronym"
+                  "alias"
                ],
-               "value" : "IAME"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Infection, Anti-microbiens, Modélisation, Evolution"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Infection, Antimicrobials, Modelling, Evolution"
+               "value" : "CIC 1417"
             },
             {
                "lang" : "fr",
                "types" : [
                   "alias"
                ],
-               "value" : "Infection, anti-microbien, modélisation, évolution"
+               "value" : "CIC Cochin Pasteur"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "CIC biothérapie et vaccinologie Cochin-Pasteur"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Centre d'Investigation Clinique de Vaccinologie Cochin-Pasteur"
             }
          ],
          "relationships" : [
@@ -3158,7 +799,7 @@ Retrieves a list of research facilities.
       {
          "admin" : {
             "created" : {
-               "date" : "2021-04-06",
+               "date" : "2018-11-14",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -3167,220 +808,44 @@ Retrieves a list of research facilities.
             }
          },
          "domains" : [],
-         "established" : 2009,
+         "established" : 1894,
          "external_ids" : [
             {
                "all" : [
-                  "grid.510388.7"
+                  "grid.418520.a"
                ],
-               "preferred" : "grid.510388.7",
+               "preferred" : "grid.418520.a",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 8342 6081"
+                  "0000 0001 2163 7615"
                ],
                "preferred" : null,
                "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q16508572"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/01xd0ys45",
+         "id" : "https://ror.org/052b46n78",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://lcfc.ensam.eu/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Laboratory_of_design,_manufacturing_and_control"
+               "value" : "http://www.pasteur.dz/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "GES",
-                  "country_subdivision_name" : "Grand Est",
-                  "lat" : 49.11911,
-                  "lng" : 6.17269,
-                  "name" : "Metz"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "DZ",
+                  "country_name" : "Algeria",
+                  "country_subdivision_code" : "16",
+                  "country_subdivision_name" : "Algiers",
+                  "lat" : 36.73225,
+                  "lng" : 3.08746,
+                  "name" : "Algiers"
                },
-               "geonames_id" : 2994160
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "LCFC"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Laboratoire de Conception Fabrication Commande"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Laboratory of design, manufacturing and control"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/018pp1107",
-               "label" : "École nationale supérieure d'arts et métiers",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/04vfs2w97",
-               "label" : "Université de Lorraine",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-08-17",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2008,
-         "external_ids" : [
-            {
-               "all" : [
-                  "Q51784976"
-               ],
-               "preferred" : "Q51784976",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04fa3ke77",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www6.rennes.inra.fr/smart"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "BRE",
-                  "country_subdivision_name" : "Brittany",
-                  "lat" : 48.11198,
-                  "lng" : -1.67429,
-                  "name" : "Rennes"
-               },
-               "geonames_id" : 2983990
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SMART"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Structures et Marchés Agricoles, Ressources et Territoires"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/003vg9w96",
-               "label" : "Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/01s3fs709",
-               "label" : "Institut Agro Rennes-Angers",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-08-17",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2014,
-         "external_ids" : [
-            {
-               "all" : [
-                  "Q51781869"
-               ],
-               "preferred" : "Q51781869",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02k7ask46",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.calmip.univ-toulouse.fr"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "OCC",
-                  "country_subdivision_name" : "Occitanie",
-                  "lat" : 43.60426,
-                  "lng" : 1.44367,
-                  "name" : "Toulouse"
-               },
-               "geonames_id" : 2972315
+               "geonames_id" : 2507480
             }
          ],
          "names" : [
@@ -3390,41 +855,14 @@ Retrieves a list of research facilities.
                   "ror_display",
                   "label"
                ],
-               "value" : "CALMIP"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Calcul en Midi-Pyrénées"
+               "value" : "Institut Pasteur d'Algérie"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/01h8pf755",
-               "label" : "Institut National des Sciences Appliquées de Toulouse",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/033p9g875",
-               "label" : "Institut National Polytechnique de Toulouse",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02v6kpv12",
-               "label" : "Université Toulouse III - Paul Sabatier",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02feahw73",
-               "label" : "Centre National de la Recherche Scientifique",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/004raaa70",
-               "label" : "Université de Toulouse",
-               "type" : "parent"
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
             }
          ],
          "status" : "active",
@@ -3444,55 +882,62 @@ Retrieves a list of research facilities.
             }
          },
          "domains" : [],
-         "established" : 1954,
+         "established" : 1921,
          "external_ids" : [
             {
                "all" : [
-                  "grid.461902.8"
+                  "501100010679"
                ],
-               "preferred" : "grid.461902.8",
+               "preferred" : "501100010679",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.420169.8"
+               ],
+               "preferred" : "grid.420169.8",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 0726 3901"
+                  "0000 0000 9562 2611"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q3151724"
+                  "Q17013593"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/05whrjc31",
+         "id" : "https://ror.org/00wqczk30",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www-ics.u-strasbg.fr/?lang=en#&panel1-3"
+               "value" : "http://en.pasteur.ac.ir/"
             },
             {
                "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Institut_Charles_Sadron"
+               "value" : "https://en.wikipedia.org/wiki/Pasteur_Institute_of_Iran"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "GES",
-                  "country_subdivision_name" : "Grand Est",
-                  "lat" : 48.58392,
-                  "lng" : 7.74553,
-                  "name" : "Strasbourg"
+                  "continent_code" : "AS",
+                  "continent_name" : "Asia",
+                  "country_code" : "IR",
+                  "country_name" : "Iran",
+                  "country_subdivision_code" : "23",
+                  "country_subdivision_name" : "Tehran",
+                  "lat" : 35.69439,
+                  "lng" : 51.42151,
+                  "name" : "Tehran"
                },
-               "geonames_id" : 2973783
+               "geonames_id" : 112931
             }
          ],
          "names" : [
@@ -3501,115 +946,36 @@ Retrieves a list of research facilities.
                "types" : [
                   "acronym"
                ],
-               "value" : "ICS"
+               "value" : "IPI"
             },
             {
                "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Institut Pasteur D'Iran"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "PII"
+            },
+            {
+               "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Institut Charles Sadron"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Institut charles-sadron"
+               "value" : "Pasteur Institute of Iran"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/02cte4b68",
-               "label" : "Institut de Chimie",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/00pg6eq24",
-               "label" : "Université de Strasbourg",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-06-19",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "100014050"
-               ],
-               "preferred" : "100014050",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "Q105169380"
-               ],
-               "preferred" : "Q105169380",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/003mzyg61",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.erdc.usace.army.mil/Locations/CERL/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "MS",
-                  "country_subdivision_name" : "Mississippi",
-                  "lat" : 32.35265,
-                  "lng" : -90.87788,
-                  "name" : "Vicksburg"
-               },
-               "geonames_id" : 4449620
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CERLen"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "Construction Engineering Research Laboratory"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/027mhn368",
-               "label" : "U.S. Army Engineer Research and Development Center",
-               "type" : "parent"
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
             }
          ],
          "status" : "active",
@@ -3630,48 +996,147 @@ Retrieves a list of research facilities.
             }
          },
          "domains" : [],
-         "established" : 1946,
+         "established" : 2006,
          "external_ids" : [
             {
                "all" : [
-                  "grid.424661.3"
+                  "501100016217"
                ],
-               "preferred" : "grid.424661.3",
+               "preferred" : "501100016217",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.418532.9"
+               ],
+               "preferred" : "grid.418532.9",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 2173 3068"
+                  "0000 0004 0403 6035"
                ],
                "preferred" : null,
                "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q5917646"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/05y503v71",
+         "id" : "https://ror.org/04dpm2z73",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.inra.org.ma/accueil1.asp?codelangue=23&po=2"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Institut_national_de_la_recherche_agronomique"
+               "value" : "http://www.pasteur.edu.uy/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "MA",
-                  "country_name" : "Morocco",
-                  "country_subdivision_code" : "04",
-                  "country_subdivision_name" : "Rabat-Salé-Kénitra",
-                  "lat" : 34.01325,
-                  "lng" : -6.83255,
-                  "name" : "Rabat"
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "UY",
+                  "country_name" : "Uruguay",
+                  "country_subdivision_code" : "MO",
+                  "country_subdivision_name" : "Montevideo Department",
+                  "lat" : -34.90328,
+                  "lng" : -56.18816,
+                  "name" : "Montevideo"
                },
-               "geonames_id" : 2538475
+               "geonames_id" : 3441575
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "es",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "IP Montevideo"
+            },
+            {
+               "lang" : "es",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institut Pasteur de Montevideo"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility",
+            "funder"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1953,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.418537.c"
+               ],
+               "preferred" : "grid.418537.c",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 7535 978X"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30281766"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/03ht2dx40",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.pasteur-kh.org/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AS",
+                  "continent_name" : "Asia",
+                  "country_code" : "KH",
+                  "country_name" : "Cambodia",
+                  "country_subdivision_code" : "12",
+                  "country_subdivision_name" : "Phnom Penh",
+                  "lat" : 11.56245,
+                  "lng" : 104.91601,
+                  "name" : "Phnom Penh"
+               },
+               "geonames_id" : 1821306
             }
          ],
          "names" : [
@@ -3680,7 +1145,7 @@ Retrieves a list of research facilities.
                "types" : [
                   "acronym"
                ],
-               "value" : "INRA"
+               "value" : "IPC"
             },
             {
                "lang" : "fr",
@@ -3688,19 +1153,14 @@ Retrieves a list of research facilities.
                   "ror_display",
                   "label"
                ],
-               "value" : "Institut National de la Recherche Agronomique"
+               "value" : "Institut Pasteur du Cambodge"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/028cef883",
-               "label" : "Laboratoire Chrono-Environnement",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/056ms9a36",
-               "label" : "GEVES",
-               "type" : "child"
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
             }
          ],
          "status" : "active",
@@ -3720,80 +1180,75 @@ Retrieves a list of research facilities.
             }
          },
          "domains" : [],
-         "established" : 1995,
+         "established" : 1990,
          "external_ids" : [
             {
                "all" : [
-                  "grid.461864.9"
+                  "grid.418539.2"
                ],
-               "preferred" : "grid.461864.9",
+               "preferred" : "grid.418539.2",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0000 8523 0913"
+                  "0000 0000 9089 1740"
                ],
                "preferred" : null,
                "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30281767"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/04fhrs205",
+         "id" : "https://ror.org/04yb4j419",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.cerco.ups-tlse.fr"
+               "value" : "http://www.pasteur.ma/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "OCC",
-                  "country_subdivision_name" : "Occitanie",
-                  "lat" : 43.60426,
-                  "lng" : 1.44367,
-                  "name" : "Toulouse"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "MA",
+                  "country_name" : "Morocco",
+                  "country_subdivision_code" : "06",
+                  "country_subdivision_name" : "Casablanca-Settat",
+                  "lat" : 33.58831,
+                  "lng" : -7.61138,
+                  "name" : "Casablanca"
                },
-               "geonames_id" : 2972315
+               "geonames_id" : 2553604
             }
          ],
          "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Brain and Cognition Research Center"
-            },
             {
                "lang" : null,
                "types" : [
                   "acronym"
                ],
-               "value" : "CERCO"
+               "value" : "IPM"
             },
             {
                "lang" : "fr",
                "types" : [
-                  "label",
-                  "ror_display"
+                  "ror_display",
+                  "label"
                ],
-               "value" : "Centre de recherche cerveau et cognition"
+               "value" : "Institut Pasteur du Maroc"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/00rydyx93",
-               "label" : "Institut des Sciences Biologiques",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02v6kpv12",
-               "label" : "Université Toulouse III - Paul Sabatier",
-               "type" : "parent"
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
             }
          ],
          "status" : "active",
@@ -3804,7 +1259,179 @@ Retrieves a list of research facilities.
       {
          "admin" : {
             "created" : {
-               "date" : "2023-12-07",
+               "date" : "2024-07-08",
+               "schema_version" : "2.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "pasteur.la"
+         ],
+         "established" : null,
+         "external_ids" : [],
+         "id" : "https://ror.org/02qkn0e91",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.pasteur.la"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AS",
+                  "continent_name" : "Asia",
+                  "country_code" : "LA",
+                  "country_name" : "Laos",
+                  "country_subdivision_code" : "VT",
+                  "country_subdivision_name" : "Vientiane Prefecture",
+                  "lat" : 17.96667,
+                  "lng" : 102.6,
+                  "name" : "Vientiane"
+               },
+               "geonames_id" : 1651944
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Foundation Institut Pasteur du Laos"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Institut Pasteur du Laos"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Institut Pasteur of Laos"
+            },
+            {
+               "lang" : "lo",
+               "types" : [
+                  "label"
+               ],
+               "value" : "ສະຖາບັນ ປັດສະເຕີ ລາວ"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2024-07-08",
+               "schema_version" : "2.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "ipn.org.vn"
+         ],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "Q10832773"
+               ],
+               "preferred" : "Q10832773",
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02m5qpk42",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://ipn.org.vn"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AS",
+                  "continent_name" : "Asia",
+                  "country_code" : "VN",
+                  "country_name" : "Vietnam",
+                  "country_subdivision_code" : "34",
+                  "country_subdivision_name" : "Khánh Hòa Province",
+                  "lat" : 12.24507,
+                  "lng" : 109.19432,
+                  "name" : "Nha Trang"
+               },
+               "geonames_id" : 1572151
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Institut Pasteur de Nha Trang"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Pasteur Institute in Nha Trang"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Pasteur Institute of Nha Trang"
+            },
+            {
+               "lang" : "vi",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Viện Pasteur Nha Trang"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -3813,37 +1440,390 @@ Retrieves a list of research facilities.
             }
          },
          "domains" : [],
-         "established" : 2014,
+         "established" : 2000,
          "external_ids" : [
             {
                "all" : [
-                  "Q51784461"
+                  "grid.482283.7"
                ],
-               "preferred" : "Q51784461",
+               "preferred" : "grid.482283.7",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q30273934"
+               ],
+               "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/02y2c2646",
+         "id" : "https://ror.org/03wwjjr94",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.ibps.sorbonne-universite.fr/fr/Recherche/umr-8256"
+               "value" : "http://www.hkupasteur.hku.hk/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.85341,
-                  "lng" : 2.3488,
-                  "name" : "Paris"
+                  "continent_code" : "AS",
+                  "continent_name" : "Asia",
+                  "country_code" : "HK",
+                  "country_name" : "Hong Kong",
+                  "country_subdivision_code" : null,
+                  "country_subdivision_name" : null,
+                  "lat" : 22.27832,
+                  "lng" : 114.17469,
+                  "name" : "Hong Kong"
                },
-               "geonames_id" : 2988507
+               "geonames_id" : 1819729
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "HKU-PRP"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "HKU-Pasteur Research Pole"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/02zhqgq86",
+               "label" : "University of Hong Kong",
+               "type" : "related"
+            },
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1893,
+         "external_ids" : [
+            {
+               "all" : [
+                  "501100023300"
+               ],
+               "preferred" : "501100023300",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.418517.e"
+               ],
+               "preferred" : "grid.418517.e",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 2298 7385"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/04pwyer06",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.pasteur.tn/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "TN",
+                  "country_name" : "Tunisia",
+                  "country_subdivision_code" : "11",
+                  "country_subdivision_name" : "Tunis Governorate",
+                  "lat" : 36.81897,
+                  "lng" : 10.16579,
+                  "name" : "Tunis"
+               },
+               "geonames_id" : 2464470
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "IPT"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institut Pasteur de Tunis"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility",
+            "funder"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-10-28",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "pasteur-yaounde.org"
+         ],
+         "established" : 1959,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.418179.2"
+               ],
+               "preferred" : "grid.418179.2",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/0259hk390",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://pasteur-yaounde.org"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "CM",
+                  "country_name" : "Cameroon",
+                  "country_subdivision_code" : "CE",
+                  "country_subdivision_name" : "Centre",
+                  "lat" : 3.86667,
+                  "lng" : 11.51667,
+                  "name" : "Yaoundé"
+               },
+               "geonames_id" : 2220957
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "CPC"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Centre Pasteur du Cameroun"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1955,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.418534.f"
+               ],
+               "preferred" : "grid.418534.f",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0443 0155"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30281765"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/04sqtjj61",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.institutpasteur.nc/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "OC",
+                  "continent_name" : "Oceania",
+                  "country_code" : "NC",
+                  "country_name" : "New Caledonia",
+                  "country_subdivision_code" : "S",
+                  "country_subdivision_name" : "South Province",
+                  "lat" : -22.27407,
+                  "lng" : 166.44884,
+                  "name" : "Noumea"
+               },
+               "geonames_id" : 2139521
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "IPNC"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institut Pasteur de Nouvelle Calédonie"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1940,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.418525.f"
+               ],
+               "preferred" : "grid.418525.f",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 2206 8813"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30281759"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/01fp8z436",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.pasteur-cayenne.fr/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "SA",
+                  "continent_name" : "South America",
+                  "country_code" : "GF",
+                  "country_name" : "French Guiana",
+                  "country_subdivision_code" : null,
+                  "country_subdivision_name" : "Guyane",
+                  "lat" : 4.93333,
+                  "lng" : -52.33333,
+                  "name" : "Cayenne"
+               },
+               "geonames_id" : 3382160
             }
          ],
          "names" : [
@@ -3853,33 +1833,179 @@ Retrieves a list of research facilities.
                   "ror_display",
                   "label"
                ],
-               "value" : "Adaptation Biologique et Vieillissement"
+               "value" : "Institut Pasteur de la Guyane"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
             },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1924,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.452920.8"
+               ],
+               "preferred" : "grid.452920.8",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 5930 4500"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q30296498"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/042cxsy45",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.pasteur-guadeloupe.fr/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "NA",
+                  "continent_name" : "North America",
+                  "country_code" : "GP",
+                  "country_name" : "Guadeloupe",
+                  "country_subdivision_code" : null,
+                  "country_subdivision_name" : "Guadeloupe",
+                  "lat" : 16.273,
+                  "lng" : -61.50507,
+                  "name" : "Les Abymes"
+               },
+               "geonames_id" : 3578959
+            }
+         ],
+         "names" : [
             {
                "lang" : null,
                "types" : [
                   "acronym"
                ],
-               "value" : "B2A"
+               "value" : "IPGP"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Institut Pasteur de la Guadeloupe"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/02feahw73",
-               "label" : "Centre National de la Recherche Scientifique",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02en5vm52",
-               "label" : "Sorbonne Université",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02vjkv261",
-               "label" : "Inserm",
-               "type" : "parent"
+               "id" : "https://ror.org/0495fxg12",
+               "label" : "Institut Pasteur",
+               "type" : "related"
             }
          ],
+         "status" : "active",
+         "types" : [
+            "facility"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1986,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.452539.c"
+               ],
+               "preferred" : "grid.452539.c",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0621 0957"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/032t7yz93",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.louis-pasteur.or.jp/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AS",
+                  "continent_name" : "Asia",
+                  "country_code" : "JP",
+                  "country_name" : "Japan",
+                  "country_subdivision_code" : "26",
+                  "country_subdivision_name" : "Kyoto",
+                  "lat" : 35.02107,
+                  "lng" : 135.75385,
+                  "name" : "Kyoto"
+               },
+               "geonames_id" : 1857910
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Louis Pasteur Center for Medical Research"
+            },
+            {
+               "lang" : "ja",
+               "types" : [
+                  "label"
+               ],
+               "value" : "公益財団法人ルイ・パストゥール医学研究センター"
+            }
+         ],
+         "relationships" : [],
          "status" : "active",
          "types" : [
             "facility"
@@ -3889,140 +2015,110 @@ Retrieves a list of research facilities.
    "meta" : {
       "continents" : [
          {
-            "count" : 6465,
-            "id" : "eu",
-            "title" : "Europe"
-         },
-         {
-            "count" : 2496,
+            "count" : 7,
             "id" : "as",
             "title" : "Asia"
          },
          {
-            "count" : 1621,
-            "id" : "na",
-            "title" : "North America"
-         },
-         {
-            "count" : 328,
-            "id" : "sa",
-            "title" : "South America"
-         },
-         {
-            "count" : 286,
+            "count" : 4,
             "id" : "af",
             "title" : "Africa"
          },
          {
-            "count" : 240,
-            "id" : "oc",
-            "title" : "Oceania"
+            "count" : 3,
+            "id" : "sa",
+            "title" : "South America"
          },
          {
             "count" : 2,
-            "id" : "an",
-            "title" : "Antarctica"
+            "id" : "eu",
+            "title" : "Europe"
+         },
+         {
+            "count" : 1,
+            "id" : "na",
+            "title" : "North America"
+         },
+         {
+            "count" : 1,
+            "id" : "oc",
+            "title" : "Oceania"
          }
       ],
       "countries" : [
          {
-            "count" : 2241,
+            "count" : 2,
             "id" : "fr",
             "title" : "France"
          },
          {
-            "count" : 1252,
-            "id" : "us",
-            "title" : "United States"
+            "count" : 1,
+            "id" : "br",
+            "title" : "Brazil"
          },
          {
-            "count" : 1239,
-            "id" : "cn",
-            "title" : "China"
+            "count" : 1,
+            "id" : "cm",
+            "title" : "Cameroon"
          },
          {
-            "count" : 812,
-            "id" : "ru",
-            "title" : "Russia"
+            "count" : 1,
+            "id" : "dz",
+            "title" : "Algeria"
          },
          {
-            "count" : 777,
-            "id" : "de",
-            "title" : "Germany"
+            "count" : 1,
+            "id" : "gf",
+            "title" : "French Guiana"
          },
          {
-            "count" : 383,
-            "id" : "in",
-            "title" : "India"
+            "count" : 1,
+            "id" : "gp",
+            "title" : "Guadeloupe"
          },
          {
-            "count" : 344,
-            "id" : "es",
-            "title" : "Spain"
+            "count" : 1,
+            "id" : "hk",
+            "title" : "Hong Kong"
          },
          {
-            "count" : 329,
-            "id" : "it",
-            "title" : "Italy"
+            "count" : 1,
+            "id" : "ir",
+            "title" : "Iran"
          },
          {
-            "count" : 307,
+            "count" : 1,
             "id" : "jp",
             "title" : "Japan"
          },
          {
-            "count" : 305,
-            "id" : "gb",
-            "title" : "United Kingdom"
+            "count" : 1,
+            "id" : "kh",
+            "title" : "Cambodia"
          }
       ],
       "statuses" : [
          {
-            "count" : 11437,
+            "count" : 18,
             "id" : "active",
             "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 11437,
+            "count" : 18,
             "id" : "facility",
             "title" : "facility"
          },
          {
-            "count" : 1613,
+            "count" : 4,
             "id" : "funder",
             "title" : "funder"
-         },
-         {
-            "count" : 139,
-            "id" : "government",
-            "title" : "government"
-         },
-         {
-            "count" : 18,
-            "id" : "education",
-            "title" : "education"
-         },
-         {
-            "count" : 2,
-            "id" : "archive",
-            "title" : "archive"
-         },
-         {
-            "count" : 1,
-            "id" : "healthcare",
-            "title" : "healthcare"
-         },
-         {
-            "count" : 1,
-            "id" : "nonprofit",
-            "title" : "nonprofit"
          }
       ]
    },
-   "number_of_results" : 11437,
-   "time_taken" : 5
+   "number_of_results" : 18,
+   "time_taken" : 4
 }
 ```
 
