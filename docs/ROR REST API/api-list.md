@@ -7,12 +7,6 @@ metadata:
   title: Retrieve a list of ROR records
   description: Instructions for using the ROR API to retrieve a list of ROR records.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: api-filtering
-      title: Filtering
 ---
 > 👍 ROR REST API v2
 >
