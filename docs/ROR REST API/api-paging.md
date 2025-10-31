@@ -32,7 +32,7 @@ To determine how many pages you will need to retrieve in order to obtain your en
 
 > ❗️ It is not possible to retrieve all ROR records from the API
 >
-> The API is best for use cases that involve searching for or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API. If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump).
+> The API is best for use cases that involve searching for or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API. If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump). 
 
 ## Example
 
