@@ -10,12 +10,6 @@ metadata:
     the ROR API or data dump, including tips for implementation and specific use
     cases like migrating from GRID to ROR.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: openrefine-reconciler
-      title: OpenRefine reconciler
 ---
 Many ROR records contain equivalent organization IDs of other types in the `external_ids` section. This allows you to find the equivalent ROR ID for several other organization ID types. 
 
