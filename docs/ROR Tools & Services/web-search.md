@@ -12,7 +12,10 @@ metadata:
     directly to the ROR search page from an application.
   robots: index
 next:
-  description: ''
+  pages:
+    - title: ROR web search
+      type: link
+      url: https://ror.org/search
 ---
 > 🚧 Don't send requests from an application to the ROR web search!
 >
