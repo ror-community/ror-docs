@@ -1526,7 +1526,7 @@ Compare the following searches to see the difference quotation marks make for mu
 curl 'https://api.ror.org/v2/organizations?query=Bath%20College' | json_pp
 ```
 
-This search looks for **both** the term "Bath" **and** the term "College" and returns over 4800 results because the term "College" appears in many organization names. A search on the single term "Bath" produces only 17 results, because it is a much less common term in organization names. The organization record for Bath College is the first of over 4800 results, but many factors can affect the order of results, so we strongly recommend against automatically selecting the first item in any list of search results.
+This search looks for **both** the term "Bath" **and** the term "College" and returns thousands of results because the term "College" appears in many organization names. A search on the single term "Bath" produces only 17 results, because it is a much less common term in organization names. The organization record for Bath College is the first result, but many factors can affect the order of results, so we strongly recommend against automatically selecting the first item in any list of search results.
 
 ```json
 {
@@ -3692,7 +3692,7 @@ When the `&` is URL-encoded, the response returns the active record for Franklin
 
 # Searching for identifiers
 
-The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. Remember that only active ROR records will be returned by default: use the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter to retrieve results that include _inactive_ and _withdrawn_ ROR records. 
+The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. Remember that only active ROR records will be returned by default: use the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter to retrieve results that include _inactive_ and _withdrawn_ ROR records.
 
 ## Example
 
