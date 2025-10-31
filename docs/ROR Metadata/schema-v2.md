@@ -94,11 +94,11 @@ We are therefore "flattening" all name-related fields into one `names` field tha
 
 The current `addresses` field contains data from [GeoNames](https://www.geonames.org/). It contains several sub-fields that contain no values and are therefore not usable, and the ROR team also spends a disproportionate amount of time handling issues with validating and retrieving very granular GeoNames data within `addresses` (e.g., `geonames_admin2`, `nuts_level1`, `nuts_level2`, etc.) that users could easily retrieve themselves directly from GeoNames using the GeoNames ID provided in each ROR record. There is also a `country` field in each ROR record that duplicates the country information in the `addresses` field.
 
-We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information. Since most countries do not have states, we are removing the `state` and `state_code` fields. Users who wish to use location information at the level of the "state" are advised to retrieve it from GeoNames using the `geonames_id`.
+We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information. 
 
 > 📘 Additional location information added in v2.1
 >
-> See [Schema 2.1](doc:schema-2-1) for additional location information added in December 2024.
+> See [Schema 2.1](doc:schema-2-1) for additional location information added in December 2024 corresponding to state-level and continental locations. 
 
 ### Current v1.0 example
 
