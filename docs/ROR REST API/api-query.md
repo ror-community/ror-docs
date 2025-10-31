@@ -7,12 +7,6 @@ metadata:
   title: ROR API query parameter
   description: Instructions for using the query parameter of the ROR API.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: api-advanced-query
-      title: Advanced query parameter
 ---
 > 👍 ROR REST API v2
 >
