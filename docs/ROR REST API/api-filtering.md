@@ -7,12 +7,6 @@ metadata:
   title: ROR API filtering
   description: Instructions for filtering lists of ROR records retrieved from the ROR API.
   robots: index
-next:
-  description: ''
-  pages:
-    - slug: api-paging
-      title: Paging
-      type: basic
 ---
 > 👍 ROR REST API v2
 >
