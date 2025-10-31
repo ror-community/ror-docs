@@ -2125,7 +2125,7 @@ As of 1 Dec 2022 the ROR API will return only records with a status of _active_ 
 
 Records with _active_ status indicate organizations that maintain current operations, while records with _inactive_ status indicate organizations that have ceased functioning, and records with _withdrawn_ status indicate records that were added to ROR in error (e.g., duplicate records and out-of-scope organizations). See [ROR data structure](doc:data-structure#status) for more information about record status.
 
-Add the query parameter `all_status` to return records with all statuses, including _active_, _inactive_, and _withdrawn_).
+Add the query parameter `all_status` to return records with all statuses, including _active_, _inactive_, and _withdrawn_.
 
 ## Example
 
