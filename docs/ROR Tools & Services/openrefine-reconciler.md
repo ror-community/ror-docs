@@ -22,7 +22,7 @@ next:
       type: link
       url: https://librarycarpentry.github.io/lc-open-refine/
 ---
-## What is OpenRefine
+## What is OpenRefine?
 
 [OpenRefine](https://openrefine.org) (formerly Google Refine) is a free, open source desktop tool for cleaning up messy data stored in common formats like CSV, JSON, XML, XLS. You can even connect to SQL-based databases and Google Sheets. OpenRefine is a popular tool for tasks like normalizing text values in a dataset because it has a simple user interface and doesn't require coding.
 
