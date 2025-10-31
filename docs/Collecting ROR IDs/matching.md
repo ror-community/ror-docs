@@ -13,18 +13,12 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: openrefine-reconciler
-      title: OpenRefine reconciler
-      type: basic
     - title: 'Video: Strategies for Matching Affiliation Strings to ROR IDs'
       type: link
       url: https://youtu.be/Tx5y7lX030U
     - title: ror-utilities matching and mapping scripts
       type: link
       url: https://github.com/ror-community/ror-utilities
-    - slug: api-affiliation
-      title: Affiliation parameter
-      type: basic
     - title: ROR blog posts on matching
       type: link
       url: https://ror.org/categories/matching
