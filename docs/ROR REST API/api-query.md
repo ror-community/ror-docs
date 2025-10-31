@@ -12,7 +12,7 @@ metadata:
 >
 > This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-query](https://ror.readme.io/v1/docs/api-query). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
 
-> 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
+> ❗️ Version 1 of the ROR schema and API will be sunset in December 2025
 >
 > In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
