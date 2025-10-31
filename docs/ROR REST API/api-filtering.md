@@ -10,7 +10,7 @@ metadata:
 ---
 > 👍 ROR REST API v2
 >
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-filtering](https://ror.readme.io/v1/docs/api-filtering). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-filtering](https://ror.readme.io/v1/docs/api-filtering). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).##
 
 > 🚧 Version 1 of the ROR schema and API will be sunset in December 2025
 >
@@ -29,11 +29,15 @@ Results from standard [queries](doc:api-query) and [advanced queries](doc:api-ad
 
 See [Data structure](doc:ror-data-structure) and [Fields and sub-fields](doc:fields) for more details about these fields.
 
+> 🚧 Download ROR data for comprehensive lists 
+>
+> ROR API filters are designed to limit the number of results of standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query), not to be used on their own. If you would like to retrieve a list of all organizations in ROR of a particular status or type or a list of all organizations in ROR in a particular country or on a particular continent, use the ROR [Data dump](doc:data-dump) and filter by column(s). Using filters without a query can result in <Anchor label="duplicates and omissions across different pages of results" target="_blank" href="https://github.com/ror-community/ror-roadmap/issues/333">duplicates and omissions across different pages of results</Anchor>.
+
 Note that in version 2 of the ROR API and schema, values formerly in the v1 field `country.country_code` are now in the field `locations.geonames_details.country_code`and values formerly in the v1 field `country.country_name` are now in the field `locations.geonames_details.country_name`. To maintain continuity for v1 users, we have ensured that the v1 and v2 field names for country names and country codes can be used interchangeably as filters in v2 of the ROR API.
 
 > 📘 Filter format
 >
-> `https://api.ror.org/v2/organizations?filter=[filter]:[value]`
+> `https://api.ror.org/v2/organizations?query=[query]&filter=[filter]:[value]`
 
 # Filter by record status
 
