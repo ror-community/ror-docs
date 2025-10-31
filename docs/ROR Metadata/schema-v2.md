@@ -96,9 +96,9 @@ The current `addresses` field contains data from [GeoNames](https://www.geonames
 
 We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information. Since most countries do not have states, we are removing the `state` and `state_code` fields. Users who wish to use location information at the level of the "state" are advised to retrieve it from GeoNames using the `geonames_id`.
 
-> 📘 Identifying organizations without U.S. state information
+> 📘 Additional location information added in v2.1
 >
-> ROR is a global registry, and most countries do not have an administrative region corresponding to the U.S. state. Note that our analysis shows that **there appear to be no records with duplicate name, city, and country** in the ROR registry, so users should be able to choose the correct organization based on name, city, and country alone, e.g., "York College, York, United States" ([https://ror.org/022jz8688](https://ror.org/022jz8688)) and "York College, York, United Kingdom" ([https://ror.org/04gaeyc40](https://ror.org/04gaeyc40)).
+> See [Schema 2.1](doc:schema-2-1) for additional location information added in December 2024.
 
 ### Current v1.0 example
 
