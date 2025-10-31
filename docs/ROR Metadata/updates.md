@@ -11,22 +11,16 @@ metadata:
     requests before they are added to new versions of the registry released at
     least once a month.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: link
-      title: ROR Curation Policies and Workflows
-      url: https://github.com/ror-community/ror-updates/wiki
 ---
 # Requesting additions and changes
 
-Anyone can request for a new organization to be added to ROR or for an existing ROR record to be changed via a public [curation request form](http://curation-request.ror.org), which is linked to from each ROR record in the browser-based [ROR search](https://ror.org/search). You do not need to be affiliated with an organization to suggest changes to the organization’s record in ROR, since each request is evaluated on its own merits by ROR curators. 
+Anyone can request for a new organization to be added to ROR or for an existing ROR record to be changed via a public [curation request form](http://curation-request.ror.org), which is linked to from each ROR record in the browser-based [ROR search](https://ror.org/search). You do not need to be affiliated with an organization to suggest changes to the organization’s record in ROR, since each request is evaluated on its own merits by ROR curators.
 
-If you have more than one request, please submit a separate [curation request form](http://curation-request.ror.org) for each organization/record or [create the corresponding issues in our ror-updates GitHub repository](https://github.com/ror-community/ror-updates/issues/new/choose). The latter method requires a GitHub account, but it is generally faster to create a GitHub issue than to complete the form. 
+If you have more than one request, please submit a separate [curation request form](http://curation-request.ror.org) for each organization/record or [create the corresponding issues in our ror-updates GitHub repository](https://github.com/ror-community/ror-updates/issues/new/choose). The latter method requires a GitHub account, but it is generally faster to create a GitHub issue than to complete the form.
 
 If you want to submit a large number of requests, you can also download a bulk request spreadsheet template in XLSX format, complete it, and email it to [registry@ror.org.](mailto:registry@ror.org.) See [Bulk Requests](https://ror.org/registry/#bulk-requests)  on the ROR website for templates and instructions. Please be mindful that large bulk submissions may take us some time to process.
 
-[Read more about how the registry is curated](https://ror.org/registry). 
+[Read more about how the registry is curated](https://ror.org/registry).
 
 > 🚧 Does the organization already have a ROR ID?
 >
@@ -52,7 +46,7 @@ To see which records were added or modified in in a given release, see the ROR [
 
 # Changes made in registry releases
 
-Each new release of the ROR registry is different, but typically a new release includes modifications and additions [requested](https://github.com/ror-community/ror-updates/issues) by the public. The ROR Curation Lead and community curation board also initiate quality assurance and metadata reconciliation [projects](https://github.com/ror-community/ror-updates/projects/1) that result in new and updated records. 
+Each new release of the ROR registry is different, but typically a new release includes modifications and additions [requested](https://github.com/ror-community/ror-updates/issues) by the public. The ROR Curation Lead and community curation board also initiate quality assurance and metadata reconciliation [projects](https://github.com/ror-community/ror-updates/projects/1) that result in new and updated records.
 
 > 📘 Changes to geographical information in updated records
 >
