@@ -29,7 +29,7 @@ Results from standard [queries](doc:api-query) and [advanced queries](doc:api-ad
 
 See [Data structure](doc:ror-data-structure) and [Fields and sub-fields](doc:fields) for more details about these fields.
 
-> 🚧 Download ROR data for complete aggregate lists 
+> 🚧 Download ROR data for complete aggregate lists
 >
 > ROR API filters are designed to limit the number of results of standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query), not to be used on their own. If you would like to retrieve a list of all organizations in ROR with a particular status or type or a list of all organizations in a particular country or on a particular continent, download the ROR [Data dump](doc:data-dump) and filter by field name. Using ROR API filters without a query can result in <Anchor label="duplicates and omissions across different pages of results" target="_blank" href="https://github.com/ror-community/ror-roadmap/issues/333">duplicates and omissions across different pages of results</Anchor>.
 
@@ -41,7 +41,7 @@ Note that in version 2 of the ROR API and schema, values formerly in the v1 fiel
 
 # Filter by record status
 
-Available statuses: _active_, _inactive_, and _withdrawn_. Requests for a specific record by its exact ROR ID will always return the record regardless of its status without need for the [all_status parameter](doc:api-list#retrieve-a-list-of-records-with-all-statuses) or for status filters.
+Limit search results by records of a particular status. Available statuses are _active_, _inactive_, and _withdrawn_. By default, queries of the ROR API return only records with _active_ status. Requests to [Retrieve a single record](doc:api-single) by its ROR ID will always return the record regardless of its status without need for the [all_status parameter](doc:api-list#retrieve-a-list-of-records-with-all-statuses) or for status filters.
 
 ## Example
 
@@ -323,7 +323,7 @@ Retrieves a list of records for inactive research organizations with the keyword
 
 # Filter by organization type
 
-Available organization types:
+Limit search results by organization type. Available organization types:
 
 * education
 * funder
@@ -2128,7 +2128,7 @@ Retrieves a list of research facilities with the keyword "Pasteur" in a `names` 
 
 # Filter by country code
 
-Available country codes are those in the [ISO 3166 alpha-2 list](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+Limit search results by ISO country code. Available country codes are those in the [ISO 3166 alpha-2 list](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 
 ## Example
 
@@ -2480,7 +2480,7 @@ Returns a list of research organizations in South Africa with the keyword "Mande
 
 # Filter by country name
 
-Find organizations in a particular country or countries. Available country names are those <Anchor label="provided by Geonames" target="_blank" href="https://www.geonames.org/countries/">provided by Geonames</Anchor>.
+Limit search results by country name. Available country names are those <Anchor label="provided by Geonames" target="_blank" href="https://www.geonames.org/countries/">provided by Geonames</Anchor>.
 
 ## Example
 
@@ -3700,7 +3700,7 @@ Returns a list of research organizations in Senegal with the keyword "Recherche"
 
 # Filter by continent code
 
-Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
+Limit search results by continent code. Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
 
 ## Example
 
@@ -5615,7 +5615,7 @@ The response returns a list of research organizations in Africa.
 
 # Filter by continent name
 
-Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
+Limit search results by continent name. Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
 
 ## Example
 
