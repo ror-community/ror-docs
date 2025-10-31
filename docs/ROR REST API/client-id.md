@@ -8,10 +8,9 @@ metadata:
   description: ''
   robots: index
 next:
-  description: ''
   pages:
-    - type: link
-      title: Register a client ID
+    - title: 'Form: Register for a ROR API client ID'
+      type: link
       url: https://ror.org/api-client-id
 ---
 > 🚧 Register a client ID by December 2025 in order to continue receiving the current rate limit for the ROR REST API.
