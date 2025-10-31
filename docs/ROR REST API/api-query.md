@@ -6169,7 +6169,7 @@ The response returns the first 20 results of a keyword search for "Harvard" that
 
 ## Example
 
-Search for an _active_, _inactive_, or _withdrawn_ ROR record corresponding to a particular GRID ID .
+Search for an _active_, _inactive_, or _withdrawn_ ROR record corresponding to a particular GRID ID.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query=%22grid.419291.6%22&all_status' | json_pp
