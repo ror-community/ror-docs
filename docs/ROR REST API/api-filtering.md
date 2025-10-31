@@ -3705,10 +3705,10 @@ Limit search results by continent code. Continent codes and names are provided b
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=locations.geonames_details.continent_code:AF' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=%22Ministry+of=Health%22&filter=locations.geonames_details.continent_code:AF' | json_pp
 ```
 
-The response returns a list of research organizations in Africa.
+The response returns a list of research organizations in Africa with the exact term "Ministry of Health" in a `names` field.
 
 ```json
 {
@@ -3725,47 +3725,28 @@ The response returns a list of research organizations in Africa.
             }
          },
          "domains" : [],
-         "established" : 1950,
+         "established" : null,
          "external_ids" : [
             {
                "all" : [
-                  "501100002352",
-                  "501100002374"
+                  "grid.436176.1"
                ],
-               "preferred" : "501100002352",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.7269.a"
-               ],
-               "preferred" : "grid.7269.a",
+               "preferred" : "grid.436176.1",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0621 1570"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q2723670"
+                  "Q30290560"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/00cb9w016",
+         "id" : "https://ror.org/04es3ne34",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.asu.edu.eg/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Ain_Shams_University"
+               "value" : "http://www.minsa.gov.ao/"
             }
          ],
          "locations" : [
@@ -3773,15 +3754,15 @@ The response returns a list of research organizations in Africa.
                "geonames_details" : {
                   "continent_code" : "AF",
                   "continent_name" : "Africa",
-                  "country_code" : "EG",
-                  "country_name" : "Egypt",
-                  "country_subdivision_code" : "C",
-                  "country_subdivision_name" : "Cairo",
-                  "lat" : 30.06263,
-                  "lng" : 31.24967,
-                  "name" : "Cairo"
+                  "country_code" : "AO",
+                  "country_name" : "Angola",
+                  "country_subdivision_code" : "LUA",
+                  "country_subdivision_name" : "Luanda",
+                  "lat" : -8.83682,
+                  "lng" : 13.23432,
+                  "name" : "Luanda"
                },
-               "geonames_id" : 360630
+               "geonames_id" : 2240449
             }
          ],
          "names" : [
@@ -3790,7 +3771,7 @@ The response returns a list of research organizations in Africa.
                "types" : [
                   "acronym"
                ],
-               "value" : "ASU"
+               "value" : "MINSA"
             },
             {
                "lang" : "en",
@@ -3798,427 +3779,20 @@ The response returns a list of research organizations in Africa.
                   "ror_display",
                   "label"
                ],
-               "value" : "Ain Shams University"
-            },
-            {
-               "lang" : "ar",
-               "types" : [
-                  "label"
-               ],
-               "value" : "جامعة عين شمس"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00p59qs14",
-               "label" : "Ain Shams University Hospital",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1964,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.7749.d"
-               ],
-               "preferred" : "grid.7749.d",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0723 7738"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q719925"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/003vfy751",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.ub.edu.bi/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/University_of_Burundi"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "BI",
-                  "country_name" : "Burundi",
-                  "country_subdivision_code" : "BM",
-                  "country_subdivision_name" : "Bujumbura Mairie",
-                  "lat" : -3.38193,
-                  "lng" : 29.36142,
-                  "name" : "Bujumbura"
-               },
-               "geonames_id" : 425378
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "label"
-               ],
-               "value" : "University of Burundi"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Université du Burundi"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1908,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100002386",
-                  "501100002387",
-                  "501100002375",
-                  "501100002377",
-                  "501100002378",
-                  "501100006205"
-               ],
-               "preferred" : "501100002386",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.7776.1"
-               ],
-               "preferred" : "grid.7776.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0639 9286"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q194445"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03q21mh05",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://cu.edu.eg/Home"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Cairo_University"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "EG",
-                  "country_name" : "Egypt",
-                  "country_subdivision_code" : "GZ",
-                  "country_subdivision_name" : "Giza",
-                  "lat" : 30.00944,
-                  "lng" : 31.20861,
-                  "name" : "Giza"
-               },
-               "geonames_id" : 360995
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Cairo University"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "King Fuad I University"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Université du Caire"
-            },
-            {
-               "lang" : "ar",
-               "types" : [
-                  "label"
-               ],
-               "value" : "جامعة القاهرة"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1957,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100005757"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.8191.1"
-               ],
-               "preferred" : "grid.8191.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2186 9619"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q671363"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04je6yw13",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.ucad.sn/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Cheikh_Anta_Diop_University"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "SN",
-                  "country_name" : "Senegal",
-                  "country_subdivision_code" : "DK",
-                  "country_subdivision_name" : "Dakar",
-                  "lat" : 14.6937,
-                  "lng" : -17.44406,
-                  "name" : "Dakar"
-               },
-               "geonames_id" : 2253354
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Cheikh Anta Diop University"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UCAD"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "University of Dakar"
-            },
-            {
-               "lang" : "fr",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Université Cheikh Anta Diop"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1962,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.8295.6"
-               ],
-               "preferred" : "grid.8295.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0943 5818"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q890884"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05n8n9378",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.uem.mz/index.php"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Eduardo_Mondlane_University"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "MZ",
-                  "country_name" : "Mozambique",
-                  "country_subdivision_code" : "MPM",
-                  "country_subdivision_name" : "Maputo City",
-                  "lat" : -25.96553,
-                  "lng" : 32.58322,
-                  "name" : "Maputo"
-               },
-               "geonames_id" : 1040652
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Eduardo Mondlane University"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UEM"
+               "value" : "Ministry of Health"
             },
             {
                "lang" : "pt",
                "types" : [
                   "label"
                ],
-               "value" : "Universidade Eduardo Mondlane"
+               "value" : "Ministério da Saúde"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "education"
+            "government"
          ]
       },
       {
@@ -4233,39 +3807,28 @@ The response returns a list of research organizations in Africa.
             }
          },
          "domains" : [],
-         "established" : 1997,
+         "established" : 2000,
          "external_ids" : [
             {
                "all" : [
-                  "grid.412898.e"
+                  "grid.436179.e"
                ],
-               "preferred" : "grid.412898.e",
+               "preferred" : "grid.436179.e",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0648 0439"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q2459595"
+                  "Q30290562"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/0511zqc76",
+         "id" : "https://ror.org/04yadxf37",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.makumira.ac.tz/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Tumaini_University_Makumira"
+               "value" : "https://www.gov.ls/ministry-of-health/"
             }
          ],
          "locations" : [
@@ -4273,52 +3836,31 @@ The response returns a list of research organizations in Africa.
                "geonames_details" : {
                   "continent_code" : "AF",
                   "continent_name" : "Africa",
-                  "country_code" : "TZ",
-                  "country_name" : "Tanzania",
-                  "country_subdivision_code" : "01",
-                  "country_subdivision_name" : "Arusha",
-                  "lat" : -3.36667,
-                  "lng" : 36.68333,
-                  "name" : "Arusha"
+                  "country_code" : "LS",
+                  "country_name" : "Lesotho",
+                  "country_subdivision_code" : "A",
+                  "country_subdivision_name" : "Maseru District",
+                  "lat" : -29.31667,
+                  "lng" : 27.48333,
+                  "name" : "Maseru"
                },
-               "geonames_id" : 161325
+               "geonames_id" : 932505
             }
          ],
          "names" : [
-            {
-               "lang" : "sw",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Chuo Kikuu cha Tumaini"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Lutheran Theological College Makumira"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "TUMA"
-            },
             {
                "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Tumaini University"
+               "value" : "Ministry of Health"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "education"
+            "government"
          ]
       },
       {
@@ -4333,39 +3875,21 @@ The response returns a list of research organizations in Africa.
             }
          },
          "domains" : [],
-         "established" : 1994,
+         "established" : 1986,
          "external_ids" : [
             {
                "all" : [
-                  "grid.412962.a"
+                  "grid.415722.7"
                ],
-               "preferred" : "grid.412962.a",
+               "preferred" : "grid.415722.7",
                "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 1764 9404"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30254141"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/03fr85h91",
+         "id" : "https://ror.org/0357r2107",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.uuthuyo.net/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/University_of_Uyo_Teaching_Hospital"
+               "value" : "https://www.malawi.gov.mw/index.php?option=com_content&view=article&id=50&Itemid=22"
             }
          ],
          "locations" : [
@@ -4373,559 +3897,37 @@ The response returns a list of research organizations in Africa.
                "geonames_details" : {
                   "continent_code" : "AF",
                   "continent_name" : "Africa",
-                  "country_code" : "NG",
-                  "country_name" : "Nigeria",
-                  "country_subdivision_code" : "AK",
-                  "country_subdivision_name" : "Akwa Ibom State",
-                  "lat" : 5.05127,
-                  "lng" : 7.9335,
-                  "name" : "Uyo"
+                  "country_code" : "MW",
+                  "country_name" : "Malawi",
+                  "country_subdivision_code" : "C",
+                  "country_subdivision_name" : "Central Region",
+                  "lat" : -13.96692,
+                  "lng" : 33.78725,
+                  "name" : "Lilongwe"
                },
-               "geonames_id" : 2319480
+               "geonames_id" : 927967
             }
          ],
          "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UUTH"
-            },
             {
                "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "University of Uyo Teaching Hospital"
+               "value" : "Ministry of Health"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/0127mpp72",
-               "label" : "University of Uyo",
-               "type" : "related"
+               "id" : "https://ror.org/045z18t19",
+               "label" : "Malawi Epidemiology and Intervention Research Unit",
+               "type" : "child"
             }
          ],
          "status" : "active",
          "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1980,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.412975.c"
-               ],
-               "preferred" : "grid.412975.c",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 8878 5287"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/045vatr18",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.uith.org/#"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "NG",
-                  "country_name" : "Nigeria",
-                  "country_subdivision_code" : "KW",
-                  "country_subdivision_name" : "Kwara State",
-                  "lat" : 8.49664,
-                  "lng" : 4.54214,
-                  "name" : "Ilorin"
-               },
-               "geonames_id" : 2337639
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UITH"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "University of Ilorin Teaching Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/032kdwk38",
-               "label" : "University of Ilorin",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1975,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413017.0"
-               ],
-               "preferred" : "grid.413017.0",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 9001 9645"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q3509668"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/016na8197",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.unimaid.edu.ng/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/University_of_Maiduguri"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "NG",
-                  "country_name" : "Nigeria",
-                  "country_subdivision_code" : "BO",
-                  "country_subdivision_name" : "Borno State",
-                  "lat" : 11.84692,
-                  "lng" : 13.15712,
-                  "name" : "Maiduguri"
-               },
-               "geonames_id" : 2331447
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UNIMAID"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "University of Maiduguri"
-            },
-            {
-               "lang" : "yo",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Yunifásítì ìlú Màídúgùri"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1973,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413070.1"
-               ],
-               "preferred" : "grid.413070.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0806 7267"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30254157"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/01hhczc28",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.ubth.org/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/University_of_Benin_Teaching_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "NG",
-                  "country_name" : "Nigeria",
-                  "country_subdivision_code" : "ED",
-                  "country_subdivision_name" : "Edo State",
-                  "lat" : 6.33815,
-                  "lng" : 5.62575,
-                  "name" : "Benin City"
-               },
-               "geonames_id" : 2347283
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UBTH"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "University of Benin Teaching Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04mznrw11",
-               "label" : "University of Benin",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1975,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413097.8"
-               ],
-               "preferred" : "grid.413097.8",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0291 6387"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q3509289"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05qderh61",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.unical.edu.ng/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/University_of_Calabar"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "NG",
-                  "country_name" : "Nigeria",
-                  "country_subdivision_code" : "CR",
-                  "country_subdivision_name" : "Cross River State",
-                  "lat" : 4.95893,
-                  "lng" : 8.32695,
-                  "name" : "Calabar"
-               },
-               "geonames_id" : 2346229
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UNICAL"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "University of Calabar"
-            },
-            {
-               "lang" : "yo",
-               "types" : [
-                  "label"
-               ],
-               "value" : "Yunifásítì ìlú Calabar"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1971,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413123.6"
-               ],
-               "preferred" : "grid.413123.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0455 9733"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/05h7pem82",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.bugandomedicalcentre.go.tz/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "TZ",
-                  "country_name" : "Tanzania",
-                  "country_subdivision_code" : "18",
-                  "country_subdivision_name" : "Mwanza",
-                  "lat" : -2.51667,
-                  "lng" : 32.9,
-                  "name" : "Mwanza"
-               },
-               "geonames_id" : 152224
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "BMC"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Bugando Medical Centre"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2007,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413131.5"
-               ],
-               "preferred" : "grid.413131.5",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 9161 1296"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/05fx5mz56",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.unthportal.org/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "NG",
-                  "country_name" : "Nigeria",
-                  "country_subdivision_code" : "EN",
-                  "country_subdivision_name" : "Enugu State",
-                  "lat" : 6.44132,
-                  "lng" : 7.49883,
-                  "name" : "Enugu"
-               },
-               "geonames_id" : 2343279
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UNTH"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "University of Nigeria Teaching Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/01sn1yx84",
-               "label" : "University of Nigeria",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
+            "government"
          ]
       },
       {
@@ -4944,445 +3946,29 @@ The response returns a list of research organizations in Africa.
          "external_ids" : [
             {
                "all" : [
-                  "grid.413207.3"
+                  "501100005975",
+                  "501100005976"
                ],
-               "preferred" : "grid.413207.3",
+               "preferred" : "501100005975",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.415727.2"
+               ],
+               "preferred" : "grid.415727.2",
                "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q12242646"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/04w40b524",
-         "links" : [],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "TN",
-                  "country_name" : "Tunisia",
-                  "country_subdivision_code" : "12",
-                  "country_subdivision_name" : "Ariana Governorate",
-                  "lat" : 36.86012,
-                  "lng" : 10.19337,
-                  "name" : "Aryanah"
-               },
-               "geonames_id" : 2473247
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Abderrahmane Mami Hospital"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1968,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413221.7"
-               ],
-               "preferred" : "grid.413221.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 4688 7583"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30254204"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03237y496",
+         "id" : "https://ror.org/02eyff421",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://abuth.org.ng/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "NG",
-                  "country_name" : "Nigeria",
-                  "country_subdivision_code" : "KD",
-                  "country_subdivision_name" : "Kaduna State",
-                  "lat" : 11.11128,
-                  "lng" : 7.7227,
-                  "name" : "Zaria"
-               },
-               "geonames_id" : 2317765
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "ABUTH"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Ahmadu Bello University Teaching Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/019apvn83",
-               "label" : "Ahmadu Bello University",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1879,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413302.7"
-               ],
-               "preferred" : "grid.413302.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0044 1330"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30254227"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/01vx7zt03",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/addingtonhospital.htm"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -29.8579,
-                  "lng" : 31.0292,
-                  "name" : "Durban"
-               },
-               "geonames_id" : 1007311
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Addington Hospital"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "The Bayside Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1855,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413331.7"
-               ],
-               "preferred" : "grid.413331.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0635 1477"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30254236"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00xnmcq32",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.kznhealth.gov.za/greyshospital.htm"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "KZN",
-                  "country_subdivision_name" : "KwaZulu-Natal",
-                  "lat" : -29.61679,
-                  "lng" : 30.39278,
-                  "name" : "Pietermaritzburg"
-               },
-               "geonames_id" : 965301
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Grey's Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04qzfn040",
-               "label" : "University of KwaZulu-Natal",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1938,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413335.3"
-               ],
-               "preferred" : "grid.413335.3",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0635 1506"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q368400"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00c879s84",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.westerncape.gov.za/your_gov/163"
+               "value" : "http://www.health.go.ke/"
             },
             {
                "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Groote_Schuur_Hospital"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AF",
-                  "continent_name" : "Africa",
-                  "country_code" : "ZA",
-                  "country_name" : "South Africa",
-                  "country_subdivision_code" : "WC",
-                  "country_subdivision_name" : "Western Cape",
-                  "lat" : -33.92584,
-                  "lng" : 18.42322,
-                  "name" : "Cape Town"
-               },
-               "geonames_id" : 3369157
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Groote Schuur Hospital"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02nys7898",
-               "label" : "Western Cape Department of Health",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/03p74gp79",
-               "label" : "University of Cape Town",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "healthcare"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1957,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.413353.3"
-               ],
-               "preferred" : "grid.413353.3",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0621 4210"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q384103"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00qpv3w06",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://amref.org/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Amref_Health_Africa"
+               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Health_(Kenya)"
             }
          ],
          "locations" : [
@@ -5405,30 +3991,30 @@ The response returns a list of research organizations in Africa.
             {
                "lang" : "en",
                "types" : [
-                  "alias"
+                  "ror_display",
+                  "label"
                ],
-               "value" : "African Medical and Research Foundation"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "Amref"
+               "value" : "Ministry of Health"
             },
             {
                "lang" : "en",
                "types" : [
-                  "ror_display",
-                  "label"
+                  "alias"
                ],
-               "value" : "Amref Health Africa"
+               "value" : "Ministry of Public Health and Sanitation"
             }
          ],
-         "relationships" : [],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/05q89dp90",
+               "label" : "Pharmacy and Poisons Board",
+               "type" : "child"
+            }
+         ],
          "status" : "active",
          "types" : [
-            "nonprofit"
+            "funder",
+            "government"
          ]
       },
       {
@@ -5447,17 +4033,24 @@ The response returns a list of research organizations in Africa.
          "external_ids" : [
             {
                "all" : [
-                  "grid.413399.5"
+                  "grid.415752.0"
                ],
-               "preferred" : "grid.413399.5",
+               "preferred" : "grid.415752.0",
                "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0457 1249"
+               ],
+               "preferred" : null,
+               "type" : "isni"
             }
          ],
-         "id" : "https://ror.org/04sz7qx51",
+         "id" : "https://ror.org/059f2k568",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.chisrabat.ma/"
+               "value" : "http://www.misau.gov.mz/"
             }
          ],
          "locations" : [
@@ -5465,152 +4058,1270 @@ The response returns a list of research organizations in Africa.
                "geonames_details" : {
                   "continent_code" : "AF",
                   "continent_name" : "Africa",
-                  "country_code" : "MA",
-                  "country_name" : "Morocco",
-                  "country_subdivision_code" : "04",
-                  "country_subdivision_name" : "Rabat-Salé-Kénitra",
-                  "lat" : 34.0531,
-                  "lng" : -6.79846,
-                  "name" : "Salé"
+                  "country_code" : "MZ",
+                  "country_name" : "Mozambique",
+                  "country_subdivision_code" : "MPM",
+                  "country_subdivision_name" : "Maputo City",
+                  "lat" : -25.96553,
+                  "lng" : 32.58322,
+                  "name" : "Maputo"
                },
-               "geonames_id" : 2537763
+               "geonames_id" : 1040652
             }
          ],
          "names" : [
             {
-               "lang" : "fr",
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "MISAU"
+            },
+            {
+               "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Centre Hospitalier Universitaire de Rabat-Salé"
+               "value" : "Ministry of Health"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Ministério da Saúde"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "healthcare"
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.415794.a"
+               ],
+               "preferred" : "grid.415794.a",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q6867107"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00hpqmv06",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.moh.gov.zm/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Health_(Zambia)"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "ZM",
+                  "country_name" : "Zambia",
+                  "country_subdivision_code" : "09",
+                  "country_subdivision_name" : "Lusaka Province",
+                  "lat" : -15.40669,
+                  "lng" : 28.28713,
+                  "name" : "Lusaka"
+               },
+               "geonames_id" : 909137
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.415807.f"
+               ],
+               "preferred" : "grid.415807.f",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/04551r843",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.moh.gov.bw/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "BW",
+                  "country_name" : "Botswana",
+                  "country_subdivision_code" : "GA",
+                  "country_subdivision_name" : "Gaborone",
+                  "lat" : -24.65451,
+                  "lng" : 25.90859,
+                  "name" : "Gaborone"
+               },
+               "geonames_id" : 933773
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463475.7"
+               ],
+               "preferred" : "grid.463475.7",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/053ykx779",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.gov.sz/index.php?option=com_content&view=article&id=267&Itemid=403"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SZ",
+                  "country_name" : "Eswatini",
+                  "country_subdivision_code" : "HH",
+                  "country_subdivision_name" : "Hhohho Region",
+                  "lat" : -26.31667,
+                  "lng" : 31.13333,
+                  "name" : "Mbabane"
+               },
+               "geonames_id" : 934985
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1957,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.415765.4"
+               ],
+               "preferred" : "grid.415765.4",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 0721 5002"
+               ],
+               "preferred" : "0000 0001 0721 5002",
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q6867086"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/05c7h4935",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.moh.gov.gh"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Health_(Ghana)"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "GH",
+                  "country_name" : "Ghana",
+                  "country_subdivision_code" : "AA",
+                  "country_subdivision_name" : "Greater Accra",
+                  "lat" : 5.55602,
+                  "lng" : -0.1969,
+                  "name" : "Accra"
+               },
+               "geonames_id" : 2306104
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Ghanaian Ministry of Health"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Ministry of Health of Ghana"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "MoH"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/052ss8w32",
+               "label" : "Ghana Health Service",
+               "type" : "child"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-06-24",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.450284.f"
+               ],
+               "preferred" : "grid.450284.f",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/04rkgkn20",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.health.gov.sc/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SC",
+                  "country_name" : "Seychelles",
+                  "country_subdivision_code" : "16",
+                  "country_subdivision_name" : "La Rivière Anglaise",
+                  "lat" : -4.62001,
+                  "lng" : 55.45501,
+                  "name" : "Victoria"
+               },
+               "geonames_id" : 241131
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/01na3y974",
+               "label" : "Seychelles Public Health Authority",
+               "type" : "child"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-08-26",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "501100015550"
+               ],
+               "preferred" : "501100015550",
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.415705.2"
+               ],
+               "preferred" : "grid.415705.2",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q28223289"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00hy3gq97",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://health.go.ug/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Health_(Uganda)"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "UG",
+                  "country_name" : "Uganda",
+                  "country_subdivision_code" : "C",
+                  "country_subdivision_name" : "Central Region",
+                  "lat" : 0.31628,
+                  "lng" : 32.58219,
+                  "name" : "Kampala"
+               },
+               "geonames_id" : 232422
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "alias"
+               ],
+               "value" : "Uganda Ministry of Health"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/03f6y6166",
+               "label" : "Lira Hospital",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/03r08g441",
+               "label" : "Uganda Heart Institute",
+               "type" : "child"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2025-10-28",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [
+            "moh.gov.rw"
+         ],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.421714.5"
+               ],
+               "preferred" : "grid.421714.5",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q5421497"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/05prysf28",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://www.moh.gov.rw/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Health_(Rwanda)"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "RW",
+                  "country_name" : "Rwanda",
+                  "country_subdivision_code" : "01",
+                  "country_subdivision_name" : "Kigali",
+                  "lat" : -1.94995,
+                  "lng" : 30.05885,
+                  "name" : "Kigali"
+               },
+               "geonames_id" : 202061
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "rw",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Minisiteri y'Ubuzima"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Ministère de la Santé"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/038vngd42",
+               "label" : "Centre Hospitalier Universitaire de Kigali",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/03jggqf79",
+               "label" : "Rwanda Biomedical Center",
+               "type" : "child"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.434433.7"
+               ],
+               "preferred" : "grid.434433.7",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 1764 1074"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q5440303"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/02v6nd536",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.health.gov.ng/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Federal_Ministry_of_Health_(Nigeria)"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "NG",
+                  "country_name" : "Nigeria",
+                  "country_subdivision_code" : "FC",
+                  "country_subdivision_name" : "FCT",
+                  "lat" : 9.05785,
+                  "lng" : 7.49508,
+                  "name" : "Abuja"
+               },
+               "geonames_id" : 2352778
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Federal Ministry of Health"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/05j78sg27",
+               "label" : "National Primary Health Care Development Agency",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05sjgdh57",
+               "label" : "Nigeria Centre for Disease Control",
+               "type" : "child"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.414827.c"
+               ],
+               "preferred" : "grid.414827.c",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q6867100"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/01d59nd22",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://fmoh.gov.sd/En/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SD",
+                  "country_name" : "Sudan",
+                  "country_subdivision_code" : "KH",
+                  "country_subdivision_name" : "Khartoum",
+                  "lat" : 15.55177,
+                  "lng" : 32.53241,
+                  "name" : "Khartoum"
+               },
+               "geonames_id" : 379252
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Federal Ministry of Health"
+            },
+            {
+               "lang" : "ar",
+               "types" : [
+                  "label"
+               ],
+               "value" : "وزارة الصحة الإتحادية"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.414835.f"
+               ],
+               "preferred" : "grid.414835.f",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0439 6364"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            }
+         ],
+         "id" : "https://ror.org/017yk1e31",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.moh.gov.et/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "ET",
+                  "country_name" : "Ethiopia",
+                  "country_subdivision_code" : "AA",
+                  "country_subdivision_name" : "Addis Ababa",
+                  "lat" : 9.02497,
+                  "lng" : 38.74689,
+                  "name" : "Addis Ababa"
+               },
+               "geonames_id" : 344979
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "FMOH"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Federal Ministry of Health"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/03k3h8z07",
+               "label" : "Oromiyaa Regional Health Bureau",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/058p87c41",
+               "label" : "South Ethiopia Regional State Health Bureau",
+               "type" : "child"
+            }
+         ],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2021-09-23",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.511838.6"
+               ],
+               "preferred" : "grid.511838.6",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/05c3e8627",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "https://togoleseministryofhealthlome.myewebsite.com/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "TG",
+                  "country_name" : "Togo",
+                  "country_subdivision_code" : "M",
+                  "country_subdivision_name" : "Maritime",
+                  "lat" : 6.12874,
+                  "lng" : 1.22154,
+                  "name" : "Lomé"
+               },
+               "geonames_id" : 2365267
+            }
+         ],
+         "names" : [
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "MOH"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Togolese Ministry of Health"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1976,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.490661.c"
+               ],
+               "preferred" : "grid.490661.c",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/040frxb47",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www.nigerstatemoh.org/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "NG",
+                  "country_name" : "Nigeria",
+                  "country_subdivision_code" : "NI",
+                  "country_subdivision_name" : "Niger State",
+                  "lat" : 9.61524,
+                  "lng" : 6.54776,
+                  "name" : "Minna"
+               },
+               "geonames_id" : 2330100
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Niger State Ministry of Health"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.452667.4"
+               ],
+               "preferred" : "grid.452667.4",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/04j0ce487",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://nsmoh.org.ng/"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "NG",
+                  "country_name" : "Nigeria",
+                  "country_subdivision_code" : "NA",
+                  "country_subdivision_name" : "Nasarawa State",
+                  "lat" : 8.4939,
+                  "lng" : 8.51532,
+                  "name" : "Lafia"
+               },
+               "geonames_id" : 2332515
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Nasarawa State Ministry of Health"
+            },
+            {
+               "lang" : null,
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "SMOH"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463455.5"
+               ],
+               "preferred" : "grid.463455.5",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "Q21044897"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/00yv7s489",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://health.gov.sl/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Health_and_Sanitation_(Sierra_Leone)"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SL",
+                  "country_name" : "Sierra Leone",
+                  "country_subdivision_code" : "W",
+                  "country_subdivision_name" : "Western Area",
+                  "lat" : 8.48714,
+                  "lng" : -13.2356,
+                  "name" : "Freetown"
+               },
+               "geonames_id" : 2409306
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Ministry of Health and Sanitation"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
+         ]
+      },
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2024-06-19",
+               "schema_version" : "2.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : null,
+         "external_ids" : [],
+         "id" : "https://ror.org/02hydzw41",
+         "links" : [],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "NG",
+                  "country_name" : "Nigeria",
+                  "country_subdivision_code" : "OG",
+                  "country_subdivision_name" : "Ogun State",
+                  "lat" : 7.15571,
+                  "lng" : 3.34509,
+                  "name" : "Abeokuta"
+               },
+               "geonames_id" : 2352947
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "acronym"
+               ],
+               "value" : "OGSMH"
+            },
+            {
+               "lang" : "en",
+               "types" : [
+                  "label",
+                  "ror_display"
+               ],
+               "value" : "Ogun State Ministry of Health"
+            }
+         ],
+         "relationships" : [],
+         "status" : "active",
+         "types" : [
+            "government"
          ]
       }
    ],
    "meta" : {
       "continents" : [
          {
-            "count" : 3640,
+            "count" : 31,
             "id" : "af",
             "title" : "Africa"
          }
       ],
       "countries" : [
          {
-            "count" : 515,
-            "id" : "za",
-            "title" : "South Africa"
-         },
-         {
-            "count" : 353,
+            "count" : 4,
             "id" : "ng",
             "title" : "Nigeria"
          },
          {
-            "count" : 270,
-            "id" : "ke",
-            "title" : "Kenya"
+            "count" : 2,
+            "id" : "sc",
+            "title" : "Seychelles"
          },
          {
-            "count" : 239,
-            "id" : "eg",
-            "title" : "Egypt"
-         },
-         {
-            "count" : 222,
-            "id" : "ug",
-            "title" : "Uganda"
-         },
-         {
-            "count" : 191,
-            "id" : "gh",
-            "title" : "Ghana"
-         },
-         {
-            "count" : 190,
-            "id" : "ma",
-            "title" : "Morocco"
-         },
-         {
-            "count" : 147,
-            "id" : "tn",
-            "title" : "Tunisia"
-         },
-         {
-            "count" : 141,
+            "count" : 2,
             "id" : "tz",
             "title" : "Tanzania"
          },
          {
-            "count" : 131,
-            "id" : "dz",
-            "title" : "Algeria"
+            "count" : 1,
+            "id" : "ao",
+            "title" : "Angola"
+         },
+         {
+            "count" : 1,
+            "id" : "bw",
+            "title" : "Botswana"
+         },
+         {
+            "count" : 1,
+            "id" : "ci",
+            "title" : "Ivory Coast"
+         },
+         {
+            "count" : 1,
+            "id" : "eg",
+            "title" : "Egypt"
+         },
+         {
+            "count" : 1,
+            "id" : "et",
+            "title" : "Ethiopia"
+         },
+         {
+            "count" : 1,
+            "id" : "gh",
+            "title" : "Ghana"
+         },
+         {
+            "count" : 1,
+            "id" : "gm",
+            "title" : "Gambia"
          }
       ],
       "statuses" : [
          {
-            "count" : 3640,
+            "count" : 31,
             "id" : "active",
             "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 1478,
-            "id" : "education",
-            "title" : "education"
-         },
-         {
-            "count" : 599,
-            "id" : "nonprofit",
-            "title" : "nonprofit"
-         },
-         {
-            "count" : 452,
+            "count" : 31,
             "id" : "government",
             "title" : "government"
          },
          {
-            "count" : 366,
-            "id" : "healthcare",
-            "title" : "healthcare"
-         },
-         {
-            "count" : 339,
+            "count" : 1,
             "id" : "funder",
             "title" : "funder"
-         },
-         {
-            "count" : 286,
-            "id" : "facility",
-            "title" : "facility"
-         },
-         {
-            "count" : 270,
-            "id" : "other",
-            "title" : "other"
-         },
-         {
-            "count" : 146,
-            "id" : "company",
-            "title" : "company"
-         },
-         {
-            "count" : 45,
-            "id" : "archive",
-            "title" : "archive"
          }
       ]
    },
-   "number_of_results" : 3640,
-   "time_taken" : 4
+   "number_of_results" : 31,
+   "time_taken" : 28
 }
+
 ```
 
 # Filter by continent name
