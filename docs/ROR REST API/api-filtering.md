@@ -341,7 +341,7 @@ Limit search results by organization type. Available organization types:
 curl 'https://api.ror.org/v2/organizations?query=Pasteur&filter=types:facility' | json_pp
 ```
 
-Retrieves a list of research facilities with the keyword "Pasteur" in a `names` field.
+Retrieves a list of active research facilities with the keyword "Pasteur" in a `names` field.
 
 ```json
 {
@@ -2136,7 +2136,7 @@ Limit search results by ISO country code. Available country codes are those in t
 curl 'https://api.ror.org/v2/organizations?query=Mandela&filter=country.country_code:ZA' | json_pp
 ```
 
-Returns a list of research organizations in South Africa with the keyword "Mandela" in a `names` field.
+Returns a list of active research organizations in South Africa with the keyword "Mandela" in a `names` field.
 
 ```json
 {
@@ -2488,7 +2488,7 @@ Limit search results by country name. Available country names are those <Anchor 
 curl 'https://api.ror.org/v2/organizations?query=Recherche&filter=locations.geonames_details.country_name:Senegal' | json_pp
 ```
 
-Returns a list of research organizations in Senegal with the keyword "Recherche" in a `names` field.
+Returns a list of active research organizations in Senegal with the keyword "Recherche" in a `names` field.
 
 ```json
 {
@@ -3708,7 +3708,7 @@ Limit search results by continent code. Continent codes and names are provided b
 curl 'https://api.ror.org/v2/organizations?query=%22Ministry+of=Health%22&filter=locations.geonames_details.continent_code:AF' | json_pp
 ```
 
-The response returns a list of research organizations in Africa with the exact term "Ministry of Health" in a `names` field.
+Returns a list of active research organizations in Africa with the exact term "Ministry of Health" in a `names` field.
 
 ```json
 {
@@ -5334,7 +5334,7 @@ Limit search results by continent name. Continent codes and names are provided b
 curl 'https://api.ror.org/v2/organizations?query=Laboratorio&filter=locations.geonames_details.continent_name:South+America' | json_pp
 ```
 
-The response is a list of research organizations in South America with the keyword "Laboratorio" in a `names` field.
+Returns a list of active research organizations in South America with the keyword "Laboratorio" in a `names` field.
 
 ```json
 {
@@ -7038,7 +7038,7 @@ You can combine multiple filters of any kind in a single request.
 curl 'https://api.ror.org/v2/organizations?query=Recherche&filter=country.country_name:Senegal,country.country_name:Djibouti' | json_pp
 ```
 
-Returns a list of research organizations in Senegal and Djibouti with the keyword "Recherche" in a `names` field.
+Returns a list of active research organizations in both Senegal and Djibouti with the keyword "Recherche" in a `names` field.
 
 ```json
 {
@@ -7686,10 +7686,10 @@ Returns a list of research organizations in Senegal and Djibouti with the keywor
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=types:facility,country.country_code:GB' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Heidelberg&filter=types:company,country.country_code:DE' | json_pp
 ```
 
-Returns a list of research facilities in Great Britain.
+Returns a list of active companies in Germany with the keyword "Heidelberg" in a `names` field.
 
 ```json
 {
@@ -7697,121 +7697,7 @@ Returns a list of research facilities in Great Britain.
       {
          "admin" : {
             "created" : {
-               "date" : "2024-06-19",
-               "schema_version" : "2.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [
-            "adams-institute.ac.uk"
-         ],
-         "established" : 2004,
-         "external_ids" : [
-            {
-               "all" : [
-                  "Q106485520"
-               ],
-               "preferred" : "Q106485520",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00wgpgb78",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://adams-institute.ac.uk"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            },
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.43158,
-                  "lng" : -0.55239,
-                  "name" : "Egham"
-               },
-               "geonames_id" : 2650188
-            },
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "OH",
-                  "country_subdivision_name" : "Ohio",
-                  "lat" : 39.507,
-                  "lng" : -84.74523,
-                  "name" : "Oxford"
-               },
-               "geonames_id" : 4520760
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "JAI"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "label",
-                  "ror_display"
-               ],
-               "value" : "John Adams Institute for Accelerator Science"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/052gg0110",
-               "label" : "University of Oxford",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/04g2vpn86",
-               "label" : "Royal Holloway University of London",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/041kmwe10",
-               "label" : "Imperial College London",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
+               "date" : "2021-09-23",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -7820,39 +7706,21 @@ Returns a list of research facilities in Great Britain.
             }
          },
          "domains" : [],
-         "established" : 2009,
+         "established" : 1997,
          "external_ids" : [
             {
                "all" : [
-                  "grid.434160.4"
+                  "grid.512010.7"
                ],
-               "preferred" : "grid.434160.4",
+               "preferred" : "grid.512010.7",
                "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 6043 947X"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q19829505"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/00w3swb66",
+         "id" : "https://ror.org/036sabf92",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.esa.int/ESA_in_your_country/United_Kingdom"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/European_Centre_for_Space_Applications_and_Telecommunications"
+               "value" : "https://heidelberg-pharma.com/de/"
             }
          ],
          "locations" : [
@@ -7860,284 +7728,44 @@ Returns a list of research facilities in Great Britain.
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.60928,
-                  "lng" : -1.24214,
-                  "name" : "Didcot"
+                  "country_code" : "DE",
+                  "country_name" : "Germany",
+                  "country_subdivision_code" : "BW",
+                  "country_subdivision_name" : "Baden-Wurttemberg",
+                  "lat" : 49.47307,
+                  "lng" : 8.60896,
+                  "name" : "Ladenburg"
                },
-               "geonames_id" : 2651269
+               "geonames_id" : 2881980
             }
          ],
          "names" : [
             {
                "lang" : null,
                "types" : [
-                  "acronym"
-               ],
-               "value" : "ECSAT"
-            },
-            {
-               "lang" : "en",
-               "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "European Centre for Space Applications and Telecommunications"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/03wd9za21",
-               "label" : "European Space Agency",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
+               "value" : "Heidelberg Pharma (Germany)"
             },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2008,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100000349",
-                  "100012373"
-               ],
-               "preferred" : "100012373",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.453470.1"
-               ],
-               "preferred" : "grid.453470.1",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/00bxmqe50",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.niaa.org.uk/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
             {
                "lang" : null,
                "types" : [
-                  "acronym"
+                  "alias"
                ],
-               "value" : "NIAA"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "National Institute of Academic Anaesthesia"
+               "value" : "WILEX Biotechnology"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "facility",
-            "funder"
+            "company"
          ]
       },
       {
          "admin" : {
             "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2000,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100022585"
-               ],
-               "preferred" : "501100022585",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.481924.2"
-               ],
-               "preferred" : "grid.481924.2",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/002q11y83",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://icvi.org.uk/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "CVI"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "ICVI"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institute For Cancer Vaccine & Immunotherapy"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2019-02-17",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100017263"
-               ],
-               "preferred" : "501100017263",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.502890.6"
-               ],
-               "preferred" : "grid.502890.6",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/03vd8y618",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.riscs.org.uk/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "RISCS"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Research Institute in Science of Cyber Security"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
+               "date" : "2020-12-21",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -8150,42 +7778,38 @@ Returns a list of research facilities in Great Britain.
          "external_ids" : [
             {
                "all" : [
-                  "100014249"
+                  "501100010313"
                ],
-               "preferred" : "100014249",
+               "preferred" : "501100010313",
                "type" : "fundref"
             },
             {
                "all" : [
-                  "grid.500367.7"
+                  "grid.509383.4"
                ],
-               "preferred" : "grid.500367.7",
+               "preferred" : "grid.509383.4",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0001 2288 0211"
+                  "0000 0004 0611 0788"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q6049105"
+                  "Q1453394"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/03ab8zv57",
+         "id" : "https://ror.org/03thsxs59",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.icms.org.uk/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/International_Centre_for_Mathematical_Sciences"
+               "value" : "https://www.heidelbergengineering.com/"
             }
          ],
          "locations" : [
@@ -8193,391 +7817,31 @@ Returns a list of research facilities in Great Britain.
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "SCT",
-                  "country_subdivision_name" : "Scotland",
-                  "lat" : 55.95206,
-                  "lng" : -3.19648,
-                  "name" : "Edinburgh"
+                  "country_code" : "DE",
+                  "country_name" : "Germany",
+                  "country_subdivision_code" : "BW",
+                  "country_subdivision_name" : "Baden-Wurttemberg",
+                  "lat" : 49.40768,
+                  "lng" : 8.69079,
+                  "name" : "Heidelberg"
                },
-               "geonames_id" : 2650225
+               "geonames_id" : 2907911
             }
          ],
          "names" : [
             {
                "lang" : null,
                "types" : [
-                  "acronym"
-               ],
-               "value" : "ICMS"
-            },
-            {
-               "lang" : "en",
-               "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "International Centre for Mathematical Sciences"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04mghma93",
-               "label" : "Heriot-Watt University",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/01nrxwf90",
-               "label" : "University of Edinburgh",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2011,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100014236"
-               ],
-               "preferred" : "501100014236",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.499434.7"
-               ],
-               "preferred" : "grid.499434.7",
-               "type" : "grid"
-            }
-         ],
-         "id" : "https://ror.org/042sjcz88",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.srmrc.nihr.ac.uk/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 52.48142,
-                  "lng" : -1.89983,
-                  "name" : "Birmingham"
-               },
-               "geonames_id" : 2655603
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "NIHR Surgical Reconstruction and Microbiology Research Centre"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "SRMRC"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/0187kwz08",
-               "label" : "National Institute for Health Research",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1968,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100023376"
-               ],
-               "preferred" : "501100023376",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.4843.b"
-               ],
-               "preferred" : "grid.4843.b",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 1703 001X"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q1408031"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/03kchyj69",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.twi-global.com/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/The_Welding_Institute"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 52.2,
-                  "lng" : 0.11667,
-                  "name" : "Cambridge"
-               },
-               "geonames_id" : 2653941
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "TWI"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "The Welding Institute"
+               "value" : "Heidelberg Engineering (Germany)"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2008,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100019552"
-               ],
-               "preferred" : "501100019552",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.493543.c"
-               ],
-               "preferred" : "grid.493543.c",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q7950915"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/048eqtw54",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://wiserd.ac.uk/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/WISERD"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "WLS",
-                  "country_subdivision_name" : "Wales",
-                  "lat" : 51.48,
-                  "lng" : -3.18,
-                  "name" : "Cardiff"
-               },
-               "geonames_id" : 2653822
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "WISERD"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Wales Institute of Social and Economic Research, Data and Methods"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2021-09-23",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2017,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100017510"
-               ],
-               "preferred" : "501100017510",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.511435.7"
-               ],
-               "preferred" : "grid.511435.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0005 0281 4208"
-               ],
-               "preferred" : "0000 0005 0281 4208",
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/02wedp412",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://ukdri.ac.uk/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UK DRI"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "UK Dementia Research Institute"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility",
+            "company",
             "funder"
          ]
       },
@@ -8593,327 +7857,39 @@ Returns a list of research facilities in Great Britain.
             }
          },
          "domains" : [],
-         "established" : 1989,
+         "established" : 1850,
          "external_ids" : [
             {
                "all" : [
-                  "grid.421962.a"
+                  "grid.471219.8"
                ],
-               "preferred" : "grid.421962.a",
+               "preferred" : "grid.471219.8",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0641 4431"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/01q496a73",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.imm.ox.ac.uk/home"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.75222,
-                  "lng" : -1.25596,
-                  "name" : "Oxford"
-               },
-               "geonames_id" : 2640729
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "MRC WIMM"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "MRC Weatherall Institute of Molecular Medicine"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02kcpr174",
-               "label" : "MRC Human Immunology Unit",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/02khxwt12",
-               "label" : "MRC Molecular Haematology Unit",
-               "type" : "child"
-            },
-            {
-               "id" : "https://ror.org/03x94j517",
-               "label" : "Medical Research Council",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/052gg0110",
-               "label" : "University of Oxford",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2022-11-28",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0004 0606 3838"
-               ],
-               "preferred" : "0000 0004 0606 3838",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q102872408"
-               ],
-               "preferred" : "Q102872408",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02khxwt12",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.imm.ox.ac.uk/research/units-and-centres/mrc-molecular-haematology-unit"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.75222,
-                  "lng" : -1.25596,
-                  "name" : "Oxford"
-               },
-               "geonames_id" : 2640729
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "MRC MHU"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "MRC Molecular Haematology Unit"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/01q496a73",
-               "label" : "MRC Weatherall Institute of Molecular Medicine",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/03x94j517",
-               "label" : "Medical Research Council",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/052gg0110",
-               "label" : "University of Oxford",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1977,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.268802.6"
-               ],
-               "preferred" : "grid.268802.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 9140 1053"
+                  "0000 0000 8835 7733"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q30279654"
+                  "Q697106"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/04gycm791",
+         "id" : "https://ror.org/03erscp63",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.nottingham.ac.uk/mrcihr/index.aspx"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 52.9536,
-                  "lng" : -1.15047,
-                  "name" : "Nottingham"
-               },
-               "geonames_id" : 2641170
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "IHR"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "MRC Institute of Hearing Research"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/03x94j517",
-               "label" : "Medical Research Council",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/01ee9ar58",
-               "label" : "University of Nottingham",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1968,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100001284",
-                  "501100009314"
-               ],
-               "preferred" : "501100009314",
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.40368.39"
-               ],
-               "preferred" : "grid.40368.39",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0000 9347 0159"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q6040316"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04td3ys19",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://quadram.ac.uk/"
+               "value" : "https://www.heidelberg.com/global/en/index.jsp"
             },
             {
                "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Quadram_Institute"
+               "value" : "https://en.wikipedia.org/wiki/Heidelberger_Druckmaschinen"
             }
          ],
          "locations" : [
@@ -8921,161 +7897,38 @@ Returns a list of research facilities in Great Britain.
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 52.62783,
-                  "lng" : 1.29834,
-                  "name" : "Norwich"
+                  "country_code" : "DE",
+                  "country_name" : "Germany",
+                  "country_subdivision_code" : "BW",
+                  "country_subdivision_name" : "Baden-Wurttemberg",
+                  "lat" : 49.40768,
+                  "lng" : 8.69079,
+                  "name" : "Heidelberg"
                },
-               "geonames_id" : 2641181
+               "geonames_id" : 2907911
             }
          ],
          "names" : [
             {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Heidelberg Printing Machines AG"
+            },
+            {
                "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "IFR"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Institute of Food Research"
-            },
-            {
-               "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Quadram Institute"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Quadram Institute Bioscience"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/00cwqg982",
-               "label" : "Biotechnology and Biological Sciences Research Council",
-               "type" : "parent"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1992,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100005347",
-                  "100012112"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.429097.1"
-               ],
-               "preferred" : "grid.429097.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0648 3322"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q126075"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/007vkej58",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.newton.ac.uk/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Isaac_Newton_Institute"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 52.2,
-                  "lng" : 0.11667,
-                  "name" : "Cambridge"
-               },
-               "geonames_id" : 2653941
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "INI"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Isaac Newton Institute"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Isaac Newton Institute for Mathematical Sciences"
+               "value" : "Heidelberger Druckmaschinen (Germany)"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "facility",
-            "funder"
+            "company"
          ]
       },
       {
@@ -9089,48 +7942,24 @@ Returns a list of research facilities in Great Britain.
                "schema_version" : "2.1"
             }
          },
-         "domains" : [],
-         "established" : 1789,
+         "domains" : [
+            "srh.de"
+         ],
+         "established" : 1966,
          "external_ids" : [
             {
                "all" : [
-                  "501100000527",
-                  "501100014050"
+                  "grid.466450.5"
                ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.422885.1"
-               ],
-               "preferred" : "grid.422885.1",
+               "preferred" : "grid.466450.5",
                "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 0724 3660"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q676709"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/04vhk9f59",
+         "id" : "https://ror.org/02q38zd09",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.armagh.space"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Armagh_Observatory"
+               "value" : "https://www.srh.de"
             }
          ],
          "locations" : [
@@ -9138,466 +7967,72 @@ Returns a list of research facilities in Great Britain.
                "geonames_details" : {
                   "continent_code" : "EU",
                   "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "NIR",
-                  "country_subdivision_name" : "Northern Ireland",
-                  "lat" : 54.35,
-                  "lng" : -6.66667,
-                  "name" : "Armagh"
+                  "country_code" : "DE",
+                  "country_name" : "Germany",
+                  "country_subdivision_code" : "BW",
+                  "country_subdivision_name" : "Baden-Wurttemberg",
+                  "lat" : 49.40768,
+                  "lng" : 8.69079,
+                  "name" : "Heidelberg"
                },
-               "geonames_id" : 2657060
+               "geonames_id" : 2907911
             }
          ],
          "names" : [
             {
                "lang" : null,
                "types" : [
-                  "acronym"
-               ],
-               "value" : "AOP"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Armagh Observatory"
-            },
-            {
-               "lang" : "en",
-               "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Armagh Observatory & Planetarium"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Armagh Observatory and Planetarium"
+               "value" : "Stiftung Rehabilitation Heidelberg (Germany)"
             }
          ],
          "relationships" : [],
          "status" : "active",
          "types" : [
-            "facility",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2021-09-23",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2013,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.512598.2"
-               ],
-               "preferred" : "grid.512598.2",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q56758364"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05jx29z89",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.londonntd.org/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "LCNTDR"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "London Centre for Neglected Tropical Disease Research"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2022-06-16",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2017,
-         "external_ids" : [],
-         "id" : "https://ror.org/022p86748",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.bristol.ac.uk/wolfson-bioimaging/equipment/cryo-em"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.45523,
-                  "lng" : -2.59665,
-                  "name" : "Bristol"
-               },
-               "geonames_id" : 2654675
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "GW4 Facility for High-Resolution Electron Cryo-Microscopy"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "GW4 cryoEM"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/000vekr11",
-               "label" : "GW4",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/0524sp257",
-               "label" : "University of Bristol",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/03yghzc09",
-               "label" : "University of Exeter",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/002h8g185",
-               "label" : "University of Bath",
-               "type" : "related"
-            },
-            {
-               "id" : "https://ror.org/03kk7td41",
-               "label" : "Cardiff University",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1950,
-         "external_ids" : [
-            {
-               "all" : [
-                  "501100000766"
-               ],
-               "preferred" : null,
-               "type" : "fundref"
-            },
-            {
-               "all" : [
-                  "grid.63833.3d"
-               ],
-               "preferred" : "grid.63833.3d",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0643 7510"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q757609"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/02gv4h649",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.awe.co.uk/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Atomic_Weapons_Establishment"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.45625,
-                  "lng" : -0.97113,
-                  "name" : "Reading"
-               },
-               "geonames_id" : 2639577
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "AWE"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "AWRE"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Atomic Weapons Establishment"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Atomic Weapons Research Establishment"
-            }
-         ],
-         "relationships" : [],
-         "status" : "active",
-         "types" : [
-            "facility",
-            "funder"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1988,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.22319.3b"
-               ],
-               "preferred" : "grid.22319.3b",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2106 2153"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q7205824"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/05av9mn02",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.pml.ac.uk/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "http://en.wikipedia.org/wiki/Plymouth_Marine_Laboratory"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 50.37153,
-                  "lng" : -4.14305,
-                  "name" : "Plymouth"
-               },
-               "geonames_id" : 2640194
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "PML"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Plymouth Marine Laboratory"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02b5d8509",
-               "label" : "Natural Environment Research Council",
-               "type" : "related"
-            }
-         ],
-         "status" : "active",
-         "types" : [
-            "facility"
+            "company"
          ]
       }
    ],
    "meta" : {
       "continents" : [
          {
-            "count" : 305,
+            "count" : 4,
             "id" : "eu",
             "title" : "Europe"
-         },
-         {
-            "count" : 1,
-            "id" : "na",
-            "title" : "North America"
          }
       ],
       "countries" : [
          {
-            "count" : 305,
-            "id" : "gb",
-            "title" : "United Kingdom"
-         },
-         {
-            "count" : 1,
-            "id" : "us",
-            "title" : "United States"
+            "count" : 4,
+            "id" : "de",
+            "title" : "Germany"
          }
       ],
       "statuses" : [
          {
-            "count" : 305,
+            "count" : 4,
             "id" : "active",
             "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 305,
-            "id" : "facility",
-            "title" : "facility"
+            "count" : 4,
+            "id" : "company",
+            "title" : "company"
          },
          {
-            "count" : 97,
+            "count" : 1,
             "id" : "funder",
             "title" : "funder"
          }
       ]
    },
-   "number_of_results" : 305,
-   "time_taken" : 65
+   "number_of_results" : 4,
+   "time_taken" : 6
 }
-
 ```
 
 ## Example
