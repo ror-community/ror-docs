@@ -10,12 +10,6 @@ metadata:
     examples of retrieving a single record for an organization using the ROR
     API.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: api-list
-      title: Retrieve a list of records
 ---
 > 👍 ROR REST API v2
 >
