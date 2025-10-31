@@ -11,12 +11,6 @@ metadata:
     versions supported until their planned sunset date. Feedback on new schema
     versions will be sought through various communication channels.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: schema-v2
-      title: Schema 2.0
 ---
 # Community feedback
 
