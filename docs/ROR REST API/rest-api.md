@@ -15,33 +15,6 @@ metadata:
   keywords:
     - ROR REST API
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: api-single
-      title: Retrieve a single record
-    - type: basic
-      slug: api-list
-      title: Retrieve a list of records
-    - type: basic
-      slug: api-filtering
-      title: Filtering
-    - type: basic
-      slug: api-paging
-      title: Paging
-    - type: basic
-      slug: api-query
-      title: Query parameter
-    - type: basic
-      slug: api-advanced-query
-      title: Advanced query parameter
-    - type: basic
-      slug: api-affiliation
-      title: Affiliation parameter
-    - type: basic
-      slug: api-versions
-      title: API versions
 ---
 > 👍 ROR REST API v2
 >
