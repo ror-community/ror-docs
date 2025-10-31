@@ -14,12 +14,6 @@ metadata:
     - schema
     - ' metadata'
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: fields
-      title: Fields and sub-fields
 ---
 > 👍 ROR Schema v2.1
 >
