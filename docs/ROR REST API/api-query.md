@@ -4102,7 +4102,7 @@ The response returns the active record for the U.S. Department of Energy that co
 
 # Retrieve records with any status
 
-By default, queries of the ROR API return only records with _active_ status. The [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can be appended to query parameter searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records.
+By default, queries of the ROR API return only records with _active_ status. The [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can be appended to searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records.
 
 ## Example
 
