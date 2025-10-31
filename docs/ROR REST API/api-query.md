@@ -27,7 +27,7 @@ The query parameter is a "quick search" of only the `names` and `external_ids` f
 
 We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at [https://ror.org/search](https://ror.org/search) also uses the query parameter.
 
-Search results from the query parameter can be [paged](doc:api-paging) and [filtered](doc:api-filtering).
+Search results from the query parameter can be [paged](doc:api-paging) and [filtered](doc:api-filtering). Remember that by default, only records with an _active_ status are returned.
 
 > 📘 Query parameter format
 >
