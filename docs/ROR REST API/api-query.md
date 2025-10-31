@@ -6314,10 +6314,6 @@ The response returns the inactive record for the Rowland Institute at Harvard th
 }
 ```
 
-<br />
-
-<br />
-
 # Technical details
 
 The query parameter searches abbreviated Elasticsearch documents (called `names_ids`) that combine all the values from each ROR record's `names`  and `external_ids` fields. Only the values, not the language code or type, are included. Field names are removed, and each value is simply categorized as a "name" or an "id".
