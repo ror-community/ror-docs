@@ -58,7 +58,7 @@ The query parameter can be used to search for relatively unique keywords in orga
 curl 'https://api.ror.org/v2/organizations?query=Bath' | json_pp
 ```
 
-As with [retrieving a list of ROR records](doc:api-list), the response is a JSON object containing full records for the first 20 search results, but this search produces only 17 results, so only 17 items are returned.
+Returns a list of active organizations with the keyword "Bath" in a `names` field. As with [retrieving a list of ROR records](doc:api-list), the response is a JSON object containing full records for the first 20 search results, but this search produces only 17 results, so only 17 items are returned.
 
 ```json
 {
@@ -3312,7 +3312,7 @@ Searching for the exact term "Bath College" retrieves only records that contain 
 curl 'https://api.ror.org/v2/organizations?query=%22Bath%20College%22' | json_pp
 ```
 
-The response returns 2 records: the record for Bath College and the record for Bath Spa University, which has the alias "Bath College of Higher Education".
+The response returns two active records: the record for Bath College and the record for Bath Spa University, which has the alias "Bath College of Higher Education".
 
 ```json
 {
@@ -3548,7 +3548,7 @@ Remember to URL-encode and if necessary escape special characters in multi-term 
 curl 'https://api.ror.org/v2/organizations?query=%22Franklin%20%26%20Marshall%20College%22' | json_pp
 ```
 
-When the & is URL-encoded, the response returns the single record for Franklin & Marshall College. When the & is not URL-encoded, the response is an error.
+When the `&` is URL-encoded, the response returns the active record for Franklin & Marshall College. When the & is not URL-encoded, the response is an error.
 
 ```json
 {
@@ -3690,11 +3690,9 @@ When the & is URL-encoded, the response returns the single record for Franklin &
 }
 ```
 
-<br />
-
 # Searching for identifiers
 
-The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry.
+The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. Remember that only active ROR records will be returned by default: use the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter to retrieve results that include _inactive_ and _withdrawn_ ROR records. 
 
 ## Example
 
@@ -3704,7 +3702,7 @@ Search for a ROR record corresponding to the GRID ID for the U.S. Department of 
 curl 'https://api.ror.org/v2/organizations?query=%22grid.85084.31%22' | json_pp
 ```
 
-The response returns a single record for the U.S. Department of Energy that contains the searched-for identifier in `external_ids`.
+The response returns the active record for the U.S. Department of Energy that contains the searched-for identifier in `external_ids`.
 
 ```json
 {
@@ -6168,6 +6166,157 @@ The response returns the results of a keyword search for "Harvard" that includes
    "time_taken" : 4
 }
 ```
+
+## Example
+
+Search for an _active_, _inactive_, or _withdrawn_ ROR record corresponding to a particular GRID ID .
+
+```curl
+curl 'https://api.ror.org/v2/organizations?query=%22grid.419291.6%22&all_status' | json_pp
+```
+
+The response returns the inactive record for the Rowland Institute at Harvard that contains the searched-for identifier in `external_ids`.
+
+```json
+{
+   "items" : [
+      {
+         "admin" : {
+            "created" : {
+               "date" : "2018-11-14",
+               "schema_version" : "1.0"
+            },
+            "last_modified" : {
+               "date" : "2024-12-11",
+               "schema_version" : "2.1"
+            }
+         },
+         "domains" : [],
+         "established" : 1980,
+         "external_ids" : [
+            {
+               "all" : [
+                  "100009835"
+               ],
+               "preferred" : null,
+               "type" : "fundref"
+            },
+            {
+               "all" : [
+                  "grid.419291.6"
+               ],
+               "preferred" : "grid.419291.6",
+               "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0004 0384 6984"
+               ],
+               "preferred" : null,
+               "type" : "isni"
+            },
+            {
+               "all" : [
+                  "Q7372153"
+               ],
+               "preferred" : null,
+               "type" : "wikidata"
+            }
+         ],
+         "id" : "https://ror.org/03eta9142",
+         "links" : [
+            {
+               "type" : "website",
+               "value" : "http://www2.rowland.harvard.edu/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Rowland_Institute_for_Science"
+            }
+         ],
+         "locations" : [
+            {
+               "geonames_details" : {
+                  "continent_code" : "NA",
+                  "continent_name" : "North America",
+                  "country_code" : "US",
+                  "country_name" : "United States",
+                  "country_subdivision_code" : "MA",
+                  "country_subdivision_name" : "Massachusetts",
+                  "lat" : 42.3751,
+                  "lng" : -71.10561,
+                  "name" : "Cambridge"
+               },
+               "geonames_id" : 4931972
+            }
+         ],
+         "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "Rowland Institute at Harvard"
+            }
+         ],
+         "relationships" : [
+            {
+               "id" : "https://ror.org/03vek6s52",
+               "label" : "Harvard University",
+               "type" : "successor"
+            }
+         ],
+         "status" : "inactive",
+         "types" : [
+            "funder",
+            "nonprofit"
+         ]
+      }
+   ],
+   "meta" : {
+      "continents" : [
+         {
+            "count" : 1,
+            "id" : "na",
+            "title" : "North America"
+         }
+      ],
+      "countries" : [
+         {
+            "count" : 1,
+            "id" : "us",
+            "title" : "United States"
+         }
+      ],
+      "statuses" : [
+         {
+            "count" : 1,
+            "id" : "inactive",
+            "title" : "inactive"
+         }
+      ],
+      "types" : [
+         {
+            "count" : 1,
+            "id" : "funder",
+            "title" : "funder"
+         },
+         {
+            "count" : 1,
+            "id" : "nonprofit",
+            "title" : "nonprofit"
+         }
+      ]
+   },
+   "number_of_results" : 1,
+   "time_taken" : 3
+}
+```
+
+<br />
+
+<br />
 
 # Technical details
 
