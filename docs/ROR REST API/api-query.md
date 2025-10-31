@@ -3696,13 +3696,13 @@ The query parameter searches the `external_ids` field and so can be used to sear
 
 ## Example
 
-Search for a ROR record corresponding to the GRID ID for the U.S. Department of Energy.
+Search for an active ROR record corresponding to the GRID ID for the U.S. Department of Energy.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query=%22grid.85084.31%22' | json_pp
 ```
 
-The response returns the active record for the U.S. Department of Energy that contains the searched-for identifier in `external_ids`.
+The response is a single active record for the U.S. Department of Energy that contains the searched-for identifier in `external_ids`.
 
 ```json
 {
