@@ -9,12 +9,6 @@ metadata:
     Instructions for paging through lists of ROR records retrieved from the ROR
     API.
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: api-query
-      title: Query parameter
 ---
 > 👍 ROR REST API v2
 >
