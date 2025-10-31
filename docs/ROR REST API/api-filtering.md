@@ -7026,7 +7026,7 @@ The response is a list of research organizations in South America with the keywo
 
 # Combine filters
 
-You can combine multiple filters in a single request.
+You can combine multiple filters of any kind in a single request.
 
 > 📘 Format: Combined filters
 >
@@ -7035,10 +7035,10 @@ You can combine multiple filters in a single request.
 ## Example
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?filter=status:inactive,status:withdrawn' | json_pp
+curl 'https://api.ror.org/v2/organizations?query=Recherche&filter=country.country_name:Senegal,country.country_name:Djibouti' | json_pp
 ```
 
-Returns a list of both inactive and withdrawn records in ROR.
+Returns a list of research organizations in Senegal and Djibouti with the keyword "Recherche" in a `names` field.
 
 ```json
 {
@@ -7055,213 +7055,71 @@ Returns a list of both inactive and withdrawn records in ROR.
             }
          },
          "domains" : [],
-         "established" : 1997,
+         "established" : 1937,
          "external_ids" : [
             {
                "all" : [
-                  "grid.434941.f"
+                  "grid.418291.7"
                ],
-               "preferred" : "grid.434941.f",
+               "preferred" : "grid.418291.7",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0507 1975"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/059zf1d45",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.iuct.com/en/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "ES",
-                  "country_name" : "Spain",
-                  "country_subdivision_code" : "CT",
-                  "country_subdivision_name" : "Catalonia",
-                  "lat" : 41.55222,
-                  "lng" : 2.20901,
-                  "name" : "Mollet del Vallès"
-               },
-               "geonames_id" : 6356153
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "IUCT"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Institut Universitari de Ciencia i Tecnologia (Spain)"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-03-13",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [],
-         "id" : "https://ror.org/03jsyxh43",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.sysard.com"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "AS",
-                  "continent_name" : "Asia",
-                  "country_code" : "CN",
-                  "country_name" : "China",
-                  "country_subdivision_code" : "LN",
-                  "country_subdivision_name" : "Liaoning",
-                  "lat" : 41.79222,
-                  "lng" : 123.43278,
-                  "name" : "Shenyang"
-               },
-               "geonames_id" : 2034937
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Shenyang Sinochem Agrochemicals R&D Co."
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Shenyang Sinochem Agrochemicals R&D Co., Ltd."
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Shenyang Sinochem Agrochemicals R&D Co., Ltd. (China)"
-            },
-            {
-               "lang" : "zh",
-               "types" : [
-                  "label"
-               ],
-               "value" : "沈阳中化农药化工研发有限公司"
-            }
-         ],
-         "relationships" : [],
-         "status" : "withdrawn",
-         "types" : [
-            "company"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1974,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.420100.7"
-               ],
-               "preferred" : "grid.420100.7",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0001 2189 6043"
+                  "0000 0004 0456 337X"
                ],
                "preferred" : null,
                "type" : "isni"
             },
             {
                "all" : [
-                  "Q3578099"
+                  "Q28974592"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/04rfts775",
+         "id" : "https://ror.org/015q23935",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.enitiaa-nantes.fr/"
+               "value" : "http://www.senegal.ird.fr/"
             },
             {
                "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/%C3%89cole_nationale_d%27ing%C3%A9nieurs_des_techniques_des_industries_agro-alimentaires"
+               "value" : "https://en.wikipedia.org/wiki/Institut_de_recherche_pour_le_d%C3%A9veloppement"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "PDL",
-                  "country_subdivision_name" : "Pays de la Loire",
-                  "lat" : 47.21725,
-                  "lng" : -1.55336,
-                  "name" : "Nantes"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
                },
-               "geonames_id" : 2990969
+               "geonames_id" : 2253354
             }
          ],
          "names" : [
+            {
+               "lang" : "en",
+               "types" : [
+                  "label"
+               ],
+               "value" : "French Research Institute for Development"
+            },
             {
                "lang" : null,
                "types" : [
                   "acronym"
                ],
-               "value" : "ENITIAA"
+               "value" : "IRD"
             },
             {
                "lang" : "fr",
@@ -7269,82 +7127,29 @@ Returns a list of both inactive and withdrawn records in ROR.
                   "ror_display",
                   "label"
                ],
-               "value" : "École Nationale d'Ingénieurs des Techniques des Industries Agro-Alimentaires"
+               "value" : "Institut de Recherche pour le Développement"
             }
          ],
          "relationships" : [
             {
-               "id" : "https://ror.org/029m96t80",
-               "label" : "Ministère de l'Agriculture et de la Souveraineté alimentaire",
-               "type" : "related"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-03-28",
-               "schema_version" : "1.0"
+               "id" : "https://ror.org/011xg1225",
+               "label" : "Montpellier Interdisciplinary center on Sustainable Agri-food systems: social and nutritional sciences",
+               "type" : "child"
             },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
             {
-               "all" : [
-                  "501100000330"
-               ],
-               "preferred" : "501100000330",
-               "type" : "fundref"
+               "id" : "https://ror.org/03vte9x46",
+               "label" : "Observatoire des Sciences de l'Univers de Grenoble",
+               "type" : "child"
+            },
+            {
+               "id" : "https://ror.org/05q3vnk25",
+               "label" : "Institut de Recherche pour le Développement",
+               "type" : "parent"
             }
          ],
-         "id" : "https://ror.org/01emdsc76",
-         "links" : [],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 51.50853,
-                  "lng" : -0.12574,
-                  "name" : "London"
-               },
-               "geonames_id" : 2643743
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Prostate Action"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04dkv6329",
-               "label" : "Prostate Cancer UK",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
+         "status" : "active",
          "types" : [
-            "funder",
-            "nonprofit"
+            "government"
          ]
       },
       {
@@ -7363,47 +7168,33 @@ Returns a list of both inactive and withdrawn records in ROR.
          "external_ids" : [
             {
                "all" : [
-                  "grid.462526.1"
+                  "grid.473221.1"
                ],
-               "preferred" : "grid.462526.1",
+               "preferred" : "grid.473221.1",
                "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0613 4851"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30261483"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/05q94pf14",
+         "id" : "https://ror.org/045rh7r61",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://umr-lstm.cirad.fr/"
+               "value" : "http://www.cerd.dj/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "OCC",
-                  "country_subdivision_name" : "Occitanie",
-                  "lat" : 43.61093,
-                  "lng" : 3.87635,
-                  "name" : "Montpellier"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "DJ",
+                  "country_name" : "Djibouti",
+                  "country_subdivision_code" : "DJ",
+                  "country_subdivision_name" : "Djibouti",
+                  "lat" : 11.58901,
+                  "lng" : 43.14503,
+                  "name" : "Djibouti"
                },
-               "geonames_id" : 2992166
+               "geonames_id" : 223817
             }
          ],
          "names" : [
@@ -7412,7 +7203,7 @@ Returns a list of both inactive and withdrawn records in ROR.
                "types" : [
                   "acronym"
                ],
-               "value" : "LSTM"
+               "value" : "CERD"
             },
             {
                "lang" : "fr",
@@ -7420,37 +7211,11 @@ Returns a list of both inactive and withdrawn records in ROR.
                   "ror_display",
                   "label"
                ],
-               "value" : "Laboratoire des Symbioses Tropicales et Méditerranéennes"
+               "value" : "Centre d'Étude et de Recherche de Djibouti"
             }
          ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/05kpkpg04",
-               "label" : "Centre de Coopération Internationale en Recherche Agronomique pour le Développement",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/05q3vnk25",
-               "label" : "Institut de Recherche pour le Développement",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/03rnk6m14",
-               "label" : "Institut Agro Montpellier",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/003vg9w96",
-               "label" : "National Research Institute for Agriculture, Food and Environment",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/051escj72",
-               "label" : "University of Montpellier",
-               "type" : "parent"
-            }
-         ],
-         "status" : "inactive",
+         "relationships" : [],
+         "status" : "active",
          "types" : [
             "facility"
          ]
@@ -7458,206 +7223,7 @@ Returns a list of both inactive and withdrawn records in ROR.
       {
          "admin" : {
             "created" : {
-               "date" : "2021-09-23",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2016,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.512264.6"
-               ],
-               "preferred" : "grid.512264.6",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "Q21994834"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/04x1a4s97",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://dircom.univ-rennes1.fr/UBL/"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "BRE",
-                  "country_subdivision_name" : "Brittany",
-                  "lat" : 48.11198,
-                  "lng" : -1.67429,
-                  "name" : "Rennes"
-               },
-               "geonames_id" : 2983990
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Université Bretagne Loire"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-03-28",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [],
-         "id" : "https://ror.org/028ydjm20",
-         "links" : [],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "CO",
-                  "country_subdivision_name" : "Colorado",
-                  "lat" : 39.73915,
-                  "lng" : -104.9847,
-                  "name" : "Denver"
-               },
-               "geonames_id" : 5419384
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Argosy University"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Argosy University Denver"
-            }
-         ],
-         "relationships" : [],
-         "status" : "inactive",
-         "types" : [
-            "education"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-08-17",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2011,
-         "external_ids" : [],
-         "id" : "https://ror.org/01zc4nk92",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.diade-research.fr"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "OCC",
-                  "country_subdivision_name" : "Occitanie",
-                  "lat" : 43.61093,
-                  "lng" : 3.87635,
-                  "name" : "Montpellier"
-               },
-               "geonames_id" : 2992166
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Diversité, adaptation, développement des plantes"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "UMR DIADE"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/05q3vnk25",
-               "label" : "Institut de Recherche pour le Développement",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/051escj72",
-               "label" : "University of Montpellier",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02banhz78",
-               "label" : "Diversité, adaptation, développement des plantes",
-               "type" : "successor"
-            }
-         ],
-         "status" : "withdrawn",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-12-07",
+               "date" : "2018-11-14",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -7667,104 +7233,45 @@ Returns a list of both inactive and withdrawn records in ROR.
          },
          "domains" : [],
          "established" : 2004,
-         "external_ids" : [],
-         "id" : "https://ror.org/05rdqpb56",
+         "external_ids" : [
+            {
+               "all" : [
+                  "grid.463194.d"
+               ],
+               "preferred" : "grid.463194.d",
+               "type" : "grid"
+            }
+         ],
+         "id" : "https://ror.org/04aa9w798",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.aimatmelanoma.org"
+               "value" : "http://www.cres-sn.org/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "CA",
-                  "country_subdivision_name" : "California",
-                  "lat" : 37.93576,
-                  "lng" : -122.34775,
-                  "name" : "Richmond"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
                },
-               "geonames_id" : 5387428
+               "geonames_id" : 2253354
             }
          ],
          "names" : [
             {
                "lang" : null,
                "types" : [
-                  "ror_display",
-                  "label"
+                  "acronym"
                ],
-               "value" : "AIM at Melanoma"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/02t5mzr26",
-               "label" : "AIM at Melanoma Foundation",
-               "type" : "successor"
-            }
-         ],
-         "status" : "withdrawn",
-         "types" : [
-            "nonprofit"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2023-08-17",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2011,
-         "external_ids" : [
-            {
-               "all" : [
-                  "Q51780884"
-               ],
-               "preferred" : "Q51780884",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/00j35ca78",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://nutripass.ird.fr"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "OCC",
-                  "country_subdivision_name" : "Occitanie",
-                  "lat" : 43.61093,
-                  "lng" : 3.87635,
-                  "name" : "Montpellier"
-               },
-               "geonames_id" : 2992166
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "NutriPass"
+               "value" : "CRES"
             },
             {
                "lang" : "fr",
@@ -7772,19 +7279,13 @@ Returns a list of both inactive and withdrawn records in ROR.
                   "ror_display",
                   "label"
                ],
-               "value" : "Nutrition et Alimentation des Populations aux Suds"
+               "value" : "Consortium pour la recherche économique et sociale"
             }
          ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/05q3vnk25",
-               "label" : "Institut de Recherche pour le Développement",
-               "type" : "parent"
-            }
-         ],
-         "status" : "inactive",
+         "relationships" : [],
+         "status" : "active",
          "types" : [
-            "facility"
+            "other"
          ]
       },
       {
@@ -7803,33 +7304,33 @@ Returns a list of both inactive and withdrawn records in ROR.
          "external_ids" : [
             {
                "all" : [
-                  "grid.464183.c"
+                  "grid.436924.e"
                ],
-               "preferred" : "grid.464183.c",
+               "preferred" : "grid.436924.e",
                "type" : "grid"
             }
          ],
-         "id" : "https://ror.org/03jhvx342",
+         "id" : "https://ror.org/05nkfrm56",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.ujf-grenoble.fr/laboratoire/biomedicale-et-neurosciences"
+               "value" : "http://www.mesr.gouv.sn/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "ARA",
-                  "country_subdivision_name" : "Auvergne-Rhône-Alpes",
-                  "lat" : 45.17869,
-                  "lng" : 5.71479,
-                  "name" : "Grenoble"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
                },
-               "geonames_id" : 3014728
+               "geonames_id" : 2253354
             }
          ],
          "names" : [
@@ -7839,104 +7340,19 @@ Returns a list of both inactive and withdrawn records in ROR.
                   "ror_display",
                   "label"
                ],
-               "value" : "RMN Biomédicale et Neurosciences"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/04px4e658",
-               "label" : "Délégation Alpes",
-               "type" : "parent"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 2001,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.441437.1"
-               ],
-               "preferred" : "grid.441437.1",
-               "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 0463 2136"
-               ],
-               "preferred" : null,
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q30293877"
-               ],
-               "preferred" : null,
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/001p2e958",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.argosy.edu/"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Argosy_University"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "CA",
-                  "country_subdivision_name" : "California",
-                  "lat" : 33.78779,
-                  "lng" : -117.85311,
-                  "name" : "Orange"
-               },
-               "geonames_id" : 5379513
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Argosy University"
+               "value" : "Ministère de l'Enseignement Superieur et de la Recherche"
             }
          ],
          "relationships" : [],
-         "status" : "inactive",
+         "status" : "active",
          "types" : [
-            "education"
+            "government"
          ]
       },
       {
          "admin" : {
             "created" : {
-               "date" : "2018-11-14",
+               "date" : "2019-02-17",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -7945,44 +7361,37 @@ Returns a list of both inactive and withdrawn records in ROR.
             }
          },
          "domains" : [],
-         "established" : 2012,
+         "established" : 2017,
          "external_ids" : [
             {
                "all" : [
-                  "grid.462870.f"
+                  "grid.503074.5"
                ],
-               "preferred" : "grid.462870.f",
+               "preferred" : "grid.503074.5",
                "type" : "grid"
-            },
-            {
-               "all" : [
-                  "0000 0004 1808 0475"
-               ],
-               "preferred" : null,
-               "type" : "isni"
             }
          ],
-         "id" : "https://ror.org/02dg3n954",
+         "id" : "https://ror.org/01psmkn05",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://sites.univ-provence.fr/lnc/?lang=en"
+               "value" : "https://iressef.org/en/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.85341,
-                  "lng" : 2.3488,
-                  "name" : "Paris"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
                },
-               "geonames_id" : 2988507
+               "geonames_id" : 2253354
             }
          ],
          "names" : [
@@ -7991,110 +7400,34 @@ Returns a list of both inactive and withdrawn records in ROR.
                "types" : [
                   "acronym"
                ],
-               "value" : "LNC"
+               "value" : "IRESSEF"
             },
             {
                "lang" : "fr",
                "types" : [
-                  "ror_display",
                   "label"
                ],
-               "value" : "Laboratoire de Neurosciences Cognitives"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/035xkbk20",
-               "label" : "Aix-Marseille University",
-               "type" : "parent"
+               "value" : "Institut de Recherche en Santé, de Surveillance Épidémiologique et de Formation"
             },
-            {
-               "id" : "https://ror.org/00rydyx93",
-               "label" : "Institut des Sciences Biologiques",
-               "type" : "parent"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-03-13",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1994,
-         "external_ids" : [
-            {
-               "all" : [
-                  "0000 0001 2326 7101"
-               ],
-               "preferred" : "0000 0001 2326 7101",
-               "type" : "isni"
-            },
-            {
-               "all" : [
-                  "Q1779468"
-               ],
-               "preferred" : "Q1779468",
-               "type" : "wikidata"
-            }
-         ],
-         "id" : "https://ror.org/034x1af55",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://uin.no"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/University_of_Nordland"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "NO",
-                  "country_name" : "Norway",
-                  "country_subdivision_code" : "18",
-                  "country_subdivision_name" : "Nordland",
-                  "lat" : 67.28325,
-                  "lng" : 14.38319,
-                  "name" : "Bodø"
-               },
-               "geonames_id" : 6453323
-            }
-         ],
-         "names" : [
             {
                "lang" : "en",
                "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "University of Nordland"
+               "value" : "Institute of Health Research, Epidemiological Surveillance and Training"
             }
          ],
          "relationships" : [],
-         "status" : "inactive",
+         "status" : "active",
          "types" : [
-            "education"
+            "nonprofit"
          ]
       },
       {
          "admin" : {
             "created" : {
-               "date" : "2024-03-28",
+               "date" : "2018-11-14",
                "schema_version" : "1.0"
             },
             "last_modified" : {
@@ -8103,395 +7436,107 @@ Returns a list of both inactive and withdrawn records in ROR.
             }
          },
          "domains" : [],
-         "established" : 1972,
+         "established" : 1973,
          "external_ids" : [
             {
                "all" : [
-                  "100012355"
+                  "501100001902"
                ],
-               "preferred" : "100012355",
+               "preferred" : null,
                "type" : "fundref"
             },
             {
                "all" : [
-                  "0000 0001 1781 6696"
+                  "grid.469327.d"
                ],
-               "preferred" : "0000 0001 1781 6696",
-               "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/03cggs816",
-         "links" : [
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/HECSU"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "GB",
-                  "country_name" : "United Kingdom",
-                  "country_subdivision_code" : "ENG",
-                  "country_subdivision_name" : "England",
-                  "lat" : 53.48095,
-                  "lng" : -2.23743,
-                  "name" : "Manchester"
-               },
-               "geonames_id" : 2643123
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "HECSU"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Higher Education Careers Services Unit"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/01rv9gx86",
-               "label" : "Jisc",
-               "type" : "successor"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "funder",
-            "nonprofit"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.462337.7"
-               ],
-               "preferred" : "grid.462337.7",
+               "preferred" : "grid.469327.d",
                "type" : "grid"
             },
             {
                "all" : [
-                  "0000 0004 0382 1904"
+                  "0000 0001 1401 0777"
                ],
                "preferred" : null,
                "type" : "isni"
-            }
-         ],
-         "id" : "https://ror.org/01cmdpn82",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "http://www.institut-curie.org/recherche/signalisation-neurobiologie-cancer-institut-curie-cnrs-umr-3306-inserm-u1005"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "EU",
-                  "continent_name" : "Europe",
-                  "country_code" : "FR",
-                  "country_name" : "France",
-                  "country_subdivision_code" : "IDF",
-                  "country_subdivision_name" : "Île-de-France",
-                  "lat" : 48.85341,
-                  "lng" : 2.3488,
-                  "name" : "Paris"
-               },
-               "geonames_id" : 2988507
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "fr",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Signalisation, Neurobiologie et Cancer"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/01y8j9r24",
-               "label" : "Délégation Ile-de-France Sud",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/02vjkv261",
-               "label" : "Inserm",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/04t0gwh46",
-               "label" : "Institute Curie",
-               "type" : "parent"
-            }
-         ],
-         "status" : "inactive",
-         "types" : [
-            "facility"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-01-10",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : null,
-         "external_ids" : [],
-         "id" : "https://ror.org/05dnzrj50",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://science.osti.gov/bes/mse"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "DC",
-                  "country_subdivision_name" : "District of Columbia",
-                  "lat" : 38.89511,
-                  "lng" : -77.03637,
-                  "name" : "Washington"
-               },
-               "geonames_id" : 4140963
-            }
-         ],
-         "names" : [
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "DMSE"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Division of Materials Sciences and Engineering"
-            },
-            {
-               "lang" : null,
-               "types" : [
-                  "acronym"
-               ],
-               "value" : "MSE"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Materials Sciences and Engineering (MSE) Division"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Materials Sciences and Engineering Division"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/041m9xr71",
-               "label" : "Ames National Laboratory",
-               "type" : "parent"
-            },
-            {
-               "id" : "https://ror.org/05mg91w61",
-               "label" : "Office of Basic Energy Sciences",
-               "type" : "successor"
-            }
-         ],
-         "status" : "withdrawn",
-         "types" : [
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2024-03-13",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1989,
-         "external_ids" : [],
-         "id" : "https://ror.org/016gy9w96",
-         "links" : [
-            {
-               "type" : "website",
-               "value" : "https://www.education.govt.nz"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Education_%28New_Zealand%29"
-            }
-         ],
-         "locations" : [
-            {
-               "geonames_details" : {
-                  "continent_code" : "OC",
-                  "continent_name" : "Oceania",
-                  "country_code" : "NZ",
-                  "country_name" : "New Zealand",
-                  "country_subdivision_code" : "WGN",
-                  "country_subdivision_name" : "Wellington Region",
-                  "lat" : -41.28664,
-                  "lng" : 174.77557,
-                  "name" : "Wellington"
-               },
-               "geonames_id" : 2179537
-            }
-         ],
-         "names" : [
-            {
-               "lang" : "en",
-               "types" : [
-                  "ror_display",
-                  "label"
-               ],
-               "value" : "Ministry of Education"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "Ministry of Education of New Zealand"
-            },
-            {
-               "lang" : "en",
-               "types" : [
-                  "alias"
-               ],
-               "value" : "New Zealand Ministry of Education"
-            }
-         ],
-         "relationships" : [
-            {
-               "id" : "https://ror.org/05p70jq59",
-               "label" : "Ministry of Education",
-               "type" : "successor"
-            }
-         ],
-         "status" : "withdrawn",
-         "types" : [
-            "government"
-         ]
-      },
-      {
-         "admin" : {
-            "created" : {
-               "date" : "2018-11-14",
-               "schema_version" : "1.0"
-            },
-            "last_modified" : {
-               "date" : "2024-12-11",
-               "schema_version" : "2.1"
-            }
-         },
-         "domains" : [],
-         "established" : 1924,
-         "external_ids" : [
-            {
-               "all" : [
-                  "grid.432648.f"
-               ],
-               "preferred" : "grid.432648.f",
-               "type" : "grid"
             },
             {
                "all" : [
-                  "Q30255354"
+                  "Q2044761"
                ],
                "preferred" : null,
                "type" : "wikidata"
             }
          ],
-         "id" : "https://ror.org/0294j1w75",
+         "id" : "https://ror.org/02rs18x11",
          "links" : [
             {
                "type" : "website",
-               "value" : "http://www.bfec.us/"
+               "value" : "http://www.codesria.org/"
+            },
+            {
+               "type" : "wikipedia",
+               "value" : "https://en.wikipedia.org/wiki/Council_for_the_Development_of_Social_Science_Research_in_Africa"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "US",
-                  "country_name" : "United States",
-                  "country_subdivision_code" : "MD",
-                  "country_subdivision_name" : "Maryland",
-                  "lat" : 39.24038,
-                  "lng" : -76.83942,
-                  "name" : "Columbia"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
                },
-               "geonames_id" : 4352053
+               "geonames_id" : 2253354
             }
          ],
          "names" : [
             {
                "lang" : null,
                "types" : [
+                  "acronym"
+               ],
+               "value" : "CODESRIA"
+            },
+            {
+               "lang" : "fr",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conseil pour le développement de la recherche en sciences sociales en Afrique"
+            },
+            {
+               "lang" : "pt",
+               "types" : [
+                  "label"
+               ],
+               "value" : "Conselho para o Desenvolvimento da Pesquisa em Ciências Sociais em África"
+            },
+            {
+               "lang" : "en",
+               "types" : [
                   "ror_display",
                   "label"
                ],
-               "value" : "Bendix Field Engineering Corporation (United States)"
+               "value" : "Council for the Development of Social Science Research in Africa"
+            },
+            {
+               "lang" : "ar",
+               "types" : [
+                  "label"
+               ],
+               "value" : "مجلس تنمية البحوث الإجتماعية في أفريقي"
             }
          ],
          "relationships" : [],
-         "status" : "inactive",
+         "status" : "active",
          "types" : [
-            "company"
+            "funder",
+            "government"
          ]
       },
       {
@@ -8506,221 +7551,136 @@ Returns a list of both inactive and withdrawn records in ROR.
             }
          },
          "domains" : [],
-         "established" : 2005,
+         "established" : 1987,
          "external_ids" : [
             {
                "all" : [
-                  "grid.453215.4"
+                  "grid.463266.3"
                ],
-               "preferred" : "grid.453215.4",
+               "preferred" : "grid.463266.3",
                "type" : "grid"
+            },
+            {
+               "all" : [
+                  "0000 0001 2289 3215"
+               ],
+               "preferred" : null,
+               "type" : "isni"
             }
          ],
-         "id" : "https://ror.org/01pvzn627",
+         "id" : "https://ror.org/00hcr7c15",
          "links" : [
             {
                "type" : "website",
-               "value" : "https://www.ontario.ca/page/ministry-economic-development-and-growth"
-            },
-            {
-               "type" : "wikipedia",
-               "value" : "https://en.wikipedia.org/wiki/Ministry_of_Economic_Development,_Employment_and_Infrastructure"
+               "value" : "http://www.coraf.org/en/"
             }
          ],
          "locations" : [
             {
                "geonames_details" : {
-                  "continent_code" : "NA",
-                  "continent_name" : "North America",
-                  "country_code" : "CA",
-                  "country_name" : "Canada",
-                  "country_subdivision_code" : "ON",
-                  "country_subdivision_name" : "Ontario",
-                  "lat" : 43.70643,
-                  "lng" : -79.39864,
-                  "name" : "Toronto"
+                  "continent_code" : "AF",
+                  "continent_name" : "Africa",
+                  "country_code" : "SN",
+                  "country_name" : "Senegal",
+                  "country_subdivision_code" : "DK",
+                  "country_subdivision_name" : "Dakar",
+                  "lat" : 14.6937,
+                  "lng" : -17.44406,
+                  "name" : "Dakar"
                },
-               "geonames_id" : 6167865
+               "geonames_id" : 2253354
             }
          ],
          "names" : [
             {
-               "lang" : "en",
+               "lang" : null,
                "types" : [
-                  "ror_display",
-                  "label"
+                  "acronym"
                ],
-               "value" : "Ministry of Economic Development, Employment and Infrastructure"
+               "value" : "CORAF/WECARD"
             },
             {
                "lang" : "fr",
                "types" : [
                   "label"
                ],
-               "value" : "Ministère du Développement économique, de l'Emploi et de l'Infrastructure"
-            }
-         ],
-         "relationships" : [
+               "value" : "Conseil ouest et centre africain pour la recherche et le développement agricoles"
+            },
             {
-               "id" : "https://ror.org/039570836",
-               "label" : "Ministry of Economic Development, Job Creation and Trade",
-               "type" : "successor"
+               "lang" : "en",
+               "types" : [
+                  "ror_display",
+                  "label"
+               ],
+               "value" : "West and Central African Council for Agricultural Research and Development"
             }
          ],
-         "status" : "withdrawn",
+         "relationships" : [],
+         "status" : "active",
          "types" : [
-            "government"
+            "other"
          ]
       }
    ],
    "meta" : {
       "continents" : [
          {
-            "count" : 994,
-            "id" : "eu",
-            "title" : "Europe"
-         },
-         {
-            "count" : 681,
-            "id" : "na",
-            "title" : "North America"
-         },
-         {
-            "count" : 227,
-            "id" : "as",
-            "title" : "Asia"
-         },
-         {
-            "count" : 47,
-            "id" : "oc",
-            "title" : "Oceania"
-         },
-         {
-            "count" : 39,
+            "count" : 7,
             "id" : "af",
             "title" : "Africa"
-         },
-         {
-            "count" : 14,
-            "id" : "sa",
-            "title" : "South America"
          }
       ],
       "countries" : [
          {
-            "count" : 620,
-            "id" : "us",
-            "title" : "United States"
+            "count" : 6,
+            "id" : "sn",
+            "title" : "Senegal"
          },
          {
-            "count" : 232,
-            "id" : "fr",
-            "title" : "France"
-         },
-         {
-            "count" : 180,
-            "id" : "gb",
-            "title" : "United Kingdom"
-         },
-         {
-            "count" : 118,
-            "id" : "de",
-            "title" : "Germany"
-         },
-         {
-            "count" : 76,
-            "id" : "jp",
-            "title" : "Japan"
-         },
-         {
-            "count" : 67,
-            "id" : "es",
-            "title" : "Spain"
-         },
-         {
-            "count" : 59,
-            "id" : "ru",
-            "title" : "Russia"
-         },
-         {
-            "count" : 54,
-            "id" : "ca",
-            "title" : "Canada"
-         },
-         {
-            "count" : 46,
-            "id" : "cn",
-            "title" : "China"
-         },
-         {
-            "count" : 42,
-            "id" : "au",
-            "title" : "Australia"
+            "count" : 1,
+            "id" : "dj",
+            "title" : "Djibouti"
          }
       ],
       "statuses" : [
          {
-            "count" : 1244,
-            "id" : "withdrawn",
-            "title" : "withdrawn"
-         },
-         {
-            "count" : 758,
-            "id" : "inactive",
-            "title" : "inactive"
+            "count" : 7,
+            "id" : "active",
+            "title" : "active"
          }
       ],
       "types" : [
          {
-            "count" : 577,
-            "id" : "company",
-            "title" : "company"
-         },
-         {
-            "count" : 522,
-            "id" : "education",
-            "title" : "education"
-         },
-         {
-            "count" : 313,
-            "id" : "facility",
-            "title" : "facility"
-         },
-         {
-            "count" : 186,
-            "id" : "healthcare",
-            "title" : "healthcare"
-         },
-         {
-            "count" : 167,
-            "id" : "funder",
-            "title" : "funder"
-         },
-         {
-            "count" : 152,
+            "count" : 3,
             "id" : "government",
             "title" : "government"
          },
          {
-            "count" : 151,
+            "count" : 2,
             "id" : "other",
             "title" : "other"
          },
          {
-            "count" : 99,
-            "id" : "nonprofit",
-            "title" : "nonprofit"
+            "count" : 1,
+            "id" : "facility",
+            "title" : "facility"
          },
          {
-            "count" : 16,
-            "id" : "archive",
-            "title" : "archive"
+            "count" : 1,
+            "id" : "funder",
+            "title" : "funder"
+         },
+         {
+            "count" : 1,
+            "id" : "nonprofit",
+            "title" : "nonprofit"
          }
       ]
    },
-   "number_of_results" : 2002,
-   "time_taken" : 6
+   "number_of_results" : 7,
+   "time_taken" : 3
 }
+
 ```
 
 ## Example
