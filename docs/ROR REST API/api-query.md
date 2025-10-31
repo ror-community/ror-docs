@@ -4112,7 +4112,7 @@ By default, queries of the ROR API return only records with _active_ status. The
 curl 'https://api.ror.org/v2/organizations?query=Harvard&all_status' | json_pp
 ```
 
-The response returns the results of a keyword search for "Harvard" that includes records of all status types. 
+The response returns the results of a keyword search for "Harvard" that includes records of all status types.
 
 ```json
 {
@@ -6168,8 +6168,6 @@ The response returns the results of a keyword search for "Harvard" that includes
    "time_taken" : 4
 }
 ```
-
-<br />
 
 # Technical details
 
