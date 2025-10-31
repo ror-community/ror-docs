@@ -11,9 +11,6 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: matching
-      title: Match organization names to ROR IDs
-      type: basic
     - title: ROR blog posts on matching
       type: link
       url: http://ror.org/categories/matching
