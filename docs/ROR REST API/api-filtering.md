@@ -29,9 +29,9 @@ Results from standard [queries](doc:api-query) and [advanced queries](doc:api-ad
 
 See [Data structure](doc:ror-data-structure) and [Fields and sub-fields](doc:fields) for more details about these fields.
 
-> 🚧 Download ROR data for comprehensive lists 
+> 🚧 Download ROR data for complete aggregate lists 
 >
-> ROR API filters are designed to limit the number of results of standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query), not to be used on their own. If you would like to retrieve a list of all organizations in ROR with a particular status or type or a list of all organizations in a particular country or on a particular continent, download the ROR [Data dump](doc:data-dump) and filter by column(s). Using ROR API filters without a query can result in <Anchor label="duplicates and omissions across different pages of results" target="_blank" href="https://github.com/ror-community/ror-roadmap/issues/333">duplicates and omissions across different pages of results</Anchor>.
+> ROR API filters are designed to limit the number of results of standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query), not to be used on their own. If you would like to retrieve a list of all organizations in ROR with a particular status or type or a list of all organizations in a particular country or on a particular continent, download the ROR [Data dump](doc:data-dump) and filter by field name. Using ROR API filters without a query can result in <Anchor label="duplicates and omissions across different pages of results" target="_blank" href="https://github.com/ror-community/ror-roadmap/issues/333">duplicates and omissions across different pages of results</Anchor>.
 
 Note that in version 2 of the ROR API and schema, values formerly in the v1 field `country.country_code` are now in the field `locations.geonames_details.country_code`and values formerly in the v1 field `country.country_name` are now in the field `locations.geonames_details.country_name`. To maintain continuity for v1 users, we have ensured that the v1 and v2 field names for country names and country codes can be used interchangeably as filters in v2 of the ROR API.
 
