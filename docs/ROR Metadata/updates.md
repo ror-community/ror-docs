@@ -18,7 +18,7 @@ Anyone can request for a new organization to be added to ROR or for an existing 
 
 If you have more than one request, please submit a separate [curation request form](http://curation-request.ror.org) for each organization/record or [create the corresponding issues in our ror-updates GitHub repository](https://github.com/ror-community/ror-updates/issues/new/choose). The latter method requires a GitHub account, but it is generally faster to create a GitHub issue than to complete the form.
 
-If you want to submit a large number of requests, you can also download a bulk request spreadsheet template in XLSX format, complete it, and email it to [registry@ror.org.](mailto:registry@ror.org.) See [Bulk Requests](https://ror.org/registry/#bulk-requests)  on the ROR website for templates and instructions. Please be mindful that large bulk submissions may take us some time to process.
+If you want to submit a large number of requests, you can also download a bulk request spreadsheet template in XLSX format, complete it, and email it to [support@ror.org.](mailto:support@ror.org.) See [Bulk Requests](https://ror.org/registry/#bulk-requests)  on the ROR website for templates and instructions. Please be mindful that large bulk submissions may take us some time to process.
 
 [Read more about how the registry is curated](https://ror.org/registry).
 
