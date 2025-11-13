@@ -27,9 +27,9 @@ next:
 
 # How ROR handles relationships
 
-ROR records store both structural and temporal connections in the `relationships` field with the values "Parent", "Child", "Related", "Successor", and "Predecessor", allowing systems to understand and display organizational hierarchies and connections. The `relationships` element is an array, so organizations can have multiple children, multiple parents, and multiple lateral relationships. 
+ROR records store both structural and temporal connections in the `relationships` field with the values "Parent", "Child", "Related", "Successor", and "Predecessor", allowing systems to understand and display organizational hierarchies and connections. The `relationships` element is an array, so organizations can have multiple children, multiple parents, and multiple lateral relationships.
 
-If an organization ceases operations and passes on its work to another organization, that relationship is also reflected in ROR through the "Predecessor" and "Successor" relationship types. See [ROR data structure: relationships](doc:data-structure#relationships) for a full explanation.
+If an organization ceases operations and passes on its work to another organization, that relationship is also reflected in ROR through the "Predecessor" and "Successor" relationship types. See [ROR data structure: relationships](doc:ror-data-structure#relationships) for a full explanation.
 
 # Examples
 
@@ -179,12 +179,10 @@ The US [National Cancer Institute](https://ror.org/040gcmg81) is a child organiz
 }
 ```
 
-In the [ROR search interface](https://ror.org/search), the number of relationships (if any) is shown on each record in the list view, and clicking the "View Details" button will take the user to the individual record, where all relationships are displayed. 
+In the [ROR search interface](https://ror.org/search), the number of relationships (if any) is shown on each record in the list view, and clicking the "View Details" button will take the user to the individual record, where all relationships are displayed.
 
-<Image align="center" className="border" border={true} src="https://files.readme.io/4e6a01d-Screenshot_2024-04-03_at_1.50.11_PM.png" />
+<Image align="center" border={true} src="https://files.readme.io/4e6a01d-Screenshot_2024-04-03_at_1.50.11_PM.png" className="border" />
 
 Pictured below is an image of an organizational "family tree" created from ROR records with an [organization tree script](https://github.com/ror-community/ror-utilities/tree/main/organization-tree-scripts). The United States Department of Energy is the top node and has many "children" and "grandchildren" and one "great-grandchild" organization. (Laterally related organizations are not shown in this view.)
 
-<Image title="ror-doe-hierarchy.png" alt={1050} align="center" src="https://files.readme.io/be45520-ror-doe-hierarchy.png">
-  List of University of California system children and grandchildren expressed as nodes in an indented list from the ROR organization tree script written by Sandra Mierz.
-</Image>
+<Image align="center" alt={1050} border={false} caption="List of University of California system children and grandchildren expressed as nodes in an indented list from the ROR organization tree script written by Sandra Mierz." title="ror-doe-hierarchy.png" src="https://files.readme.io/be45520-ror-doe-hierarchy.png" />
