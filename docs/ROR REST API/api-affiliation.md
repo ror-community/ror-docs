@@ -28,14 +28,19 @@ next:
 
 # About the affiliation parameter
 
-The affiliation parameter is designed to match messy text to ROR records. It breaks long search strings into multiple substrings, performs multiple searches of only the `names` field in ROR using several different search algorithms, limits results to records matching any country names or ISO codes in the text, and finally returns (if possible!) its best guess about the mostly likely match to a ROR record, plus additional possibilities ranked in descending order by matching confidence score.
+For many years, publishers of scholarly information often captured author and contributor affiliation information as unstructured data, sometimes storing an organization's name, a sub-unit or department's name, a street address, and a geographical location along with copious irregular punctuation as a text string in a single field. Some affiliation strings even include multiple affiliations.
 
-The affiliation parameter is designed for the following purposes:
+The affiliation parameter of the ROR API is designed to help match these messy text strings to ROR records to produce cleaner affiliation data. The affiliation service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` value. Additional possibilities that might match the string are also included in results, listed in descending order by confidence `score`.
 
-* Matching ROR IDs to legacy author affiliations in publishing systems
-* Matching ROR IDs to long and heavily-punctuated text strings that contain not just organization names, but also extraneous information such as addresses and academic departments
+An API-based approach to matching affiliation strings to ROR IDs can work well for large-scale systems where human review of every proposed match is impractical, but no large-scale programmatic approach to matching is perfect, especially since there are many similar and even identical names and acronyms among research organizations globally. Often, the matching service will not be able to suggest a match for a particular string, and in some cases, the matching service might suggest an incorrect match. Human review is always the best fallback.
 
-The affiliation parameter service can match messy text strings to ROR IDs at about 85% efficacy depending on the text data and the affiliation implementation. Because of the high number of identical and similar names among research institutions globally, we recommend human review of suggested matches.
+> 📘 Consider a different method of matching if you have structured organization data
+>
+> You can also match organization data to ROR IDs using the ?query and ?query.advanced parameter with filters and field-specific queries. If your data is structured such that it separately stores an organization's name, city, country, website, and organizational identifiers such as GRID, Wikidata, or Funder IDs, we recommend that you use the [?query parameter](https://ror.readme.io/docs/api-query) or [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API to match your data to ROR.
+
+<br />
+
+<br />
 
 > 📘 Affiliation parameter format
 >
