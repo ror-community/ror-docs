@@ -51,7 +51,7 @@ The affiliation parameter **does not accept filters** and results **are not pagi
 
 > 🚧 Be aware of differences between the affiliation parameter and the query parameters
 >
-> Unlike the[?query parameter](https://ror.readme.io/docs/api-query) and the [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query), the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. If filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.  
+> Unlike the[?query parameter](https://ror.readme.io/docs/api-query) and the [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query), the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. If filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.
 >
 > Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
 
@@ -5230,4 +5230,4 @@ The response returns results with confidence scores ranging from .82 to .74 list
 
 # Other ways to match affiliations to ROR records
 
-See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the affiliation parameter and other methods, including third-party machine learning models, to match long, messy affiliation strings to ROR records.
+See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the ROR API affiliation parameter and other methods, including third-party machine learning models, to match long, messy affiliation strings to ROR records.
