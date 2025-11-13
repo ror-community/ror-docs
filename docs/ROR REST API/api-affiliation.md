@@ -3052,8 +3052,6 @@ The substring used to find the match in this case is "Department of Urology, Gre
 }
 ```
 
-<br />
-
 # No matches found
 
 When there's no result with the `chosen:true` indicator (meaning that all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed.
