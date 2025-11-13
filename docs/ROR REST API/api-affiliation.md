@@ -76,9 +76,7 @@ The matching types used in the multisearch strategy include the following:
 The default multisearch strategy allows you to find a matching ROR record for a long, complex affiliation text string such as "Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy".
 
 ```curl
-
 curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Civil%20and%20Industrial%20Engineering%2C%20University%20of%20Pisa%2C%20Largo%20Lucio%20Lazzarino%202%2C%20Pisa%2056126%2C%20Italy' | json_pp
-
 ```
 
 The first item in the results list, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
@@ -1299,4 +1297,26 @@ The substring used to find the match in this case is "International Centre for T
 }
 ```
 
-<br />
+# Single search strategy
+
+As of November 2025, the affiliation parameter also supports a single search strategy that outperforms the multisearch strategy in terms of precision and recall while also being faster and more computationally efficient.
+
+> 📘 Affiliation parameter single search format
+>
+> `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]&single_search`
+
+The single search matching strategy uses only a single query to find potential matches between affiliation strings and ROR records. Unlike the multisearch strategy, the single search strategy does not break up the search string into substrings, but instead always uses the entirety of the text string as the search term.
+
+## Example
+
+The single search strategy allows you to find a matching ROR record for a long, complex affiliation text string such as "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France".
+
+```curl
+curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Urology,%20Grenoble%20Alpes%20University%20Hospital,%20Universit%C3%A9%20Grenoble%20Alpes,%20CNRS,%20Grenoble%20INP,%20TIMC-IMAG,%20Grenoble,%20France&single_search' | json_pp 
+```
+
+The first item in the results list, the ROR record for Université Grenoble Alpes, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
+
+The `matching_type` is given as "SINGLE SEARCH", which will always be the case for queries that use the `&single_search` parameter. The confidence `score` for the match is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
+
+The substring used to find the match in this case is "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France", which is the entirety of the text string including punctuation.
