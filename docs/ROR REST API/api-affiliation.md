@@ -11,9 +11,12 @@ metadata:
   robots: index
 next:
   pages:
+    - slug: matching
+      title: Match organization names to ROR IDs
+      type: basic
     - title: ROR blog posts on matching
       type: link
-      url: http://ror.org/categories/matching
+      url: https://ror.org/categories/matching
     - title: ror-utilities matching scripts
       type: link
       url: https://github.com/ror-community/ror-utilities
@@ -5225,4 +5228,6 @@ The response returns results with confidence scores ranging from .82 to .74 list
 }
 ````
 
-<br />
+# Other ways to match affiliations to ROR records
+
+See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the affiliation parameter and other methods, including third-party machine learning models, to match long, messy affiliation strings to ROR records.
