@@ -3050,3 +3050,2179 @@ The substring used to find the match in this case is "Department of Urology, Gre
 ```
 
 <br />
+
+# No matches found
+
+When there's no result with the `chosen:true` indicator (meaning that all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed.
+
+> 🚧 Don't automatically select the first result of an ?affiliation query
+>
+> When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true `indicator and leave the string unmatched or add an additional layer of human or machine matching, at your discretion.
+
+## Example
+
+An affiliation string such as "UCL School of Slavonic and East European Studies" does not contain enough identifying information for the ROR API affiliation matching service to choose a matching ROR record.
+
+```curl
+curl 'https://api.ror.org/v2/organizations?affiliation=UCL%20School%20of%20Slavonic%20and%20East%20European%20Studies' | json_pp
+```
+
+The response returns results with confidence scores ranging from .7 to .54 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match.
+
+````json
+{
+   "items" : [
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1989,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100000687"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.470732.5"
+                  ],
+                  "preferred" : "grid.470732.5",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 1958 8607"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/02xxmjs88",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.basees.org/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "GB",
+                     "country_name" : "United Kingdom",
+                     "country_subdivision_code" : "ENG",
+                     "country_subdivision_name" : "England",
+                     "lat" : 53.79648,
+                     "lng" : -1.54785,
+                     "name" : "Leeds"
+                  },
+                  "geonames_id" : 2644688
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "BASEES"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "British Association for Slavonic and East European Studies"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "funder",
+               "other"
+            ]
+         },
+         "score" : 0.7,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2025-05-19",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2025-05-20",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "eessc.org.ua"
+            ],
+            "established" : 2022,
+            "external_ids" : [],
+            "id" : "https://ror.org/048sjjr07",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://eessc.org.ua"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "UA",
+                     "country_name" : "Ukraine",
+                     "country_subdivision_code" : "46",
+                     "country_subdivision_name" : "Lviv",
+                     "lat" : 49.83826,
+                     "lng" : 24.02324,
+                     "name" : "Lviv"
+                  },
+                  "geonames_id" : 702550
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "EESSC"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "East European Scientific Studies Center"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "The East European Scientific Studies Center"
+               },
+               {
+                  "lang" : "uk",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Центр східноєвропейських наукових студій"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "nonprofit"
+            ]
+         },
+         "score" : 0.67,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1948,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100005346"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.446841.b"
+                  ],
+                  "preferred" : "grid.446841.b",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0000 8678 3376"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/04n3hjx90",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://aseees.org/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Association_for_Slavic,_East_European,_and_Eurasian_Studies"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 40.44062,
+                     "lng" : -79.99589,
+                     "name" : "Pittsburgh"
+                  },
+                  "geonames_id" : 5206379
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "ASEEES"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "American Association for the Advancement of Slavic Studies"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Association for Slavic East European and Eurasian Studies"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "funder",
+               "nonprofit"
+            ]
+         },
+         "score" : 0.67,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1994,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100009050"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.458378.5"
+                  ],
+                  "preferred" : "grid.458378.5",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 5900 8576"
+                  ],
+                  "preferred" : "0000 0004 5900 8576",
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/055mqk127",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://ostersjostiftelsen.se/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "SE",
+                     "country_name" : "Sweden",
+                     "country_subdivision_code" : "AB",
+                     "country_subdivision_name" : "Stockholm",
+                     "lat" : 59.23705,
+                     "lng" : 17.98192,
+                     "name" : "Huddinge"
+                  },
+                  "geonames_id" : 2704620
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Foundation for Baltic and East European Studies"
+               },
+               {
+                  "lang" : "sv",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Östersjöstiftelsen"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "facility",
+               "funder"
+            ]
+         },
+         "score" : 0.67,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2020-03-15",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2016,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.507643.3"
+                  ],
+                  "preferred" : "grid.507643.3",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 8023 4156"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q61781089"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/00a0w0523",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.zois-berlin.de/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "DE",
+                     "country_name" : "Germany",
+                     "country_subdivision_code" : "BE",
+                     "country_subdivision_name" : "Berlin",
+                     "lat" : 52.52437,
+                     "lng" : 13.41053,
+                     "name" : "Berlin"
+                  },
+                  "geonames_id" : 2950159
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Centre for East European and International Studies"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "ZOiS"
+               },
+               {
+                  "lang" : "de",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Zentrum für Osteuropa- und internationale Studien"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.65,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "slu.cas.cz"
+            ],
+            "established" : 1922,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.448289.b"
+                  ],
+                  "preferred" : "grid.448289.b",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 0428 7272"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q12153738"
+                  ],
+                  "preferred" : "Q12153738",
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/03qq0n189",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.slu.cas.cz"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "CZ",
+                     "country_name" : "Czechia",
+                     "country_subdivision_code" : "10",
+                     "country_subdivision_name" : "Prague",
+                     "lat" : 50.08804,
+                     "lng" : 14.42076,
+                     "name" : "Prague"
+                  },
+                  "geonames_id" : 3067696
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Czech Acad Sci, Inst Slav Studies"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Czech Academy of Sciences, Institute of Slavonic Studies"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Institute of Slavonic Studies CAS"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Institute of Slavonic Studies of the Czech Academy of Sciences"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "SLÚ AV ČR"
+               },
+               {
+                  "lang" : "cs",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Slovanský ústav AV ČR"
+               },
+               {
+                  "lang" : "cs",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Slovanský ústav AV ČR, v. v. i."
+               },
+               {
+                  "lang" : "cs",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Slovanský ústav AV ČR, veřejná výzkumná instituce"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/053avzc18",
+                  "label" : "Czech Academy of Sciences",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.64,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "vsers.cz"
+            ],
+            "established" : 2003,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.486536.a"
+                  ],
+                  "preferred" : "grid.486536.a",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0000 9364 6708"
+                  ],
+                  "preferred" : "0000 0000 9364 6708",
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q8310981"
+                  ],
+                  "preferred" : "Q8310981",
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/040qrz805",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://vsers.cz/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "CZ",
+                     "country_name" : "Czechia",
+                     "country_subdivision_code" : "31",
+                     "country_subdivision_name" : "Jihočeský kraj",
+                     "lat" : 48.97447,
+                     "lng" : 14.47434,
+                     "name" : "České Budějovice"
+                  },
+                  "geonames_id" : 3077916
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "College of European and Regional Studies"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "The College of European and Regional Studies"
+               },
+               {
+                  "lang" : "cs",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Vysoká škola Evropských a Regionálních Studií"
+               },
+               {
+                  "lang" : "cs",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Vysoká škola evropských a regionálních studií"
+               },
+               {
+                  "lang" : "cs",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Vysoká škola evropských a regionálních studií, z. ú."
+               },
+               {
+                  "lang" : "cs",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "VŠERS"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.64,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2024-03-13",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : null,
+            "external_ids" : [],
+            "id" : "https://ror.org/007bytg49",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.acadsudest.ro"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "RO",
+                     "country_name" : "Romania",
+                     "country_subdivision_code" : "B",
+                     "country_subdivision_name" : "București",
+                     "lat" : 44.43225,
+                     "lng" : 26.10626,
+                     "name" : "Bucharest"
+                  },
+                  "geonames_id" : 683506
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Institute for South-East European Studies"
+               },
+               {
+                  "lang" : "ro",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Institutul de Studii Sud-Est Europene"
+               },
+               {
+                  "lang" : "ro",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Institutul de Studii Sud-Est Europene al Academiei Române"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "The Romanian Academy’s Institute for South-East European Studies"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/0561n6946",
+                  "label" : "Romanian Academy",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.63,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2012,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100019860"
+                  ],
+                  "preferred" : "501100019860",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.462368.d"
+                  ],
+                  "preferred" : "grid.462368.d",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q1664940"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/039s64n79",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.ios-regensburg.de/en"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "DE",
+                     "country_name" : "Germany",
+                     "country_subdivision_code" : "BY",
+                     "country_subdivision_name" : "Bavaria",
+                     "lat" : 49.01513,
+                     "lng" : 12.10161,
+                     "name" : "Regensburg"
+                  },
+                  "geonames_id" : 2849483
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IOS"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Leibniz Institute for East and Southeast European Studies"
+               },
+               {
+                  "lang" : "de",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Leibniz-Institut für Ost- und Südosteuropaforschung"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/01n6r0e97",
+                  "label" : "Leibniz Association",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility",
+               "funder"
+            ]
+         },
+         "score" : 0.63,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2000,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.445206.1"
+                  ],
+                  "preferred" : "grid.445206.1",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q12788728"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/04jj9d877",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://fds.nova-uni.si"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "SI",
+                     "country_name" : "Slovenia",
+                     "country_subdivision_code" : "052",
+                     "country_subdivision_name" : "Kranj",
+                     "lat" : 46.23887,
+                     "lng" : 14.35561,
+                     "name" : "Kranj"
+                  },
+                  "geonames_id" : 3197378
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "FSS"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Graduate School of Government and European Studies"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.61,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "esmt.org"
+            ],
+            "established" : 2002,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.434239.b"
+                  ],
+                  "preferred" : "grid.434239.b",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2288 2583"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q569528"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/024xejm70",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://esmt.berlin"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "http://en.wikipedia.org/wiki/European_School_of_Management_and_Technology"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "DE",
+                     "country_name" : "Germany",
+                     "country_subdivision_code" : "BE",
+                     "country_subdivision_name" : "Berlin",
+                     "lat" : 52.52437,
+                     "lng" : 13.41053,
+                     "name" : "Berlin"
+                  },
+                  "geonames_id" : 2950159
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "ESMT"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "European School of Management and Technology"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.59,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2024-02-13",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1978,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100012658"
+                  ],
+                  "preferred" : "100012658",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "0000 0004 7744 075X"
+                  ],
+                  "preferred" : "0000 0004 7744 075X",
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/04haakz20",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.nceeer.org"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "DC",
+                     "country_subdivision_name" : "District of Columbia",
+                     "lat" : 38.89511,
+                     "lng" : -77.03637,
+                     "name" : "Washington"
+                  },
+                  "geonames_id" : 4140963
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "NCEEER"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "National Council For Eurasian & East European Research"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "National Council for Eurasian and East European Research"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "National Council/Eurasian & East European Research"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "funder",
+               "nonprofit"
+            ]
+         },
+         "score" : 0.54,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      }
+   ],
+   "number_of_results" : 12
+}
+```
+
+## Example
+
+The affiliation string "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France" represents an organization that is not in ROR, and therefore the ROR API affiliation matching service cannot find a matching ROR record.
+
+```curl
+
+curl 'https://api.ror.org/v2/organizations?affiliation=CNRS-CRHEA,%20rue%20Bernard%20Gr%C3%A9gory,%2006560%20Valbonne,%20France&single_search' | json_pp
+
+```
+
+The response returns results with confidence scores ranging from .82 to .74 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match.
+
+```json
+{
+   "items" : [
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1909,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.435539.d"
+                  ],
+                  "preferred" : "grid.435539.d",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q30290107"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/03f9m1k43",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.bp.com/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/BP"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 49.05,
+                     "lng" : 2.1,
+                     "name" : "Pontoise"
+                  },
+                  "geonames_id" : 2986140
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "BP (France)"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "BP Amoco"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "The British Petroleum Company"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/01zctcs90",
+                  "label" : "BP (United Kingdom)",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.78,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1902,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.423994.1"
+                  ],
+                  "preferred" : "grid.423994.1",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q30284639"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02f12sz84",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.3mfrance.fr/3M/fr_FR/notre-societe-fr/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/3M"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 49.03894,
+                     "lng" : 2.07805,
+                     "name" : "Cergy-Pontoise"
+                  },
+                  "geonames_id" : 8555643
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "3M (France)"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Minnesota Mining and Manufacturing Company"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00mgss748",
+                  "label" : "3M (United States)",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.78,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1997,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.432920.e"
+                  ],
+                  "preferred" : "grid.432920.e",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 0480 9536"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q30255546"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/056h1w707",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.onxeo.com/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 48.85341,
+                     "lng" : 2.3488,
+                     "name" : "Paris"
+                  },
+                  "geonames_id" : 2988507
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Onxeo (France)"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/006psag97",
+                  "label" : "Onxeo (Denmark)",
+                  "type" : "child"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.77,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1919,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100007773"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.433367.6"
+                  ],
+                  "preferred" : "grid.433367.6",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2308 1825"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q28971348"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/00aj77a24",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.danone.com/en/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Danone"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 48.71828,
+                     "lng" : 2.2498,
+                     "name" : "Palaiseau"
+                  },
+                  "geonames_id" : 2988758
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Danone (France)"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/03ffpww43",
+                  "label" : "Danone (Canada)",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0515efc31",
+                  "label" : "Danone (China)",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00b8vr735",
+                  "label" : "Danone (Czechia)",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04kvtp152",
+                  "label" : "Danone (Germany)",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/022dg8423",
+                  "label" : "Danone (Morocco)",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01c5aqt35",
+                  "label" : "Danone (Netherlands)",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03w8f2q69",
+                  "label" : "Danone (United Kingdom)",
+                  "type" : "child"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company",
+               "funder"
+            ]
+         },
+         "score" : 0.77,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1953,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.432476.0"
+                  ],
+                  "preferred" : "grid.432476.0",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q30255224"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/05frh7832",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.eni.com/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Eni"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "ARA",
+                     "country_subdivision_name" : "Auvergne-Rhône-Alpes",
+                     "lat" : 45.74846,
+                     "lng" : 4.84671,
+                     "name" : "Lyon"
+                  },
+                  "geonames_id" : 2996944
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Eni (France)"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Ente Nazionale Idrocarburi"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/038483r84",
+                  "label" : "Eni (Italy)",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.76,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2025-10-05",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2025-10-28",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "pmc.polytechnique.fr"
+            ],
+            "established" : 1961,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "Q33121339"
+                  ],
+                  "preferred" : "Q33121339",
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/01z5d0q66",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://pmc.polytechnique.fr"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 48.71828,
+                     "lng" : 2.2498,
+                     "name" : "Palaiseau"
+                  },
+                  "geonames_id" : 2988758
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "LPMC"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Laboratoire Bernard Grégory"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Laboratoire PMC"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Laboratoire de Physique de la Matière Condensée"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "PMC"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "UMR 7643"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "UMR7643"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/05hy3tk52",
+                  "label" : "École Polytechnique",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/02cte4b68",
+                  "label" : "Institut de Chimie",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.74,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1985,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.431886.0"
+                  ],
+                  "preferred" : "grid.431886.0",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/008yw1q74",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.ptc.com/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/PTC_(software_company)"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "PAC",
+                     "country_subdivision_name" : "Provence-Alpes-Côte d'Azur",
+                     "lat" : 43.5283,
+                     "lng" : 5.44973,
+                     "name" : "Aix-en-Provence"
+                  },
+                  "geonames_id" : 3038354
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "PTC (France)"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/03qqbvj08",
+                  "label" : "PTC (United States)",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.74,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : null,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.436001.0"
+                  ],
+                  "preferred" : "grid.436001.0",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/00stasw52",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.sgsgroup.fr/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/SGS_S.A."
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 48.79993,
+                     "lng" : 2.33256,
+                     "name" : "Arcueil"
+                  },
+                  "geonames_id" : 3037157
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "General Society of Surveillance"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "SGS (France)"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Société Générale de Surveillance"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/05p30rt34",
+                  "label" : "SGS (Switzerland)",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.74,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1948,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.436243.4"
+                  ],
+                  "preferred" : "grid.436243.4",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q30290607"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02zkph911",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.avl.com/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 48.87925,
+                     "lng" : 2.13836,
+                     "name" : "Croissy-sur-Seine"
+                  },
+                  "geonames_id" : 3022380
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "AVL (France)"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.74,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1907,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.437685.b"
+                  ],
+                  "preferred" : "grid.437685.b",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 6362 1090"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q65167902"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/04eqf8242",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.skf.com/fr"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/SKF"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 48.76636,
+                     "lng" : 2.03405,
+                     "name" : "Montigny-le-Bretonneux"
+                  },
+                  "geonames_id" : 2992415
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "SKF (France)"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Svenska Kullagerfabriken"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/05fy2ba68",
+                  "label" : "SKF (Sweden)",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.74,
+         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+      }
+   ],
+   "number_of_results" : 10
+}
+````
+
+<br />
