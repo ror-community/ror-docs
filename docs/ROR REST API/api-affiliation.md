@@ -1139,7 +1139,7 @@ curl 'https://api.ror.org/v2/organizations?affiliation=International%20Centre%20
 
 The ROR record for the Abdus Salam International Centre for Theoretical Physics (ICTP) has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
 
-The `matching_type` is given as _"PHRASE"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is .95, with 1.0 being the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
+The `matching_type` is given as _"PHRASE"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is .95, with 1 being the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
 
 The substring used to find the match in this case is "International Centre for Theoretical Physics ICTP", which is the text of the organization name and its acronym excluding punctuation and the organization's location in Trieste, Italy.
 
@@ -1320,3 +1320,1733 @@ The first item in the results list, the ROR record for Université Grenoble Alpe
 The `matching_type` is given as "SINGLE SEARCH", which will always be the case for queries that use the `&single_search` parameter. The confidence `score` for the match is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
 
 The substring used to find the match in this case is "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France", which is the entirety of the text string including punctuation.
+
+```json
+{
+   "items" : [
+      {
+         "chosen" : true,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-07-15",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2016,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100012952",
+                     "100013349"
+                  ],
+                  "preferred" : "100012952",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.450307.5"
+                  ],
+                  "preferred" : "grid.450307.5",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q945876"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02rx3b187",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.univ-grenoble-alpes.fr"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Grenoble_Alpes_University"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "ARA",
+                     "country_subdivision_name" : "Auvergne-Rhône-Alpes",
+                     "lat" : 45.1787,
+                     "lng" : 5.76281,
+                     "name" : "Saint-Martin-d'Hères"
+                  },
+                  "geonames_id" : 2978317
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Grenoble Alpes University"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "UGA"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Université Grenoble Alpes"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/000tdrn36",
+                  "label" : "Centre Interuniversitaire de MicroElectronique et Nanotechnologies",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00fwjkb59",
+                  "label" : "Laboratoire d'Economie Appliquée de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05sbt2524",
+                  "label" : "Institut polytechnique de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04dbzz632",
+                  "label" : "Institut Néel",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01cf2sz15",
+                  "label" : "Institut des Sciences de la Terre",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01wwcfa26",
+                  "label" : "Institut des Géosciences de l'Environnement",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03eqm6y13",
+                  "label" : "LabEx PERSYVAL-Lab",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/023n9q531",
+                  "label" : "Laboratoire Interdisciplinaire de Physique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05588ks88",
+                  "label" : "Laboratoire de Linguistique et Didactique des Langues Etrangères et Maternelles",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04qz4qy85",
+                  "label" : "Laboratoire de Recherche Historique Rhône-Alpes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03f0apy98",
+                  "label" : "Laboratoire de Physique Subatomique et de Cosmologie",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02rmwrd87",
+                  "label" : "Laboratoire Environnements, Dynamiques et Territoires de Montagne",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/047p7mf25",
+                  "label" : "Institut Carnot PolyNat",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03vte9x46",
+                  "label" : "Observatoire des Sciences de l'Univers de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05c99vk74",
+                  "label" : "Laboratoire de Recherche sur les Apprentissages en Contexte",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04fhvpc68",
+                  "label" : "Département de Pharmacochimie Moléculaire",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03jrb0276",
+                  "label" : "Laboratoire Inter-universitaire de Psychologie: Personnalité, Cognition, Changement Social",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01kbr1737",
+                  "label" : "PHotonique ELectronique et Ingénierie QuantiqueS",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00ndvqf03",
+                  "label" : "Laboratoire Modélisation et Exploration des Matériaux",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0467x8h16",
+                  "label" : "Maison des Sciences de l'Homme-Alpes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02cmt9z73",
+                  "label" : "Agence pour les Mathématiques en Interaction avec l'Entreprise et la Société",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/026m44z54",
+                  "label" : "Laboratoire Nanotechnologies et Nanosystèmes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03949e763",
+                  "label" : "Integrated Structural Biology Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04ndt7n58",
+                  "label" : "Centre d'Etudes et de Recherche sur la diplomatie, l’Administration Publique et le Politique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/044cfnj78",
+                  "label" : "GRICAD - Grenoble Alpes Recherche-Infrastructure de Calcul intensif et de Données",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0509qp208",
+                  "label" : "Centre d'Etudes et de Recherches Appliquées à la Gestion",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03e044190",
+                  "label" : "Spintronique et Technologie des Composants",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01w1erp60",
+                  "label" : "Couplage Multi-physiques et Multi-échelles en mécanique géo-environnemental",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01c8rcg82",
+                  "label" : "Laboratoire d'Informatique de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02wrme198",
+                  "label" : "GIPSA-Lab",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04ett5b41",
+                  "label" : "Laboratoire Jean Kuntzmann",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/026j45x50",
+                  "label" : "Laboratoire Pacte",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04eg25g76",
+                  "label" : "Laboratoire de Conception et d'Intégration des Systèmes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/014p6mg26",
+                  "label" : "Laboratoire de Psychologie et NeuroCognition",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/055q9jt53",
+                  "label" : "Laboratoire Arts et pratiques du texte, de l’image, de l’écran et de la scène",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05hz99a17",
+                  "label" : "AAU - Ambiances, Architectures, Urbanités",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04e2ndp15",
+                  "label" : "Centre de recherches juridiques de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05bw7ad85",
+                  "label" : "Centre de recherche en économie de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01a0ez112",
+                  "label" : "Laboratoire EcoSystèmes et Sociétés En Montagne",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00genbz89",
+                  "label" : "Méthodes et Histoire de l'architecture",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/033d95m27",
+                  "label" : "Centre d'études sur la sécurité internationale et les coopérations européennes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00t9pwh21",
+                  "label" : "Sport et environnement social",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02wrd4e19",
+                  "label" : "Architecture, Environnement & Cultures Constructives",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00y523k32",
+                  "label" : "Laboratoire Universitaire Histoire Cultures Italie Europe",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01554y636",
+                  "label" : "Institut de philosophie de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00awrf758",
+                  "label" : "Groupe de recherche sur les enjeux de la communication",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00rv5x925",
+                  "label" : "Laboratoire des Sciences pour la Conception, l'Optimisation et la Production",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05rwrfh97",
+                  "label" : "Institut Fourier",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/000063q30",
+                  "label" : "Techniques of Informatics and Microelectronics for Integrated Systems Architecture",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03985kf35",
+                  "label" : "Translational Innovation in Medicine and Complexity",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04as3rk94",
+                  "label" : "Grenoble Institute of Neurosciences",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01aj0bf86",
+                  "label" : "Autonomie, Gérontologie, E-santé, Imagerie et Société",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/039j4x695",
+                  "label" : "Laboratoire Biosciences et bioingénierie pour la Santé",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01027m165",
+                  "label" : "Brain Tech Laboratory",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0557vhy43",
+                  "label" : "Laboratoire Biologie et Biotechnologie pour la Santé",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04szabx38",
+                  "label" : "Institut de Biologie Structurale",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0003ege03",
+                  "label" : "Centre de Recherches sur les Macromolécules Végétales",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/010rs2a38",
+                  "label" : "Département de Chimie Moléculaire",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0459x4g44",
+                  "label" : "Hypoxie et Physiopathologies cardiovasculaires et respiratoires",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03vyv3y87",
+                  "label" : "Haute Technologie Animale Grenobloise",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05kwbf598",
+                  "label" : "Institut pour l'avancée des biosciences",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02dd25k08",
+                  "label" : "Laboratoire de Chimie et Biologie des Métaux",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03x1z2w73",
+                  "label" : "Laboratoire d'Écologie Alpine",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00jxe7243",
+                  "label" : "Laboratoire Physiologie Cellulaire & Végétale",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01273vs09",
+                  "label" : "Laboratoire de Radiopharmaceutiques Biocliniques",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05514hp74",
+                  "label" : "Laboratory of Fundamental and Applied Bioenergetics",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0535cbn94",
+                  "label" : "Systèmes Moléculaires et nanoMatériaux pour l'Énergie et la Santé",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03t9s7t87",
+                  "label" : "Pathogénèse Bactérienne et Réponses Cellulaires",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/044ggyg50",
+                  "label" : "Laboratoire Rhéologie et Procédés",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/045ktmd28",
+                  "label" : "Laboratoire National des Champs Magnétiques Intenses",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02z8yps18",
+                  "label" : "Laboratoire de génie des procédés pour la bioraffinerie, les matériaux bio-sourcés et l’impression fonctionnelle",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01kcrnc96",
+                  "label" : "Institut de Planétologie et d'Astrophysique de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/043pfpy19",
+                  "label" : "Laboratoire des Écoulements Géophysiques et Industriels",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03bcdsr62",
+                  "label" : "Sols, Solides, Structures, Risques",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04axb9j69",
+                  "label" : "Laboratoire d’Electrochimie et de Physico-chimie des Matériaux et des Interfaces",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/014n97s28",
+                  "label" : "Laboratoire des Matériaux et du Génie Physique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02mc6qk71",
+                  "label" : "Laboratoire de Physique et Modélisation des Milieux Condensés",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/036zswm25",
+                  "label" : "Laboratoire des Technologies de la Microélectronique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05hyx5a17",
+                  "label" : "Laboratoire de Génie Électrique de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00m7zca23",
+                  "label" : "Science et Ingénierie des Matériaux et Procédés",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/050rs7291",
+                  "label" : "Centre de Radiofréquences, Optique et Micro-nanoélectronique des Alpes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/009ps2x93",
+                  "label" : "Département des Systèmes Basses Températures",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01hrtf583",
+                  "label" : "Synchrotron Radiation for Biomedicine",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00prvqp73",
+                  "label" : "Institut Rhônalpin des Systèmes Complexes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02f7wz369",
+                  "label" : "Université Pierre Mendès France",
+                  "type" : "predecessor"
+               },
+               {
+                  "id" : "https://ror.org/041rhpw39",
+                  "label" : "Centre Hospitalier Universitaire de Grenoble",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/04yem5s35",
+                  "label" : "INFRANALYTICS",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/0459fdx51",
+                  "label" : "Fédération de Recherche sur l'Energie Solaire",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/01nrtdp55",
+                  "label" : "GDR NBODY : Problème quantique à N corps en chimie et physique",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/05hb8m595",
+                  "label" : "PHOTOSYNTHESE",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/05be9p317",
+                  "label" : "Micropesanteur Fondamentale et Appliquée",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/00hgbrg14",
+                  "label" : "Fédération française Matériaux sous hautes vitesses de déformation. Application aux matériaux en conditions extrêmes, Procédés et structures",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/01sgwka45",
+                  "label" : "Microscopie Fonctionnelle du Vivant",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/01x6z5t49",
+                  "label" : "Fédération de Recherche Spectroscopies de Photoémission",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education",
+               "funder"
+            ]
+         },
+         "score" : 1,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-07-15",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1892,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.5676.2"
+                  ],
+                  "preferred" : "grid.5676.2",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 1765 4326"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q1665121"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/05sbt2524",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.grenoble-inp.fr/welcome/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Grenoble_Institute_of_Technology"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "ARA",
+                     "country_subdivision_name" : "Auvergne-Rhône-Alpes",
+                     "lat" : 45.17869,
+                     "lng" : 5.71479,
+                     "name" : "Grenoble"
+                  },
+                  "geonames_id" : 3014728
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Grenoble INP"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Grenoble Institute of Technology"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Institut polytechnique de Grenoble"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/000tdrn36",
+                  "label" : "Centre Interuniversitaire de MicroElectronique et Nanotechnologies",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00fwjkb59",
+                  "label" : "Laboratoire d'Economie Appliquée de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01c8rcg82",
+                  "label" : "Laboratoire d'Informatique de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02wrme198",
+                  "label" : "GIPSA-Lab",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03taa9n66",
+                  "label" : "Institut de Microélectronique, Electromagnétisme et Photonique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01wwcfa26",
+                  "label" : "Institut des Géosciences de l'Environnement",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03eqm6y13",
+                  "label" : "LabEx PERSYVAL-Lab",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04ett5b41",
+                  "label" : "Laboratoire Jean Kuntzmann",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/044ggyg50",
+                  "label" : "Laboratoire Rhéologie et Procédés",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04eg25g76",
+                  "label" : "Laboratoire de Conception et d'Intégration des Systèmes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05hyx5a17",
+                  "label" : "Laboratoire de Génie Électrique de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00rv5x925",
+                  "label" : "Laboratoire des Sciences pour la Conception, l'Optimisation et la Production",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/043pfpy19",
+                  "label" : "Laboratoire des Écoulements Géophysiques et Industriels",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04axb9j69",
+                  "label" : "Laboratoire d’Electrochimie et de Physico-chimie des Matériaux et des Interfaces",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02z8yps18",
+                  "label" : "Laboratoire de génie des procédés pour la bioraffinerie, les matériaux bio-sourcés et l’impression fonctionnelle",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03f0apy98",
+                  "label" : "Laboratoire de Physique Subatomique et de Cosmologie",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/014n97s28",
+                  "label" : "Laboratoire des Matériaux et du Génie Physique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00m7zca23",
+                  "label" : "Science et Ingénierie des Matériaux et Procédés",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03bcdsr62",
+                  "label" : "Sols, Solides, Structures, Risques",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03e044190",
+                  "label" : "Spintronique et Technologie des Composants",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03985kf35",
+                  "label" : "Translational Innovation in Medicine and Complexity",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/000063q30",
+                  "label" : "Techniques of Informatics and Microelectronics for Integrated Systems Architecture",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05afmzm11",
+                  "label" : "Verimag",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/044cfnj78",
+                  "label" : "GRICAD - Grenoble Alpes Recherche-Infrastructure de Calcul intensif et de Données",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/050rs7291",
+                  "label" : "Centre de Radiofréquences, Optique et Micro-nanoélectronique des Alpes",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/011f68d87",
+                  "label" : "Laboratoire franco-mexicain d'informatique et d'automatique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02rx3b187",
+                  "label" : "Université Grenoble Alpes",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/05be9p317",
+                  "label" : "Micropesanteur Fondamentale et Appliquée",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/01sgwka45",
+                  "label" : "Microscopie Fonctionnelle du Vivant",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/04fhg0w34",
+                  "label" : "ALERT Geomaterials – Alliance of Laboratories in Europe for Education, Research and Technology",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 1,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2005,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.492977.6"
+                  ],
+                  "preferred" : "grid.492977.6",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/020ay6p95",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://zurology.com/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "FL",
+                     "country_subdivision_name" : "Florida",
+                     "lat" : 26.27119,
+                     "lng" : -80.2706,
+                     "name" : "Coral Springs"
+                  },
+                  "geonames_id" : 4151909
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Z Urology"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "healthcare"
+            ]
+         },
+         "score" : 0.89,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1951,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100004113"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.411324.1"
+                  ],
+                  "preferred" : "grid.411324.1",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2324 3572"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q975461"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/05x6qnc69",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.ul.edu.lb/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "http://en.wikipedia.org/wiki/Lebanese_University"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "AS",
+                     "continent_name" : "Asia",
+                     "country_code" : "LB",
+                     "country_name" : "Lebanon",
+                     "country_subdivision_code" : "BA",
+                     "country_subdivision_name" : "Beyrouth",
+                     "lat" : 33.89332,
+                     "lng" : 35.50157,
+                     "name" : "Beirut"
+                  },
+                  "geonames_id" : 276781
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Lebanese University"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Université Libanaise"
+               },
+               {
+                  "lang" : "ar",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "الجامعة اللبنانية"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/036da3063",
+                  "label" : "Lebanese Hospital Geitaoui-University Medical Center",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/000tqtb97",
+                  "label" : "Rafik Hariri University Hospital",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education",
+               "funder"
+            ]
+         },
+         "score" : 0.84,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-10-06",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2007,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.457348.9"
+                  ],
+                  "preferred" : "grid.457348.9",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 0630 1517"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q2931224"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02mg6n827",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.cea.fr/Pages/le-cea/les-centres-cea/grenoble.aspx"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "ARA",
+                     "country_subdivision_name" : "Auvergne-Rhône-Alpes",
+                     "lat" : 45.17869,
+                     "lng" : 5.71479,
+                     "name" : "Grenoble"
+                  },
+                  "geonames_id" : 3014728
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "CEA Grenoble"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "CENG"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Centre d'Études Nucléaires de Grenoble"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Commissariat à l'Énergie Atomique et aux Énergies Alternatives centre de Grenoble"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00fwjkb59",
+                  "label" : "Laboratoire d'Economie Appliquée de Grenoble",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/036zswm25",
+                  "label" : "Laboratoire des Technologies de la Microélectronique",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00jjx8s55",
+                  "label" : "Commissariat à l'Énergie Atomique et aux Énergies Alternatives",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "government"
+            ]
+         },
+         "score" : 0.83,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2023-07-27",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1990,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "0000 0001 2248 2918"
+                  ],
+                  "preferred" : "0000 0001 2248 2918",
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q3152445"
+                  ],
+                  "preferred" : "Q3152445",
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/03c2nxn64",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.inp.fr"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Institut_national_du_patrimoine"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "IDF",
+                     "country_subdivision_name" : "Île-de-France",
+                     "lat" : 48.8534,
+                     "lng" : 2.3486,
+                     "name" : "Paris"
+                  },
+                  "geonames_id" : 2968815
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "INP"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "INP France"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "INP Paris"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Institut national du patrimoine"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "National Heritage Institute"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "National Institute of Heritage"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "archive"
+            ]
+         },
+         "score" : 0.82,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1990,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.442434.1"
+                  ],
+                  "preferred" : "grid.442434.1",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 0641 7876"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q6429212"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/04j9dfg85",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.universitekongo.org/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Kongo_University"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "AF",
+                     "continent_name" : "Africa",
+                     "country_code" : "CD",
+                     "country_name" : "DR Congo",
+                     "country_subdivision_code" : "BC",
+                     "country_subdivision_name" : "Bas-Congo",
+                     "lat" : -5.25837,
+                     "lng" : 14.85838,
+                     "name" : "Mbanza-Ngungu"
+                  },
+                  "geonames_id" : 2312888
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Kongo University"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "UK"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Université Kongo"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.81,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-08-26",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "ulaval.ca"
+            ],
+            "established" : 1663,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100007867",
+                     "100015115"
+                  ],
+                  "preferred" : "100007867",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.23856.3a"
+                  ],
+                  "preferred" : "grid.23856.3a",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 1936 8390"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q1067935"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/04sjchr03",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.ulaval.ca"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "http://en.wikipedia.org/wiki/Laval_University"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "CA",
+                     "country_name" : "Canada",
+                     "country_subdivision_code" : "QC",
+                     "country_subdivision_name" : "Quebec",
+                     "lat" : 46.81228,
+                     "lng" : -71.21454,
+                     "name" : "Québec"
+                  },
+                  "geonames_id" : 6325494
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Laval University"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Université Laval"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/01q8ytn75",
+                  "label" : "Center for Northern Studies",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02s3xv195",
+                  "label" : "Amundsen Science",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03tzsdk41",
+                  "label" : "Sentinelle Nord",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03wx0vn75",
+                  "label" : "CentrEau - Quebec Water Management Research Centre",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03x44hg04",
+                  "label" : "Centre de recherche en aménagement et développement",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03re3pg25",
+                  "label" : "Institut sur la nutrition et les aliments fonctionnels (INAF)",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04ya1kq07",
+                  "label" : "Québec-Océan",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04bzgtz06",
+                  "label" : "Takuvik Joint International Laboratory",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03gf7z214",
+                  "label" : "Institut Universitaire de Cardiologie et de Pneumologie de Québec",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/03mt5nv96",
+                  "label" : "Institut Universitaire en Santé Mentale de Québec",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/05xay3m79",
+                  "label" : "Érudit",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/0155edt85",
+                  "label" : "fabriqueREL",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/05fdt6816",
+                  "label" : "Obvia",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/05qn5kv73",
+                  "label" : "CHU de Québec-Université Laval",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/04rgqcd02",
+                  "label" : "Centre de recherche du CHU de Québec-Université Laval",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/032hvvf98",
+                  "label" : "Centre de recherche sur l'aluminium – REGAL",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/03tg44r87",
+                  "label" : "Centre interuniversitaire d'études et de recherches autochtones",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education",
+               "funder"
+            ]
+         },
+         "score" : 0.81,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1974,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.410529.b"
+                  ],
+                  "preferred" : "grid.410529.b",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 0792 4829"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q2945764"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/041rhpw39",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.chu-grenoble.fr/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Centre_Hospitalier_Universitaire_de_Grenoble"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "ARA",
+                     "country_subdivision_name" : "Auvergne-Rhône-Alpes",
+                     "lat" : 45.17869,
+                     "lng" : 5.71479,
+                     "name" : "Grenoble"
+                  },
+                  "geonames_id" : 3014728
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "CHUG"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Centre Hospitalier Universitaire de Grenoble"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Grenoble University Hospital Centre"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/05kfvx519",
+                  "label" : "Hôpital Albert Michallon",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00dxw4v18",
+                  "label" : "Hôpital Couple Enfant",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05kwbf598",
+                  "label" : "Institut pour l'avancée des biosciences",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02rx3b187",
+                  "label" : "Université Grenoble Alpes",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "healthcare"
+            ]
+         },
+         "score" : 0.8,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2002,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.442547.4"
+                  ],
+                  "preferred" : "grid.442547.4",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q30294265"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/03y2yf271",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.time.ens.tn"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "AF",
+                     "continent_name" : "Africa",
+                     "country_code" : "TN",
+                     "country_name" : "Tunisia",
+                     "country_subdivision_code" : "11",
+                     "country_subdivision_name" : "Tunis Governorate",
+                     "lat" : 36.81897,
+                     "lng" : 10.16579,
+                     "name" : "Tunis"
+                  },
+                  "geonames_id" : 2464470
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Time Université"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.8,
+         "substring" : "Department of Urology, Grenoble Alpes University Hospital, Université Grenoble Alpes, CNRS, Grenoble INP, TIMC-IMAG, Grenoble, France"
+      }
+   ],
+   "number_of_results" : 10
+}
+```
+
+<br />
