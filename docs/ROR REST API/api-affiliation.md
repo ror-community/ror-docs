@@ -1129,4 +1129,174 @@ The substring used to find the match in this case is "Department of Civil and In
 }
 ```
 
+## Example
+
+The default multisearch strategy uses multiple search algorithms to find matching ROR records for complex affiliation text strings such as "International Centre for Theoretical Physics (ICTP), Trieste, Italy".
+
+```curl
+
+curl 'https://api.ror.org/v2/organizations?affiliation=International%20Centre%20for%20Theoretical%20Physics%20(ICTP),%20Trieste,%20Italy' | json_pp
+
+```
+
+The ROR record for the Abdus Salam International Centre for Theoretical Physics (ICTP) has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
+
+The `matching_type` is given as _"PHRASE"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is .95, with 1.0 being the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
+
+The substring used to find the match in this case is "International Centre for Theoretical Physics ICTP", which is the text of the organization name and its acronym excluding punctuation and the organization's location in Trieste, Italy.
+
+```json
+{
+   "items" : [
+      {
+         "chosen" : true,
+         "matching_type" : "PHRASE",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-06-24",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "ictp.it"
+            ],
+            "established" : 1964,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100001681"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.419330.c"
+                  ],
+                  "preferred" : "grid.419330.c",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2184 9917"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q1190606"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/009gyvm78",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.ictp.it"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/International_Centre_for_Theoretical_Physics"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "36",
+                     "country_subdivision_name" : "Friuli Venezia Giulia",
+                     "lat" : 45.64953,
+                     "lng" : 13.77678,
+                     "name" : "Trieste"
+                  },
+                  "geonames_id" : 3165185
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Abdus Salam International Centre for Theoretical Physics"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Centro Internazionale di Fisica Teorica Abdus Salam"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "ICTP"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "International Centre for Theoretical Physics"
+               },
+               {
+                  "lang" : "sl",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Mednarodno središče Abdusa Salama za teoretično fiziko"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "The Abdus Salam International Centre for Theoretical Physics (ICTP)"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/04ys00n93",
+                  "label" : "Institute for Geometry and Physics",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01r4aq231",
+                  "label" : "ICTP - East Africa Institute for Fundamental Research",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04h4z8k05",
+                  "label" : "UNESCO",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility",
+               "funder"
+            ]
+         },
+         "score" : 0.95,
+         "substring" : "International Centre for Theoretical Physics ICTP"
+      }
+   ],
+   "number_of_results" : 1
+}
+```
+
 <br />
