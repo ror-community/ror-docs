@@ -12,7 +12,9 @@ metadata:
   robots: index
 next:
   pages:
-    - title: Video by Marameo Design on designing a UI with ROR for RDA
+    - title: >-
+        Video by Marameo Design on designing a UI with ROR for the Research Data
+        Alliance
       type: link
       url: https://youtu.be/3aBjcM3ou1M?si=ncRAm5c6lXarhNLu
 ---
