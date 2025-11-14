@@ -33,7 +33,7 @@ next:
 
 If your system includes fields that users enter affiliation information into, you can standardize that input and capture corresponding ROR IDs by adding a typeahead (or "autosuggest") widget that prompts users to select an organization from ROR. Learn more about best practices and implementation steps for using ROR in your application's forms here.
 
-![ROR typeahead demo showing a user entering variations on the name Cracow University of Economics into a form](https://files.readme.io/4f93231-cracow-ror-typeahead-new.gif)
+<Image alt="ROR typeahead demo showing a user entering variations on the name Cracow University of Economics into a form" border={false} src="https://files.readme.io/4f93231-cracow-ror-typeahead-new.gif" />
 
 # General best practices
 
@@ -45,9 +45,9 @@ Use a ROR-powered typeahead to capture creator affiliations (e.g., University of
 
 The `names` field includes variations on an organization's name such as its name in other languages, acronyms, and aliases, any of which a user might and should be able to search for. The `?query` parameter of the ROR API will search an index of all these name fields, but if you build your own search logic, make sure you configure your typeahead to allow searching for all the values in the `names` field. Read more about [names](https://ror.readme.io/v2/docs/data-structure#names).
 
-In the below example, the ROR record for the University of Wisconsin-Madison, [https://ror.org/01y2jtd41](https://ror.org/01y2jtd41), contains several values in the `names` field: the `ror_display` name "University of Wisconsin-Madison", the `alias` "UW-Madison", the `acronym` "UW",  and `labels` for the organization's name in French and Spanish. All values are searchable. 
+In the below example, the ROR record for the University of Wisconsin-Madison, [https://ror.org/01y2jtd41](https://ror.org/01y2jtd41), contains several values in the `names` field: the `ror_display` name "University of Wisconsin-Madison", the `alias` "UW-Madison", the `acronym` "UW",  and `labels` for the organization's name in French and Spanish. All values are searchable.
 
-<Image align="center" src="https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png" />
+<Image align="center" border={false} src="https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png" />
 
 ## Show information beyond the primary organization name
 
@@ -69,7 +69,7 @@ We do not recommend displaying ROR IDs to end users.
 
 ## Do not require the ROR ID
 
-We strongly discourage requiring users to enter only organizations with ROR IDs, because there are many valid reasons why a user may be unable to select an organization with a ROR ID as their affiliation: 
+We strongly discourage requiring users to enter only organizations with ROR IDs, because there are many valid reasons why a user may be unable to select an organization with a ROR ID as their affiliation:
 
 * The user may be affiliated with a research organization that is in scope for ROR but has not yet been added to the registry
 * The user may be affiliated with a research organization that is not in scope for ROR, such as a single-person consultancy
@@ -81,21 +81,21 @@ Forms can still require users to give an institutional affiliation by allowing u
 
 After a user chooses an organization from the list, don't allow them to edit the name, as this will likely result in incorrectly matched ROR IDs. Instead, prompt them to choose a new organization from the ROR list or else enter an organization name as a free text string.
 
-![](https://lh4.googleusercontent.com/s2orC1Hyx-blwbnAwAT2zvBEaU8jLZlvHXd_MBGoO41BRCvo8GZZtlFG_rkXet4mJwbA_sGT_LjOX0EsYhyJulpli2LTy9Kc_-U9rNap04olBUXQ5qb902aMnJrFw7wPLSkYd8UP5G2tYY47chwCqVZ7T7MBZ6toR_0ns_SYXOKjLC9sW2U7VgrQie2b)
+<Image border={false} src="https://lh4.googleusercontent.com/s2orC1Hyx-blwbnAwAT2zvBEaU8jLZlvHXd_MBGoO41BRCvo8GZZtlFG_rkXet4mJwbA_sGT_LjOX0EsYhyJulpli2LTy9Kc_-U9rNap04olBUXQ5qb902aMnJrFw7wPLSkYd8UP5G2tYY47chwCqVZ7T7MBZ6toR_0ns_SYXOKjLC9sW2U7VgrQie2b" />
 
 ## Allow entering a text string if no ROR match is found
 
 Allow the user to enter the organization name as a text string if no appropriate option is suggested by the typeahead.
 
-![](https://lh6.googleusercontent.com/lZl0oiKuYUAytx8H-Rv9Oa93tcVCOtqhR6vrQlEnz5D3RxAy4hwV0Luja73MaHa4q6AqLFea4FHJzYfdDDCiXtH1QQdTcXcKy-_2-US5rEr3rSrUqxJIa8mgG0jya0k5_hQqJgbwrdqujOrpoly7Fb1Gn1h3Xsy54ohcyueV-OBZfU023GC0TI2bBrMS)
+<Image border={false} src="https://lh6.googleusercontent.com/lZl0oiKuYUAytx8H-Rv9Oa93tcVCOtqhR6vrQlEnz5D3RxAy4hwV0Luja73MaHa4q6AqLFea4FHJzYfdDDCiXtH1QQdTcXcKy-_2-US5rEr3rSrUqxJIa8mgG0jya0k5_hQqJgbwrdqujOrpoly7Fb1Gn1h3Xsy54ohcyueV-OBZfU023GC0TI2bBrMS" />
 
 ## Allow users to provide multiple affiliations
 
-Allow users to provide multiple affiliations, since many users are affiliated with multiple organizations. In addition, many users are affiliated with **both** a high-level organization such as the [University of Wisconsin-Madison](https://ror.org/01y2jtd41) **and** a "child" research organization such as the [Morgridge Institute for Research](https://ror.org/05cb4rb43). Making the ROR-powered institutional affiliation field repeatable enables users to provide both affiliations. 
+Allow users to provide multiple affiliations, since many users are affiliated with multiple organizations. In addition, many users are affiliated with **both** a high-level organization such as the [University of Wisconsin-Madison](https://ror.org/01y2jtd41) **and** a "child" research organization such as the [Morgridge Institute for Research](https://ror.org/05cb4rb43). Making the ROR-powered institutional affiliation field repeatable enables users to provide both affiliations.
 
 See [ROR hierarchies and relationships](doc:relationships) for more information about parent, child, and sibling research organizations in ROR.
 
-![](https://files.readme.io/7b7847d-typeahead-morgridge.png)
+<Image border={false} src="https://files.readme.io/7b7847d-typeahead-morgridge.png" />
 
 ## Follow accessibility best practices
 
@@ -115,13 +115,13 @@ Follow accessibility best practices for form controls, such [W3C Web accessibili
 
 Consider [Filtering](doc:api-filtering) the list of suggestions displayed to the user based on context, such as the user's email domain, organization type, or location (either browser geolocation or location information entered in other fields on the same form).
 
-![](https://lh3.googleusercontent.com/nr_HsqKJoVWObgIx27yqGTZNx84kWzSFUxQUwEercYX-01H1FzdYN2c0w5_hlTUbzoZd3nMsQVDexwhbdpQTH1-MWFotYjIhNyQ6d0IvLmP4JPbo6Zc2qBqAu54vaTiCjjRPSeMhCfTIyyPsybmSUGMpVKLBDaGAi8eX9C1Hav--EoI_A9E6itkT3rVh)
+<Image border={false} src="https://lh3.googleusercontent.com/nr_HsqKJoVWObgIx27yqGTZNx84kWzSFUxQUwEercYX-01H1FzdYN2c0w5_hlTUbzoZd3nMsQVDexwhbdpQTH1-MWFotYjIhNyQ6d0IvLmP4JPbo6Zc2qBqAu54vaTiCjjRPSeMhCfTIyyPsybmSUGMpVKLBDaGAi8eX9C1Hav--EoI_A9E6itkT3rVh" />
 
 ## Consider populating other fields using ROR data
 
 Consider populating other fields in your form automatically using data from the ROR record selected by the user. See the list of ROR record fields in [ROR data structure](doc:ror-data-structure).
 
-![](https://lh6.googleusercontent.com/aTclvWe9JZnZaMLH7W6e6tT91l1YC_TrpfOoDVgW1dRHY7vqxY2AOxORlSU3T2Ixfjz6vREyMjhooVAaVVQGv7ua20EqM9VaI-arubiYV6lEOjIKvcx59TB2zeMHydV7kNf9XeKAOPP5XVkKRbynRwl9ROTVtHtT8-86HUhpsJNP-95ZWVRqXTWkHzEZ)
+<Image border={false} src="https://lh6.googleusercontent.com/aTclvWe9JZnZaMLH7W6e6tT91l1YC_TrpfOoDVgW1dRHY7vqxY2AOxORlSU3T2Ixfjz6vREyMjhooVAaVVQGv7ua20EqM9VaI-arubiYV6lEOjIKvcx59TB2zeMHydV7kNf9XeKAOPP5XVkKRbynRwl9ROTVtHtT8-86HUhpsJNP-95ZWVRqXTWkHzEZ" />
 
 # Implementation approaches
 
@@ -139,11 +139,11 @@ Steps to implement a typeahead widget using the ROR [REST API](doc:rest-api) wil
 
 1. Send user input to the ROR API.
 
-As the user types their affiliation, send the input to the ROR API. We recommend using the [query parameter](doc:api-query) search. You may also wish to first [check the heartbeat of the ROR API](doc:api-about#heartbeat). 
+As the user types their affiliation, send the input to the ROR API. We recommend using the [query parameter](doc:api-query) search. You may also wish to first [check the heartbeat of the ROR API](doc:api-about#heartbeat).
 
 2. Parse results.
 
-Results are returned as a list of ROR records, ordered by matching score. Note that the matching score itself is not returned. Results are paginated, and the first 20 results are returned by default. See example responses in the [Query parameter](doc:api-query) section of the REST API guide. 
+Results are returned as a list of ROR records, ordered by matching score. Note that the matching score itself is not returned. Results are paginated, and the first 20 results are returned by default. See example responses in the [Query parameter](doc:api-query) section of the REST API guide.
 
 3. Display results.
 
@@ -175,3 +175,4 @@ Steps to implement a widget using the ROR [data dump](doc:data-dump) vary depend
 
 * Try our demonstration version of a ROR typeahead at [https://ror-community.github.io/ror-typeahead-demos/](https://ror-community.github.io/ror-typeahead-demos/)
 * Take a look at the code for our ROR typeahead demos at [https://github.com/ror-community/ror-typeahead-demos](https://github.com/ror-community/ror-typeahead-demos)
+* Watch the [short video by Marameo Design](https://youtu.be/3aBjcM3ou1M?si=ncRAm5c6lXarhNLu) on designing a UI with ROR for the Research Data Alliance
