@@ -11,7 +11,10 @@ metadata:
     importance of following specific design and accessibility standards.
   robots: index
 next:
-  description: ''
+  pages:
+    - title: Video by Marameo Design on designing a UI with ROR for RDA
+      type: link
+      url: https://youtu.be/3aBjcM3ou1M?si=ncRAm5c6lXarhNLu
 ---
 ## Using the ROR logo and name
 
