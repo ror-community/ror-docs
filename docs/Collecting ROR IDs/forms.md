@@ -14,14 +14,18 @@ metadata:
     based on context.
   robots: index
 next:
-  description: ''
   pages:
-    - type: link
-      title: ROR Typeahead Demos
+    - title: ROR Typeahead Demos
+      type: link
       url: https://ror-community.github.io/ror-typeahead-demos/
-    - type: link
-      title: ROR Typeahead Demos code repository
+    - title: ROR Typeahead Demos code repository
+      type: link
       url: https://github.com/ror-community/ror-typeahead-demos
+    - title: >-
+        Video by Marameo Design on designing a UI with ROR for the Research Data
+        Alliance
+      type: link
+      url: https://youtu.be/3aBjcM3ou1M?si=ncRAm5c6lXarhNLu
 ---
 > 🚧 Using ROR with standard form solutions
 >
