@@ -19,6 +19,10 @@ next:
 >
 > In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
+> 📘 JSON Schema
+>
+> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+
 # Community feedback
 
 The current ROR data structure was revised in April of 2024 and formalized into [Schema 2.0](doc:schema-v2) as a JSON schema document. In schema v2.0, significant changes were made to fields that contained geographic information, including removing fields related to administrative subdivisions corresponding to units such as Canadian provinces, Japanese prefectures, and US states.
