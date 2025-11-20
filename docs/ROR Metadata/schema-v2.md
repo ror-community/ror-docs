@@ -20,6 +20,10 @@ next:
 >
 > In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
 
+> 📘 JSON Schema
+>
+> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+
 # Community feedback
 
 In the spring of 2023, ROR asked for community feedback on the specifics of major, breaking changes to the ROR metadata schema.
@@ -94,11 +98,11 @@ We are therefore "flattening" all name-related fields into one `names` field tha
 
 The current `addresses` field contains data from [GeoNames](https://www.geonames.org/). It contains several sub-fields that contain no values and are therefore not usable, and the ROR team also spends a disproportionate amount of time handling issues with validating and retrieving very granular GeoNames data within `addresses` (e.g., `geonames_admin2`, `nuts_level1`, `nuts_level2`, etc.) that users could easily retrieve themselves directly from GeoNames using the GeoNames ID provided in each ROR record. There is also a `country` field in each ROR record that duplicates the country information in the `addresses` field.
 
-We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information. 
+We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information.
 
 > 📘 Additional location information added in v2.1
 >
-> See [Schema 2.1](doc:schema-2-1) for additional location information added in December 2024 corresponding to state-level and continental locations. 
+> See [Schema 2.1](doc:schema-2-1) for additional location information added in December 2024 corresponding to state-level and continental locations.
 
 ### Current v1.0 example
 
@@ -302,3 +306,5 @@ We are therefore adding an `admin` field to support created and last modified da
          }
       }
 ```
+
+<br />
