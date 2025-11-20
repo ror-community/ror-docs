@@ -31,6 +31,12 @@ ROR records store both structural and temporal connections in the `relationships
 
 If an organization ceases operations and passes on its work to another organization, that relationship is also reflected in ROR through the "Predecessor" and "Successor" relationship types. See [ROR data structure: relationships](doc:ror-data-structure#relationships) for a full explanation.
 
+<Callout icon="📘" theme="info">
+  ## JSON Schema
+
+  JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+</Callout>
+
 # Examples
 
 The US [National Cancer Institute](https://ror.org/040gcmg81) is a child organization of the National Institutes of Health (NIH), and it also has multiple child organizations of its own and multiple related organizations.
