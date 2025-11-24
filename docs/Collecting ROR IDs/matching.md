@@ -46,7 +46,7 @@ Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio 
 
 # Match organization names to ROR using OpenRefine
 
-The ROR OpenRefine Reconciler is a fairly labor-intensive way of matching organization names and unstructured affiliation strings to ROR IDs, but it works well for those who have no more than a few thousand items to match to ROR IDs, those who want to have a high degree of control and oversight over the matching process, and those who do not want to write code.
+The ROR OpenRefine Reconciler is a fairly labor-intensive way of matching organization names or unstructured affiliation strings to ROR IDs, but it works well for those who have no more than a few thousand items to match to ROR IDs, those who want to have a high degree of control and oversight over the matching process, and those who do not want to write code.
 
 [OpenRefine](https://openrefine.org) (formerly Google Refine) is a free, open source desktop tool for cleaning up messy data stored in common formats like CSV, XLSX, JSON, and XML. You can even use it to connect to SQL-based databases and Google Sheets.
 
