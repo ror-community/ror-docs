@@ -98,7 +98,7 @@ Remember, too, that you can run the ROR API locally with a copy of the ROR data 
 
 # Match organization names to ROR IDs using third-party tools
 
-Several projects and researchers have developed scripts and/or machine learning and artificial intelligence tools that match textual organization information to ROR IDs. Some of these tools are fast and can work with large amounts of data with accuracy rates before human intervention ranging from about 85% to 95%. These tools are not officially supported by ROR, but we list them here in case you find them useful.
+Several projects and researchers have developed scripts and/or machine learning and artificial intelligence tools that match textual organization information to ROR IDs. These tools are not officially supported by ROR, but we list them here in case you find them useful.
 
 * Selected Python scripts that match organization names to ROR IDs area available in the [ror-utilities Github repository](https://github.com/ror-community/ror-utilities).
 
