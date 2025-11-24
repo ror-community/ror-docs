@@ -30,17 +30,19 @@ If you have a list, a spreadsheet, or a database of organization names or affili
 
 Here are some common types of organization data:
 
-* Organization name: 
+**Organization nam**
 
 University of Pisa
 
-* Organization name and location as structured data:
+**Organization name and location as structured data**
 
 |        Name        | City | Country |
 | :----------------: | :--: | :-----: |
 | University of Pisa | Pisa |  Italy  |
 
-* Unstructured affiliation string including sub-affiliation and address information:
+<br />
+
+**Unstructured affiliation string including sub-affiliation and address information**
 
 Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy
 
