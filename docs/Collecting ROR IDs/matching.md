@@ -76,7 +76,7 @@ In cases where you have organization information stored as structured data, do n
 
 ## Affiliation approach
 
-In cases where you have complex, unstructured affiliation strings, use the [Affiliation parameter](doc:api-affiliation) of the ROR API to match organizations to ROR IDs. ROR and Crossref have done extensive research to design the affiliation parameter of the ROR API to match messy strings to ROR IDs precisely and at scale. 
+In cases where you have complex, unstructured affiliation strings, use the [Affiliation parameter](doc:api-affiliation) of the ROR API to match these strings to a ROR ID for the organization. ROR and Crossref have done extensive research to design the affiliation parameter of the ROR API to match messy strings to ROR IDs precisely and at scale. 
 
 The affiliation matching service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` value. Additional possibilities that might match the string are also included in results, listed in descending order by confidence score. 
 
