@@ -20,6 +20,10 @@ next:
     - title: ror-utilities matching scripts
       type: link
       url: https://github.com/ror-community/ror-utilities
+    - title: Code repository for affiliation single search strategy
+      type: link
+      url: >-
+        https://gitlab.com/crossref/marple/-/tree/main/strategies_available/affiliation_single_search
 ---
 > 👍 ROR REST API v2
 >
