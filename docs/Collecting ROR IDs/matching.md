@@ -34,11 +34,15 @@ Here are some common types of organization data:
 
 University of Pisa
 
+<br />
+
 **Organization name and location as structured data**
 
 |        Name        | City | Country |
 | :----------------: | :--: | :-----: |
 | University of Pisa | Pisa |  Italy  |
+
+<br />
 
 **Unstructured affiliation string including sub-affiliation and address information**
 
