@@ -23,19 +23,19 @@ next:
       type: link
       url: https://ror.org/categories/matching
 ---
-If you have organization names or full affiliation strings stored in your system as text, there are several approaches to matching those text strings to ROR IDs. 
+If you have organization names or full affiliation strings stored in your system as text, there are several approaches to matching those text strings to ROR IDs.
 
-The approaches given below are for cases when you have a list, a spreadsheet, or a database with organization information as text strings, often with "extra" text such as a department or address as well as the organization's name, but no corresponding organization IDs. 
+The approaches given below are for cases when you have a list, a spreadsheet, or a database with organization information as text strings, often with "extra" text such as a department or address as well as the organization's name, but no corresponding organization IDs.
 
-Examples of organization names and affiliation information as text strings and the corresponding ROR ID: 
+Examples of organization names and affiliation information as text strings and the corresponding ROR ID:
 
-* University of Haifa > [https://ror.org/02f009v59](https://ror.org/02f009v59)  
+* University of Haifa > [https://ror.org/02f009v59](https://ror.org/02f009v59)
 * University of ManchesterGreater Manchester Mental Health NHS Foundation TrustNational Institute for Health Research (NIHR) Greater Manchester Patient Safety Translational Research Centre > [https://ror.org/05sb89p83](https://ror.org/05sb89p83) .
-* Atmospheric Sciences and Global Change Division, Pacific Northwest National Laboratory, Richland, WA, USA > [https://ror.org/05h992307](https://ror.org/05h992307) 
+* Atmospheric Sciences and Global Change Division, Pacific Northwest National Laboratory, Richland, WA, USA > [https://ror.org/05h992307](https://ror.org/05h992307)
 
 > 📘 Mapping names and IDs to ROR
 >
-> If you have organization names along with another global organization ID (Crossref Funder ID, GRID, ISNI, or Wikidata), you may find quicker, more accurate results by mapping those other IDs to ROR. See [Map other organization ID types to ROR](doc:mapping). 
+> If you have organization names along with another global organization ID (Crossref Funder ID, GRID, ISNI, or Wikidata), you may find quicker, more accurate results by mapping those other IDs to ROR. See [Map other organization ID types to ROR](doc:mapping).
 >
 > If you need to match ROR IDs to user input in a web application, see [Create ROR-powered typeaheads in forms](doc:forms).
 
@@ -45,7 +45,7 @@ Examples of organization names and affiliation information as text strings and t
 
 The [ROR API](doc:api-about) offers 2 ways to search ROR records, which work slightly differently and return different results:
 
-* **[Affiliation parameter](#affiliation-parameter-approach)**  `/organizations?affiliation=`:  Searches `names` field using different search algorithms and returns the best match(es) based on matching score. Includes matching score and true/false indicator of whether the score is high enough to be considered a reliable match. Produces about 85% correct matches in our tests; individual implementations may see better or worse results. 
+* **[Affiliation parameter](#affiliation-parameter-approach)**  `/organizations?affiliation=`:  Searches `names` field using different search algorithms and returns the best match(es) based on matching score. Includes matching score and true/false indicator of whether the score is high enough to be considered a reliable match. Produces about 85% correct matches in our tests; individual implementations may see better or worse results.
 
 * **[Query parameter](#query-parameter-approach)** `/organizations?query=`: Searches `names` and `external_ids` fields in ROR records and returns all matching records. Does NOT include a matching score or true/false indicator of whether the score is high enough to be considered a reliable match. Will return the same results as the [Web search](doc:web-search).
 
@@ -63,7 +63,7 @@ For cases where you have very common organization names, use the [query paramete
 
 > 📘 Retrieving active and inactive organizations
 >
-> By default, both the affiliation parameter and the query parameter will return only records with an active [status](doc:data-structure#status): `status: "active"`. Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See [API filtering](doc:api-filtering) for details. 
+> By default, both the affiliation parameter and the query parameter will return only records with an active [status](doc:data-structure#status): `status: "active"`. Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See [API filtering](doc:api-filtering) for details.
 >
 > Be aware too that inactive organizations may be succeeded by a new organization under a different name with a different ROR ID. If you do retrieve inactive organizations, check the `relationships` field of an inactive record to see if it has a [Successor organization](doc:data-structure#relationships).
 
@@ -739,10 +739,10 @@ The response is a JSON object containing full records for up to the first 20 sea
 You can write your own script to match a list of organization names to ROR IDs via the ROR API, though some manual intervention will likely be needed to make sure that matches are correct. If you are writing a script, remember the following:
 
 * Try the [affiliation parameter approach](#affiliation-parameter-approach) first instead of the [query parameter approach](#query-parameter-approach).
-* Look for "chosen" results where `"chosen": true`. 
-* If no results are found, try alternate names/acronyms (if you have them) or try the query parameter approach. 
+* Look for "chosen" results where `"chosen": true`.
+* If no results are found, try alternate names/acronyms (if you have them) or try the query parameter approach.
 * API results are paginated: see [API paging](#api-paging) for details.
-* By default, API requests will return only records with an active [status](doc:data-structure#status): `status: "active"`. Consider whether you want to retrieve records with an inactive status as well; inactive records generally represent organizations that no longer operate. See [API filtering](doc:api-filtering) for details. 
+* By default, API requests will return only records with an active [status](doc:data-structure#status): `status: "active"`. Consider whether you want to retrieve records with an inactive status as well; inactive records generally represent organizations that no longer operate. See [API filtering](doc:api-filtering) for details.
 
 See, use, and clone examples of Python scripts that match organization names to ROR IDs in the [ror-utilities Github repository](https://github.com/ror-community/ror-utilities).
 
@@ -756,15 +756,15 @@ Instead of using the ROR API, you can use your own scripts or processing tools o
 
 ## Match organization names to ROR using OpenRefine
 
-The **ROR OpenRefine Reconciler** is a fairly labor-intensive way of matching organization names to ROR IDs, but it works well for those who have a relatively small list of organization names, those who want to have a high degree of control and oversight over the matching process, and those who do not want to write code. 
+The **ROR OpenRefine Reconciler** is a fairly labor-intensive way of matching organization names to ROR IDs, but it works well for those who have a relatively small list of organization names, those who want to have a high degree of control and oversight over the matching process, and those who do not want to write code.
 
-[OpenRefine](https://openrefine.org) (formerly Google Refine) is a free, open source desktop tool for cleaning up messy data stored in common formats like CSV, JSON, XML, XLS. You can even use it to connect to SQL-based databases and Google Sheets. 
+[OpenRefine](https://openrefine.org) (formerly Google Refine) is a free, open source desktop tool for cleaning up messy data stored in common formats like CSV, JSON, XML, XLS. You can even use it to connect to SQL-based databases and Google Sheets.
 
-See [ROR OpenRefine Reconciler](doc:openrefine-reconciler) for written usage instructions, screenshots, and a tutorial video. 
+See [ROR OpenRefine Reconciler](doc:openrefine-reconciler) for written usage instructions, screenshots, and a tutorial video.
 
 ## Match organization names to ROR IDs using third-party tools
 
-Several projects and researchers have developed scripts and/or machine learning and artificial intelligence tools that match textual organization information to ROR IDs. Several of these tools are fast and can work with large amounts of data with accuracy rates before human intervention ranging from about 85% to 95%. These tools are not officially supported by ROR, but we list them here in case you find them useful. 
+Several projects and researchers have developed scripts and/or machine learning and artificial intelligence tools that match textual organization information to ROR IDs. Several of these tools are fast and can work with large amounts of data with accuracy rates before human intervention ranging from about 85% to 95%. These tools are not officially supported by ROR, but we list them here in case you find them useful.
 
 * [OpenAlex Institution Parsing](https://github.com/ourresearch/openalex-institution-parsing) by OurResearch
 
@@ -780,10 +780,16 @@ Several projects and researchers have developed scripts and/or machine learning 
 
 * [fastText ROR Predictor (cpu-based)](https://github.com/adambuttrick/ror-predictor-fasttext) by ROR Curation Lead Adam Buttrick
 
-* [lr\_predictor](https://github.com/adambuttrick/lr_matches) by ROR Curation Lead Adam Buttrick
+* [lr_predictor](https://github.com/adambuttrick/lr_matches) by ROR Curation Lead Adam Buttrick
 
 * [ROR experimental affiliation matching](https://github.com/ror-community/affiliation-matching-experimental) - A collection of data and code for training models and experimenting with automatically matching affiliation strings to ROR IDs. Not production code, and not officially supported by ROR.
 
 ## Testing and training data
 
-ROR is currently experimenting with strategies for automatically matching affiliation strings to ROR IDs, and we have collected sets of data from Springer Nature, the American Physical Society, Crossref, and OpenAlex for testing and training matching strategies that are openly available at [https://github.com/ror-community/affiliation-matching-experimental/tree/main/test\_data](https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data). These datasets include affiliation text strings from production systems that have been matched to ROR IDs with varying levels of human review.
+ROR has collected sets of data from Springer Nature, the American Physical Society, Crossref, and OpenAlex for testing and training affiliation matching strategies, and these datasets are openly available at [https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data](https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data). These datasets include affiliation text strings from production systems that have been matched to ROR IDs with varying levels of human review.
+
+Crossref has also published a dataset of DOI metadata with over 140 million affiliation assertions up to March 2025 that has been used to test the ROR API [single search affiliation matching strategy]() . It includes data deposited until the end of March 2025. 
+
+.
+
+<br />
