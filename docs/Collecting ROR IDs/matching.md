@@ -40,8 +40,6 @@ University of Pisa
 | :----------------: | :--: | :-----: |
 | University of Pisa | Pisa |  Italy  |
 
-<br />
-
 **Unstructured affiliation string including sub-affiliation and address information**
 
 Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy
