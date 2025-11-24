@@ -44,7 +44,7 @@ University of Pisa
 
 Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy
 
-## Match organization names to ROR using OpenRefine
+# Match organization names to ROR using OpenRefine
 
 The ROR OpenRefine Reconciler is a fairly labor-intensive way of matching organization names and unstructured affiliation strings to ROR IDs, but it works well for those who have no more than a few thousand items to match to ROR IDs, those who want to have a high degree of control and oversight over the matching process, and those who do not want to write code.
 
@@ -52,48 +52,39 @@ The ROR OpenRefine Reconciler is a fairly labor-intensive way of matching organi
 
 See [ROR OpenRefine Reconciler](doc:openrefine-reconciler) for written usage instructions, screenshots, and a tutorial video.
 
-## Match organization names to ROR IDs using the ROR API
+# Match organization names to ROR IDs using the ROR API
 
-The [ROR API](doc:api-about) offers several ways to search ROR that all work differently and return different results. Choose the best method for your data.
+The [ROR API](doc:api-about) offers several ways to search ROR that all work differently and return different results. Choose the best method for your data. 
 
-### What kind of data do you have?
+> 📘 What kind of data do you have? 
+>
+> * Organization identifiers (Wikidata, ISNI, Funder IDs, GRID) - use the [Query parameter](doc:api-query) and see our guide to [mapping other organization IDs to ROR IDs](doc:mapping)
+> * Organization names only - use the [Query parameter](doc:api-query)
+> * Organization names and locations as structured data - use the [Query parameter](doc:api-query)
+> * Organization names and websites as structured data - use the [Advanced query parameter](doc:api-advanced-query)
+> * Unstructured affiliation strings that often include sub-affiliations and addresses - use the [Affiliation parameter](doc:api-affiliation)
 
-* Organization identifiers - see [mapping] and use the query parameter
-* Organization names only - use the query parameter
-* Organization names and locations stored separately - use the query parameter
-* Organization names and websites stored separately - use the advanced query parameter
-* Unstructured affiliation strings that often include sub-affiliations and addresses - use the affiliation parameter
-* **[Query parameter](#query-parameter-approach)** `/organizations?query=`: Searches `names` and `external_ids` fields only in ROR records and returns all matching records. Does NOT include a matching score or true/false indicator of whether the score is high enough to be considered a reliable match. Will return the same results as the [Web search](doc:web-search).
+## Query approach
 
-For cases where you have very common organization names that are stored separately from any other , use the [query parameter approach](#query-parameter-approach) to look for keywords from the organization's name or the exact name of the organization surrounded by double quotation marks, and consider using filters for organization type and country. Examples:
+In cases where you have Wikidata, ISNI, Funder IDs, or GRID identifiers or when you have organization names stored as structured data, use the [Query parameter](doc:api-query) of the ROR API to match organizations to ROR IDs. This approach searches only the `names` and `external_ids` fields in ROR records and returns all matching records. Will return the same results as the ROR [Web search](doc:web-search). 
 
-* Ministry of Health
+For best results, search for an identifier, for keywords from the organization's name, or for the exact name of the organization surrounded by double quotation marks and if possible [filter](doc:api-filtering) the results by organization type and/or location. See also our guide to [Mapping other organization IDs to ROR IDs](doc:mapping).
 
-* National Research Council
+## Advanced query approach
 
-* York University
+In cases where you have organization information stored as structured data, do not have organization identifiers or locations, but do have organization websites or Wikipedia pages, use the [Advanced query parameter](doc:api-advanced-query) of the ROR API to match organizations to ROR IDs. This approach allows you to search fields not indexed by the [Query parameter](doc:api-query) such as `domains` and `links`. 
 
-* **[Affiliation parameter](#affiliation-parameter-approach)**  `/organizations?affiliation=`:  Searches `names` field using different search algorithms and returns the best match(es) based on matching score. Includes matching score and true/false indicator of whether the score is high enough to be considered a reliable match. Produces about 85% correct matches in our tests; individual implementations may see better or worse results.
+## Affiliation approach
 
-Examples of organization names and affiliation information as text strings and the corresponding ROR ID:
-
-* University of Haifa > [https://ror.org/02f009v59](https://ror.org/02f009v59)
-* University of ManchesterGreater Manchester Mental Health NHS Foundation TrustNational Institute for Health Research (NIHR) Greater Manchester Patient Safety Translational Research Centre > [https://ror.org/05sb89p83](https://ror.org/05sb89p83) .
-* Atmospheric Sciences and Global Change Division, Pacific Northwest National Laboratory, Richland, WA, USA > [https://ror.org/05h992307](https://ror.org/05h992307)
-
-For cases where you have relatively unique organization names or full affiliation strings, use the [affiliation parameter approach](#affiliation-parameter-approach). Works for both English and non-English name variations. Examples:
-
-* Incorporated Research Institutions for Seismology (IRIS)
-* Universitätsbibliothek der Ludwig-Maximilians-Universität München
-* Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy
+In cases where you have complex, unstructured affiliation strings, use the [Affiliation parameter](doc:api-affiliation) of the ROR API to match organizations to ROR IDs. Results of each search will include a matching confidence score and a true/false indicator of whether the score is high enough to be considered a reliable match. ROR and Crossref have collaborated extensively on designing this service to help match legacy data to ROR IDs. 
 
 > 📘 Retrieving active and inactive organizations
 >
-> By default, the ROR API returns only records with an active [status](doc:data-structure#status): `status: "active"`. Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See [API filtering](doc:api-filtering) for details.
+> By default, the ROR API returns only records with an active [status](doc:data-structure#status): `status: "active"`. Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See <Anchor label="API filtering" target="_blank" href="doc:api-filtering">API filtering</Anchor> for details.
 >
 > Be aware too that inactive organizations may be succeeded by a new organization under a different name with a different ROR ID. If you do retrieve inactive organizations, check the `relationships` field of an inactive record to see if it has a [Successor organization](doc:data-structure#relationships).
 
-## Match organization names to ROR IDs using the data dump
+# Match organization names to ROR IDs using the data dump
 
 Instead of using the ROR API, you can use your own scripts or processing tools on the [ROR data dump](doc:data-dump) to match organization names to ROR IDs. Advantages of this approach include:
 
@@ -103,7 +94,7 @@ Instead of using the ROR API, you can use your own scripts or processing tools o
 
 Remember, too, that you can run the ROR API locally with a copy of the ROR data dump. See instructions for installing the ROR API locally with Docker in the [README file of the ROR API GitHub repository](https://github.com/ror-community/ror-api/blob/master/README.md).
 
-## Match organization names to ROR IDs using third-party tools
+# Match organization names to ROR IDs using third-party tools
 
 Several projects and researchers have developed scripts and/or machine learning and artificial intelligence tools that match textual organization information to ROR IDs. Some of these tools are fast and can work with large amounts of data with accuracy rates before human intervention ranging from about 85% to 95%. These tools are not officially supported by ROR, but we list them here in case you find them useful.
 
@@ -127,7 +118,7 @@ Several projects and researchers have developed scripts and/or machine learning 
 
 * [ROR experimental affiliation matching](https://github.com/ror-community/affiliation-matching-experimental) - A collection of data and code for training models and experimenting with automatically matching affiliation strings to ROR IDs. Not production code, and not officially supported by ROR.
 
-## Testing and training data
+# Testing and training data
 
 ROR has collected sets of data from Springer Nature, the American Physical Society, OpenAlex, and Crossref for testing and training affiliation matching strategies, and these datasets are openly available at [https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data](https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data). These datasets include affiliation text strings from production systems that have been matched to ROR IDs with varying levels of human review.
 
