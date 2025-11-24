@@ -30,7 +30,7 @@ If you have a list, a spreadsheet, or a database of organization names or affili
 
 Here are some common types of organization data:
 
-**Organization nam**
+**Organization name**
 
 University of Pisa
 
