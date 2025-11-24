@@ -72,7 +72,7 @@ For best results, search for an identifier, for keywords from the organization's
 
 ## Advanced query approach
 
-In cases where you have organization information stored as structured data, do not have organization identifiers or locations, but do have organization websites or Wikipedia pages, use the [Advanced query parameter](doc:api-advanced-query) of the ROR API to match organizations to ROR IDs. This approach allows you to search fields not indexed by the [Query parameter](doc:api-query) such as `domains` and `links`.
+In cases where you do not have organization identifiers or locations, but do have organization websites or Wikipedia pages stored as structured data, use the [Advanced query parameter](doc:api-advanced-query) of the ROR API to match organizations to ROR IDs. This approach allows you to search fields not indexed by the [Query parameter](doc:api-query) such as `domains` and `links`.
 
 ## Affiliation approach
 
