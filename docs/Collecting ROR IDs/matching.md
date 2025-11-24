@@ -76,13 +76,13 @@ In cases where you have organization information stored as structured data, do n
 
 ## Affiliation approach
 
-In cases where you have complex, unstructured affiliation strings, use the [Affiliation parameter](doc:api-affiliation) of the ROR API to match these strings to a ROR ID for the organization. ROR and Crossref have done extensive research to design the affiliation parameter of the ROR API to match messy strings to ROR IDs precisely and at scale. 
+In cases where you have complex, unstructured affiliation strings, use the [Affiliation parameter](doc:api-affiliation) of the ROR API to match these strings to a ROR ID for the organization. ROR and Crossref have done extensive research to design the affiliation parameter of the ROR API to match messy strings to ROR IDs precisely and at scale.
 
-The affiliation matching service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` value. Additional possibilities that might match the string are also included in results, listed in descending order by confidence score. 
+The affiliation matching service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` value. Additional possibilities that might match the string are also included in results, listed in descending order by confidence score.
 
 > 📘 Retrieving active and inactive organizations
 >
-> By default, the ROR API returns only records with an active [status](doc:data-structure#status): `status: "active"`. Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See <Anchor label="API filtering" target="_blank" href="doc:api-filtering">API filtering</Anchor> for details.
+> By default, the ROR API returns only records with an active [status](doc:data-structure#status). Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See <Anchor label="API filtering" target="_blank" href="doc:api-filtering">API filtering</Anchor> for details.
 >
 > Be aware too that inactive organizations may be succeeded by a new organization under a different name with a different ROR ID. If you do retrieve inactive organizations, check the `relationships` field of an inactive record to see if it has a [Successor organization](doc:data-structure#relationships).
 
