@@ -36,7 +36,7 @@ Here are some common types of organization data:
 
 |  Organization name | City | Country |
 | :----------------: | :--: | :-----: |
-| University of Pisa | Pisa |   Ita   |
+| University of Pisa | Pisa |  Italy  |
 
 * Unstructured affiliation string including sub-affiliation and address information:
   Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy
