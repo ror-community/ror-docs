@@ -34,7 +34,7 @@ Here are some common types of organization data:
 
 * Organization name and location as structured data:
 
-|  Organization name | City | Country |
+|        Name        | City | Country |
 | :----------------: | :--: | :-----: |
 | University of Pisa | Pisa |  Italy  |
 
