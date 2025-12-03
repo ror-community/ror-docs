@@ -98,7 +98,7 @@ The resulting CSV file will have two columns: Funder ID and ROR ID. Additional m
 
 ## Map a custom list of Funder IDs to ROR IDs
 
-Because Funder IDs are included in ROR records in the [external_ids](https://ror.readme.io/docs/data-structure#external_ids)  field, you can map a custom list of Funder IDs to ROR IDs using the ROR API or ROR data dump. This method will also allow you to retrieve additional ROR metadata. For more information and examples, see our guide [Map other organization IDs to ROR IDs](doc:mapping).
+Because Funder IDs are included in ROR records in the [external_ids](https://ror.readme.io/docs/ror-data-structure#external_ids)  field, you can map a custom list of Funder IDs to ROR IDs using the ROR API or ROR data dump. This method will also allow you to retrieve additional ROR metadata. For more information and examples, see our guide [Map other organization IDs to ROR IDs](doc:mapping).
 
 ## Build ROR-powered forms
 
