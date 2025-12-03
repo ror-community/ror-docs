@@ -26,7 +26,7 @@ metadata:
 
 Queries to the ROR API will return all [fields](doc:fields) in ROR's [data structure](doc:ror-data-structure) regardless of whether they have a value. JSON will include null values and empty arrays and objects if there is no value available for the given organization. Values in fields that contain multiple values are sorted by Unicode value, which is alphabetical for characters in the Basic Latin set.
 
-Beginning 1 Dec 2022, the ROR API by default returns only records whose [status](doc:data-structure#status) is "active". Records with the new status values "inactive" and "withdrawn" can be included using the new query parameter `?all_status`. In addition, after this date, some ROR records contain the new values "Predecessor" and "Successor" in `relationships.type`. See the [2022-12-01 changelog post](https://ror.readme.io/changelog/2022-12-01-organization-status-changes) for more details.
+Beginning 1 Dec 2022, the ROR API by default returns only records whose [status](doc:ror-data-structure#status) is "active". Records with the new status values "inactive" and "withdrawn" can be included using the new query parameter `?all_status`. In addition, after this date, some ROR records contain the new values "Predecessor" and "Successor" in `relationships.type`. See the [2022-12-01 changelog post](https://ror.readme.io/changelog/2022-12-01-organization-status-changes) for more details.
 
 # Registration and rate limits
 
