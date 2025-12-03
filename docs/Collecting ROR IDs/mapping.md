@@ -263,7 +263,7 @@ If you have a list of other IDs you'd like to map to ROR, automate this search w
 ### Mapping tips
 
 * In `external_ids`, each ID type has 2 fields: "all" and "preferred". For many external IDs, "preferred" is null even when "all" has only 1 value, so we recommend that you _don't_ limit your mapping to only external IDs designated as "preferred".
-* Mapping many thousands of organizations using a script that calls the ROR API can take many hours. If you require a faster approach, you may want to use the [data dump,](doc:data-dump) or an incremental approach, such as "just in time" mapping to ROR when organization data is read from or written to your system.
+* Mapping many thousands of organizations using a script that calls the ROR API can take many hours. If you require a faster approach, you may want to use the [data dump](doc:data-dump) or an incremental approach, such as "just in time" mapping to ROR when organization data is read from or written to your system.
 
 ### Find all ROR records mapped to a certain ID type
 
