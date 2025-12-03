@@ -160,7 +160,7 @@ Indication of whether the organization is active or not, based on a controlled l
 * ### `withdrawn`
   A record that was created in error, such as a duplicate record or a record that is not in scope for the registry.
 
-A record with a status of `inactive` or `withdrawn` may have one or more Successor organizations listed in its relationships. Successor relationships indicate that another organization continues the work of an organization that has become inactive or has been withdrawn. See [relationships](doc:data-structure#relationships) for more information.
+A record with a status of `inactive` or `withdrawn` may have one or more Successor organizations listed in its relationships. Successor relationships indicate that another organization continues the work of an organization that has become inactive or has been withdrawn. See [relationships](https://ror.readme.io/docs/ror-data-structure#/relationships)  for more information.
 
 ## `types*`
 
