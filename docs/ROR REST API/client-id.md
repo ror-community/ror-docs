@@ -50,6 +50,7 @@ We do not provide a way to recover, reset, or revoke a lost client ID. If you lo
 ## More about client IDs
 
 * Client IDs are free to obtain.
+* ROR API client IDs are not used for either authentication or authorization, and therefore they are not secret and can be transmitted in plain text.
 * The only information needed to obtain a client ID is a contact email address. Additional fields in the [client ID registration form](https://ror.org/api-client-id) such as name, organization, country and ROR use case are optional.
 * Email addresses supplied at registration are used only to contact API users for support and troubleshooting purposes. Email addresses supplied at registration are not used for any other purpose and are not shared outside of ROR technical infrastructure.
 * Initially, there will be no hard limit on the number of client IDs that can be generated with a single email address, but we may impose a limit in the future if issues arise.
