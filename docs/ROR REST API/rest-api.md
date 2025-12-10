@@ -18,11 +18,11 @@ metadata:
 ---
 The ROR API allows retrieving, searching and filtering the organizations indexed in ROR. The results are returned in JSON. The [code for the ROR API is openly available on GitHub](https://github.com/ror-community/ror-api), and the README on the repository includes instructions for how to run the ROR API locally using Docker.
 
-To suggest features for or report problems with the ROR API, [open an issue on the ROR roadmap](https://github.com/ror-community/ror-roadmap) or email [support@ror.org.](mailto:support@ror.org.)  
+To suggest features for or report problems with the ROR API, [open an issue on the ROR roadmap](https://github.com/ror-community/ror-roadmap) or email [support@ror.org.](mailto:support@ror.org.)
 
 # Responses
 
-Queries to the ROR API will return all [fields](doc:fields) in ROR's [data structure](doc:ror-data-structure) regardless of whether they have a value. JSON will include null values and empty arrays and objects if there is no value available for the given organization. 
+Queries to the ROR API will return all [Fields and sub-fields](doc:fields) in ROR's [Data structure](doc:ror-data-structure) regardless of whether they have a value. JSON will include null values and empty arrays and objects if there is no value available for the given organization.
 
 Values in fields that contain multiple values are sorted by Unicode value, which is alphabetical for characters in the Basic Latin set.
 
