@@ -18,7 +18,7 @@ next:
       title: ROR Data on Zenodo
       url: https://doi.org/10.5281/zenodo.6347574
 ---
-All releases / versions of the entire ROR registry dataset are freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574) in both JSON and CSV formats. All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//).
+The entire ROR registry dataset is freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574). All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//). Both current and previous versions / releases of the ROR registry are available. 
 
 # Data formats
 
