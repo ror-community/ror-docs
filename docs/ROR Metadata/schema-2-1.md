@@ -49,9 +49,7 @@ New fields listed above are included in the JSON and CSV v2 [Data dump](doc:data
 
 # API changes
 
-## v2 API
-
-Requests to the v2 API at `https://api.ror.org/v2/organizations` now return new fields, values, and facets.
+Requests to the v2 ROR API now return new fields, values, and facets.
 
 The above new `locations` fields now appear in each record in when using the v2 API. A `continents` facet now appears in the meta section of list results in the v2 API.
 
@@ -63,16 +61,4 @@ New [filters](doc:api-filtering) for continent name and code are now available i
 
 Data in `locations` fields in all records has been updated using the latest values from GeoNames.
 
-## v1 API
-
-Requests to the v1 API at `https://api.ror.org/v1/organizations` now return records with the `Funder` value in the `types` field when the corresponding v2 record also includes `funder` in the `types` field.
-
-`Funder` is now an allowed value for the `types` [filter](doc:api-filtering) on v1 API requests:
-
-`https://api.ror.org/v1/organizations?filter=types:Funder`
-
-Data in `addresses` fields in all records was updated using the latest values from GeoNames.
-
-# Null values in v1 records
-
-Beginning with the April 2024 launch of v2, ROR metadata is curated only in v2 and then crosswalked / copied to v1 records. As a result, when records are added or updated, v1 fields that do not have equivalents in v2 are not populated. This includes many `addresses` sub-fields in v1 records. All records have been updated in v2.1 ([release 1.58](https://github.com/ror-community/ror-updates/releases/tag/v1.58)), and therefore after December 2024 all deprecated sub-fields in `addresses` are null in all v1 records in the API and data dump.
+<br />
