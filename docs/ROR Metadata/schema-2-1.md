@@ -25,7 +25,7 @@ The current ROR data structure was revised in April of 2024 and formalized into 
 
 While no issues were raised with these changes during the v2.0 feedback process, since the launch of this schema version, the need for additional location details to be included in our records was identified by users. As a result, a [proposal for schema v2.1](https://docs.google.com/document/d/11-bDfQWK038uoUBkL_CBZxP__xB6nBy0dVPH7tWxNnY), which adds country subdivision and continent fields, was circulated for public comment and finalized in Nov 2024.
 
-This is a non-breaking change, and schema v2.1 changes have been incorporated directly into the v2 API with **no version change needed in the API URL**, per ROR's [schema and API versioning policy](https://ror.readme.io/v2/docs/api-versions).
+This is a non-breaking change to be implemented in Dec 2024, and schema v2.1 changes have been incorporated directly into the v2 API with **no version change needed in the API URL**, per ROR's [schema and API versioning policy](https://ror.readme.io/v2/docs/api-versions).
 
 # Schema changes
 
