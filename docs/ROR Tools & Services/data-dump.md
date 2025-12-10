@@ -22,13 +22,16 @@ The entire ROR registry dataset is freely available on Zenodo at [https://zenodo
 
 # Data format
 
-* Data releases beginning with release 1.0 on 2022-03-17 up to and including release 1.20 on 2023-02-28 contain JSON files formatted according to ROR schema v1. 
-* Data releases beginning with release 1.21 on 2023-03-16 up to and including release 1.44 on 2024-03-28 contain both JSON and CSV files formatted according to ROR schema v1. 
-* Data releases beginning with release 1.45 on 2024-04-11 up to and including release 1.74 on 2025-11-24 contain JSON and CSV files formatted according to both schema v1 and schema v2. Version 2 files have `_schema_v2` appended to the end of the filename, e.g., `v1.45-2024-04-11-ror-data_schema_v2.json`. In order to maintain compatibility with previous release, version 1 files have no version information in the filename, e.g., `v1.45-2024-04-11-ror-data.json`. 
-* Data releases beginning with release 1.58 on 2024-12-11 include additional information added in schema v2.1 to all files where allowed by the schema version of that file. 
-* Data releases beginning with release 1.75 no longer contain JSON and CSV files formatted according to ROR schema v1. 
+* Data releases beginning with release 1.0 on 2022-03-17 up to and including release 1.20 on 2023-02-28 contain JSON files formatted according to ROR [Schema 1.0](doc:schema-v1).
 
-  
+* Data releases beginning with release 1.21 on 2023-03-16 up to and including release 1.44 on 2024-03-28 contain both JSON and CSV files formatted according to ROR [Schema 1.0](doc:schema-v1).
+
+* Data releases beginning with release 1.45 on 2024-04-11 up to and including release 1.74 on 2025-11-24 contain JSON and CSV files formatted according to both [Schema 1.0](doc:schema-v1) and [Schema 2.0](doc:schema-v2). Version 2 files have `_schema_v2` appended to the end of the filename, e.g., `v1.45-2024-04-11-ror-data_schema_v2.json`. In order to maintain compatibility with previous release, version 1 files have no version information in the filename, e.g., `v1.45-2024-04-11-ror-data.json`.
+
+* Data releases beginning with release 1.58 on 2024-12-11 include additional information added in [Schema 2.1](doc:schema-v2-1) to all files where allowed by the schema version of that file.
+
+* Data releases beginning with release 1.75 no longer contain JSON and CSV files formatted according to ROR Schema 1.0.
+
 For both schema versions, the CSV file contains a subset of fields from the JSON file, some of which have been flattened for easier parsing. Because ROR records and the ROR schema are maintained in JSON, CSVs are for convenience only. JSON is the format of record.
 
 # Releases
