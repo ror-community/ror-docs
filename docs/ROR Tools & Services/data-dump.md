@@ -30,7 +30,7 @@ All releases / versions of the entire ROR registry dataset are freely available 
 
 * Data releases beginning with release 1.58 on 2024-12-11 include additional information added in [Schema 2.1](doc:schema-v2-1).
 
-* Data releases beginning with release 1.75 no longer contain JSON and CSV files formatted according to ROR [Schema 1.0](doc:schema-v1).
+* Data releases after release 1.74 on 2025-11-24 no longer contain JSON and CSV files formatted according to ROR [Schema 1.0](doc:schema-v1).
 
 For both schema versions, the CSV file contains a subset of fields from the JSON file, some of which have been flattened for easier parsing. Because ROR records and the ROR schema are maintained in JSON, CSVs are for convenience only. JSON is the format of record.
 
