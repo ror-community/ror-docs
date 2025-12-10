@@ -18,7 +18,7 @@ metadata:
 ---
 The ROR API allows retrieving, searching and filtering the organizations indexed in ROR. The results are returned in JSON. The [code for the ROR API is openly available on GitHub](https://github.com/ror-community/ror-api), and the README on the repository includes instructions for how to run the ROR API locally using Docker.
 
-To suggest features or report bugs with the ROR API, [open an issue on the ROR roadmap](https://github.com/ror-community/ror-roadmap) or email [support@ror.org.](mailto:support@ror.org.)  
+To suggest features for or report bugs with the ROR API, [open an issue on the ROR roadmap](https://github.com/ror-community/ror-roadmap) or email [support@ror.org.](mailto:support@ror.org.)  
 
 # Responses
 
