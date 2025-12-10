@@ -22,16 +22,6 @@ Organization ID types you'll find in ROR records include:
 
 Not all records contain all of the ID types above in `external_ids`. In some cases, an equivalent ID may not exist in that identifier type.
 
-> 📘 Migrating from GRID to ROR
->
-> **GRID published its final public release on 16 Sep 2021** (see [GRID/ROR Transition FAQ](doc:grid))
->
-> If you're migrating to ROR from GRID, the good news is that [ROR's JSON data structure](doc:ror-data-structure) was identical to GRID's prior to April 2024 _and_ every GRID ID prior March 2022 had a one-to-one match to a ROR ID. 
->
-> The latest ROR data as well as earlier versions of ROR data is available from Zenodo, and you can [download the ROR data dump using the Zenodo API](doc:data-dump#download-ror-data-dumps-programmatically-with-the-zenodo-api). 
->
-> You can also find a list of ROR IDs and their equivalent GRID IDs from the Sep 2021 ROR data dump as a CSV file at [https://doi.org/10.5281/zenodo.5534785](https://doi.org/10.5281/zenodo.5534785).
-
 ## Map other IDs to ROR using the API
 
 This guide provides tips for implementing the ROR API for this specific use case. See the [REST API guide](doc:rest-api) for full information about the ROR API.
