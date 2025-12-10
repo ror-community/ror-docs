@@ -15,10 +15,6 @@ metadata:
 next:
   description: ''
 ---
-> ❗️ Version 1 of the ROR schema and API will be sunset in December 2025
->
-> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
-
 # Community feedback
 
 In the autumn of 2022, ROR asked for community feedback on plans for versioning the ROR metadata schema and API. Read the draft and final proposals below.
