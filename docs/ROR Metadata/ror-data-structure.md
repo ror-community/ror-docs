@@ -15,13 +15,9 @@ metadata:
     - ' metadata'
   robots: index
 ---
-> 👍 ROR Schema v2.1
->
-> This page documents ROR metadata schema v2.1. For documentation of ROR metadata schema v1, see [https://ror.readme.io/v1/docs/ror-data-structure](https://ror.readme.io/v1/docs/ror-data-structure). You can also read more about ROR [Schema versions](doc:schema-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
+The original ROR metadata schema inherited from GRID in 2019 is now known as version 1.0. After two rounds of community feedback in 2022/2023, [metadata schema version 2.0](doc:schema-v2) was developed and beta-tested, then launched into production in April 2024. [Schema 2.1](doc:schema-2-1), a minor update to v2 that adds additional location information, was launched in December 2024. 
 
-The original ROR metadata schema inherited from GRID in 2019 is now known as version 1.0. After two rounds of community feedback in 2022/2023, [metadata schema version 2.0](doc:schema-v2) was developed and beta-tested, then launched into production in April 2024. [Schema 2.1](doc:schema-2-1), a minor update to v2 that adds additional location information, was launched in December 2024.
-
-Version 1.0 of the ROR schema will continue to be available in the data dump and API at least through April 2025, although we recommend that you use ROR v2.1. Read more about ROR's plans for metadata [schema versioning](doc:schema-versions).
+Version 1.0 of the ROR schema was permanently sunset in 2025. Read more about ROR [schema versioning](doc:schema-versions).
 
 If you'd like to request a change to the ROR metadata schema, please [submit a schema change request on our roadmap](https://github.com/ror-community/ror-roadmap/issues/new/choose).
 
