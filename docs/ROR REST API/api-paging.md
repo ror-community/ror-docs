@@ -10,14 +10,6 @@ metadata:
     API.
   robots: index
 ---
-> 👍 ROR REST API v2
->
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/api-paging](https://ror.readme.io/v1/docs/api-paging). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
-
-> ❗️ Version 1 of the ROR schema and API will be sunset in December 2025
->
-> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
-
 # About paging
 
 Responses to queries of the ROR API are broken into pages with a maximum of 20 results per page beginning at page 1. If `metadata.number_of_results` is greater than 20, you can retrieve subsequent records by specifying the page number of the result. You can page through results of both standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query).
