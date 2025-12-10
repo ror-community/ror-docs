@@ -66,7 +66,7 @@ When a new version is deployed to production, any supported previous versions wi
 
 Plans to sunset a previous version will be announced at least 1 year prior to the planned sunset date, via the [ROR community meetings](https://ror.org/events) and other communication channels such as the [ROR blog](https://ror.org/blog), [Mastodon](https://mastodon.social/@ResearchOrgs), the [PID Forum](https://pidforum.org), the [Crossref Community forum](http://community.crossref.org), and the [ROR Technical forum](https://groups.google.com/a/ror.org/g/ror-tech). Regular reminders will continue prior to the sunset date.
 
-ROR [Schema 2.0](doc:schema-v2) was deployed to production in April 2024, with a minor, non-breaking update [Schema 2.1](doc:schema-2-1) deployed in December 2024. ROR schema v1 [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting) . 
+ROR [Schema 2.0](doc:schema-v2) was deployed to production in April 2024, with a minor, non-breaking update [Schema 2.1](doc:schema-2-1) deployed in December 2024. ROR schema v1 [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting).
 
 # Schema version implementation
 
