@@ -14,10 +14,6 @@ metadata:
 next:
   description: ''
 ---
-> 👍 ROR Basics v2
->
-> The pages in this guide document ROR v2. For v1 documentation, see [https://ror.readme.io/v1/docs/basics](https://ror.readme.io/v1/docs/basics). You can also read more about ROR [Schema versions](doc:schema-versions) and a summary of what's new in ROR [Schema 2.0](doc:schema-v2).
-
 # What is ROR?
 
 [The Research Organization Registry (ROR)](https://ror.org) (pronounced "roar") is a global, community-led, curated registry of open persistent identifiers for research organizations. ROR makes it easy for anyone or any system to disambiguate research organization affiliations and connect research organizations to researchers and research outputs.
@@ -28,8 +24,7 @@ To see which organizations are already included in the registry, you can:
 
 * Use the public search interface: [https://ror.org/search](https://ror.org/search)
 * Use the ROR API:
-  * [https://api.ror.org/v1/organizations](https://api.ror.org/organizations) (v1)
-  * [https://api.ror.org/v2/organizations](https://api.ror.org/v2/organizations) (v2)
+  * [https://api.ror.org/v2/organizations](https://api.ror.org/v2/organizations) 
 * Download the entire ROR data file: [https://zenodo.org/communities/ror-data](https://zenodo.org/communities/ror-data)
 
 ROR is the first and only organization identifier that is openly available (<Anchor label="CC0" target="_blank" href="https://creativecommons.org/public-domain/cc0/">CC0</Anchor> data available via an open REST API and public data dump), specifically focused on identifying affiliations in scholarly metadata, developed as a community initiative to meet community use cases, and designed to be integrated into open scholarly infrastructure. It is the preferred organization identifier of Crossref, DataCite, and ORCID.
