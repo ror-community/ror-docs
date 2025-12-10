@@ -20,7 +20,7 @@ next:
 ---
 All releases / versions of the entire ROR registry dataset are freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574) in both JSON and CSV formats. All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//).
 
-# Data format
+# Data formats
 
 * Data releases beginning with release 1.0 on 2022-03-17 up to and including release 1.20 on 2023-02-28 contain JSON files formatted according to ROR [Schema 1.0](doc:schema-v1).
 
