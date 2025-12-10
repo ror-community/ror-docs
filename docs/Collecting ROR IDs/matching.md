@@ -54,7 +54,7 @@ See [ROR OpenRefine Reconciler](doc:openrefine-reconciler) for written usage ins
 
 # Match organization names to ROR IDs using the ROR API
 
-The [ROR API](doc:api-about) offers several ways to search ROR that all work differently and return different results. Choose the best method for your data.
+The [ROR REST API](doc:rest-api) offers several ways to search ROR that all work differently and return different results. Choose the best method for your data.
 
 > 📘 What kind of data do you have?
 >
