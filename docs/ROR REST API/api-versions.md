@@ -28,7 +28,7 @@ The ROR metadata schema and API will be versioned in lockstep, meaning that when
 
 > 📘 Schema versioning
 >
-> The ROR API and schema are versioned together, so a new minor or major version of the API will be accompanied by a new major or minor version of the schema. Read more about [schema versioning](doc:schema-versions-copy).
+> The ROR API and schema are versioned together, so a new minor or major version of the API will be accompanied by a new major or minor version of the schema. Read more about [Schema versions](doc:schema-versions).
 
 The ROR API will use semantic versioning:
 
