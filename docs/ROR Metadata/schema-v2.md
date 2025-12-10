@@ -30,7 +30,7 @@ In the spring of 2023, ROR asked for community feedback on the specifics of majo
 
 # Planned changes
 
-Work to implement the below agreed-upon changes to the current ROR metadata schema  will continue throughout 2023, and version 2.0 of the ROR metadata schema is expected to be released in the last quarter of 2023 or early in 2024. The current version (unofficially v1.0) will be maintained for at least a year after the release of v2.0.
+Work to implement the below agreed-upon changes to the current ROR metadata schema will continue throughout 2023, and version 2.0 of the ROR metadata schema is expected to be released in the last quarter of 2023 or early in 2024. The current version (unofficially v1.0) will be maintained for at least a year after the release of v2.0.
 
 Read more about how ROR will handle [Schema versions](doc:schema-versions).
 
