@@ -15,10 +15,6 @@ metadata:
 next:
   description: ''
 ---
-> ❗️ Version 1 of the ROR schema and API will be sunset in December 2025
->
-> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
-
 > 📘 JSON Schema
 >
 > JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
