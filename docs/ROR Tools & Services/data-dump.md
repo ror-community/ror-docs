@@ -18,17 +18,18 @@ next:
       title: ROR Data on Zenodo
       url: https://doi.org/10.5281/zenodo.6347574
 ---
-> ❗️ Version 1 of the ROR schema and API will be sunset in December 2025
->
-> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
-
-The entire ROR registry dataset is freely available on Zenodo at [https://zenodo.org/doi/10.5281/zenodo.6347574](https://zenodo.org/doi/10.5281/zenodo.6347574) in both JSON and CSV formats for both v1 and v2 of the ROR metadata schema. All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//).
+The entire ROR registry dataset is freely available on Zenodo at [https://zenodo.org/doi/10.5281/zenodo.6347574](https://zenodo.org/doi/10.5281/zenodo.6347574) in both JSON and CSV formats. All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//).
 
 # Data format
 
-Beginning with release v1.45 on 11 April 2024, data releases contain JSON and CSV files formatted according to both schema v1 and schema v2. Version 2 files have `_schema_v2` appended to the end of the filename, e.g., `v1.45-2024-04-11-ror-data_schema_v2.json`. In order to maintain compatibility with previous release, version 1 files have no version information in the filename, e.g., `v1.45-2024-04-11-ror-data.json`.
+* Data releases beginning with release 1.0 on 2022-03-17 up to and including release 1.20 on 2023-02-28 contain JSON files formatted according to ROR schema v1. 
+* Data releases beginning with release 1.21 on 2023-03-16 up to and including release 1.44 on 2024-03-28 contain both JSON and CSV files formatted according to ROR schema v1. 
+* Data releases beginning with release 1.45 on 2024-04-11 up to and including release 1.74 on 2025-11-24 contain JSON and CSV files formatted according to both schema v1 and schema v2. Version 2 files have `_schema_v2` appended to the end of the filename, e.g., `v1.45-2024-04-11-ror-data_schema_v2.json`. In order to maintain compatibility with previous release, version 1 files have no version information in the filename, e.g., `v1.45-2024-04-11-ror-data.json`. 
+* Data releases beginning with release 1.58 on 2024-12-11 include additional information added in schema v2.1 to all files where allowed by the schema version of that file. 
+* Data releases beginning with release 1.75 no longer contain JSON and CSV files formatted according to ROR schema v1. 
 
-For both versions, the CSV file contains a subset of fields from the JSON file, some of which have been flattened for easier parsing. As ROR records and the ROR schema are maintained in JSON, CSVs are for convenience only. JSON is the format of record.
+  
+For both schema versions, the CSV file contains a subset of fields from the JSON file, some of which have been flattened for easier parsing. Because ROR records and the ROR schema are maintained in JSON, CSVs are for convenience only. JSON is the format of record.
 
 # Releases
 
@@ -49,8 +50,6 @@ Data releases are versioned as follows:
 * Major versions (ex 1.x, 2.x, 3.x):  Contains changes to data model/structure, as well as the data itself. Major versions will be released with significant advance notice.
 
 For convenience, the date is also included in the release file name, ex: v1.0-2022-03-15-ror-data.zip.
-
-Beginning with v1.45 in April 2024, ROR has introduced schema versioning, with files available in schema v1 and schema v2. The ROR API default version, however, remains v1 and will be changed to v2 in April 2025. To align with the API, the data dump major version will remain 1 until the API default version is changed to v2. At that time, the data dump major version will be incremented to 2 per below.
 
 ## Past
 
