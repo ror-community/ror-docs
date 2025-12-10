@@ -28,7 +28,7 @@ The entire ROR registry dataset is freely available on Zenodo at [https://zenodo
 
 * Data releases beginning with release 1.45 on 2024-04-11 up to and including release 1.74 on 2025-11-24 contain JSON and CSV files formatted according to both [Schema 1.0](doc:schema-v1) and [Schema 2.0](doc:schema-v2). Version 2 files have `_schema_v2` appended to the end of the filename, e.g., `v1.45-2024-04-11-ror-data_schema_v2.json`. In order to maintain compatibility with previous release, version 1 files have no version information in the filename, e.g., `v1.45-2024-04-11-ror-data.json`.
 
-* Data releases beginning with release 1.58 on 2024-12-11 include additional information added in [Schema 2.1](doc:schema-v2-1) to all files where allowed by the schema version of that file.
+* Data releases beginning with release 1.58 on 2024-12-11 include additional information added in [Schema 2.1](doc:schema-v2-1).
 
 * Data releases beginning with release 1.75 no longer contain JSON and CSV files formatted according to ROR Schema 1.0.
 
