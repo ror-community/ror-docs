@@ -15,7 +15,7 @@ metadata:
 next:
   description: ''
 ---
-ROR API v2 [was deployed to production in April 2024](https://ror.readme.io/changelog/2024-04-11-schema-api-v2). ROR API v1 [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting).
+This page documents policies around ROR API versioning. ROR API v2 [was deployed to production in April 2024](https://ror.readme.io/changelog/2024-04-11-schema-api-v2). ROR API v1 [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting).
 
 # Community feedback
 
