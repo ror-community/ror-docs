@@ -16,14 +16,6 @@ metadata:
     - ROR REST API
   robots: index
 ---
-> 👍 ROR REST API v2
->
-> This page documents v2 of the ROR REST API. For v1 documentation of the ROR REST API, see [https://ror.readme.io/v1/docs/rest-api](https://ror.readme.io/v1/docs/rest-api). You can also read more about ROR [API versions](doc:api-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1). The ROR REST API allows users to retrieve, search, and filter the organizations indexed in ROR. The API is built with Django, indexing and search is enabled by Elasticsearch, and results are returned as JSON. Version 2 of the ROR REST API, released in April 2024, is available at **[https://api.ror.org/v2/organizations](https://api.ror.org/v2/organizations)**.
-
-> ❗️ Version 1 of the ROR schema and API will be sunset in December 2025
->
-> In December 2025, version 1 of the ROR schema and API will be sunset, meaning that ROR API requests with v1 in the path will no longer return a response, v1 files will no longer be included in the ROR data dump, and v1 documentation will no longer be available. Read more in our [changelog](https://ror.readme.io/changelog/2025-07-01-sunset-of-version-1#/).
-
 Queries to the ROR API will return all [fields](doc:fields) in ROR's [data structure](doc:ror-data-structure) regardless of whether they have a value. JSON will include null values and empty arrays and objects if there is no value available for the given organization. Values in fields that contain multiple values are sorted by Unicode value, which is alphabetical for characters in the Basic Latin set.
 
 Beginning 1 Dec 2022, the ROR API by default returns only records whose [status](doc:ror-data-structure#status) is "active". Records with the new status values "inactive" and "withdrawn" can be included using the new query parameter `?all_status`. In addition, after this date, some ROR records contain the new values "Predecessor" and "Successor" in `relationships.type`. See the [2022-12-01 changelog post](https://ror.readme.io/changelog/2022-12-01-organization-status-changes) for more details.
