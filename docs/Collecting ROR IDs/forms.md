@@ -43,7 +43,7 @@ Use a ROR-powered typeahead to capture creator affiliations (e.g., University of
 
 ## Allow users to search for variant names
 
-The `names` field includes variations on an organization's name such as its name in other languages, acronyms, and aliases, any of which a user might and should be able to search for. The `?query` parameter of the ROR API will search an index of all these name fields, but if you build your own search logic, make sure you configure your typeahead to allow searching for all the values in the `names` field. Read more about the `names` field in ROR's [Data structure](doc:ror-data-structure). 
+The `names` field includes variations on an organization's name such as its name in other languages, acronyms, and aliases, any of which a user might and should be able to search for. The `?query` parameter of the ROR API will search an index of all these name fields, but if you build your own search logic, make sure you configure your typeahead to allow searching for all the values in the `names` field. Read more about the `names` field in ROR's [Data structure](doc:ror-data-structure).
 
 In the below example, the ROR record for the University of Wisconsin-Madison, [https://ror.org/01y2jtd41](https://ror.org/01y2jtd41), contains several values in the `names` field: the `ror_display` name "University of Wisconsin-Madison", the `alias` "UW-Madison", the `acronym` "UW",  and `labels` for the organization's name in French and Spanish. All values are searchable.
 
@@ -139,7 +139,7 @@ Steps to implement a typeahead widget using the ROR [REST API](doc:rest-api) wil
 
 1. Send user input to the ROR API.
 
-As the user types their affiliation, send the input to the ROR API. We recommend using the [query parameter](doc:api-query) search. You may also wish to first [check the heartbeat of the ROR API](doc:api-about#heartbeat).
+As the user types their affiliation, send the input to the ROR API. We recommend using the [query parameter](doc:api-query) search. You may also wish to first [check the heartbeat of the ROR API](doc:rest-api#heartbeat).
 
 2. Parse results.
 
