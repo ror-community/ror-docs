@@ -21,10 +21,6 @@ next:
       url: >-
         https://ror.org/blog/2023-02-27-parents-children-and-other-relationships-in-ror/
 ---
-> 👍 ROR Schema v2.1
->
-> This page documents relationships in ROR metadata schema v2.1 For documentation of relationships in ROR metadata schema v1, see [\<https://ror.readme.io/v1/docs/relationships>](https://ror.readme.io/v1/docs/relationships). You can also read more about ROR [schema versions](doc:schema-versions) and a summary of what's new in [Schema 2.0](doc:schema-v2) and [Schema 2.1](doc:schema-2-1).
-
 # How ROR handles relationships
 
 ROR records store both structural and temporal connections in the `relationships` field with the values "Parent", "Child", "Related", "Successor", and "Predecessor", allowing systems to understand and display organizational hierarchies and connections. The `relationships` element is an array, so organizations can have multiple children, multiple parents, and multiple lateral relationships.
