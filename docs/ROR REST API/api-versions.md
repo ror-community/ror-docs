@@ -63,6 +63,8 @@ When a new API version is deployed to production, any supported previous version
 
 Plans to sunset a previous version will be announced at least 1 year prior to the planned sunset date, via the [ROR community meetings](https://ror.org/events) and other communication channels such as the [ROR blog](https://ror.org/blog), [Mastodon](https://mastodon.social/@ResearchOrgs), the [PID Forum](https://pidforum.org), the [Crossref Community Forum](http://community.crossref.org), and the [ROR Technical Forum](https://groups.google.com/a/ror.org/g/ror-tech). Regular reminders will continue prior to the sunset date.
 
+[ROR API v2](doc:api-v2) was deployed to production in April 2024. ROR API v1 [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting).
+
 # Implementing API versions
 
 Major versions will be required in the path portion of an API request, e.g., `https://api.ror.org/X.X/organizations`.
