@@ -18,7 +18,7 @@ next:
       title: ROR Data on Zenodo
       url: https://doi.org/10.5281/zenodo.6347574
 ---
-The entire ROR registry dataset is freely available on Zenodo at https://doi.org/10.5281/zenodo.6347574 in both JSON and CSV formats. All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//).
+The entire ROR registry dataset is freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574) in both JSON and CSV formats. All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//).
 
 # Data format
 
@@ -26,7 +26,7 @@ The entire ROR registry dataset is freely available on Zenodo at https://doi.org
 
 * Data releases beginning with release 1.21 on 2023-03-16 up to and including release 1.44 on 2024-03-28 contain both JSON and CSV files formatted according to ROR [Schema 1.0](doc:schema-v1).
 
-* Data releases beginning with release 1.45 on 2024-04-11 up to and including release 1.74 on 2025-11-24 contain JSON and CSV files formatted according to both [Schema 1.0](doc:schema-v1) and [Schema 2.0](doc:schema-v2). Version 2 files have `_schema_v2` appended to the end of the filename, e.g., `v1.45-2024-04-11-ror-data_schema_v2.json`. In order to maintain compatibility with previous release, version 1 files have no version information in the filename, e.g., `v1.45-2024-04-11-ror-data.json`.
+* Data releases beginning with release 1.45 on 2024-04-11 up to and including release 1.74 on 2025-11-24 contain JSON and CSV files formatted according to both [Schema 1.0](doc:schema-v1) and [Schema 2.0](doc:schema-v2). Version 2 files have `_schema_v2` appended to the end of the filename, e.g., `v1.45-2024-04-11-ror-data_schema_v2.json`. In order to maintain compatibility with previous releases, version 1 files have no version information in the filename, e.g., `v1.45-2024-04-11-ror-data.json`.
 
 * Data releases beginning with release 1.58 on 2024-12-11 include additional information added in [Schema 2.1](doc:schema-v2-1).
 
