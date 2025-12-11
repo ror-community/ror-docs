@@ -67,7 +67,7 @@ Plans to sunset a previous version will be announced at least 1 year prior to th
 
 # Implementing API versions
 
-Major versions will be specified in the path portion of an API request, e.g., `https://api.ror.org/X.X/organizations`. Minor (non-breaking) API version changes will be implemented within the current major version.
+Major versions will be specified in the path portion of an API request, e.g., `https://api.ror.org/vX/organizations`. Minor (non-breaking) API version changes will be implemented within the current major version.
 
 2 major API versions will be supported concurrently (the current major version and the most recent previous version). Requests using an unsupported API version will return a 410 Gone error with a detailed message.
 
