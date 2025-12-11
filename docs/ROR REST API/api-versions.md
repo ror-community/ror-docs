@@ -67,9 +67,7 @@ Plans to sunset a previous version will be announced at least 1 year prior to th
 
 # Implementing API versions
 
-Major versions will be required in the path portion of an API request, e.g., `https://api.ror.org/X.X/organizations`.
-
-Requests that do not include a version in the path portion will default to version 1 of the API and schema until version 1 is sunset. At that point a version will be required in the path, and requests without a version in the path portion will return a 410 Gone error, with a detailed message.
+Major versions will be specified in the path portion of an API request, e.g., `https://api.ror.org/X.X/organizations`.
 
 Minor (non-breaking) API version changes will be implemented within the current major version.
 
