@@ -29,15 +29,15 @@ In the autumn of 2022, ROR asked for community feedback on plans for versioning 
 
 # Schema versioning
 
-The ROR metadata schema and API will be versioned in lockstep, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version.
+The ROR metadata schema and API will be versioned in lockstep for major versions, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version.
 
 > 📘 API versioning
 >
-> The ROR schema and API are versioned together, so a new minor or major version of the schema will be accompanies by a new major or minor version of the API. Read more about [API versioning](doc:api-versions).
+> The ROR schema and API are versioned together, so a new major version of the schema will be accompanied by a new major version of the API. Read more about [API versioning](doc:api-versions).
 
 The ROR metadata schema will use semantic versioning:
 
-* A minor version (ex, X.1, X.2, etc) will be incremented when non-breaking changes are made, such as adding an element.
+* A minor version (ex, X.1, X.2, etc) will be incremented when non-breaking changes are made, such as adding an element. Since minor schema versions are non-breaking, they will be rolled into the appropriate major version of the API. 
 * A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing or restructuring an element, changing the structure or data type of a schema element (e.g., changing a single value to an array), or emoving items from controlled lists of allowed values.
 
 # Changes that require versioning
