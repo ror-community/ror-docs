@@ -30,7 +30,7 @@ The ROR metadata schema and API will be versioned in lockstep, meaning that when
 
 > 📘 Schema versioning
 >
-> The ROR API and schema are versioned together, so a new minor or major version of the API will be accompanied by a new major or minor version of the schema. Read more about [Schema versions](doc:schema-versions).
+> The ROR API and schema are versioned together, so a new minor or major version of the API will be accompanied by a new major or minor version of the schema. Minor schema updates, however, will be rolled into major versions of the API. Read more about [Schema versions](doc:schema-versions).
 
 The ROR API will use semantic versioning:
 
@@ -61,13 +61,13 @@ New versions will be made available in the ROR [staging environment](https://api
 
 # Supporting and sunsetting previous API versions
 
-When a new API version is deployed to production, any supported previous versions will continue to be supported until their planned sunset date. 
+When a new API version is deployed to production, any supported previous versions will continue to be supported until their planned sunset date.
 
 Plans to sunset a previous version will be announced at least 1 year prior to the planned sunset date, via the [ROR community meetings](https://ror.org/events) and other communication channels such as the [ROR blog](https://ror.org/blog), [Mastodon](https://mastodon.social/@ResearchOrgs), [Bluesky](https://bsky.app/profile/researchorgs.bsky.social), [LinkedIn](https://www.linkedin.com/company/ror-research-organization-registry), the [ROR Technical Forum](https://groups.google.com/a/ror.org/g/ror-tech), and the [ROR Community Forum](https://groups.google.com/a/ror.org/g/ror-community). Regular reminders will continue prior to the sunset date.
 
 # Implementing API versions
 
-Major versions will be specified in the path portion of an API request, e.g., `https://api.ror.org/vX/organizations`. Minor (non-breaking) API version changes will be implemented within the current major version. 
+Major versions will be specified in the path portion of an API request, e.g., `https://api.ror.org/vX/organizations`. Minor (non-breaking) API version changes will be implemented within the current major version.
 
 2 major API versions will be supported concurrently (the current major version and the most recent previous version). Requests using an unsupported API version will return a 410 Gone error with a detailed message.
 
