@@ -26,11 +26,11 @@ In the autumn of 2022, ROR asked for community feedback on plans for versioning 
 
 # API versioning
 
-The ROR metadata schema and API will be versioned in lockstep, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version.
+When a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version.
 
 > 📘 Schema versioning
 >
-> The ROR API and schema are versioned together, so a new minor or major version of the API will be accompanied by a new major or minor version of the schema. Minor schema updates, however, will be rolled into major versions of the API. Read more about [Schema versions](doc:schema-versions).
+> A new major version of the API will be accompanied by a new major version of the schema. Minor schema updates, however, will be rolled into major versions of the API. Read more about [Schema versions](doc:schema-versions).
 
 The ROR API will use semantic versioning:
 
