@@ -37,8 +37,8 @@ The ROR metadata schema and API will be versioned in lockstep for major versions
 
 The ROR metadata schema will use semantic versioning:
 
-* A minor version (ex, X.1, X.2, etc) will be incremented when non-breaking changes are made, such as adding an element. Since minor schema versions are non-breaking, they will be rolled into the appropriate major version of the API. 
-* A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing or restructuring an element, changing the structure or data type of a schema element (e.g., changing a single value to an array), or emoving items from controlled lists of allowed values.
+* A minor version (ex, X.1, X.2, etc) will be incremented when non-breaking changes are made, such as adding an element. Since minor schema versions are non-breaking, they will be rolled into the appropriate major version of the API.
+* A major version (ex, 1.X, 2.X, etc) will be incremented when breaking changes are made, such as removing or restructuring an element, changing the structure or data type of a schema element (e.g., changing a single value to an array), or removing items from controlled lists of allowed values.
 
 # Changes that require versioning
 
