@@ -14,7 +14,7 @@ metadata:
 ---
 # Requesting additions and changes
 
-Anyone can request for a new organization to be added to ROR or for an existing ROR record to be changed via a public [curation request form](http://curation-request.ror.org), which is linked to from each ROR record in the browser-based [ROR search](https://ror.org/search). You do not need to be affiliated with an organization to suggest changes to the organization’s record in ROR, since each request is evaluated on its own merits by ROR curators.
+Anyone can ask for a new organization to be added to ROR or for an existing ROR record to be changed via a public [curation request form](http://curation-request.ror.org), which is linked to from each ROR record in the browser-based [ROR search](https://ror.org/search). You do not need to be affiliated with an organization to suggest changes to the organization’s record in ROR, since each request is evaluated on its own merits by ROR curators.
 
 If you have more than one request, please submit a separate [curation request form](http://curation-request.ror.org) for each organization/record or [create the corresponding issues in our ror-updates GitHub repository](https://github.com/ror-community/ror-updates/issues/new/choose). The latter method requires a GitHub account, but it is generally faster to create a GitHub issue than to complete the form.
 
