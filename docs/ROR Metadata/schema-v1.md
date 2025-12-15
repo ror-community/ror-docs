@@ -9,6 +9,10 @@ metadata:
 >
 > ROR schema and API v1 were permanently sunset in December 2025 and are no longer supported. [Read more on the ROR changelog.](changelog:2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting)
 
+> 👍 Recommended schema
+>
+> ROR [Schema 2.1](doc:schema-v2-1) is the current recommended, stable schema. It is the version used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). See [Data structure](doc:ror-data-structure) and [Fields and sub-fields](doc:fields) for full documentation of the current recommended schema.
+
 Version 1 of ROR's data structure (aka its "metadata schema" or "JSON schema") is based on [Digital Science's GRID](https://digitalscience.figshare.com/search?q=GRID\&itemTypes=3), which provided the original seed data for the registry. GRID retired its public releases as of 16 Sep 2021, and ROR began managing its data independently from GRID in March 2022.
 
 After two rounds of community feedback in 2022/2023, [metadata schema version 2.0](doc:schema-v2) was developed and launched in April 2024, after which the ROR metadata schema inherited from GRID in 2019 became known as version 1.0. [Schema 2.1](doc:schema-2-1) was deployed in December 2024 and is the recommended and most recent version of ROR's [Data structure](doc:ror-data-structure). Version 1.0 of the ROR schema was sunset in December 2025 in accordance with ROR's policies on metadata [schema versioning](doc:schema-versions).
