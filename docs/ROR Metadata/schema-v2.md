@@ -18,7 +18,7 @@ next:
 ---
 > 👍 Recommended schema
 >
-> ROR [Schema 2.1](doc:schema-v2-1) is the current recommended, stable schema. It is the version used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). See [Data structure](doc:ror-data-structure) for documentation of the current recommended schema.
+> This page documents ROR Schema 2.0. ROR [Schema 2.1](doc:schema-v2-1), a minor, non-breaking update to Schema 2.0, is the current recommended, stable schema. Schema 2.1 is the schema version used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). See [Data structure](doc:ror-data-structure) for documentation of the current recommended schema.
 >
 > JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
 
