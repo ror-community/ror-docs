@@ -15,7 +15,12 @@ metadata:
     - ' metadata'
   robots: index
 ---
-This page documents the most recent version of the ROR data structure, also known as the ROR metadata schema.
+> 👍 Recommended schema
+>
+> This page documents the current recommended, stable schema, [Schema 2.1](doc:schema-v2-1), which is used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). 
+>
+> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+
 
 The original ROR metadata schema inherited from GRID in 2019 is now known as version 1.0. After two rounds of community feedback in 2022/2023, [metadata schema version 2.0](doc:schema-v2) was developed and beta-tested, then launched into production in April 2024. [Schema 2.1](doc:schema-v2-1), a minor update to v2 that adds additional location information, was launched in December 2024 and is the recommended and most recent version.
 
