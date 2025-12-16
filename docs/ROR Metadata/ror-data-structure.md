@@ -29,10 +29,6 @@ If you'd like to request a change to the ROR metadata schema, please [submit a s
 
 # Fields
 
-> 📘 JSON Schema
->
-> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
-
 Below are listed the top-level fields (or "elements") in the v2.1 ROR metadata schema along with their names, definitions, types, whether the field is required, and whether a value in the field is required.
 
 Queries to the ROR API will return all fields regardless of whether they have a value. JSON will include null values and empty arrays and objects if there is no value available for the given organization. Values in fields that contain multiple values are sorted by Unicode value, which is alphabetical for characters in the Basic Latin set.
