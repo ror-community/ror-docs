@@ -70,6 +70,8 @@ In cases where you have Wikidata, ISNI, Funder IDs, or GRID identifiers or when 
 
 For best results, search for an identifier, for keywords from the organization's name, or for the exact name of the organization surrounded by double quotation marks and if possible [filter](doc:api-filtering) the results by organization type and/or location. See also our guide to [Mapping other organization IDs to ROR IDs](doc:mapping).
 
+You should also use the [Query parameter](doc:api-query) if you are building a user-facing form in which users type in keywords from an organization's name and then select a result. See [Create ROR-powered forms](doc:forms) for more information.
+
 ## Advanced query approach
 
 In cases where you do not have organization identifiers or locations, but do have organization websites or Wikipedia pages stored as structured data, use the [Advanced query parameter](doc:api-advanced-query) of the ROR API to match organizations to ROR IDs. This approach allows you to search fields not indexed by the [Query parameter](doc:api-query) such as `domains` and `links`.
