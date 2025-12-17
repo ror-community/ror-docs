@@ -125,5 +125,3 @@ Several projects and researchers have developed scripts and/or machine learning 
 ROR has collected sets of data from Springer Nature, the American Physical Society, OpenAlex, and Crossref for testing and training affiliation matching strategies, and these datasets are openly available at [https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data](https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data). These datasets include affiliation text strings from production systems that have been matched to ROR IDs with varying levels of human review.
 
 Crossref has also published a dataset of DOI metadata with over 140 million affiliation assertions from Crossref metadata records through March 2025 that has been used to test the ROR API [single search affiliation matching strategy](https://ror.readme.io/docs/api-affiliation#/single-search-strategy). It includes automatically-detected matches for over 94 million affiliation assertions.
-
-<br />
