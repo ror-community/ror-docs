@@ -3052,7 +3052,7 @@ When there's no result with the `chosen:true` indicator (i.e., all results of a 
 
 > ❗️ Don't automatically select results by score or order
 >
-> When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true `indicator. If there is no result with `chosen:true`, leave the string unmatched or add an additional layer of human or machine matching, at your discretion. Don't automatically select results higher than a particular confidence score, and don't automatically select the first result in the list.
+> When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true` indicator. If there is no result with `chosen:true`, leave the string unmatched or add an additional layer of human or machine matching, at your discretion. Don't automatically select results higher than a particular confidence score, and don't automatically select the first result in the list.
 
 ## Example
 
