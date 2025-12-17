@@ -3050,9 +3050,9 @@ The substring used to find the match in this case is "Department of Urology, Gre
 
 When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed.
 
-> 🚧 Don't automatically select the first result of an ?affiliation query
+> 🚧 Don't automatically select results by score or order
 >
-> When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true `indicator and leave the string unmatched or add an additional layer of human or machine matching, at your discretion.
+> When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true `indicator. If there is no result with `chosen:true`, leave the string unmatched or add an additional layer of human or machine matching, at your discretion. Don't automatically select results higher than a particular confidence score, and don't automatically select the first result in the list. 
 
 ## Example
 
