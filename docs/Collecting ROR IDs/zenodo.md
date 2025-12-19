@@ -10,7 +10,7 @@ next:
       title: Data dump
       type: basic
 ---
-ROR data dumps are [hosted on Zenodo](https://zenodo.org/records/6347574) and can be downloaded programmatically using the Zenodo REST API.
+ROR data dumps are [hosted on Zenodo](https://zenodo.org/records/6347574) and can be downloaded programmatically using the Zenodo REST API. You can retrieve the most recent data dump release or any previous release.
 
 ## How Zenodo versioning works
 
@@ -33,7 +33,7 @@ headers = {
 
 ## Getting and using an API key
 
-While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access and is therefore recommended for retrieving ROR data. 
+While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access and is therefore recommended for retrieving ROR data.
 
 To get an API key, follow these steps:
 
