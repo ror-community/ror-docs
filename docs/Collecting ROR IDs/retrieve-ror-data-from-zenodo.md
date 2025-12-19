@@ -26,25 +26,29 @@ headers = {
 }
 ```
 
-### Authentication (recommended)
+## Authentication (recommended)
 
-While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access.
+While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access. 
 
-**Getting an API key:**
+### Getting an API key
 
 1. Create a [Zenodo account](https://zenodo.org/signup/)
 2. Go to [Applications > Personal access tokens](https://zenodo.org/account/settings/applications/)
 3. Create a new token (no special scopes needed for read-only access)
 
-**Shell (curl):**
+### Example   
 
-```bash
+Shell / cURL 
+
+```curl
 export ZENODO_API_KEY="your-api-key-here"
 curl -sL -H "Authorization: Bearer $ZENODO_API_KEY" \
     "https://zenodo.org/api/records/6347574"
 ```
 
-**Python:**
+####
+
+Python
 
 ```python
 import os
@@ -73,6 +77,8 @@ The simplest way to download the latest ROR data dump is to use the concept reco
 
 ### Example
 
+Shell / cURL 
+
 ```curl
 # Fetch metadata for the latest version
 curl -sL "https://zenodo.org/api/records/6347574"
@@ -80,7 +86,7 @@ curl -sL "https://zenodo.org/api/records/6347574"
 
 To download the data file, first fetch the metadata to get the filename and download URL:
 
-```bash
+```curl
 #!/bin/bash
 set -e
 
@@ -113,7 +119,9 @@ else
 fi
 ```
 
-### Python
+### Example  
+
+Python
 
 ```python
 import hashlib
@@ -184,7 +192,7 @@ if __name__ == "__main__":
     print(f"\nDownloaded: {result['file_path']}")
 ```
 
-## Understanding the Redirect
+## Understanding the redirect
 
 When you request the concept record (`/api/records/6347574`), Zenodo returns a `302 redirect` to the current latest version. Most HTTP clients follow this automatically, but you can handle it explicitly if you want to see which version you're getting.
 
@@ -226,7 +234,7 @@ def get_latest_version_explicit():
         return response.json()
 ```
 
-## Discover All Versions
+## Discover all versions
 
 To programmatically list all available ROR data releases, search by the concept record ID with `all_versions=true`.
 
@@ -298,11 +306,11 @@ for v in result["versions"][:10]:
 
 Note: Unauthenticated requests are limited to 25 results per page. Use pagination or authentication for larger result sets.
 
-## Get a Specific Version
+## Get a specific version
 
 To download a specific version of the ROR data dump, use the version-specific record ID.
 
-### Finding Record IDs
+### Finding record IDs
 
 When you fetch the latest version, the response includes the resolved record ID:
 
@@ -315,7 +323,7 @@ print(f"Concept DOI: {metadata['conceptdoi']}") # 10.5281/zenodo.6347574
 
 To find a specific historical version, use the `list_all_versions()` function above and extract the `record_id` from the results.
 
-### Fetching a Specific Version
+### Fetching a specific version
 
 Once you have the record ID, fetch it directly:
 
@@ -358,11 +366,11 @@ print(f"DOI: {metadata['doi']}")
 print(f"File: {metadata['files'][0]['key']}")
 ```
 
-## Schema Versions and File Validation
+## Schema versions and file validation
 
 ROR data has evolved through multiple schema versions. Understanding this history helps when working with historical releases.
 
-### Schema History
+### Schema history
 
 | Era               | Data Releases | Schema  | Files in ZIP               | Filename Pattern                            |
 | ----------------- | ------------- | ------- | -------------------------- | ------------------------------------------- |
@@ -370,7 +378,7 @@ ROR data has evolved through multiple schema versions. Understanding this histor
 | Transition period | 2022-2025     | v1 + v2 | Both v1 and v2 formats     | v2 files have `_schema_v2` suffix           |
 | Current (v2.0+)   | Dec 2025+     | v2 only | Single JSON + CSV          | `v2.0-2025-12-16-ror-data.json` (no suffix) |
 
-### Schema Repository
+### Schema repository
 
 ROR schemas are maintained at: [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema)
 
@@ -462,7 +470,7 @@ if __name__ == "__main__":
     print(f"Columns: {result['columns'][:5]}...")  # First 5 columns
 ```
 
-### Validating Downloaded Data
+### Validating downloaded data
 
 Use can use the following code example to detect the schema version and validate a ROR data file:
 
@@ -583,7 +591,7 @@ if __name__ == "__main__":
         print(f"Errors: {result['errors']}")
 ```
 
-### Expected File Contents by Version
+### Expected file contents by version
 
 **v2.0+ releases** contain exactly two files:
 
@@ -605,7 +613,7 @@ def inspect_zip_contents(zip_path):
             print(f"  {info.filename} ({size_mb:.2f} MB)")
 ```
 
-## Complete Example
+## Complete Example Script
 
 Here is a complete script that downloads the latest ROR data dump, verifies the checksum, and validates both JSON and CSV files against the schema. You can save this as `download_ror_data.py` and run:
 
