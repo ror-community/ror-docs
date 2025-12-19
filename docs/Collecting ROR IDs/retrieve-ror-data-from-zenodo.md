@@ -31,15 +31,17 @@ headers = {
 }
 ```
 
-## Authentication (recommended)
+## Getting and using an API key
 
-While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access.
+While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access and is therefore the recommended method. 
 
-### Getting an API key
+To get an API key, follow these steps: 
 
 1. Create a [Zenodo account](https://zenodo.org/signup/)
 2. Go to [Applications > Personal access tokens](https://zenodo.org/account/settings/applications/)
-3. Create a new token (no special scopes needed for read-only access)
+3. Create a new token (no special scopes needed for read-only access)  
+
+To use the API key in retrieving files, see the following examples. 
 
 ### Example - cURL
 
