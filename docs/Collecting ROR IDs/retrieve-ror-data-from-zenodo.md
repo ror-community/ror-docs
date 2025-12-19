@@ -33,15 +33,15 @@ headers = {
 
 ## Getting and using an API key
 
-While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access and is therefore the recommended method. 
+While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access and is therefore the recommended method.
 
-To get an API key, follow these steps: 
+To get an API key, follow these steps:
 
 1. Create a [Zenodo account](https://zenodo.org/signup/)
 2. Go to [Applications > Personal access tokens](https://zenodo.org/account/settings/applications/)
-3. Create a new token (no special scopes needed for read-only access)  
+3. Create a new token (no special scopes needed for read-only access)
 
-To use the API key in retrieving files, see the following examples. 
+To use the API key in retrieving files, see the following examples.
 
 ### Example - cURL
 
@@ -197,7 +197,7 @@ When you request the concept record (`/api/records/6347574`), Zenodo returns a `
 
 ### Example - cURL
 
-```bash
+```curl
 # See the redirect without following it
 curl -sI "https://zenodo.org/api/records/6347574" | grep -i location
 # Output: location: /api/records/17953395
@@ -616,7 +616,7 @@ def inspect_zip_contents(zip_path):
 
 Here is a complete script that downloads the latest ROR data dump, verifies the checksum, and validates both JSON and CSV files against the schema. You can save this as `download_ror_data.py` and run:
 
-```bash
+```curl
 pip install requests jsonschema
 python download_ror_data.py ./data
 ```
