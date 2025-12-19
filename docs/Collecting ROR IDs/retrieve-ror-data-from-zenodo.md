@@ -41,9 +41,7 @@ While the Zenodo API works without authentication for public records, using an A
 2. Go to [Applications > Personal access tokens](https://zenodo.org/account/settings/applications/)
 3. Create a new token (no special scopes needed for read-only access)
 
-### Example
-
-Shell / cURL
+### Example - cURL
 
 ```curl
 export ZENODO_API_KEY="your-api-key-here"
@@ -51,9 +49,7 @@ curl -sL -H "Authorization: Bearer $ZENODO_API_KEY" \
     "https://zenodo.org/api/records/6347574"
 ```
 
-####
-
-Python
+### Example - Python
 
 ```python
 import os
@@ -80,9 +76,7 @@ response = requests.get(
 
 The simplest way to download the latest ROR data dump is to use the concept record ID, which automatically redirects to the most recent release.
 
-### Example
-
-Shell / cURL
+### Example - cURL
 
 ```curl
 # Fetch metadata for the latest version
@@ -124,9 +118,7 @@ else
 fi
 ```
 
-### Example
-
-Python
+### Example - Python
 
 ```python
 import hashlib
@@ -201,7 +193,7 @@ if __name__ == "__main__":
 
 When you request the concept record (`/api/records/6347574`), Zenodo returns a `302 redirect` to the current latest version. Most HTTP clients follow this automatically, but you can handle it explicitly if you want to see which version you're getting.
 
-### Shell (curl)
+### Example - cURL
 
 ```bash
 # See the redirect without following it
@@ -213,7 +205,7 @@ LATEST_URL=$(curl -sI "https://zenodo.org/api/records/6347574" | grep -i locatio
 curl -s "https://zenodo.org${LATEST_URL}"
 ```
 
-### Python
+### Example - Python
 
 ```python
 import requests
@@ -243,9 +235,9 @@ def get_latest_version_explicit():
 
 To programmatically list all available ROR data releases, search by the concept record ID with `all_versions=true`.
 
-**Shell (curl):**
+### Example - cURL
 
-```bash
+```curl
 # List all ROR data releases, newest first
 curl -s "https://zenodo.org/api/records?q=conceptrecid:6347574&all_versions=true&sort=mostrecent&size=25"
 
@@ -254,7 +246,7 @@ curl -s "https://zenodo.org/api/records?q=conceptrecid:6347574&all_versions=true
     jq '.hits.hits[] | {id: .id, doi: .doi, date: .metadata.publication_date, file: .files[0].key}'
 ```
 
-**Python:**
+### Example - Python
 
 ```python
 import requests
@@ -330,16 +322,16 @@ To find a specific historical version, use the `list_all_versions()` function ab
 
 ### Fetching a specific version
 
-Once you have the record ID, fetch it directly:
+Once you have the record ID, fetch it directly.
 
-**Shell (curl):**
+### Example - cURL
 
-```bash
+```curl
 # Fetch a specific version directly (no redirect)
 curl -s "https://zenodo.org/api/records/17953395"
 ```
 
-**Python:**
+### Example - Python
 
 ```python
 import requests
