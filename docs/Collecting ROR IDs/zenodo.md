@@ -33,7 +33,7 @@ headers = {
 
 ## Getting and using an API key
 
-While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access and is therefore the recommended method.
+While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access and is therefore recommended for retrieving ROR data. 
 
 To get an API key, follow these steps:
 
