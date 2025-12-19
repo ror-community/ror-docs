@@ -4,6 +4,11 @@ deprecated: false
 hidden: true
 metadata:
   robots: index
+next:
+  pages:
+    - slug: data-dump
+      title: Data dump
+      type: basic
 ---
 ROR data dumps are [hosted on Zenodo](https://zenodo.org/records/6347574) and can be downloaded programmatically using the Zenodo REST API.
 
@@ -613,7 +618,7 @@ def inspect_zip_contents(zip_path):
             print(f"  {info.filename} ({size_mb:.2f} MB)")
 ```
 
-## Complete Example Script
+## Complete example script
 
 Here is a complete script that downloads the latest ROR data dump, verifies the checksum, and validates both JSON and CSV files against the schema. You can save this as `download_ror_data.py` and run:
 
