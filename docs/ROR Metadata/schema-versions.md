@@ -74,6 +74,6 @@ Schema files are stored in [ror-schema](https://github.com/ror-community/ror-sch
 
 Previous schema files will not be deleted.
 
-Data dumps will be created for all currently supported schema versions (typically 2 versions, but possibly 3 versions if a new schema version has recently been released
+Data dumps will be created for all currently supported schema versions (typically 2 versions, but possibly 3 versions if a new schema version has recently been released.
 
 Data dumps will continue to be added to a single Zenodo record as versions, versioned based on the snapshot date.
