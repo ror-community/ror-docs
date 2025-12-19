@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-ROR data dumps are hosted on [Zenodo](https://zenodo.org/records/6347574) and can be downloaded programmatically using the Zenodo REST API.
+ROR data dumps are [hosted on Zenodo](https://zenodo.org/records/6347574) and can be downloaded programmatically using the Zenodo REST API.
 
 ## How Zenodo versioning works
 
