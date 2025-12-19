@@ -23,7 +23,7 @@ For most use cases, it's best to use the concept record to automatically get the
 
 ## Request headers
 
-When making requests to the Zenodo API, set appropriate headers. Zenodo tends to block requests with user-agents like those used by the default in Python's `requests` library or similar.
+When making requests to the Zenodo API, set appropriate headers. Be aware, however, Zenodo tends to block requests with user-agents like those used by the default in Python's `requests` library or similar.
 
 ```python
 headers = {
