@@ -19,7 +19,7 @@ Zenodo uses a concept DOI system. Each ROR release gets its own version-specific
 * **Concept record ID** - (`6347574`) Always redirects to the latest ROR data release
 * **Version-specific record IDs** (e.g., `17953395`) - Points to a specific ROR data release
 
-For most use cases, its best to use the concept record to automatically get the latest data.
+For most use cases, it's best to use the concept record to automatically get the latest data.
 
 ## Request headers
 
