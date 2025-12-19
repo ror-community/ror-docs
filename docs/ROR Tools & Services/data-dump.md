@@ -12,13 +12,14 @@ metadata:
     Dedication.
   robots: index
 next:
-  description: ''
   pages:
-    - type: link
-      title: ROR Data on Zenodo
-      url: https://doi.org/10.5281/zenodo.6347574
+    - slug: zenodo
+      title: Retrieve ROR data from Zenodo
+      type: basic
 ---
 The entire ROR registry dataset is freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574). All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//). Both current and previous versions / releases of the ROR registry are available.
+
+See [Retrieve ROR data from Zenodo](doc:zenodo) for instructions on how to download ROR datasets from Zenodo programmatically. 
 
 # Data formats
 
@@ -70,108 +71,4 @@ Records with a status of "inactive" or "withdrawn" may have one or more successo
 
 See [ROR data structure](doc:ror-data-structure) for more information about status and relationships.
 
-# Download ROR data dumps programmatically with the Zenodo API
-
-> ❗️ Changes to Zenodo API requests
->
-> Zenodo completed a major software upgrade on 13 Oct 2023. As a result, API requests to fetch ROR data dumps have changed. These changes have not been updated in Zenodo API documentation but are noted below. If you use the Zenodo API to retrieve ROR data dumps, please update your code. These instructions may be subject to change as Zenodo continues making changes to its services.
-
-1. Get a list of the records in the ror-data community
-
-   **New request (after 13 Oct 2023 Zenodo update)**  
-   Request path and query structure have changed. The community name `ror-data` is now part of the path portion and the sort parameter value is now `newest`.
-
-   ```curl
-   curl "https://zenodo.org/api/communities/ror-data/records?q=&sort=newest"
-   ```
-
-   **Previous request (before 13 Oct 2023 Zenodo update)**
-
-   ```curl
-   curl "https://zenodo.org/api/records/?communities=ror-data&sort=mostrecent"
-   ```
-2. In the response, the most recent record will be `hits.hits[0]`. Find the latest file attached to this record by checking the last item in `hits.hits[0].files`.  The file download URL is in `[files.links.download](files.links.self)`.
-
-   **New response (after 13 Oct 2023 Zenodo update)**  
-   Record structure has changed. Only the URL for the most recent file download is located in`files.links.self`. Previously, download URLs for all versions were included in  `files`, with the first files item being the most recent version. To obtain previous versions, get a list of previous version records using the URL in `hits.hits[0].links.versions`.
-
-```Text json
-   ...
-   {
-     "hits": {
-       "hits": [
-         {
-           "created": "2023-10-12T23:45:15.640072+00:00",
-           "modified": "2023-10-13T02:26:58.828749+00:00",
-           "id": 8436953,
-           "conceptrecid": "6347574",
-           "doi": "10.5281/zenodo.8436953",
-           "conceptdoi": "10.5281/zenodo.6347574",
-           "doi_url": "https://doi.org/10.5281/zenodo.8436953",
-           ...
-           "files": [
-             {
-               "id": "3b963cb2-9160-44cd-adce-26c03a0ea735",
-               "filename": "v1.34-2023-10-12-ror-data.zip",
-               "filesize": 31778797,
-               "checksum": "6798489c7630abe56de7a00fe4440779",
-               "links": {
-                 "download": "https://zenodo.org/api/records/8436953/files/v1.34-2023-10-12-ror-data.zip/content"
-               }
-             }
-           ]
-   ...
-```
-
-**Previous response (before 13 Oct 2023 Zenodo update)**
-
-```Text json
-...
-   "hits" : {
-      "hits" : [
-         {
-            "conceptdoi" : "10.5281/zenodo.6347574",
-            "conceptrecid" : "6347574",
-            "created" : "2022-06-17T15:07:41.543813+00:00",
-            "doi" : "10.5281/zenodo.6657125",
-            "files" : [
-               {
-                  "bucket" : "25d4f93f-6854-4dd4-9954-173197e7fad7",
-                  "checksum" : "md5:88307ac74fad1c388f4987c00d09f769",
-                  "key" : "v1.0-2022-03-17-ror-data.json.zip",
-                  "links" : {
-                     "self" : "https://zenodo.org/api/files/25d4f93f-6854-4dd4-9954-173197e7fad7/v1.0-2022-03-17-ror-data.json.zip"
-                  },
-                  "size" : 20378730,
-                  "type" : "zip"
-               },
-               {
-                  "bucket" : "25d4f93f-6854-4dd4-9954-173197e7fad7",
-                  "checksum" : "md5:045f3edcb72e323a742e88bf81361a26",
-                  "key" : "v1.1-2022-06-16-ror-data.zip",
-                  "links" : {
-                     "self" : "https://zenodo.org/api/files/25d4f93f-6854-4dd4-9954-173197e7fad7/v1.1-2022-06-16-ror-data.zip"
-                  },
-                  "size" : 20454781,
-                  "type" : "zip"
-               }
-            ]
-...
-```
-
-3. Download the file to a local directory using the link
-
-**New request (after 13 Oct 2023 Zenodo update)**  
-Request path has changed; make sure to specify file output option in cURL request.
-
-```curl curl
-curl -o "v1.34-2023-10-12-ror-data.zip" https://zenodo.org/api/records/8436953/files/v1.34-2023-10-12-ror-data.zip/content
-```
-
-**Previous request (before 13 Oct 2023 Zenodo update)**
-
-```Text curl
-curl "https://zenodo.org/api/files/25d4f93f-6854-4dd4-9954-173197e7fad7/v1.1-2022-06-16-ror-data.zip"
-```
-
-For additional information about retrieving files from Zenodo using the API, see [https://developers.zenodo.org/#records](https://developers.zenodo.org/#records).
+<br />
