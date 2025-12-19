@@ -10,7 +10,7 @@ next:
       title: Data dump
       type: basic
 ---
-All versions of the ROR [Data dump](doc:data-dump) are [hosted on Zenodo](https://zenodo.org/records/6347574) and can be downloaded programmatically using the Zenodo REST API. You can retrieve the most recent data dump release or any previous release.
+All versions of the ROR [Data dump](doc:data-dump) are [hosted on Zenodo](https://zenodo.org/records/6347574) and can be downloaded programmatically using the Zenodo REST API. You can retrieve the most recent data release or any previous release.
 
 ## How Zenodo versioning works
 
