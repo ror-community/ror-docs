@@ -18,7 +18,7 @@ next:
       title: ROR Data on Zenodo
       url: https://doi.org/10.5281/zenodo.6347574
 ---
-The entire ROR registry dataset is freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574). All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//). Both current and previous versions / releases of the ROR registry are available. 
+The entire ROR registry dataset is freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574). All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//). Both current and previous versions / releases of the ROR registry are available.
 
 # Data formats
 
@@ -31,6 +31,8 @@ The entire ROR registry dataset is freely available on Zenodo at [https://doi.or
 * Data releases beginning with release 1.58 on 2024-12-11 include additional information added in [Schema 2.1](doc:schema-v2-1).
 
 * Data releases after release 1.74 on 2025-11-24 no longer contain JSON and CSV files formatted according to ROR [Schema 1.0](doc:schema-v1).
+
+* Data releases beginning with release 2.0 on 2025-12-16 have no version information in the filename, e.g., `v2.0-2025-12-16-ror-data.json`.
 
 For both schema versions, the CSV file contains a subset of fields from the JSON file, some of which have been flattened for easier parsing. Because ROR records and the ROR schema are maintained in JSON, CSVs are for convenience only. JSON is the format of record.
 
