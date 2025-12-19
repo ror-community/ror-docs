@@ -33,7 +33,7 @@ headers = {
 
 ## Authentication (recommended)
 
-While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access. 
+While the Zenodo API works without authentication for public records, using an API key provides higher rate limits and is a better guarantee of programmatic access.
 
 ### Getting an API key
 
@@ -41,9 +41,9 @@ While the Zenodo API works without authentication for public records, using an A
 2. Go to [Applications > Personal access tokens](https://zenodo.org/account/settings/applications/)
 3. Create a new token (no special scopes needed for read-only access)
 
-### Example   
+### Example
 
-Shell / cURL 
+Shell / cURL
 
 ```curl
 export ZENODO_API_KEY="your-api-key-here"
@@ -82,7 +82,7 @@ The simplest way to download the latest ROR data dump is to use the concept reco
 
 ### Example
 
-Shell / cURL 
+Shell / cURL
 
 ```curl
 # Fetch metadata for the latest version
@@ -124,7 +124,7 @@ else
 fi
 ```
 
-### Example  
+### Example
 
 Python
 
@@ -391,7 +391,7 @@ ROR schemas are maintained at: [https://github.com/ror-community/ror-schema](htt
 * `ror_schema_v2_0.json` - v2.0 schema
 * `ror_schema_v2_1.json` - v2.1 schema (current)
 
-### Working with CSV Files
+### Working with CSV files
 
 Each release includes both JSON and CSV files with the same base filename (e.g., `v2.0-2025-12-16-ror-data.json` and `v2.0-2025-12-16-ror-data.csv`). The CSV is a flattened subset of the JSON data for convenience.
 
