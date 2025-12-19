@@ -1,5 +1,5 @@
 ---
-title: Retrieve ROR data dumps from Zenodo
+title: Retrieve ROR data from Zenodo
 deprecated: false
 hidden: true
 metadata:
