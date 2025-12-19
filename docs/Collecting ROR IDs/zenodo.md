@@ -1,7 +1,7 @@
 ---
 title: Retrieve ROR data from Zenodo
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 next:
