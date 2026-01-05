@@ -11,6 +11,11 @@ metadata:
     requests before they are added to new versions of the registry released at
     least once a month.
   robots: index
+next:
+  pages:
+    - title: Journey of a ROR Curation Request
+      type: link
+      url: https://doi.org/10.71938/T128-EA02
 ---
 # Requesting additions and changes
 
