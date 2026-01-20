@@ -3534,7 +3534,7 @@ The response returns two active records: the record for Bath College and the rec
 
 ## Example
 
-Remember to URL-encode and if necessary escape special characters in multi-term search strings, as when searching for "Franklin & all College". The single & character is not reserved in Elasticsearch and therefore is not escaped.
+Remember to URL-encode and if necessary escape special characters in multi-term search strings, as when searching for "Franklin & Marshall College". The single & character is not reserved in Elasticsearch and therefore is not escaped.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query=%22Franklin%20%26%20Marshall%20College%22' | json_pp
