@@ -39,7 +39,7 @@ If your system includes fields that users enter affiliation information into, yo
 
 ## Capture top-level affiliation with ROR
 
-Use a ROR-powered typeahead to capture creator affiliations (e.g., University of Wisconsin-Madison). Department, college, and other sub-units should be captured in a separate field, as in the examples below.
+Use a ROR-powered typeahead to capture creator affiliations (e.g., University of Wisconsin-Madison). Departments, faculties, colleges, and other sub-units should be captured in a separate field, as in the examples below.
 
 ## Allow users to search for variant names
 
@@ -49,11 +49,11 @@ In the below example, the ROR record for the University of Wisconsin-Madison, [h
 
 <Image align="center" border={false} src="https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png" />
 
-## Show information beyond the primary organization name
+## Show additional information besides an organization name
 
-In addition to the primary organization name, display other ROR record fields in order to help users select the correct organization. We recommend including:
+In addition to an organization name, display other ROR record fields in order to help users select the correct organization. We recommend including:
 
-* Name variations such as acronyms, aliases, and names in other languages. This is particularly important because a user's query should be able to match a name variation rather than the primary name in a ROR record.
+* Name variations such as acronyms, aliases, and names in other languages. This is particularly important because a user's query should be able to match any name variation in a ROR record.
 
 * Geographic information such as city and country.
 
@@ -66,6 +66,20 @@ We do not recommend displaying ROR IDs to end users.
 > ### Multiple locations
 >
 > Beginning with [Schema 2.0](doc:schema-v2), ROR metadata supports multiple locations in a single ROR record. The large majority of ROR records include only a single location; [ROR metadata policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#multiple-locations) outline the rare circumstances in which a ROR record will qualify for multiple locations. Developers who wish to pull location information from ROR should plan to accommodate multiple locations, for example by displaying all locations in a drop down or typeahead. In cases where records have multiple locations, no priority is specified and order is not significant. For this reason, displaying only the first location may not be appropriate for all cases.  Additionally, in some cases, developers may wish to allow users to edit location fields within their application(s) to reflect the actual location of the user rather than forcing the use of a location from a ROR record.
+
+<br />
+
+## Select names for display by language or type
+
+Beginning with [Schema 2.0](doc:schema-v2), organization names in ROR metadata are listed in an array, and ROR no longer assigns a "primary" name for any organization, since these decisions are highly subjective and are often inappropriately Anglocentric. Additionally, a single “primary” name in only one language is inappropriate for organizations located in countries with multiple official languages. See [Data structure - names](https://ror.readme.io/docs/ror-data-structure#names) for more information.
+
+At the same time, many ROR users desire a default name for use in their applications. Therefore, each ROR record has exactly one name of type `ror_display`. The `ror_display` name is used as the main heading on the organization record in the ROR [Web search](doc:web-search) and can be used by those who want to select exactly one name for display in their applications.
+
+<Image align="center" border={true} src="https://files.readme.io/988f805e1977fe18da42ad5010c4195186234dab1afb971a0b22ddb2b8b8a90f-Screenshot_2026-01-20_at_4.06.48_PM.png" className="border" />
+
+> 🚧 Do not select the first name in the array
+>
+> The order of names in the array in the ROR record is not predictable and should not be used to select a name. Use the `type` value or the language of the name instead.
 
 ## Do not require the ROR ID
 
