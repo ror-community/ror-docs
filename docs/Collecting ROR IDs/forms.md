@@ -79,7 +79,7 @@ At the same time, many ROR users desire a default name for use in their applicat
 
 > 🚧 Do not select the first name in the array
 >
-> The order of names in the array in the ROR record is not predictable and should not be used to select a name. Use the `type` value or the language of the name instead.
+> The order of names in the array in the ROR record is not predictable and should not be used to select a name. Use the type or the language of the name instead.
 
 ## Do not require the ROR ID
 
