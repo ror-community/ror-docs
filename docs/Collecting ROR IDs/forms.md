@@ -67,8 +67,6 @@ We do not recommend displaying ROR IDs to end users.
 >
 > Beginning with [Schema 2.0](doc:schema-v2), ROR metadata supports multiple locations in a single ROR record. The large majority of ROR records include only a single location; [ROR metadata policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#multiple-locations) outline the rare circumstances in which a ROR record will qualify for multiple locations. Developers who wish to pull location information from ROR should plan to accommodate multiple locations, for example by displaying all locations in a drop down or typeahead. In cases where records have multiple locations, no priority is specified and order is not significant. For this reason, displaying only the first location may not be appropriate for all cases.  Additionally, in some cases, developers may wish to allow users to edit location fields within their application(s) to reflect the actual location of the user rather than forcing the use of a location from a ROR record.
 
-<br />
-
 ## Select names for display by language or type
 
 Beginning with [Schema 2.0](doc:schema-v2), organization names in ROR metadata are listed in an array, and ROR no longer assigns a "primary" name for any organization, since these decisions are highly subjective and are often inappropriately Anglocentric. Additionally, a single “primary” name in only one language is inappropriate for organizations located in countries with multiple official languages. See [Data structure - names](https://ror.readme.io/docs/ror-data-structure#names) for more information.
