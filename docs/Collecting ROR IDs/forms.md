@@ -63,7 +63,7 @@ We do not recommend displaying ROR IDs to end users.
 
 > 📘 Special consideration for displaying geographical information from ROR: organizations with multiple locations
 >
-> Beginning with [Schema 2.0](doc:schema-v2), ROR metadata supports multiple locations in a single ROR record. The large majority of ROR records include only a single location; [ROR metadata policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#multiple-locations) outline the rare circumstances in which a ROR record will qualify for multiple locations. 
+> Beginning with [Schema 2.0](doc:schema-v2), ROR metadata supports multiple locations in a single ROR record. The large majority of ROR records include only a single location; [ROR metadata policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#multiple-locations) outline the rare circumstances in which a ROR record will qualify for multiple locations.
 >
 > Developers who wish to pull location information from ROR may therefore wish to plan to accommodate multiple locations, for example by displaying all locations in a drop down or typeahead. In cases where records have multiple locations, no priority is specified and order is not significant. For this reason, displaying only the first location may not be appropriate for all cases. Additionally, in some cases, developers may wish to allow users to edit location fields within their application(s) to reflect the actual location of the user rather than forcing the use of a location from a ROR record.
 
@@ -71,7 +71,7 @@ We do not recommend displaying ROR IDs to end users.
 
 Beginning with [Schema 2.0](doc:schema-v2), organization names in ROR metadata are listed in an array, and ROR no longer assigns a "primary" name for any organization, since these decisions are highly subjective and are often inappropriately Anglocentric. Additionally, a single “primary” name in only one language is inappropriate for organizations located in countries with multiple official languages. See [Data structure - names](https://ror.readme.io/docs/ror-data-structure#names) for more information.
 
-At the same time, many ROR users desire a default name for use in their applications. Therefore, each ROR record has exactly one name of type `ror_display`. The `ror_display` name is used as the main heading on the organization record in the ROR [Web search](doc:web-search) and can be used by those who want to select exactly one name for display in their applications.
+At the same time, many ROR users desire a default name for use in their applications. Therefore, each ROR record has exactly one name of type `ror_display`. The `ror_display` name is used as the main heading on the organization record in the ROR [Web search](doc:web-search) and can be used by those who want to select a single name for primary display in their applications.
 
 <Image align="center" border={true} src="https://files.readme.io/988f805e1977fe18da42ad5010c4195186234dab1afb971a0b22ddb2b8b8a90f-Screenshot_2026-01-20_at_4.06.48_PM.png" className="border" />
 
