@@ -59,7 +59,7 @@ In addition to an organization name, display other ROR record fields in order to
 
 * Organization type.
 
-We do not recommend displaying ROR IDs to end users.
+We do not recommend displaying ROR IDs to end users. If you wish to display the ROR ID to end users, please consult our [display guidelines](doc:display) for ROR IDs and the ROR logo.  
 
 > 📘 Special consideration for displaying geographical information from ROR: organizations with multiple locations
 >
