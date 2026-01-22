@@ -47,8 +47,6 @@ The `names` field includes variations on an organization's name such as its name
 
 In the below example, the ROR record for the University of Wisconsin-Madison, [https://ror.org/01y2jtd41](https://ror.org/01y2jtd41), contains several values in the `names` field: the `ror_display` name "University of Wisconsin-Madison", the `alias` "UW-Madison", the `acronym` "UW",  and `labels` for the organization's name in French and Spanish. All values are searchable.
 
-<Image align="center" border={false} src="https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png" />
-
 <br />
 
 ## Select names for display by language or type
