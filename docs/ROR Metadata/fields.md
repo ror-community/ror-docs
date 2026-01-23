@@ -67,3 +67,119 @@ The following list includes all available fields and sub-fields in version 2.1 o
 | relationships.type                                  | String             | Type of relationship between the organization and another organization identified in relationships.id                                                                                                                                                                                                                                                                                                                            | child, parent, related, successor, predecessor                                                           |
 | status                                              | String             | Whether the organization is active or not                                                                                                                                                                                                                                                                                                                                                                                        | active, inactive, withdrawn                                                                              |
 | types                                               | Array (of strings) | Organization type(s). Allowed types: Education, Healthcare, Company, Archive, Nonprofit, Government, Facility, Funder, Other                                                                                                                                                                                                                                                                                                     | archive, company, education, facility, funder, government, healthcare, other                             |
+
+# Example record
+
+```json
+{
+   "admin" : {
+      "created" : {
+         "date" : "2018-11-14",
+         "schema_version" : "1.0"
+      },
+      "last_modified" : {
+         "date" : "2024-12-11",
+         "schema_version" : "2.1"
+      }
+   },
+   "domains" : [],
+   "established" : 1992,
+   "external_ids" : [
+      {
+         "all" : [
+            "501100003441"
+         ],
+         "preferred" : null,
+         "type" : "fundref"
+      },
+      {
+         "all" : [
+            "grid.410566.0"
+         ],
+         "preferred" : "grid.410566.0",
+         "type" : "grid"
+      },
+      {
+         "all" : [
+            "0000 0004 0626 3303"
+         ],
+         "preferred" : null,
+         "type" : "isni"
+      },
+      {
+         "all" : [
+            "Q1920549"
+         ],
+         "preferred" : null,
+         "type" : "wikidata"
+      }
+   ],
+   "id" : "https://ror.org/00xmkp704",
+   "links" : [
+      {
+         "type" : "website",
+         "value" : "http://www.uzgent.be/"
+      },
+      {
+         "type" : "wikipedia",
+         "value" : "https://en.wikipedia.org/wiki/Ghent_University_Hospital"
+      }
+   ],
+   "locations" : [
+      {
+         "geonames_details" : {
+            "continent_code" : "EU",
+            "continent_name" : "Europe",
+            "country_code" : "BE",
+            "country_name" : "Belgium",
+            "country_subdivision_code" : "VLG",
+            "country_subdivision_name" : "Flanders",
+            "lat" : 51.05,
+            "lng" : 3.71667,
+            "name" : "Ghent"
+         },
+         "geonames_id" : 2797656
+      }
+   ],
+   "names" : [
+      {
+         "lang" : "en",
+         "types" : [
+            "ror_display",
+            "label"
+         ],
+         "value" : "Ghent University Hospital"
+      },
+      {
+         "lang" : "nl",
+         "types" : [
+            "alias"
+         ],
+         "value" : "UZ Gent"
+      },
+      {
+         "lang" : "nl",
+         "types" : [
+            "label"
+         ],
+         "value" : "Universitair Ziekenhuis Gent"
+      }
+   ],
+   "relationships" : [
+      {
+         "id" : "https://ror.org/00cv9y106",
+         "label" : "Ghent University",
+         "type" : "related"
+      }
+   ],
+   "status" : "active",
+   "types" : [
+      "funder",
+      "healthcare"
+   ]
+}
+```
+
+<br />
+
+<br />
