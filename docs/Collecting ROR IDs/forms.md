@@ -55,7 +55,7 @@ Beginning with [Schema 2.0](doc:schema-v2), organization names in ROR metadata a
 
 At the same time, many ROR users desire a default name for use in their applications. Therefore, each ROR record has exactly one name of type `ror_display`. The `ror_display` name is used as the main heading on the organization record in the ROR [Web search](doc:web-search) and can be used by those who want to select a single name for primary display in their applications.
 
-<Image align="center" border={true} width="500px" src="https://files.readme.io/988f805e1977fe18da42ad5010c4195186234dab1afb971a0b22ddb2b8b8a90f-Screenshot_2026-01-20_at_4.06.48_PM.png" className="border" />
+<Image align="center" border={true} src="https://files.readme.io/d0aefa574e6fd5bef45c19c37dcb96b477db613062fe548953dfee2b4be2e418-ror_display.png" className="border" />
 
 > 🚧 Do not select the first name in the array
 >
