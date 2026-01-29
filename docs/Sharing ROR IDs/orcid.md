@@ -39,7 +39,7 @@ Organizations that do not yet have a ROR ID can also be used in ORCID profiles b
 
 Below is an example showing just the organization section for an employment affiliation item using ORCID schema v3.0. For a full XML example, see [ORCID's employment XML sample file](https://github.com/ORCID/orcid-model/blob/578cd716cb7222f9a7adfbfdd8a8c94aad254b7e/src/main/resources/record_3.0/samples/write_samples/employment-3.0.xml).
 
-For more information on using the ORCID API, see the [ORCID API Guide](https://github.com/ORCID/orcid-model/blob/master/src/main/resources/record_3.0/README.md) and [ORCID API Tutorials](https://info.orcid.org/documentation/api-tutorials/)
+For more information on using the ORCID API, see the [ORCID API Guide](https://github.com/ORCID/orcid-model/blob/master/src/main/resources/record_3.0/README.md) and [ORCID API Tutorials](https://info.orcid.org/documentation/api-tutorials/).
 
 ```xml
 <common:organization>
