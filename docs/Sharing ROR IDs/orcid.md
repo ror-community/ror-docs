@@ -31,11 +31,9 @@ Researchers who add or update these activities in their profile will see a list 
 
 ## Organizations without a ROR ID in ORCID
 
-Organizations that do not yet have a ROR ID can also be used in ORCID profiles by typing the name and other required information in the ORCID form and clicking "Save changes." To request a ROR ID for an organization, complete the <Anchor label="ROR curation request form" target="_blank" href="https://curation-request.ror.org">ROR curation request form</Anchor>. It will take several weeks for the new ROR ID to be created (if the request is approved) and then to appear in the list of organizations in ORCID. 
+Organizations that do not yet have a ROR ID can also be used in ORCID profiles by typing the name and other required information in the ORCID form and clicking "Save changes." To request a ROR ID for an organization, complete the <Anchor label="ROR curation request form" target="_blank" href="https://curation-request.ror.org">ROR curation request form</Anchor>. Please be aware that it might take several weeks for the new ROR ID to be created (if the request is approved) and then to appear in the list of organizations in ORCID.
 
 <Image align="center" alt="Entering an organization without a ROR ID into an ORCID profile" border={true} src="https://files.readme.io/975a3fc6fba56ea8805e7b13a384bc81566e007fe998d1b3e97a65319a5f32bc-orcid-no-ror.gif" className="border" />
-
-<br />
 
 ## ROR in the ORCID API
 
