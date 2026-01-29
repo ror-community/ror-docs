@@ -60,5 +60,5 @@ For more information on using the ORCID API, see the [ORCID API Guide](https://g
 
 Those using the [Affiliation Manager tool](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/) in the [ORCID Member Portal](https://info.orcid.org/documentation/member-portal/) can include ROR IDs in affiliations added to ORCID records.
 
-* If you are using the [CSV bulk upload](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Bulk_upload_CSV), include the full ROR URL in the `disambiguated-organization-identifier` column
-* If you are using the [manual entry form](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Add_affiliations_manually), include the full ROR URL in the Organization ID field
+* If you are using the [CSV bulk upload](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Bulk_upload_CSV), include the full ROR URL in the `disambiguated-organization-identifier` column.
+* If you are using the [manual entry form](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Add_affiliations_manually), include the full ROR URL in the Organization ID field.
