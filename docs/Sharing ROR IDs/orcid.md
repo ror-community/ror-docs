@@ -25,9 +25,17 @@ To harness the power of PIDs in this way, ROR identifiers need to be included in
 
 [As of Oct 2021](https://info.orcid.org/add-research-institution-identifiers-with-ror/), ORCID supports ROR as an organization identifier for any schema element that includes an [organization field](https://github.com/ORCID/orcid-model/blob/578cd716cb7222f9a7adfbfdd8a8c94aad254b7e/src/main/resources/common_3.0/common-3.0.xsd#L180), such as education and employment affiliations, funding items, research resources and peer reviews.
 
-Researchers who add or update these activities in their profile will see a list of suggestions as they begin to type that come from both ROR and the Crossref Open Funder Registry. Once they select an organization and save the activity, the update will appear in the profile. Clicking "Show more detail" will reveal the identifier and metadata associated with the selected organization. 
+Researchers who add or update these activities in their profile will see a list of suggestions as they begin to type that come from both ROR and the Crossref Open Funder Registry. Once they select an organization and save the activity, the update will appear in the profile. Clicking "Show more detail" will reveal the identifier and metadata associated with the selected organization.
 
-<Image align="center" className="border" border={true} src="https://files.readme.io/ebcb7e8fc76b1416dd195b6cf0f95d892d77611eea1947867eb63a48984e82d0-ror-orcid-uva.gif" />
+<Image align="center" border={true} src="https://files.readme.io/ebcb7e8fc76b1416dd195b6cf0f95d892d77611eea1947867eb63a48984e82d0-ror-orcid-uva.gif" className="border" />
+
+## Organizations without a ROR ID in ORCID
+
+Organizations that do not yet have a ROR ID can also be used in ORCID profiles by typing the name and other required information in the ORCID form and clicking "Save changes." To request a ROR ID for an organization, complete the <Anchor label="ROR curation request form" target="_blank" href="https://curation-request.ror.org">ROR curation request form</Anchor>. It will take several weeks for the new ROR ID to be created (if the request is approved) and then to appear in the list of organizations in ORCID. 
+
+<Image align="center" alt="Entering an organization without a ROR ID into an ORCID profile" border={true} src="https://files.readme.io/975a3fc6fba56ea8805e7b13a384bc81566e007fe998d1b3e97a65319a5f32bc-orcid-no-ror.gif" className="border" />
+
+<br />
 
 ## ROR in the ORCID API
 
@@ -52,7 +60,7 @@ For more information on using the ORCID API, see the [ORCID API Guide](https://g
 
 ## ROR in the ORCID Affiliation Manager
 
-Those using the [Affiliation Manager tool](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/) in the [ORCID Member Portal](https://info.orcid.org/documentation/member-portal/) can include ROR IDs in affiliations added to ORCID records. 
+Those using the [Affiliation Manager tool](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/) in the [ORCID Member Portal](https://info.orcid.org/documentation/member-portal/) can include ROR IDs in affiliations added to ORCID records.
 
 * If you are using the [CSV bulk upload](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Bulk_upload_CSV), include the full ROR URL in the `disambiguated-organization-identifier` column
 * If you are using the [manual entry form](https://info.orcid.org/documentation/member-portal/member-portal-affiliation-manager-guide/#Add_affiliations_manually), include the full ROR URL in the Organization ID field
