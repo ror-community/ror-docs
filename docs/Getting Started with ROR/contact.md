@@ -27,6 +27,6 @@ To report a bug or submit a feature request for ROR, create an issue on [the ROR
 
 ## Book a time to talk about any and all ROR issues
 
-Want to talk to a live person in real time? You can [book a 30-minute Zoom call](http://calendly.com/ror-chat) with Amanda French, Technical Community Manager for ROR.
+Want to talk to a live person in real time? You can [book a Zoom call](http://calendly.com/ror-chat) with Amanda French, Technical Community Manager for ROR.
 
 <br />
