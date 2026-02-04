@@ -61,7 +61,7 @@ The [ROR REST API](doc:rest-api) offers several ways to search ROR that all work
 > * Organization identifiers (Wikidata, ISNI, Funder IDs, GRID) - use the [Query parameter](doc:api-query) and see our guide to [mapping other organization IDs to ROR IDs](doc:mapping)
 > * Organization names only - use the [Query parameter](doc:api-query)
 > * Organization names and locations as structured data - use the [Query parameter](doc:api-query) and [Filtering](doc:api-filtering) by location
-> * Organization websites as structured data - use the [Advanced query parameter](doc:api-advanced-query) 
+> * Organization websites as structured data - use the [Advanced query parameter](doc:api-advanced-query)
 > * Unstructured affiliation strings that often include sub-affiliations and addresses - use the [Affiliation parameter](doc:api-affiliation)
 
 ## Query approach
@@ -114,11 +114,11 @@ Several projects and researchers have developed scripts and/or machine learning 
 
 * [dataESR affiliation matcher](https://github.com/dataesr/affiliation-matcher) developed by Anne L'Hôte and Eric Jeangirard for the French Ministry of Higher Education
 
-* [OpenAlex ROR Predictor (gpu-based)](https://github.com/adambuttrick/openalex-ror-predictor) by ROR Curation Lead Adam Buttrick
+* [OpenAlex ROR Predictor (gpu-based)](https://github.com/adambuttrick/openalex-ror-predictor) by Adam Buttrick
 
-* [fastText ROR Predictor (cpu-based)](https://github.com/adambuttrick/ror-predictor-fasttext) by ROR Curation Lead Adam Buttrick
+* [fastText ROR Predictor (cpu-based)](https://github.com/adambuttrick/ror-predictor-fasttext) by Adam Buttrick
 
-* [lr_predictor](https://github.com/adambuttrick/lr_matches) by ROR Curation Lead Adam Buttrick
+* [lr_predictor](https://github.com/adambuttrick/lr_matches) by Adam Buttrick
 
 * [ROR experimental affiliation matching](https://github.com/ror-community/affiliation-matching-experimental) - A collection of data and code for training models and experimenting with automatically matching affiliation strings to ROR IDs. Not production code, and not officially supported by ROR.
 
