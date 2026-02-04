@@ -62,6 +62,6 @@ See [ROR history](https://ror.org/about/#history) for more about ROR's origins a
 
 # Glossary
 
-* **ROR, ROR registry:** The Research Organization Registry, available in the UI at <Anchor label="https://ror.org/search" target="_blank" href="https://ror.org/search">https://ror.org/search</Anchor>  or the API at [https://api.ror.org/v2/organizations](https://api.ror.org/v2/organizations).
+* **ROR, ROR registry:** The Research Organization Registry, available in the UI at <Anchor label="https://ror.org/search" target="_blank" href="https://ror.org/search">https://ror.org/search</Anchor>  or the API at <Anchor label="https://api.ror.org/v2/organizations" target="_blank" href="https://api.ror.org/v2/organizations">https://api.ror.org/v2/organizations</Anchor>.
 * **ROR identifier/ROR ID:** The identifier for a particular organization, ex: [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
-* **ROR record:** The metadata associated with a ROR identifier, ex:  [[https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)]([https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)) or [\<[https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26>](https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26)]([https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26](https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26))
+* **ROR record:** The metadata associated with a ROR identifier, ex:  [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26) or [https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26>](https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26) 
