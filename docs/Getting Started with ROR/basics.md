@@ -18,13 +18,13 @@ next:
 
 [The Research Organization Registry (ROR)](https://ror.org) (pronounced "roar") is a global, community-led, curated registry of open persistent identifiers for research organizations. ROR makes it easy for anyone or any system to disambiguate research organization affiliations and connect research organizations to researchers and research outputs.
 
-The ROR registry includes identifiers and metadata for more than 100,000 organizations: companies, universities, labs, research centers, nonprofits, and government organizations -- any organization involved in scholarly research. ROR also includes “child” and "related" organizations such as a university's research institutes, hospitals, and laboratories or a multinational company's branches in different countries.
+The ROR registry includes identifiers and metadata for more than 120,000 organizations: companies, universities, labs, research centers, nonprofits, and government organizations -- any organization involved in scholarly research. ROR also includes “child” and "related" organizations such as a university's research institutes, hospitals, and laboratories or a multinational company's branches in different countries.
 
 To see which organizations are already included in the registry, you can:
 
 * Use the public search interface: [https://ror.org/search](https://ror.org/search)
 * Use the ROR API:
-  * [https://api.ror.org/v2/organizations](https://api.ror.org/v2/organizations) 
+  * [https://api.ror.org/v2/organizations](https://api.ror.org/v2/organizations)
 * Download the entire ROR data file: [https://zenodo.org/communities/ror-data](https://zenodo.org/communities/ror-data)
 
 ROR is the first and only organization identifier that is openly available (<Anchor label="CC0" target="_blank" href="https://creativecommons.org/public-domain/cc0/">CC0</Anchor> data available via an open REST API and public data dump), specifically focused on identifying affiliations in scholarly metadata, developed as a community initiative to meet community use cases, and designed to be integrated into open scholarly infrastructure. It is the preferred organization identifier of Crossref, DataCite, and ORCID.
