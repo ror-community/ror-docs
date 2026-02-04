@@ -60,8 +60,8 @@ The [ROR REST API](doc:rest-api) offers several ways to search ROR that all work
 >
 > * Organization identifiers (Wikidata, ISNI, Funder IDs, GRID) - use the [Query parameter](doc:api-query) and see our guide to [mapping other organization IDs to ROR IDs](doc:mapping)
 > * Organization names only - use the [Query parameter](doc:api-query)
-> * Organization names and locations as structured data - use the [Query parameter](doc:api-query)
-> * Organization websites as structured data - use the [Advanced query parameter](doc:api-advanced-query)
+> * Organization names and locations as structured data - use the [Query parameter](doc:api-query) and [Filtering](doc:api-filtering) by location
+> * Organization websites as structured data - use the [Advanced query parameter](doc:api-advanced-query) 
 > * Unstructured affiliation strings that often include sub-affiliations and addresses - use the [Affiliation parameter](doc:api-affiliation)
 
 ## Query approach
