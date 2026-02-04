@@ -67,9 +67,9 @@ The `ror_display` name can be in any language. If you prefer to select a name in
 
 In addition to an organization name, display other ROR record fields in order to help users select the correct organization. We recommend including:
 
-* Name variations such as acronyms, aliases, and names in other languages. This is particularly important because a user's query should be able to match any name variation in a ROR record.
+* Name variations such as acronyms, aliases, and names in other languages, which is particularly important because a user's query should be able to match any name variation in a ROR record;
 
-* Geographic information such as city and country.
+* Geographic information such as city and country; and
 
 * Organization type.
 
@@ -85,9 +85,9 @@ We do not recommend displaying ROR IDs to end users. If you wish to display the 
 
 We strongly discourage requiring users to enter only organizations with ROR IDs, because there are many valid reasons why a user may be unable to select an organization with a ROR ID as their affiliation:
 
-* The user may be affiliated with a research organization that is in scope for ROR but has not yet been added to the registry
-* The user may be affiliated with a research organization that is not in scope for ROR, such as a single-person consultancy
-* The user may be an independent researcher
+* The user may be affiliated with a research organization that is in scope for ROR but has not yet been added to the registry.
+* The user may be affiliated with a research organization that is not in scope for ROR, such as a single-person consultancy.
+* The user may be an independent researcher.
 
 Forms can still require users to give an institutional affiliation by allowing users to enter free text strings if no appropriate suggestion is made by the ROR typeahead.
 
