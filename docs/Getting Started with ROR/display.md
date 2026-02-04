@@ -25,7 +25,7 @@ You can use the ROR logo and name in graphics, slide decks, blog posts, websites
 * Use the [scalable SVG icon version](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg) wherever possible for best image quality.
 * Scale the ROR icon to match the line height of the surrounding text, but no smaller than a height of 16px.
 * Link to [https://ror.org](https://ror.org) when using the ROR logo to refer to the ROR initiative.
-* Display the image as given without rotating it, changing its colors, adding drop shadows or animations, or otherwise altering its appearance.
+* Display the ROR logo or icon image as given without rotating it, changing its colors, adding drop shadows or animations, or otherwise altering its appearance.
 * Use ROR brand colors <span style={{ color: "#53baa1", fontWeight: "bold" }}>#53baa1</span> or{" "} <span style={{ color: "#2c2c2c", fontWeight: "bold" }}>#2c2c2c</span> whenever possible. In cases where use of ROR brand colors is not possible, use black or white.
 * When discussing ROR, use the full name with acronym -- "Research Organization Registry (ROR)" -- upon first mention before using the acronym "ROR". When using ROR IDs only, the acronym alone is acceptable.
 * The ROR logo is available under a [CC BY-ND 4.0 license](https://creativecommons.org/licenses/by-nd/4.0/), which means that you must credit ROR (a link is sufficient) and that you may not make derivatives of the image. ROR IDs and metadata are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication.](https://creativecommons.org/publicdomain/zero/1.0/)
@@ -52,7 +52,7 @@ If you do choose to display ROR IDs, please follow the below guidelines.
 
 * Make sure that the target size for links to ROR records is at least 44 x 44px in order to comply with [WCAG accessibility guidelines](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=255#target-size).
 
-* Display the image as given without rotating it, changing its colors, adding drop shadows or animations, or otherwise altering its appearance.
+* Display the ROR icon as given without rotating it, changing its colors, adding drop shadows or animations, or otherwise altering its appearance.
 
 * Use ROR brand colors <span style={{ color: "#53baa1", fontWeight: "bold" }}>#53baa1</span> or{" "} <span style={{ color: "#2c2c2c", fontWeight: "bold" }}>#2c2c2c</span> whenever possible. In cases where use of ROR brand colors is not possible, use black or white.
 
