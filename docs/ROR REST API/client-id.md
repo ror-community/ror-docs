@@ -13,9 +13,9 @@ next:
       type: link
       url: https://ror.org/api-client-id
 ---
-> 🚧 Register a client ID by Q1 2026
+> 🚧 Register a client ID by Q3 2026
 >
-> Beginning sometime in the first quarter of 2026, ROR API requests will need to use a client ID in order to receive the current rate limit of 2000 requests per 5 minute period. Requests without identification will receive a lower rate limit of 50 requests per 5 minute period. There is no cost to register a client ID.
+> Beginning sometime in the third quarter of 2026, ROR API requests will need to use a client ID in order to receive the current rate limit of 2000 requests per 5 minute period. Requests without identification will receive a lower rate limit of 50 requests per 5 minute period. There is no cost to register a client ID.
 >
 > You can register now for a client ID at [https://ror.org/api-client-id](https://ror.org/api-client-id).
 
