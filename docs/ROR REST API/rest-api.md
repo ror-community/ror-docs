@@ -28,6 +28,14 @@ Values in fields that contain multiple values are sorted by Unicode value, which
 
 Beginning 1 Dec 2022, the ROR API by default returns only records whose [status](doc:ror-data-structure#status) is "active". Records with the status values "inactive" and "withdrawn" can be included using the query parameter `?all_status`. In addition, after this date, some ROR records contain the new values "Predecessor" and "Successor" in `relationships.type`. See the changelog post [2022-12-01 Organization status changes](changelog:2022-12-01-organization-status-changes) and our documentation on [Relationships and hierarchies](doc:relationships) for more details.
 
+# Parameters
+
+The ROR API supports three parameters, each of which has different use cases.
+
+* The [Query parameter](doc:api-query) `?query` is best for finding organization records by name or non-ROR identifier (GRID, Wikidata, Crossref Funder ID, ISNI) and is the recommended parameter to use when [creating user-facing forms](doc:forms). The ROR [web search](doc:web-search) is powered by the `?query` parameter of the ROR API. Queries can be [filtered](doc:api-filtering) by location and organization type.
+* The [Advanced query parameter](doc:api-advanced-query) is best for finding organization records by created or last modified date, domain, website, Wikipedia page, or relationship to other organizations. Queries can be [filtered](doc:api-filtering) by location and organization type.
+* The [Affiliation parameter](doc:api-affiliation) is best for large-scale programmatic matching of messy text strings to ROR IDs. 
+
 # Registration and rate limits
 
 No registration is currently required to use the ROR API, but note that the rate limit is a **maximum of 2000 requests in a 5-minute period** per IP address, and API traffic can be quite heavy at popular times like midnight UTC. If you need to make more requests or want to ensure faster response times, you can also run the entire ROR API locally in Docker. [See the README on the ROR API GitHub repository](https://github.com/ror-community/ror-api#readme) for instructions on running the ROR API locally.
