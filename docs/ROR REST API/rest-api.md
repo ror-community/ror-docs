@@ -32,7 +32,7 @@ Beginning 1 Dec 2022, the ROR API by default returns only records whose [status]
 
 The ROR API supports three parameters, each of which has different use cases.
 
-* The [Query parameter](doc:api-query) `?query` is best for finding organization records by name keywords or by non-ROR identifiers (GRID, Wikidata, Crossref Funder ID, ISNI) and is the recommended parameter to use when [creating user-facing forms](doc:forms). The ROR [web search](doc:web-search) is powered by the `?query` parameter of the ROR API. Queries can be [filtered](doc:api-filtering) by location and organization type.
+* The [Query parameter](doc:api-query) is best for finding organization records by name keywords or by non-ROR identifiers (GRID, Wikidata, Crossref Funder ID, ISNI) and is the recommended parameter to use when [creating user-facing forms](doc:forms). The ROR [web search](doc:web-search) is powered by the query parameter of the ROR API. Queries can be [filtered](doc:api-filtering) by location and organization type.
 * The [Advanced query parameter](doc:api-advanced-query) is best for finding organization records by created or last modified date, domain, website, Wikipedia page, or relationship to other organizations. Queries can be [filtered](doc:api-filtering) by location and organization type.
 * The [Affiliation parameter](doc:api-affiliation) is best for large-scale programmatic matching of complex, unstructured text strings to ROR IDs.
 
