@@ -14,7 +14,7 @@ metadata:
 ---
 This page documents policies around ROR schema versioning. To request a change to the ROR metadata schema, [submit a schema change request](https://github.com/ror-community/ror-roadmap/issues/new/choose) to the ROR Roadmap on GitHub.
 
-ROR [Schema 2.0](doc:schema-v2) was deployed to production in April 2024, with a minor, non-breaking update [Schema 2.1](doc:schema-2-1) deployed in December 2024. Schema 1.0 of ROR [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting).
+ROR [Schema 2.0](doc:schema-v2) was deployed to production in April 2024, with a minor, non-breaking update [Schema 2.1](doc:schema-v2-1) deployed in December 2024. Schema 1.0 of ROR [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting).
 
 > 📘 JSON Schema
 >
