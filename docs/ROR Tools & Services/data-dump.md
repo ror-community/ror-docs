@@ -19,7 +19,7 @@ next:
 ---
 The entire ROR registry dataset is freely available on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574). All ROR IDs and metadata in the data dump are provided under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0//). Both current and previous versions / releases of the ROR registry are available.
 
-See [Retrieve ROR data from Zenodo](doc:zenodo) for instructions on how to download ROR datasets from Zenodo programmatically. 
+See [Retrieve ROR data from Zenodo](doc:zenodo) for instructions on how to download ROR datasets from Zenodo programmatically.
 
 # Data formats
 
@@ -61,7 +61,7 @@ For convenience, the date is also included in the release file name, ex: v1.0-20
 
 From Apr 2019 to Sep 2021, changes to ROR data happened in collaboration with GRID. After each GRID release, ROR assigned new IDs to each new organization in GRID and published a new ROR release that corresponded to the most recent GRID release. Releases were named only with a date, e.g., 2021-09-23-ror-data.zip.
 
-[GRID announced the sunset of its public data offering in July 2022](https://ror.readme.io/docs/gridror-transition-faq) and published its final data release in Sept 2021. ROR published a corresponding data release ([2021-09-23-ror-data.zip](https://doi.org/10.5281/zenodo.5534443)) in Sept 2021. Both releases contained the same set of organizations, with GRID and ROR IDs assigned to all.
+<Anchor label="GRID announced the sunset of its public data offering in July 2021" target="_blank" href="https://www.digital-science.com/blog/2021/07/grid-passes-torch-to-ror/">GRID announced the sunset of its public data offering in July 2021</Anchor> and published its final data release in Sept 2021. ROR published a corresponding data release ([2021-09-23-ror-data.zip](https://doi.org/10.5281/zenodo.5534443)) in Sept 2021. Both releases contained the same set of organizations, with GRID and ROR IDs assigned to all.
 
 # Record status
 
