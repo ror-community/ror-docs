@@ -21,7 +21,7 @@ next:
       url: https://github.com/ror-community/ror-utilities
     - title: ROR blog posts on matching
       type: link
-      url: https://ror.org/categories/matching
+      url: https://ror.org/tags/matching/
     - title: ROR single search affiliation matching strategy demo
       type: link
       url: https://youtu.be/DC7mZSnECsQ
