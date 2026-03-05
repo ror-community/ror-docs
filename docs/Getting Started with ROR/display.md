@@ -34,7 +34,7 @@ Approved ROR logo files are available for download from the sources listed under
 
 ## ROR ID display guidelines
 
-ROR IDs are primarily intended for use in underlying metadata and for internal use by web applications and services, for instance when [creating ROR-powered typeaheads in forms](doc:create-ror-powered-typeaheads). ROR IDs are designed for machine readability to help software and systems disambiguate organizations. **Before displaying the ROR ID, consider carefully whether the reader, viewer, or user needs to see the ROR ID and will understand what the ROR ID represents.** In many cases, a human being may expect or prefer to see an organization's name or a link to the organization's website instead of a ROR ID.
+ROR IDs are primarily intended for use in underlying metadata and for internal use by web applications and services, for instance when [creating ROR-powered typeaheads in forms](doc:forms). ROR IDs are designed for machine readability to help software and systems disambiguate organizations. **Before displaying the ROR ID, consider carefully whether the reader, viewer, or user needs to see the ROR ID and will understand what the ROR ID represents.** In many cases, a human being may expect or prefer to see an organization's name or a link to the organization's website instead of a ROR ID.
 
 If you do choose to display ROR IDs, please follow the below guidelines.
 
