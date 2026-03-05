@@ -3692,7 +3692,7 @@ Returns a list of active research organizations in Senegal with the keyword "Rec
 
 # Filter by continent code
 
-Limit search results by continent code. Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
+Limit search results by continent code. Continent codes and names are provided by [GeoNames](https:/www.geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
 
 ## Example
 
@@ -5318,7 +5318,7 @@ Returns a list of active research organizations in Africa with the exact term "M
 
 # Filter by continent name
 
-Limit search results by continent name. Continent codes and names are provided by [GeoNames](https://geonames.org): AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
+Limit search results by continent name. Continent codes and names are provided by <Anchor label="GeoNames" target="_blank" href="https://www.geonames.org">GeoNames</Anchor>: AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), NA (North America), OC (Oceania), and SA (South America).
 
 ## Example
 
