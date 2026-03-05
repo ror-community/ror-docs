@@ -56,7 +56,7 @@ The [ROR roadmap is available on GitHub](https://github.com/ror-community/ror-ro
 
 The first "Minimum Viable Registry" iteration of ROR was launched in January 2019 using seed data from Digital Science's [Global Research Identifier (GRID)](https://www.grid.ac/) project. The MVR and first registry release included ROR IDs and metadata for 91,625 organizations and also included mechanisms for accessing and querying ROR data via a search interface, REST API, and data dump.
 
-From 2019 to early 2022, GRID data and ROR data were synchronized. In July of 2021, GRID announced its intention to cease its public releases and [pass the torch to ROR](https://www.digital-science.com/grid-passes-the-torch-to-ror-faqs/), and in March of 2022, ROR [published its first release independently of GRID](https://ror.org/blog/2022-03-17-first-independent-release/).
+From 2019 to early 2022, GRID data and ROR data were synchronized. In July of 2021, GRID announced its intention to cease its public releases and <Anchor label="pass the torch to ROR" target="_blank" href="https://www.digital-science.com/blog/2021/07/grid-passes-torch-to-ror/">pass the torch to ROR</Anchor>, and in March of 2022, ROR [published its first release independently of GRID](https://ror.org/blog/2022-03-17-first-independent-release/).
 
 See [ROR history](https://ror.org/about/#history) for more about ROR's origins and history.
 
@@ -64,4 +64,4 @@ See [ROR history](https://ror.org/about/#history) for more about ROR's origins a
 
 * **ROR, ROR registry:** The Research Organization Registry, available in the UI at <Anchor label="https://ror.org/search" target="_blank" href="https://ror.org/search">https://ror.org/search</Anchor>  or the API at <Anchor label="https://api.ror.org/v2/organizations" target="_blank" href="https://api.ror.org/v2/organizations">https://api.ror.org/v2/organizations</Anchor>.
 * **ROR identifier/ROR ID:** The identifier for a particular organization, ex: [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26)
-* **ROR record:** The metadata associated with a ROR identifier, ex:  [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26) or [https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26>](https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26) 
+* **ROR record:** The metadata associated with a ROR identifier, ex:  [https://ror.org/03yrm5c26](https://ror.org/03yrm5c26) or [https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26>](https://api.ror.org/v2/organizations/https://ror.org/03yrm5c26)
