@@ -110,7 +110,7 @@ Several projects and researchers have developed scripts and/or machine learning 
 
 * [RORRetriever](https://github.com/Metadata-Game-Changers/RORRetriever) by Metadata Game Changers
 
-* [EMBL-EBI ROR Predictor prototype](https://gitlab.ebi.ac.uk/literature-services/public-projects/ROR-proto-EMBL) by EMBL-EBI for [Project FREYA](https://www.project-freya.eu/Plone/en)
+* [EMBL-EBI ROR Predictor prototype](https://gitlab.ebi.ac.uk/literature-services/public-projects/ROR-proto-EMBL) by EMBL-EBI for <Anchor label="Project FREYA" target="_blank" href="https://www.project-freya.eu/">Project FREYA</Anchor>
 
 * [dataESR affiliation matcher](https://github.com/dataesr/affiliation-matcher) developed by Anne L'Hôte and Eric Jeangirard for the French Ministry of Higher Education
 
