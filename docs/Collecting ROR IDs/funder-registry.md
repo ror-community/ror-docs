@@ -13,7 +13,7 @@ metadata:
 next:
   description: ''
 ---
-In September 2023, Crossref and ROR [announced a long-term plan to deprecate the Open Funder Registry](https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organization-registry-ror/) (formerly known as FundRef) and merge it into ROR, the Research Organization Registry. We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs to using ROR IDs.
+In September 2023, Crossref and ROR <Anchor label="announced a long-term plan to deprecate the Open Funder Registry" target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">announced a long-term plan to deprecate the Open Funder Registry</Anchor> (formerly known as FundRef) and merge it into ROR, the Research Organization Registry. We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs to using ROR IDs.
 
 # Why is this transition happening?
 
@@ -111,12 +111,14 @@ You can build ROR-powered funder lookups into your system so that researchers, e
 
 # Where can I learn more?
 
-* **[Crossref Services - Open Funder Registry](https://www.crossref.org/services/funder-registry/)** - general information about the Open Funder Registry
-* **[Crossref Open Funder Registry - GitLab](https://gitlab.com/crossref/open_funder_registry)** - complete downloadable Open Funder Registry data
-* **[Crossref Funder Advisory Group](https://www.crossref.org/working-groups/funders/)** - advisory group for Crossref funder members
-* **[ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/)** - tool to help analyze and export ROR ID and Funder ID information
-* **[Open Funder Registry to transition into ROR](https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organization-registry-ror/)**, blog post, September 7, 2023
-* **[How ROR and the Open Funder Registry Overlap: A Closer Look at the Data](https://ror.org/blog/2023-10-12-ror-funder-registry-overlap/)**, blog post, October 12, 2023
-* **[ROR-ing ahead: using ROR in place of the Open Funder Registry](https://www.crossref.org/blog/roring-ahead-using-ror-in-place-of-the-open-funder-registry/)**, blog post, January 30, 2024
-* **[Why We All Need Good Funding Metadata](https://ror.org/events/2024-01-31-why-we-all-need-good-funding-metadata/)**, panel slides and recording, January 31, 2024
-* **[Come ROR with us: Using ROR IDs in place of Funder IDs](https://www.crossref.org/blog/come-ror-with-us-using-ror-ids-in-place-of-funder-ids/)**, blog post, March 4, 2025
+* **<Anchor label="Crossref Services - Open Funder Registry" target="_blank" href="https://www.crossref.org/services/funder-registry/">Crossref Services - Open Funder Registry</Anchor>** - general information about the Open Funder Registry
+* **<Anchor label="Crossref Open Funder Registry - GitLab" target="_blank" href="https://gitlab.com/crossref/open_funder_registry">Crossref Open Funder Registry - GitLab</Anchor>** - complete downloadable Open Funder Registry data
+* **<Anchor label="Crossref Funder Advisory Group" target="_blank" href="https://www.crossref.org/working-groups/funders/">Crossref Funder Advisory Group</Anchor>** - advisory group for Crossref funder members
+* **<Anchor label="ROR / Funder Registry Overlap tool" target="_blank" href="https://rorfunderregistryoverlap.streamlit.app/">ROR / Funder Registry Overlap tool</Anchor>** - tool to help analyze and export ROR ID and Funder ID information
+* **<Anchor label="Open Funder Registry to transition into ROR" target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">Open Funder Registry to transition into ROR</Anchor>**, blog post, September 7, 2023
+* **<Anchor label="How ROR and the Open Funder Registry Overlap: A Closer Look at the Data" target="_blank" href="https://ror.org/blog/2023-10-12-ror-funder-registry-overlap/">How ROR and the Open Funder Registry Overlap: A Closer Look at the Data</Anchor>**, blog post, October 12, 2023
+* **<Anchor label="ROR-ing ahead: using ROR in place of the Open Funder Registry" target="_blank" href="https://www.crossref.org/blog/roring-ahead-using-ror-in-place-of-the-open-funder-registry/">ROR-ing ahead: using ROR in place of the Open Funder Registry</Anchor>**, blog post, January 30, 2024
+* **<Anchor label="Why We All Need Good Funding Metadata" target="_blank" href="https://ror.org/events/2024-01-31-why-we-all-need-good-funding-metadata/">Why We All Need Good Funding Metadata</Anchor>**, panel slides and recording, January 31, 2024
+* **<Anchor label="Come ROR with us: Using ROR IDs in place of Funder IDs" target="_blank" href="https://www.crossref.org/blog/come-ror-with-us-using-ror-ids-in-place-of-funder-ids/">Come ROR with us: Using ROR IDs in place of Funder IDs</Anchor>**, blog post, March 4, 2025
+
+<br />
