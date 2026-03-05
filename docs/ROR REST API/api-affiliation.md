@@ -16,7 +16,7 @@ next:
       type: basic
     - title: ROR blog posts on matching
       type: link
-      url: https://ror.org/categories/matching
+      url: https://ror.org/tags/matching/
     - title: ror-utilities matching scripts
       type: link
       url: https://github.com/ror-community/ror-utilities
