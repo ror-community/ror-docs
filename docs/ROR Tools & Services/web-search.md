@@ -6,10 +6,9 @@ hidden: false
 metadata:
   title: ROR web search
   description: >-
-    The document provides instructions on how to search the ROR registry using
-    the ROR REST API and query parameter search approach, with the option to
-    filter results by status. It also warns against sending search requests
-    directly to the ROR search page from an application.
+    The document provides instructions for and technical details about the
+    web-based Research Organization Registry search tool at
+    https://ror.org/search with the option to filter results by record status. 
   robots: index
 next:
   pages:
