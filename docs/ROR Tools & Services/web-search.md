@@ -16,11 +16,11 @@ next:
       type: link
       url: https://ror.org/search
 ---
+Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name-related keywords in any language, by acronyms, or by corresponding external identifiers.
+
 > 🚧 Don't send requests from an application to the ROR web search!
 >
 > If you're integrating ROR search into a web application, use the free and open [REST API](doc:rest-api). Please don't send search requests to [https://ror.org/search](https://ror.org/search) from an application! The web search is for humans.
-
-Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name-related keywords in any language, by acronyms, or by corresponding external identifiers.
 
 # About the web search
 
