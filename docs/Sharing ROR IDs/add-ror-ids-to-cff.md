@@ -20,11 +20,11 @@ next:
       title: Citation File Format on GitHub
       url: https://github.com/citation-file-format/citation-file-format
 ---
-The Citation File Format (CFF) lets you provide citation metadata for software or datasets in plaintext YAML files that are easy to read by both humans and machines. Beginning with version 1.3.0 of CFF, ROR IDs can be used to identify entities in CFF, including for the institutional affiliations of software authors and for organizations credited as institutional authors of the software. 
+The Citation File Format (CFF) lets you provide citation metadata for software or datasets in plaintext YAML files that are easy to read by both humans and machines. Beginning with version 1.3.0 of CFF, ROR IDs can be used to identify entities in CFF, including for the institutional affiliations of software authors and for organizations credited as institutional authors of the software.
 
 > ℹ️ Read more about CFF
 >
-> To learn more about the Citation File Format, consult the [CFF README](https://github.com/citation-file-format/citation-file-format/blob/main/README.md) and the [Guide to the CFF schema](https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md) .
+> To learn more about the Citation File Format, consult the <Anchor label="CFF README" target="_blank" href="https://github.com/citation-file-format/citation-file-format/blob/main/README.md">CFF README</Anchor> and the [Guide to the CFF schema](https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md) .
 
 Here is an example of a CFF file:
 
