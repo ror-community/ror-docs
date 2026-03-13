@@ -24,7 +24,7 @@ ROR’s infrastructure is designed to be highly scalable and highly available. O
 
 # Sustainability
 
-While ROR currently runs on AWS infrastructure, it could be easily ported to another provider because ROR has carefully captured all configuration as Terraform code in GitHub. This allows a developer to easily understand all the components needed to run ROR services, along with their configurations.
+While ROR currently runs on AWS infrastructure, it could be easily ported to another provider because ROR has carefully captured all configuration as Terraform code in GitHub. This allows a developer to easily understand all the components needed to run ROR services, along with their configurations. Similarly, since all ROR code is open source, 
 
 # Security
 
