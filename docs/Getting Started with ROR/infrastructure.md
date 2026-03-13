@@ -11,7 +11,7 @@ ROR provides an openly available [REST API](doc:rest-api) and [web-based search 
 * Django open-source Python framework
 * Ember open-source Javascript framework
 * Docker containerization technology
-* DataDog log/metrics aggregation and analysis tools
+* Datadog log/metrics aggregation and analysis tools
 * Terraform infrastructure automation
 
 AWS resources are located in the AWS eu-west-1 (Ireland) region, in order to ensure compliance with EU data protection policies such as GDPR. ROR’s DataDog account is also located in the EU.
@@ -50,7 +50,6 @@ ROR [logos](https://ror.readme.io/docs/display) are available under the <Anchor 
 ROR website content is licensed under the <Anchor label="Creative Commons Attribution 4.0 International License" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</Anchor>, meaning that content may be quoted and reproduced with attribution.
 
 # Preservation
-
 
 The ROR data file is published <Anchor label="on the Zenodo digital repository" target="_blank" href="https://doi.org/10.5281/zenodo.6347574">on the Zenodo digital repository</Anchor> and is subject to <Anchor label="Zenodo’s preservation practices" target="_blank" href="https://about.zenodo.org/infrastructure/">Zenodo’s preservation practices</Anchor>, which include regular backup, replication, and fixity processes, a retention policy of at least 20 years, and succession planning in the event of repository closure. ROR code repositories are automatically archived in <Anchor label="Software Heritage" target="_blank" href="https://www.softwareheritage.org/">Software Heritage</Anchor>. The schedule is determined by Software Heritage.
 
