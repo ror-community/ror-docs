@@ -35,6 +35,23 @@ The ROR dataset does not contain sensitive data, which minimizes data privacy/se
 * Using a secure password storage/sharing service
 * Passing credentials into code via environment variables rather than storing values in application code files. Values for these environment variables are set using either GitHub or Terraform secure secret storage.
 
-ROR does not systematically collect or store information about users of its services, except IP addresses, which are collected in access log files. Access logs are stored in private AWS S3 buckets and also sent to Datadog. Access logs are deleted from Datadog after 30 days.
+IP addresses from queries of the ROR API are collected in access log files. Access logs are stored in private AWS S3 buckets and also sent to Datadog. Access logs are deleted from Datadog after 30 days.
+
+Email addresses are collected from users of the ROR API who [register for a client ID](doc:client-id), meaning that ROR API requests with a client ID can be connected to a user's email address. Email addresses supplied at client ID registration are used only to contact API users for support and troubleshooting purposes and are not shared outside of ROR technical infrastructure.
+
+# Licensing
+
+ROR’s code and software processes are open source and are <Anchor label="stored and documented on GitHub" target="_blank" href="https://github.com/ror-community">stored and documented on GitHub</Anchor>. Code is published under a fully permissible <Anchor label="MIT License" target="_blank" href="https://opensource.org/license/mit">MIT License</Anchor>.
+
+The ROR dataset, including ROR IDs and metadata, are in the public domain and can be used by anyone at no cost: ROR data is provided under the <Anchor label="Creative Commons CC0 1.0 Universal Public Domain Dedication" target="_blank" href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 Universal Public Domain Dedication</Anchor>.
+
+ROR [logos](https://ror.readme.io/docs/display) are available under the <Anchor label="Creative Commons Attribution No Derivatives 4.0 International License" target="_blank" href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution No Derivatives 4.0 International License</Anchor>, which means that when using a ROR logo you must credit ROR (a link is sufficient) and that you may not make derivatives of the image.
+
+ROR website content is licensed under the <Anchor label="Creative Commons Attribution 4.0 International License" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</Anchor>, meaning that content may be quoted and reproduced with attribution.
+
+# Preservation
+
+
+The ROR data file is published <Anchor label="on the Zenodo digital repository" target="_blank" href="https://doi.org/10.5281/zenodo.6347574">on the Zenodo digital repository</Anchor> and is subject to <Anchor label="Zenodo’s preservation practices" target="_blank" href="https://about.zenodo.org/infrastructure/">Zenodo’s preservation practices</Anchor>, which include regular backup, replication, and fixity processes, a retention policy of at least 20 years, and succession planning in the event of repository closure. ROR code repositories are automatically archived in <Anchor label="Software Heritage" target="_blank" href="https://www.softwareheritage.org/">Software Heritage</Anchor>. The schedule is determined by Software Heritage.
 
 <br />
