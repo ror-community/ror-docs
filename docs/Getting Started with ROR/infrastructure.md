@@ -14,7 +14,7 @@ ROR provides an openly available [REST API](doc:rest-api) and [web-based search 
 * Datadog log/metrics aggregation and analysis tools
 * Terraform infrastructure automation
 
-AWS resources are located in the AWS eu-west-1 (Ireland) region, in order to ensure compliance with EU data protection policies such as GDPR. ROR’s DataDog account is also located in the EU.
+AWS resources are located in the AWS eu-west-1 (Ireland) region, in order to ensure compliance with EU data protection policies such as GDPR. ROR’s Datadog account is also located in the EU.
 
 ROR also publishes its entire dataset in JSON and CSV formats on Zenodo at [https://doi.org/10.5281/zenodo.6347574](https://doi.org/10.5281/zenodo.6347574) .
 
@@ -24,7 +24,7 @@ ROR’s infrastructure is designed to be highly scalable and highly available. O
 
 # Sustainability
 
-While ROR currently runs on AWS infrastructure, it could be easily ported to another provider because ROR has carefully captured all configuration as Terraform code in GitHub. This allows a developer to easily understand all the components needed to run ROR services, along with their configurations. Similarly, since all ROR code is open source, 
+While ROR currently runs on AWS infrastructure, it could be easily ported to another provider because ROR has carefully captured all configuration as Terraform code in GitHub. This allows a developer to easily understand all the components needed to run ROR services, along with their configurations. Similarly, since all ROR code is open source,
 
 # Security
 
