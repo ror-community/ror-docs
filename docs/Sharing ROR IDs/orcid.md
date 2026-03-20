@@ -27,7 +27,7 @@ To harness the power of PIDs in this way, ROR identifiers need to be included in
 
 Researchers who add or update these activities in their profile will see a list of suggestions as they begin to type that come from both ROR and the Crossref Open Funder Registry. Once they select an organization and save the activity, the update will appear in the profile. Clicking "Show more detail" will reveal the identifier and metadata associated with the selected organization.
 
-<Image align="center" border={true} src="https://files.readme.io/ebcb7e8fc76b1416dd195b6cf0f95d892d77611eea1947867eb63a48984e82d0-ror-orcid-uva.gif" className="border" />
+<Image align="center" border={true} src="https://files.readme.io/65232ca3c1acd262da384ea424a3a5a071bf91b0aa05cc125336a69f5f592401-orcid-profile-ror.gif" className="border" />
 
 ## Organizations without a ROR ID in ORCID
 
