@@ -19,7 +19,7 @@ ROR is intended to help connect people (researchers), places (organizations, lik
 * Which publications and datasets are the result of research supported by a particular funding agency?
 * Which researchers are affiliated with a given institution?
 
-To harness the power of PIDs in this way, ROR identifiers need to be included in metadata for other identifiers, such as [ORCID](https://orcid.org/) records for researcher
+To harness the power of PIDs in this way, ROR identifiers need to be included in metadata for other identifiers, such as [ORCID](https://orcid.org/) records for researchers.
 
 ## ROR in ORCID profiles
 
