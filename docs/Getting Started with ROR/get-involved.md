@@ -25,19 +25,19 @@ Register for one or more of the following open, public forums to ask questions a
 
 Stay up-to-date on the latest ROR news and opportunities for feedback and involvement:
 
-* Sign up for the [ROR quarterly newsletter](http://eepurl.com/gjkT9H)
+* Sign up for the <Anchor label="ROR quarterly newsletter" target="_blank" href="http://eepurl.com/gjkT9H">ROR quarterly newsletter</Anchor>
 
-* Read the [ROR blog](https://ror.org/blog)
+* Read the <Anchor label="ROR blog" target="_blank" href="https://ror.org/blog">ROR blog</Anchor>
 
-* Follow ROR on [LinkedIn](https://www.linkedin.com/company/ror-research-organization-registry/?viewAsMember=true)
+* Follow ROR on <Anchor label="LinkedIn" target="_blank" href="https://www.linkedin.com/company/ror-research-organization-registry/?viewAsMember=true">LinkedIn</Anchor>
 
-* Follow ROR on [Mastodon](https://mastodon.social/@ResearchOrgs)
+* Follow ROR on <Anchor label="Mastodon" target="_blank" href="https://mastodon.social/@ResearchOrgs">Mastodon</Anchor>
 
-* Follow ROR on [BlueSky](https://bsky.app/profile/researchorgs.bsky.social) 
+* Follow ROR on <Anchor label="Bluesky" target="_blank" href="https://bsky.app/profile/ror.org">Bluesky</Anchor>
 
-* Follow ROR on [GitHub](https://github.com/ror-community/) 
+* Follow ROR on <Anchor label="GitHub" target="_blank" href="https://github.com/ror-community/">GitHub</Anchor>
 
-* Follow ROR on [YouTube](https://www.youtube.com/@ResearchOrgs) 
+* Follow ROR on <Anchor label="YouTube" target="_blank" href="https://www.youtube.com/@ResearchOrgs">YouTube</Anchor>
 
 ## ROR community calls
 
