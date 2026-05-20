@@ -16,11 +16,13 @@ metadata:
 next:
   description: ''
 ---
-> 👍 Recommended schema
->
-> This page documents ROR Schema 2.0. ROR [Schema 2.1](doc:schema-v2-1), a minor, non-breaking update to Schema 2.0, is the current recommended, stable schema. Schema 2.1 is the schema version used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). See [Data structure](doc:ror-data-structure) for documentation of the current recommended schema.
->
-> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+<Callout icon="👍" theme="okay">
+  ## Recommended schema
+
+  This page documents ROR Schema 2.0. ROR [Schema 2.1](doc:schema-v2-1), a minor, non-breaking update to Schema 2.0, is the current recommended, stable schema. Schema 2.1 is the schema version used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). See [Data structure](doc:ror-data-structure) for documentation of the current recommended schema.
+
+  JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+</Callout>
 
 # Community feedback
 
@@ -98,9 +100,11 @@ The current `addresses` field contains data from [GeoNames](https://www.geonames
 
 We are therefore removing empty or overly detailed GeoNames sub-fields within the ROR record, removing the `country` field, and adding a `locations` field that will contain the most important and universally applicable location information.
 
-> 📘 Additional location information added in v2.1
->
-> See [Schema 2.1](doc:schema-2-1) for additional location information added in December 2024 corresponding to state-level and continental locations.
+<Callout icon="📘" theme="info">
+  ## Additional location information added in v2.1
+
+  See [Schema 2.1](doc:schema-2-1) for additional location information added in December 2024 corresponding to state-level and continental locations.
+</Callout>
 
 ### Current v1.0 example
 
