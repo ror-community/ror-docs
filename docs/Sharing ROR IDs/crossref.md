@@ -17,21 +17,23 @@ next:
 ---
 # ROR in Crossref DOIs
 
-[As of v5.3.0 (released in July 2021), the Crossref metadata schema supports ROR IDs](https://www.crossref.org/blog/some-rip-roring-news-for-affiliation-metadata) for all types of content that have an affiliation or institution element, such as journal articles, reports, book chapters, preprints, datasets, dissertations, and many more. See Crossref's [documentation on Affiliations and ROR](https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/affiliations/) for more information. ROR is also supported in Crossref's Grant ID metadata schema. 
+[As of v5.3.0 (released in July 2021), the Crossref metadata schema supports ROR IDs](https://www.crossref.org/blog/some-rip-roring-news-for-affiliation-metadata) for all types of content that have an affiliation or institution element, such as journal articles, reports, book chapters, preprints, datasets, dissertations, and many more. See Crossref's [documentation on Affiliations and ROR](https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/affiliations/) for more information. ROR is also supported in Crossref's Grant ID metadata schema.
 
-Note that the `institution` element is repeatable in order to support multiple affiliations for a given contributor, such as when a researcher is affiliated with two organizations. Repeated `institution` elements may also be used for multiple affiliations within a single organization, as for example when a researcher is affiliated with both a university and a subsidiary research institute. 
+Note that the `institution` element is repeatable in order to support multiple affiliations for a given contributor, such as when a researcher is affiliated with two organizations. Repeated `institution` elements may also be used for multiple affiliations within a single organization, as for example when a researcher is affiliated with both a university and a subsidiary research institute.
 
-Affiliations in Crossref schema align with [JATS v1.1+](https://jats.nlm.nih.gov/publishing/tag-library/1.1d1/n-tmv0.html). 
+Affiliations in Crossref schema align with [JATS v1.1+](https://jats.nlm.nih.gov/publishing/tag-library/1.1d1/n-tmv0.html).
 
-> 📘 Which Crossref tools/services support ROR?
->
-> * ROR **is** supported in [direct XML deposits](https://www.crossref.org/documentation/register-maintain-records/choose-content-registration-method/) using [v5.3.x](https://www.crossref.org/documentation/member-setup/choose-content-registration-method/#00492). 
-> * ROR **is not yet** supported in Crossref's [Web deposit form](https://www.crossref.org/documentation/register-maintain-records/web-deposit-form/).
-> * ROR **is** supported in Crossref's web-based [Grant registration form](https://www.crossref.org/documentation/register-maintain-records/grant-registration-form/).
+<Callout icon="📘" theme="info">
+  ## Which Crossref tools/services support ROR?
+
+  * ROR **is** supported in [direct XML deposits](https://www.crossref.org/documentation/register-maintain-records/choose-content-registration-method/) using [v5.3.x](https://www.crossref.org/documentation/member-setup/choose-content-registration-method/#00492).
+  * ROR **is not yet** supported in Crossref's [Web deposit form](https://www.crossref.org/documentation/register-maintain-records/web-deposit-form/).
+  * ROR **is** supported in Crossref's web-based [Grant registration form](https://www.crossref.org/documentation/register-maintain-records/grant-registration-form/).
+</Callout>
 
 ## Example: Contributor affiliation (journal article)
 
-Below is an example showing just the contributors section for a journal article deposit using Crossref schema v5.3.0. For the full XML, see the [v5.3.0 journal article best practice example](https://gitlab.com/crossref/schema/-/blob/master/best-practice-examples/journal.article5.3.0.xml). 
+Below is an example showing just the contributors section for a journal article deposit using Crossref schema v5.3.0. For the full XML, see the [v5.3.0 journal article best practice example](https://gitlab.com/crossref/schema/-/blob/master/best-practice-examples/journal.article5.3.0.xml).
 
 For more details about Crossref schema v5.3.0, see the [release notes in GitLab](https://gitlab.com/crossref/schema/-/releases/0.2.0).
 
