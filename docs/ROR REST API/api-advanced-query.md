@@ -47,9 +47,11 @@ Currently, the advanced query parameter is case-sensitive, meaning that the same
 
 In version 2 of the ROR API, you can search by created and last modified dates using an [Elasticsearch range query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges). Note that the reserved characters `[ ] { }` must be used in range queries. This is the use case they are reserved for! These characters may need to be URL-encoded or escaped depending on the language/application you are using.
 
-> 📘 Advanced query parameter format, search by date
->
-> `https://api.ror.org/v2/organizations?query.advanced=admin.[created or last modified].date:{dates}`
+<Callout icon="📘" theme="info">
+  ## Advanced query parameter format, search by date
+
+  `https://api.ror.org/v2/organizations?query.advanced=admin.[created or last modified].date:{dates}`
+</Callout>
 
 ## Example
 
@@ -3823,9 +3825,11 @@ The response is a list of active records created before 2019-12-31.
 
 The advanced query parameter allows you to perform a keyword search of all ROR record fields and sub-fields.
 
-> 📘 Advanced query parameter format, all fields
->
-> `https://api.ror.org/v2/organizations?query.advanced=[value]`
+<Callout icon="📘" theme="info">
+  ## Advanced query parameter format, all fields
+
+  `https://api.ror.org/v2/organizations?query.advanced=[value]`
+</Callout>
 
 ## Example
 
@@ -5928,17 +5932,21 @@ The response returns all instances of the exact phrase "Harvard University" in a
 }
 ```
 
-> 🚧 Consider refining your advanced query searches
->
-> Searching all fields with the advanced query may produce more results than desired, slow the speed of the search, and affect the performance of the ROR API. We recommend searching one or more specific fields instead, as in the examples below.
+<Callout icon="🚧" theme="warn">
+  ## Consider refining your advanced query searches
+
+  Searching all fields with the advanced query may produce more results than desired, slow the speed of the search, and affect the performance of the ROR API. We recommend searching one or more specific fields instead, as in the examples below.
+</Callout>
 
 # Search a single field
 
 [Elastic Search field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) `fieldname:query` can be used to search within a single field. When using this syntax, `fieldname` must exactly match a field name in the list of [All ROR fields and sub-fields](doc:fields), e.g.,  `locations.geonames_details.name:Melbourne` not `locations:Melbourne`.
 
-> 📘 Advanced query parameter format, single field
->
-> `https://api.ror.org/v2/organizations?query.advanced=[fieldname]:[value]`
+<Callout icon="📘" theme="info">
+  ## Advanced query parameter format, single field
+
+  `https://api.ror.org/v2/organizations?query.advanced=[fieldname]:[value]`
+</Callout>
 
 ## Example
 
@@ -6718,9 +6726,11 @@ The response is a list of 4 records, each of which has one of the 4 specified RO
 
 Search multiple fields and form complex queries with [Elasticsearch Boolean operator syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_boolean_operators) (AND, OR, NOT). Note that the Boolean operator must be surrounded by URL-encoded spaces.
 
-> 📘 Advanced query parameter format, multiple fields
->
-> `https://api.ror.org/v2/organizations?query.advanced=[fieldname]:[value]+[Boolean operator]+[fieldname]:[value]`
+<Callout icon="📘" theme="info">
+  ## Advanced query parameter format, multiple fields
+
+  `https://api.ror.org/v2/organizations?query.advanced=[fieldname]:[value]+[Boolean operator]+[fieldname]:[value]`
+</Callout>
 
 ## Example
 
@@ -8482,11 +8492,13 @@ The response is a list of records with the keyword "Cornell" in a `names.value` 
 
 [Elasticsearch field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) can be used to search all sub-fields of a parent field.
 
-> 📘 Advanced query parameter format, sub-fields of a parent field
->
-> `https://api.ror.org/v2/organizations?query.advanced=[parent fieldname]%5c*:[value]`
->
-> Note that \ characters must be URL-encoded.
+<Callout icon="📘" theme="info">
+  ## Advanced query parameter format, sub-fields of a parent field
+
+  `https://api.ror.org/v2/organizations?query.advanced=[parent fieldname]%5c*:[value]`
+
+  Note that \ characters must be URL-encoded.
+</Callout>
 
 ## Example
 
@@ -10514,13 +10526,17 @@ The response is a list of records in which the term "Melbourne" appears in one o
 
 [Elasticsearch field name syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_field_names) can be used to return records that have any non-null value in a field.
 
-> 📘 Advanced query parameter format, non-null values in a field
->
-> `https://api.ror.org/v2/organizations?query.advanced=_exists_:[fieldname]`
+<Callout icon="📘" theme="info">
+  ## Advanced query parameter format, non-null values in a field
 
-> 🚧 Null vs. empty string
->
-> Most ROR record fields that have no value are set to _null_, but `_exists_:[fieldname]` may include results with empty strings for some fields.
+  `https://api.ror.org/v2/organizations?query.advanced=_exists_:[fieldname]`
+</Callout>
+
+<Callout icon="🚧" theme="warn">
+  ## Null vs. empty string
+
+  Most ROR record fields that have no value are set to _null_, but `_exists_:[fieldname]` may include results with empty strings for some fields.
+</Callout>
 
 ## Example
 
@@ -12653,9 +12669,11 @@ Many complex queries can be constructed with the advanced query parameter and [E
 
 When searching for ROR IDs and other URLs, be sure to URL-encode and escape colons and slashes. See [Non-escaped reserved characters](https://ror.readme.io/docs/api-advanced-query#/non-escaped-reserved-characters) below for more guidance.
 
-> 📘 Advanced query parameter format, find inactive child organizations
->
-> `https://api.ror.org/v2/organizations?query.advanced=relationships.id[parent ROR ID]+AND+relationships.type:parent+AND+status:inactive`
+<Callout icon="📘" theme="info">
+  ## Advanced query parameter format, find inactive child organizations
+
+  `https://api.ror.org/v2/organizations?query.advanced=relationships.id[parent ROR ID]+AND+relationships.type:parent+AND+status:inactive`
+</Callout>
 
 ## Example
 
