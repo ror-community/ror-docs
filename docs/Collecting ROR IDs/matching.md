@@ -56,13 +56,15 @@ See [ROR OpenRefine Reconciler](doc:openrefine-reconciler) for written usage ins
 
 The [ROR REST API](doc:rest-api) offers several ways to search ROR that all work differently and return different results. Choose the best method for your data.
 
-> 📘 What kind of data do you have?
->
-> * Organization identifiers (Wikidata, ISNI, Funder IDs, GRID) - use the [Query parameter](doc:api-query) and see our guide to [mapping other organization IDs to ROR IDs](doc:mapping)
-> * Organization names only - use the [Query parameter](doc:api-query)
-> * Organization names and locations as structured data - use the [Query parameter](doc:api-query) and [Filtering](doc:api-filtering) by location
-> * Organization websites as structured data - use the [Advanced query parameter](doc:api-advanced-query)
-> * Unstructured affiliation strings that often include sub-affiliations and addresses - use the [Affiliation parameter](doc:api-affiliation)
+<Callout icon="📘" theme="info">
+  ## What kind of data do you have?
+
+  * Organization identifiers (Wikidata, ISNI, Funder IDs, GRID) - use the [Query parameter](doc:api-query) and see our guide to [mapping other organization IDs to ROR IDs](doc:mapping)
+  * Organization names only - use the [Query parameter](doc:api-query)
+  * Organization names and locations as structured data - use the [Query parameter](doc:api-query) and [Filtering](doc:api-filtering) by location
+  * Organization websites as structured data - use the [Advanced query parameter](doc:api-advanced-query)
+  * Unstructured affiliation strings that often include sub-affiliations and addresses - use the [Affiliation parameter](doc:api-affiliation)
+</Callout>
 
 ## Query approach
 
@@ -82,11 +84,13 @@ In cases where you have complex, unstructured affiliation strings, use the [Affi
 
 The affiliation matching service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator. Additional possibilities that might match the string are also included in results, listed in descending order by confidence score. Note that we do not recommend selecting matches by confidence score: use the `chosen:true` indicator instead.
 
-> 📘 Retrieving active and inactive organizations
->
-> By default, the ROR API returns only records with an active [status](doc:data-structure#status). Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See <Anchor label="API filtering" target="_blank" href="doc:api-filtering">API filtering</Anchor> for details.
->
-> Be aware too that inactive organizations may be succeeded by a new organization under a different name with a different ROR ID. If you do retrieve inactive organizations, check the `relationships` field of an inactive record to see if it has a [Successor organization](doc:data-structure#relationships).
+<Callout icon="📘" theme="info">
+  ## Retrieving active and inactive organizations
+
+  By default, the ROR API returns only records with an active [status](doc:data-structure#status). Consider whether you also want to retrieve records with an inactive status; inactive records generally represent organizations that no longer operate. See <Anchor label="API filtering" target="_blank" href="doc:api-filtering">API filtering</Anchor> for details.
+
+  Be aware too that inactive organizations may be succeeded by a new organization under a different name with a different ROR ID. If you do retrieve inactive organizations, check the `relationships` field of an inactive record to see if it has a [Successor organization](doc:data-structure#relationships).
+</Callout>
 
 # Match organization names to ROR IDs using the data dump
 
