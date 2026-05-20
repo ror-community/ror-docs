@@ -16,9 +16,11 @@ This page documents policies around ROR schema versioning. To request a change t
 
 ROR [Schema 2.0](doc:schema-v2) was deployed to production in April 2024, with a minor, non-breaking update [Schema 2.1](doc:schema-v2-1) deployed in December 2024. Schema 1.0 of ROR [was sunset in December 2025](https://ror.readme.io/changelog/2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting).
 
-> 📘 JSON Schema
->
-> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+<Callout icon="📘" theme="info">
+  ## JSON Schema
+
+  JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+</Callout>
 
 # Community feedback
 
@@ -31,9 +33,11 @@ In the autumn of 2022, ROR asked for community feedback on plans for versioning 
 
 The ROR metadata schema and API will be versioned in lockstep for major versions, meaning that when a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version.
 
-> 📘 API versioning
->
-> The ROR schema and API are versioned together, so a new major version of the schema will be accompanied by a new major version of the API. Read more about [API versioning](doc:api-versions).
+<Callout icon="📘" theme="info">
+  ## API versioning
+
+  The ROR schema and API are versioned together, so a new major version of the schema will be accompanied by a new major version of the API. Read more about [API versioning](doc:api-versions).
+</Callout>
 
 The ROR metadata schema will use semantic versioning:
 
