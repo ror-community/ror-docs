@@ -14,17 +14,21 @@ metadata:
 
 Responses to queries of the ROR API are broken into pages with a maximum of 20 results per page beginning at page 1. If `metadata.number_of_results` is greater than 20, you can retrieve subsequent records by specifying the page number of the result. You can page through results of both standard [queries](doc:api-query) and [advanced queries](doc:api-advanced-query).
 
-> 📘 Paging format
->
-> `https://api.ror.org/v2/organizations?query=[query]&page=[page number]`
+<Callout icon="📘" theme="info">
+  ## Paging format
+
+  `https://api.ror.org/v2/organizations?query=[query]&page=[page number]`
+</Callout>
 
 The maximum number of pages that can be retrieved is 500, which means that the maximum number of ROR records that can be retrieved via the ROR API is 10,000. If you send a request for a page beyond 500, you will receive a 200 status, but also an error response like `{"errors":["page '5144' outside of range 1-500”]}`
 
 To determine how many pages you will need to retrieve in order to obtain your entire result set, check `metadata.number_of_results` and divide by 20. Regardless of which page you are on, `metadata.number_of_results` indicates the total number of results returned by your request.
 
-> ❗️ It is not possible to retrieve all ROR records from the API
->
-> The API is best for use cases that involve searching for or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API. Moreover, attempting to page through all ROR records can result in <Anchor label="duplicates and omissions across different pages of results" target="_blank" href="https://github.com/ror-community/ror-roadmap/issues/333">duplicates and omissions across different pages of results</Anchor>. If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump).
+<Callout icon="❗️" theme="error">
+  ## It is not possible to retrieve all ROR records from the API
+
+  The API is best for use cases that involve searching for or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API. Moreover, attempting to page through all ROR records can result in <Anchor label="duplicates and omissions across different pages of results" target="_blank" href="https://github.com/ror-community/ror-roadmap/issues/333">duplicates and omissions across different pages of results</Anchor>. If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump).
+</Callout>
 
 ## Example
 
