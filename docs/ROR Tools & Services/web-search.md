@@ -18,17 +18,21 @@ next:
 ---
 Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name-related keywords in any language, by acronyms, or by corresponding external identifiers.
 
-> 🚧 Don't send requests from an application to the ROR web search!
->
-> If you're integrating ROR search into a web application, use the free and open [REST API](doc:rest-api). Please don't send search requests to [https://ror.org/search](https://ror.org/search) from an application! The web search is for humans.
+<Callout icon="🚧" theme="warn">
+  ## Don't send requests from an application to the ROR web search!
+
+  If you're integrating ROR search into a web application, use the free and open [REST API](doc:rest-api). Please don't send search requests to [https://ror.org/search](https://ror.org/search) from an application! The web search is for humans.
+</Callout>
 
 # About the web search
 
 The ROR web search uses version 2 of the [ROR REST API](doc:rest-api) and performs searches using the [query parameter](doc:api-query), which is optimized for searching for an organization by keywords in its name. Advanced searches of other metadata fields such as an organization's location or website can be performed using the [Advanced query parameter](doc:api-advanced-query) of the ROR API. Only active organizations are returned by default: use the Record status filter widget to retrieve inactive and withdrawn organizations.
 
-> 🚧 Remember that the web search does not search all fields
->
-> The ROR web search searches only the `names` field, which includes acronyms, aliases, and names in various languages, plus the `external_ids` field.  Results from keyword searches using the query parameter **do not include** values from fields such as `links` and `locations`. To find organizations by website, location, or other criteria, use [Filtering](doc:api-filtering) or the [Advanced query parameter](doc:api-advanced-query).
+<Callout icon="🚧" theme="warn">
+  ## Remember that the web search does not search all fields
+
+  The ROR web search searches only the `names` field, which includes acronyms, aliases, and names in various languages, plus the `external_ids` field.  Results from keyword searches using the query parameter **do not include** values from fields such as `links` and `locations`. To find organizations by website, location, or other criteria, use [Filtering](doc:api-filtering) or the [Advanced query parameter](doc:api-advanced-query).
+</Callout>
 
 # Keywords
 
