@@ -27,9 +27,11 @@ ROR records store both structural and temporal connections in the `relationships
 
 If an organization ceases operations and passes on its work to another organization, that relationship is also reflected in ROR through the "Predecessor" and "Successor" relationship types. See [ROR data structure: relationships](doc:ror-data-structure#relationships) for a full explanation.
 
-> 📘 JSON Schema
->
-> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+<Callout icon="📘" theme="info">
+  ## JSON Schema
+
+  JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+</Callout>
 
 # Examples
 
@@ -185,4 +187,4 @@ In the [ROR search interface](https://ror.org/search), the number of relationshi
 
 Pictured below is an image of an organizational "family tree" created from ROR records with an [organization tree script](https://github.com/ror-community/ror-utilities/tree/main/organization-tree-scripts). The United States Department of Energy is the top node and has many "children" and "grandchildren" and one "great-grandchild" organization. (Laterally related organizations are not shown in this view.)
 
-<Image align="center" alt={1050} border={false} caption="List of University of California system children and grandchildren expressed as nodes in an indented list from the ROR organization tree script written by Sandra Mierz." title="ror-doe-hierarchy.png" src="https://files.readme.io/be45520-ror-doe-hierarchy.png" />
+<Image align="center" alt={1050} caption="List of University of California system children and grandchildren expressed as nodes in an indented list from the ROR organization tree script written by Sandra Mierz." title="ror-doe-hierarchy.png" src="https://files.readme.io/be45520-ror-doe-hierarchy.png" />
