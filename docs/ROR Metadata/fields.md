@@ -16,11 +16,13 @@ metadata:
 next:
   description: ''
 ---
-> 👍 Recommended schema
->
-> This page documents the current recommended, stable schema, [Schema 2.1](doc:schema-v2-1), which is used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump).
->
-> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+<Callout icon="👍" theme="okay">
+  ## Recommended schema
+
+  This page documents the current recommended, stable schema, [Schema 2.1](doc:schema-v2-1), which is used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump).
+
+  JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+</Callout>
 
 The following list includes all available fields and sub-fields in version 2.1 of the ROR metadata schema. For a list of top-level fields only, see [ROR data structure](doc:ror-data-structure). If you'd like to request a change to the ROR metadata schema, please [submit a schema change request on our roadmap](https://github.com/ror-community/ror-roadmap/issues/new/choose).
 
