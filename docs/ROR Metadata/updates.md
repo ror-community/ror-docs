@@ -27,9 +27,11 @@ If you want to submit a large number of requests, you can also download a bulk r
 
 [Read more about how the registry is curated](https://ror.org/registry).
 
-> 🚧 Does the organization already have a ROR ID?
->
-> Before submitting a request to add a new organization to ROR, be sure to search [https://ror.org/search](https://ror.org/search) to see if it already exists.
+<Callout icon="🚧" theme="warn">
+  ## Does the organization already have a ROR ID?
+
+  Before submitting a request to add a new organization to ROR, be sure to search [https://ror.org/search](https://ror.org/search) to see if it already exists.
+</Callout>
 
 # Community-based curation model
 
