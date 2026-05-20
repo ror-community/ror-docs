@@ -47,11 +47,13 @@ Yes, Crossref will maintain the current [funding data search](https://search.cro
 
 We're here to help! Take a look at the guidance below and write [support@ror.org](mailto:support@ror.org) with any questions.
 
-> 👍 Three quick resources for switching from Funder IDs to ROR IDs
->
-> * [ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/) - web application for searching, visualizing, and downloading ROR ID & Funder ID data
-> * [Map other organization IDs to ROR IDs](doc:mapping) - guide to help you map Funder IDs to ROR IDs using the ROR API, data dump, or sample scripts
-> * [Create ROR-powered forms](doc:forms) - guide to creating a funder lookup field in your system using ROR
+<Callout icon="👍" theme="okay">
+  ## Three quick resources for switching from Funder IDs to ROR IDs
+
+  * [ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/) - web application for searching, visualizing, and downloading ROR ID & Funder ID data
+  * [Map other organization IDs to ROR IDs](doc:mapping) - guide to help you map Funder IDs to ROR IDs using the ROR API, data dump, or sample scripts
+  * [Create ROR-powered forms](doc:forms) - guide to creating a funder lookup field in your system using ROR
+</Callout>
 
 ## Find both IDs for a single funder
 
@@ -67,9 +69,11 @@ Here are two ways to find both the Funder ID and the ROR ID for a single funder.
 
 ## Get a CSV file of all Funder ID to ROR ID mappings
 
-> 🚧 ROR IDs and Funder IDs are not always mapped on a one-to-one basis
->
-> A single ROR ID can often be mapped to multiple Funder IDs. When a ROR ID has multiple corresponding Funder IDs, the preferred Funder ID is stored in the field `external_ids.preferred` in v2 of the ROR metadata schema. Be sure to check the [status](https://ror.readme.io/docs/ror-data-structure#/status) of the mapped ROR record to ensure that it has a status of "active."
+<Callout icon="🚧" theme="warn">
+  ## ROR IDs and Funder IDs are not always mapped on a one-to-one basis
+
+  A single ROR ID can often be mapped to multiple Funder IDs. When a ROR ID has multiple corresponding Funder IDs, the preferred Funder ID is stored in the field `external_ids.preferred` in v2 of the ROR metadata schema. Be sure to check the [status](https://ror.readme.io/docs/ror-data-structure#/status) of the mapped ROR record to ensure that it has a status of "active."
+</Callout>
 
 Here are two ways to get a CSV file of all Funder ID to ROR ID mappings.
 
