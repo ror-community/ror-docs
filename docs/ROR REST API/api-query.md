@@ -1504,9 +1504,11 @@ Returns a list of active organizations with the keyword "Bath" in a `names` fiel
 }
 ```
 
-> 🚧 Remember that the query parameter does not search all fields
->
-> The query parameter searches only the `names` field, which includes acronyms, aliases, and the organization names in various languages, and the `external_ids` field.  Results from keyword searches using the query parameter **do not include** values from fields such as `links` and `locations`, for instance. To find organizations by website, location, or other criteria, use [Filtering](doc:api-filtering) or the [Advanced query parameter](doc:api-advanced-query).
+<Callout icon="🚧" theme="warn">
+  ## Remember that the query parameter does not search all fields
+
+  The query parameter searches only the `names` field, which includes acronyms, aliases, and the organization names in various languages, and the `external_ids` field.  Results from keyword searches using the query parameter **do not include** values from fields such as `links` and `locations`, for instance. To find organizations by website, location, or other criteria, use [Filtering](doc:api-filtering) or the [Advanced query parameter](doc:api-advanced-query).
+</Callout>
 
 # Exact string searching
 
@@ -3296,9 +3298,11 @@ This search looks for **both** the term "Bath" **and** the term "College" and re
 }
 ```
 
-> 🚧 Don't automatically choose the first result in a list
->
-> The first item is often but not always the best match or desired result for a given search of the ROR API. We advise against building tools that automatically select the first result in a list of records.
+<Callout icon="🚧" theme="warn">
+  ## Don't automatically choose the first result in a list
+
+  The first item is often but not always the best match or desired result for a given search of the ROR API. We advise against building tools that automatically select the first result in a list of records.
+</Callout>
 
 Searching for the exact term "Bath College" retrieves only records that contain that precise phrase in the `names` field. Remember that the `names` field can include names in several languages, acronyms, and aliases.
 
