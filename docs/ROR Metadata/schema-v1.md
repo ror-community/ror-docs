@@ -5,15 +5,19 @@ hidden: false
 metadata:
   robots: index
 ---
-> ❗️ Schema 1.0 has been sunset
->
-> ROR schema and API v1 were permanently sunset in December 2025 and are no longer supported. [Read more on the ROR changelog.](changelog:2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting)
+<Callout icon="❗️" theme="error">
+  ## Schema 1.0 has been sunset
 
-> 👍 Recommended schema
->
-> ROR [Schema 2.1](doc:schema-v2-1) is the current recommended, stable schema. It is the version used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). See [Data structure](doc:ror-data-structure) for documentation of the current recommended schema.  
->
-> JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+  ROR schema and API v1 were permanently sunset in December 2025 and are no longer supported. [Read more on the ROR changelog.](changelog:2025-12-04-version-1-of-the-ror-api-and-schema-is-sunsetting)
+</Callout>
+
+<Callout icon="👍" theme="okay">
+  ## Recommended schema
+
+  ROR [Schema 2.1](doc:schema-v2-1) is the current recommended, stable schema. It is the version used by the ROR [REST API](doc:rest-api), the ROR [Web search](doc:web-search), and in the ROR [Data dump](doc:data-dump). See [Data structure](doc:ror-data-structure) for documentation of the current recommended schema.
+
+  JSON schema documents used to generate and validate ROR records are available at [https://github.com/ror-community/ror-schema](https://github.com/ror-community/ror-schema).
+</Callout>
 
 Version 1 of ROR's data structure (aka its "metadata schema" or "JSON schema") is based on [Digital Science's GRID](https://digitalscience.figshare.com/search?q=GRID\&itemTypes=3), which provided the original seed data for the registry. GRID retired its public releases as of 16 Sep 2021, and ROR began managing its data independently from GRID in March 2022.
 
