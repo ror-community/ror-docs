@@ -21,9 +21,11 @@ We recommend using the query parameter to build [ROR-powered typeaheads in forms
 
 Search results from the query parameter can be [filtered](doc:api-filtering) and [paged](doc:api-paging). By default, only records with an _active_ status are returned, but records with _inactive_ or _withdrawn_ status can be retrieved with the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter.
 
-> 📘 Query parameter format
->
-> `https://api.ror.org/v2/organizations?query=[value]`
+<Callout icon="📘" theme="info">
+  ## Query parameter format
+
+  `https://api.ror.org/v2/organizations?query=[value]`
+</Callout>
 
 # Formatting searches
 
