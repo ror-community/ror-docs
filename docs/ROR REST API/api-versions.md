@@ -28,9 +28,11 @@ In the autumn of 2022, ROR asked for community feedback on plans for versioning 
 
 When a new major schema version is introduced, the API version will also be incremented so that users can unambiguously request a response in a specific schema version.
 
-> 📘 Schema versioning
->
-> A new major version of the API will be accompanied by a new major version of the schema. Minor schema updates, however, will be rolled into major versions of the API. Read more about [Schema versions](doc:schema-versions).
+<Callout icon="📘" theme="info">
+  ## Schema versioning
+
+  A new major version of the API will be accompanied by a new major version of the schema. Minor schema updates, however, will be rolled into major versions of the API. Read more about [Schema versions](doc:schema-versions).
+</Callout>
 
 The ROR API will use semantic versioning:
 
