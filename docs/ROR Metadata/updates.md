@@ -41,9 +41,11 @@ Approved changes are assigned to a future release and the records go through a m
 
 ROR curation activities are openly available in [the ror-updates GitHub repository](https://github.com/ror-community/ror-updates). Anyone can follow along with the curation process by watching individual issues in the GitHub repository and following their progress on the [ROR Updates tracker](https://github.com/ror-community/ror-updates/projects/1).
 
-> 📘 Not all requests are approved
->
-> We accept any and all requests for changes and additions to ROR records, but we do not approve all requests. We review all requests carefully and approve only those that are in line with ROR's [scope](http://ror.org/registry/#scope-and-criteria-for-inclusion) and [policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#policies-for-specific-metadata-elements).
+<Callout icon="📘" theme="info">
+  ## Not all requests are approved
+
+  We accept any and all requests for changes and additions to ROR records, but we do not approve all requests. We review all requests carefully and approve only those that are in line with ROR's [scope](http://ror.org/registry/#scope-and-criteria-for-inclusion) and [policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#policies-for-specific-metadata-elements).
+</Callout>
 
 # Update frequency and process
 
@@ -55,6 +57,8 @@ To see which records were added or modified in in a given release, see the ROR [
 
 Each new release of the ROR registry is different, but typically a new release includes modifications and additions [requested](https://github.com/ror-community/ror-updates/issues) by the public. The ROR Curation Lead and community curation board also initiate quality assurance and metadata reconciliation [projects](https://github.com/ror-community/ror-updates/projects/1) that result in new and updated records.
 
-> 📘 Changes to geographical information in updated records
->
-> Some geographical information in ROR comes from the [GeoNames geographical database](https://www.geonames.org/). When a ROR record is updated for any reason, geographical information from GeoNames is also updated, which can result in changes in other fields. Common examples include alteration of the values in fields `lat` (latitude) and `lng` (longitude).
+<Callout icon="📘" theme="info">
+  ## Changes to geographical information in updated records
+
+  Some geographical information in ROR comes from the [GeoNames geographical database](https://www.geonames.org/). When a ROR record is updated for any reason, geographical information from GeoNames is also updated, which can result in changes in other fields. Common examples include alteration of the values in fields `lat` (latitude) and `lng` (longitude).
+</Callout>
