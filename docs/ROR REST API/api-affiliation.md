@@ -35,9 +35,11 @@ Additional possibilities that might match the string are also included in result
 
 An API-based approach to matching affiliation strings to ROR IDs can work well for large-scale systems where human review of every proposed match is impractical, but no large-scale programmatic approach to matching is perfect, especially since there are many similar and even identical names and acronyms among research organizations globally. Often, the matching service will not be able to suggest a match for a particular string, and in some cases, the matching service might suggest an incorrect match. Human review is always the best fallback.
 
-> 📘 Consider a different method of matching if you have structured organization data
->
-> You can also match organization data to ROR IDs using the [?query parameter](https://ror.readme.io/docs/api-query) or [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query) with filters and field-specific queries. If your data is structured such that it separately stores an organization's name, city, country, website, and organizational identifiers such as GRID, Wikidata, or Funder IDs, we recommend that you use the [?query parameter](https://ror.readme.io/docs/api-query) or [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API to match your data to ROR.
+<Callout icon="📘" theme="info">
+  ## Consider a different method of matching if you have structured organization data
+
+  You can also match organization data to ROR IDs using the [?query parameter](https://ror.readme.io/docs/api-query) or [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query) with filters and field-specific queries. If your data is structured such that it separately stores an organization's name, city, country, website, and organizational identifiers such as GRID, Wikidata, or Funder IDs, we recommend that you use the [?query parameter](https://ror.readme.io/docs/api-query) or [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API to match your data to ROR.
+</Callout>
 
 # Formatting searches
 
@@ -47,11 +49,13 @@ All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_url
 
 The affiliation parameter **does not accept filters** and results **are not paginated**. If filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search. All results will be returned, not just the first 20, since matching strategies typically return a small number of results. Results are listed in descending order by matching confidence score.
 
-> 🚧 Be aware of differences between the affiliation parameter and the query parameters
->
-> Unlike the [?query parameter](https://ror.readme.io/docs/api-query) and the [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query), the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. If filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.
->
-> Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
+<Callout icon="🚧" theme="warn">
+  ## Be aware of differences between the affiliation parameter and the query parameters
+
+  Unlike the [?query parameter](https://ror.readme.io/docs/api-query) and the [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query), the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. If filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.
+
+  Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
+</Callout>
 
 # Multisearch strategy
 
@@ -59,9 +63,11 @@ The default matching strategy for the ROR API affiliation parameter, in place [s
 
 Additional candidates also appear in the results list and are ranked in descending order by confidence `score`. Only results with a score of at least .5 are returned. No more than one record in the results list receives a `chosen:true` indicator, and that record (if present) will always be listed first. Use the `chosen:true` indicator, not the confidence score or position in the list of results, to select matches.
 
-> 📘 Affiliation parameter multisearch format
->
-> `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]`
+<Callout icon="📘" theme="info">
+  ## Affiliation parameter multisearch format
+
+  `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]`
+</Callout>
 
 The matching types used in the multisearch strategy include the following:
 
@@ -1300,9 +1306,11 @@ The substring used to find the match in this case is "International Centre for T
 
 As of November 2025, the affiliation parameter also supports a single search strategy that outperforms the multisearch strategy in terms of precision and recall while also being faster and more computationally efficient.
 
-> 📘 Affiliation parameter single search format
->
-> `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]&single_search`
+<Callout icon="📘" theme="info">
+  ## Affiliation parameter single search format
+
+  `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]&single_search`
+</Callout>
 
 The single search matching strategy uses only a single query to find potential matches between affiliation strings and ROR records. Unlike the multisearch strategy, the single search strategy does not break up the search string into substrings, but instead always uses the entirety of the text string as the search term.
 
@@ -3052,9 +3060,11 @@ The substring used to find the match in this case is "Department of Urology, Gre
 
 When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed.
 
-> ❗️ Don't automatically select results by score or order
->
-> When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true` indicator. If there is no result with `chosen:true`, leave the string unmatched or add an additional layer of human or machine matching, at your discretion. Don't automatically select results higher than a particular confidence score, and don't automatically select the first result in the list.
+<Callout icon="❗️" theme="error">
+  ## Don't automatically select results by score or order
+
+  When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true` indicator. If there is no result with `chosen:true`, leave the string unmatched or add an additional layer of human or machine matching, at your discretion. Don't automatically select results higher than a particular confidence score, and don't automatically select the first result in the list.
+</Callout>
 
 ## Example
 
