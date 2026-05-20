@@ -21,9 +21,11 @@ When retrieving a single record, you can use any of these formats in the ID port
 
 All formats will return the same record. See [ROR identifier pattern](doc:identifier) for more on ROR ID formats.
 
-> 📘 Single ROR ID request format
->
-> `https://api.ror.org/v2/organizations/[ror id]`
+<Callout icon="📘" theme="info">
+  ## Single ROR ID request format
+
+  `https://api.ror.org/v2/organizations/[ror id]`
+</Callout>
 
 ## Example
 
