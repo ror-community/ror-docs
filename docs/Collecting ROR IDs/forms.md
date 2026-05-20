@@ -27,13 +27,15 @@ next:
       type: link
       url: https://youtu.be/3aBjcM3ou1M?si=ncRAm5c6lXarhNLu
 ---
-> 🚧 Using ROR with standard form solutions
->
-> The information on this page is aimed at developers who are building and maintaining web applications that include custom forms. If you are using a standard form solution such as Google Forms, we recommend collecting organization names as text in your form, generating a CSV file from the form responses, and then [matching the organization names to ROR IDs](doc:matching).
+<Callout icon="🚧" theme="warn">
+  ## Using ROR with standard form solutions
+
+  The information on this page is aimed at developers who are building and maintaining web applications that include custom forms. If you are using a standard form solution such as Google Forms, we recommend collecting organization names as text in your form, generating a CSV file from the form responses, and then [matching the organization names to ROR IDs](doc:matching).
+</Callout>
 
 If your system includes fields that users enter affiliation information into, you can standardize that input and capture corresponding ROR IDs by adding a typeahead (or "autosuggest") widget that prompts users to select an organization from ROR. Learn more about best practices and implementation steps for using ROR in your application's forms here.
 
-<Image alt="ROR typeahead demo showing a user entering variations on the name Cracow University of Economics into a form" border={false} src="https://files.readme.io/4f93231-cracow-ror-typeahead-new.gif" />
+![ROR typeahead demo showing a user entering variations on the name Cracow University of Economics into a form](https://files.readme.io/4f93231-cracow-ror-typeahead-new.gif)
 
 # General best practices
 
@@ -47,7 +49,7 @@ The `names` field includes variations on an organization's name such as its name
 
 In the below example, the ROR record for the University of Wisconsin-Madison, [https://ror.org/01y2jtd41](https://ror.org/01y2jtd41), contains several values in the `names` field: the `ror_display` name "University of Wisconsin-Madison", the `alias` "UW-Madison", the `acronym` "UW",  and `labels` for the organization's name in French and Spanish. All values are searchable.
 
-<Image align="center" border={false} src="https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png" />
+<Image align="center" src="https://files.readme.io/8f07cc7-ror-typeahead-UW-Madison.png" />
 
 ## Select names for display by language or type
 
@@ -59,9 +61,11 @@ The `ror_display` name can be in any language. If you prefer to select a name in
 
 <Image align="center" border={true} src="https://files.readme.io/d0aefa574e6fd5bef45c19c37dcb96b477db613062fe548953dfee2b4be2e418-ror_display.png" className="border" />
 
-> 🚧 Do not select the first name in the array
->
-> The order of names in the array in the ROR record is neither significant nor predictable. Therefore, order position in the array should not be used to select a name: use the name type or the name language instead.
+<Callout icon="🚧" theme="warn">
+  ## Do not select the first name in the array
+
+  The order of names in the array in the ROR record is neither significant nor predictable. Therefore, order position in the array should not be used to select a name: use the name type or the name language instead.
+</Callout>
 
 ## Show additional information besides an organization name
 
@@ -75,11 +79,13 @@ In addition to an organization name, display other ROR record fields in order to
 
 We do not recommend displaying ROR IDs to end users. If you wish to display the ROR ID to end users, please consult our [display guidelines](doc:display) for ROR IDs and the ROR logo.
 
-> 📘 Special consideration for displaying geographical information from ROR: organizations with multiple locations
->
-> Beginning with [Schema 2.0](doc:schema-v2), ROR metadata supports multiple locations in a single ROR record. The large majority of ROR records include only a single location; [ROR metadata policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#multiple-locations) outline the rare circumstances in which a ROR record will qualify for multiple locations.
->
-> Developers who wish to pull location information from ROR may therefore wish to plan to accommodate multiple locations, for example by displaying all locations in a drop down or typeahead. In cases where records have multiple locations, no priority is specified and order is not significant. For this reason, displaying only the first location may not be appropriate for all cases. Additionally, in some cases, developers may wish to allow users to edit location fields within their application(s) to reflect the actual location of the user rather than forcing the use of a location from a ROR record.
+<Callout icon="📘" theme="info">
+  ## Special consideration for displaying geographical information from ROR: organizations with multiple locations
+
+  Beginning with [Schema 2.0](doc:schema-v2), ROR metadata supports multiple locations in a single ROR record. The large majority of ROR records include only a single location; [ROR metadata policies](https://github.com/ror-community/ror-updates/wiki/ROR-Metadata-Policies#multiple-locations) outline the rare circumstances in which a ROR record will qualify for multiple locations.
+
+  Developers who wish to pull location information from ROR may therefore wish to plan to accommodate multiple locations, for example by displaying all locations in a drop down or typeahead. In cases where records have multiple locations, no priority is specified and order is not significant. For this reason, displaying only the first location may not be appropriate for all cases. Additionally, in some cases, developers may wish to allow users to edit location fields within their application(s) to reflect the actual location of the user rather than forcing the use of a location from a ROR record.
+</Callout>
 
 ## Do not require the ROR ID
 
@@ -95,13 +101,13 @@ Forms can still require users to give an institutional affiliation by allowing u
 
 After a user chooses an organization from the list, don't allow them to edit the name, as this will likely result in incorrectly matched ROR IDs. Instead, prompt them to choose a new organization from the ROR list or else enter an organization name as a free text string.
 
-<Image border={false} src="https://lh4.googleusercontent.com/s2orC1Hyx-blwbnAwAT2zvBEaU8jLZlvHXd_MBGoO41BRCvo8GZZtlFG_rkXet4mJwbA_sGT_LjOX0EsYhyJulpli2LTy9Kc_-U9rNap04olBUXQ5qb902aMnJrFw7wPLSkYd8UP5G2tYY47chwCqVZ7T7MBZ6toR_0ns_SYXOKjLC9sW2U7VgrQie2b" />
+![](https://lh4.googleusercontent.com/s2orC1Hyx-blwbnAwAT2zvBEaU8jLZlvHXd_MBGoO41BRCvo8GZZtlFG_rkXet4mJwbA_sGT_LjOX0EsYhyJulpli2LTy9Kc_-U9rNap04olBUXQ5qb902aMnJrFw7wPLSkYd8UP5G2tYY47chwCqVZ7T7MBZ6toR_0ns_SYXOKjLC9sW2U7VgrQie2b)
 
 ## Allow entering a text string if no ROR match is found
 
 Allow the user to enter the organization name as a text string if no appropriate option is suggested by the typeahead.
 
-<Image border={false} src="https://lh6.googleusercontent.com/lZl0oiKuYUAytx8H-Rv9Oa93tcVCOtqhR6vrQlEnz5D3RxAy4hwV0Luja73MaHa4q6AqLFea4FHJzYfdDDCiXtH1QQdTcXcKy-_2-US5rEr3rSrUqxJIa8mgG0jya0k5_hQqJgbwrdqujOrpoly7Fb1Gn1h3Xsy54ohcyueV-OBZfU023GC0TI2bBrMS" />
+![](https://lh6.googleusercontent.com/lZl0oiKuYUAytx8H-Rv9Oa93tcVCOtqhR6vrQlEnz5D3RxAy4hwV0Luja73MaHa4q6AqLFea4FHJzYfdDDCiXtH1QQdTcXcKy-_2-US5rEr3rSrUqxJIa8mgG0jya0k5_hQqJgbwrdqujOrpoly7Fb1Gn1h3Xsy54ohcyueV-OBZfU023GC0TI2bBrMS)
 
 ## Allow users to provide multiple affiliations
 
@@ -109,7 +115,7 @@ Allow users to provide multiple affiliations, since many users are affiliated wi
 
 See [ROR hierarchies and relationships](doc:relationships) for more information about parent, child, and sibling research organizations in ROR.
 
-<Image border={false} src="https://files.readme.io/7b7847d-typeahead-morgridge.png" />
+![](https://files.readme.io/7b7847d-typeahead-morgridge.png)
 
 ## Follow accessibility best practices
 
@@ -129,13 +135,13 @@ Follow accessibility best practices for form controls, such [W3C Web accessibili
 
 Consider [Filtering](doc:api-filtering) the list of suggestions displayed to the user based on context, such as the user's email domain, organization type, or location (either browser geolocation or location information entered in other fields on the same form).
 
-<Image border={false} src="https://lh3.googleusercontent.com/nr_HsqKJoVWObgIx27yqGTZNx84kWzSFUxQUwEercYX-01H1FzdYN2c0w5_hlTUbzoZd3nMsQVDexwhbdpQTH1-MWFotYjIhNyQ6d0IvLmP4JPbo6Zc2qBqAu54vaTiCjjRPSeMhCfTIyyPsybmSUGMpVKLBDaGAi8eX9C1Hav--EoI_A9E6itkT3rVh" />
+![](https://lh3.googleusercontent.com/nr_HsqKJoVWObgIx27yqGTZNx84kWzSFUxQUwEercYX-01H1FzdYN2c0w5_hlTUbzoZd3nMsQVDexwhbdpQTH1-MWFotYjIhNyQ6d0IvLmP4JPbo6Zc2qBqAu54vaTiCjjRPSeMhCfTIyyPsybmSUGMpVKLBDaGAi8eX9C1Hav--EoI_A9E6itkT3rVh)
 
 ## Consider populating other fields using ROR data
 
 Consider populating other fields in your form automatically using data from the ROR record selected by the user. See the list of ROR record fields in [ROR data structure](doc:ror-data-structure).
 
-<Image border={false} src="https://lh6.googleusercontent.com/aTclvWe9JZnZaMLH7W6e6tT91l1YC_TrpfOoDVgW1dRHY7vqxY2AOxORlSU3T2Ixfjz6vREyMjhooVAaVVQGv7ua20EqM9VaI-arubiYV6lEOjIKvcx59TB2zeMHydV7kNf9XeKAOPP5XVkKRbynRwl9ROTVtHtT8-86HUhpsJNP-95ZWVRqXTWkHzEZ" />
+![](https://lh6.googleusercontent.com/aTclvWe9JZnZaMLH7W6e6tT91l1YC_TrpfOoDVgW1dRHY7vqxY2AOxORlSU3T2Ixfjz6vREyMjhooVAaVVQGv7ua20EqM9VaI-arubiYV6lEOjIKvcx59TB2zeMHydV7kNf9XeKAOPP5XVkKRbynRwl9ROTVtHtT8-86HUhpsJNP-95ZWVRqXTWkHzEZ)
 
 # Implementation approaches
 
