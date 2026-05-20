@@ -2107,9 +2107,11 @@ The response is a JSON object containing full records for the first 20 organizat
 \
 ```
 
-> ❗️ It is not possible to retrieve all ROR records from the API
->
-> The API is best for use cases that involve querying or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API, even with [Paging](doc:api-paging). If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump).
+<Callout icon="❗️" theme="error">
+  ## It is not possible to retrieve all ROR records from the API
+
+  The API is best for use cases that involve querying or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that it is currently not possible to retrieve all 100,000+ records from the ROR API, even with [Paging](doc:api-paging). If you need to use the entire ROR dataset in your application, please download the [data dump](doc:data-dump).
+</Callout>
 
 # Retrieve a list of records with all statuses
 
