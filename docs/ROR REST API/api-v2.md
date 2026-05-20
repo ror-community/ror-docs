@@ -42,9 +42,11 @@ The full JSON schema used for generating and validating ROR records is available
 | status        |             Whether the organization is active            | String |   TRUE   |      TRUE      |                                                                         Allowed values: active, inactive, withdrawn |
 | types         |                     Organization type                     |  Array |   TRUE   |      TRUE      | Allowed organization types: education, funder, healthcare, company, archive, nonprofit, government, facility, other |
 
-> 📘 All available fields and sub-fields
->
-> See also the complete alphabetical list of [All ROR fields and sub-fields](doc:fields) in v2.1 of the ROR metadata schema.
+<Callout icon="📘" theme="info">
+  ## All available fields and sub-fields
+
+  See also the complete alphabetical list of [All ROR fields and sub-fields](doc:fields) in v2.1 of the ROR metadata schema.
+</Callout>
 
 # Definitions and policies
 
