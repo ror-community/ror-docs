@@ -157,7 +157,7 @@ The response is a JSON object containing a full ROR record. See [ROR data struct
 
 # Status and single ROR ID requests
 
-Although [as of December 2022](https://ror.readme.io/changelog/2022-12-01-organization-status-changes) the ROR API defaults to returning only records whose status is _active_ in lists of results, requests for a single specific record by its ROR ID will always return the record even when its status is _inactive_ or _withdrawn_. Read more about [status in ROR data](doc:data-structure#status).
+Although [as of December 2022](https://ror.readme.io/changelog/2022-12-01-organization-status-changes) the ROR API defaults to returning only records whose status is _active_ in lists of results, requests for a single specific record by its ROR ID will always return the record even when its status is _inactive_ or _withdrawn_. Read more about [status in ROR data](doc:ror-data-structure#status).
 
 ## Example
 
