@@ -58,13 +58,13 @@ The affiliation parameter **does not accept filters** and results **are not pagi
   The affiliation parameter is designed for automatic matching of text strings to ROR IDs. The query parameter and the advanced query parameter are designed for use cases in which a person chooses a result, such as <Anchor label="ROR-powered forms" target="_blank" href="doc:forms">ROR-powered forms</Anchor> and the <Anchor label="ROR web search" target="_blank" href="doc:web-search">ROR web search</Anchor>.
 </Callout>
 
-# Matching strings
+# Matching a string
 
 Use the affiliation parameter to match a text string that includes an organization name to a ROR ID. If a likely match is found, it will be identified with the `chosen:true` indicator and can be automatically selected. No more than one result (if any) will include the `chosen:true` indicator.
 
 ## Example
 
-A text string such as "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104" can be matched to a ROR ID with the affiliation parameter. Note that the string must be URL-encoded
+A text string such as "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104" can be matched to a ROR ID with the affiliation parameter. Note that the string must be URL-encoded.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?affiliation=Dept.%20of%20Microbiology%2C%20University%20of%20Pennsylvania%20School%20of%20Medicine%2C%20Philadelphia%2C%20PA%2C%2019104' | json_pp
@@ -2128,7 +2128,7 @@ The list of results includes a `chosen:true` indicator that correctly matches th
 
 # No matches found
 
-When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed.
+When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed in order to match the string to a ROR ID.
 
 <Callout icon="❗️" theme="error">
   ## Don't automatically select results by score or order
@@ -3104,7 +3104,7 @@ The response returns results with confidence scores ranging from .79 to .7 liste
 
 # Single search strategy
 
-As of May 2026, the default search strategy for the affiliation parameter is a "single search" strategy that outperforms the multisearch strategy in terms of precision and recall while also being faster and more computationally efficient.
+As of May 2026, the default search strategy for the affiliation parameter is a "single search" strategy that outperforms the legacy multisearch strategy in terms of precision and recall while also being faster and more computationally efficient. You can call the single search strategy by appending `&single_search` to the query, but it is not necessary.  
 
 <Callout icon="📘" theme="info">
   ## Affiliation parameter single search format
@@ -3112,7 +3112,7 @@ As of May 2026, the default search strategy for the affiliation parameter is a "
   `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]&single_search`
 </Callout>
 
-The single search matching strategy uses only a single query to find potential matches between affiliation strings and ROR records. Unlike the multisearch strategy, the single search strategy does not break up the search string into substrings, but instead always uses the entirety of the text string as the search term.
+The single search matching strategy uses only a single query and the entirety of the input text string to find potential matches between affiliation strings and ROR records. 
 
 ## Example
 
