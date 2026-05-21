@@ -6258,8 +6258,6 @@ The substring used to find the match in this case is "Universidad de Castilla La
 }
 ```
 
-<br />
-
 # Other ways to match affiliations to ROR records
 
 See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the ROR API affiliation parameter and other methods, including third-party machine learning models, to match text strings to ROR IDs.
