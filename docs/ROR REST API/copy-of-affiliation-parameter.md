@@ -23,12 +23,15 @@ next:
       type: link
       url: >-
         https://gitlab.com/crossref/marple/-/tree/main/strategies_available/affiliation_single_search
+    - title: ROR single search affiliation matching strategy demo (YouTube)
+      type: link
+      url: https://www.youtube.com/watch?v=DC7mZSnECsQ
 ---
 # About the affiliation parameter
 
 For many years, publishers of scholarly information often captured author and contributor affiliation information as unstructured data, sometimes storing an organization's name, a sub-unit or department's name, a street address, and a geographical location along with copious irregular punctuation as a text string in a single field. Some affiliation strings even include multiple affiliations.
 
-The affiliation parameter of the ROR API is designed to help match these messy text strings to ROR records to produce cleaner affiliation data. The affiliation service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator. Not all affiliation searches will produce a "chosen" result.
+The affiliation parameter of the ROR API is designed to help match these messy text strings to ROR records to produce cleaner affiliation data. The affiliation service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator. Not all affiliation searches will produce a "chosen" result. The method of matching is also indicated in the `matching_type` field. 
 
 Additional possibilities that might match the string are also included in results, listed in descending order by confidence `score`. Note that **we do not recommend using the confidence `score` to select matches**; use the `chosen:true` indicator instead.
 
@@ -3104,7 +3107,7 @@ The response returns results with confidence scores ranging from .79 to .7 liste
 
 # Single search strategy
 
-As of May 2026, the default search strategy for the affiliation parameter is a "single search" strategy that outperforms the legacy multisearch strategy in terms of precision and recall while also being faster and more computationally efficient. You can call the single search strategy by appending `&single_search` to the query, but it is not necessary.  
+As of May 2026, the default search strategy for the affiliation parameter is a "single search" strategy that outperforms the legacy multisearch strategy in terms of precision and recall while also being faster and more computationally efficient. You can specify the single search strategy by appending `&single_search` to the query, but it is not necessary, since single search is the default.
 
 <Callout icon="📘" theme="info">
   ## Affiliation parameter single search format
@@ -6105,4 +6108,4 @@ The substring used to find the match in this case is "International Centre for T
 
 # Other ways to match affiliations to ROR records
 
-See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the ROR API affiliation parameter and other methods, including third-party machine learning models, to match long, messy affiliation strings to ROR records.
+See our guide on [Matching organization names to ROR IDs](doc:matching) for more details on using the ROR API affiliation parameter and other methods, including third-party machine learning models, to match text strings to ROR IDs.
