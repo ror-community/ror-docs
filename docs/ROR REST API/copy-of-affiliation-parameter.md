@@ -55,7 +55,7 @@ The affiliation parameter **does not accept filters** and results **are not pagi
 
   Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
 
-  The query parameter and the advanced query parameter are designed for use cases in which a person chooses a result, such as <Anchor label="ROR-powered forms" target="_blank" href="doc:forms">ROR-powered forms</Anchor> and the <Anchor label="ROR web search" target="_blank" href="doc:web-search">ROR web search</Anchor>.
+  The affiliation parameter is designed for automatic matching of text strings to ROR IDs. The query parameter and the advanced query parameter are designed for use cases in which a person chooses a result, such as <Anchor label="ROR-powered forms" target="_blank" href="doc:forms">ROR-powered forms</Anchor> and the <Anchor label="ROR web search" target="_blank" href="doc:web-search">ROR web search</Anchor>.
 </Callout>
 
 # Matching strings
@@ -2144,7 +2144,7 @@ An affiliation string such as "UCL School of Slavonic and East European Studies"
 curl 'https://api.ror.org/v2/organizations?affiliation=UCL%20School%20of%20Slavonic%20and%20East%20European%20Studies' | json_pp
 ```
 
-The response returns results with confidence scores ranging from .79 to .7 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match. In such cases, best practice is to add additional human or machine review or to leave the string unmatched. 
+The response returns results with confidence scores ranging from .79 to .7 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match. In such cases, best practice is to add additional human or machine review or to leave the string unmatched.
 
 ```json
 {
@@ -3101,6 +3101,7 @@ The response returns results with confidence scores ranging from .79 to .7 liste
 ```
 
 <br />
+
 # Single search strategy
 
 As of May 2026, the default search strategy for the affiliation parameter is a "single search" strategy that outperforms the multisearch strategy in terms of precision and recall while also being faster and more computationally efficient.
@@ -4855,14 +4856,13 @@ The substring used to find the match in this case is "Department of Urology, Gre
 }
 ```
 
-
 # Multisearch strategy
 
-The original matching strategy for the ROR API affiliation parameter, in place [since November 2019](https://doi.org/10.71938/36jw-rs79), remains available in the ROR API and can be invoked by appending `&multisearch` to a query. 
+The original matching strategy for the ROR API affiliation parameter, in place [since November 2019](https://doi.org/10.71938/36jw-rs79), remains available in the ROR API and can be invoked by appending `&multisearch` to a query.
 
 This strategy breaks long search strings into separate substrings, performing multiple searches with these values and limiting results to records matching any countries that can be derived from the text.  It then returns (if possible) the most likely match to a ROR record, as identified by a `chosen:true` indicator.
 
-Additional candidates also appear in the results list and are ranked in descending order by confidence `score`. Only results with a score of at least .5 are returned. 
+Additional candidates also appear in the results list and are ranked in descending order by confidence `score`. Only results with a score of at least .5 are returned.
 
 <Callout icon="📘" theme="info">
   ## Affiliation parameter multisearch format
@@ -4887,7 +4887,7 @@ The multisearch strategy allows you to find a matching ROR record for a long, co
 curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Civil%20and%20Industrial%20Engineering%2C%20University%20of%20Pisa%2C%20Largo%20Lucio%20Lazzarino%202%2C%20Pisa%2056126%2C%20Italy&multisearch' | json_pp
 ```
 
-The first item in the results list, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. 
+The first item in the results list, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string.
 
 The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
 
@@ -6102,9 +6102,6 @@ The substring used to find the match in this case is "International Centre for T
    "number_of_results" : 1
 }
 ```
-
-
-
 
 # Other ways to match affiliations to ROR records
 
