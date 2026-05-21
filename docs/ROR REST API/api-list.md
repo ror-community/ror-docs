@@ -2117,7 +2117,7 @@ The response is a JSON object containing full records for the first 20 organizat
 
 As of 1 Dec 2022 the ROR API will return only records with a status of _active_ by default: [see release notes](https://ror.readme.io/changelog/2022-12-01-organization-status-changes).
 
-Records with _active_ status indicate organizations that maintain current operations, while records with _inactive_ status indicate organizations that have ceased functioning, and records with _withdrawn_ status indicate records that were added to ROR in error (e.g., duplicate records and out-of-scope organizations). See [ROR data structure](doc:data-structure#status) for more information about record status.
+Records with _active_ status indicate organizations that maintain current operations, while records with _inactive_ status indicate organizations that have ceased functioning, and records with _withdrawn_ status indicate records that were added to ROR in error (e.g., duplicate records and out-of-scope organizations). See [ROR data structure](doc:ror-data-structure#status) for more information about record status.
 
 Add the query parameter `all_status` to return records with all statuses, including _active_, _inactive_, and _withdrawn_.
 
