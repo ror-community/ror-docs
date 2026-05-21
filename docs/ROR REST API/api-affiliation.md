@@ -59,8 +59,6 @@ The affiliation parameter **does not accept filters** and results **are not pagi
   The query parameter and the advanced query parameter are designed for use cases in which a person chooses a result, such as <Anchor label="ROR-powered forms" target="_blank" href="doc:forms">ROR-powered forms</Anchor> and the <Anchor label="ROR web search" target="_blank" href="doc:web-search">ROR web search</Anchor>. 
 </Callout>
 
-<br />
-
 # Multisearch strategy
 
 The default matching strategy for the ROR API affiliation parameter, in place [since November 2019](https://doi.org/10.71938/36jw-rs79), breaks long search strings into separate substrings, performing multiple searches with these values and limiting results to records matching any countries that can be derived from the text.  It then returns (if possible) the most likely match to a ROR record, as identified by a `chosen:true` indicator.
