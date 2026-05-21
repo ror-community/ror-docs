@@ -1,5 +1,5 @@
 ---
-title: Copy of Affiliation parameter
+title: Affiliation parameter - new draft
 deprecated: false
 hidden: true
 metadata:
@@ -28,16 +28,16 @@ next:
 
 For many years, publishers of scholarly information often captured author and contributor affiliation information as unstructured data, sometimes storing an organization's name, a sub-unit or department's name, a street address, and a geographical location along with copious irregular punctuation as a text string in a single field. Some affiliation strings even include multiple affiliations.
 
-The affiliation parameter of the ROR API is designed to help match these messy text strings to ROR records to produce cleaner affiliation data. The affiliation service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator.
+The affiliation parameter of the ROR API is designed to help match these messy text strings to ROR records to produce cleaner affiliation data. The affiliation service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator. Not all affiliation searches will produce a "chosen" result.
 
 Additional possibilities that might match the string are also included in results, listed in descending order by confidence `score`. Note that **we do not recommend using the confidence `score` to select matches**; use the `chosen:true` indicator instead.
 
 An API-based approach to matching affiliation strings to ROR IDs can work well for large-scale systems where human review of every proposed match is impractical, but no large-scale programmatic approach to matching is perfect, especially since there are many similar and even identical names and acronyms among research organizations globally. Often, the matching service will not be able to suggest a match for a particular string, and in some cases, the matching service might suggest an incorrect match. Human review is always the best fallback.
 
 <Callout icon="📘" theme="info">
-  ## Consider a different method of matching if you have structured organization data
+  ## Affiliation parameter format
 
-  You can also match organization data to ROR IDs using the [?query parameter](https://ror.readme.io/docs/api-query) or [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query) with filters and field-specific queries. If your data is structured such that it separately stores an organization's name, city, country, website, and organizational identifiers such as GRID, Wikidata, or Funder IDs, we recommend that you use the [?query parameter](https://ror.readme.io/docs/api-query) or [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API to match your data to ROR.
+  `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]`
 </Callout>
 
 # Formatting searches
@@ -54,49 +54,30 @@ The affiliation parameter **does not accept filters** and results **are not pagi
   Unlike the [?query parameter](https://ror.readme.io/docs/api-query) and the [?query.advanced parameter](https://ror.readme.io/docs/api-advanced-query), the affiliation parameter does not accept filters, and results are not paginated -- all results will be returned, not just the first 20. If filter syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search.
 
   Also unlike the query and advanced query parameters, the affiliation parameter expects multi-word strings that include spaces, punctuation, and special characters. Surrounding terms in quotation marks or escaping special characters can produce worse results when using the affiliation parameter.
+
+  The query parameter and the advanced query parameter are designed for use cases in which a person chooses a result, such as <Anchor label="ROR-powered forms" target="_blank" href="doc:forms">ROR-powered forms</Anchor> and the <Anchor label="ROR web search" target="_blank" href="doc:web-search">ROR web search</Anchor>.
 </Callout>
 
-# Multisearch strategy
+# Matching strings
 
-The default matching strategy for the ROR API affiliation parameter, in place [since November 2019](https://doi.org/10.71938/36jw-rs79), breaks long search strings into separate substrings, performing multiple searches with these values and limiting results to records matching any countries that can be derived from the text.  It then returns (if possible) the most likely match to a ROR record, as identified by a `chosen:true` indicator.
-
-Additional candidates also appear in the results list and are ranked in descending order by confidence `score`. Only results with a score of at least .5 are returned. No more than one record in the results list receives a `chosen:true` indicator, and that record (if present) will always be listed first. Use the `chosen:true` indicator, not the confidence score or position in the list of results, to select matches.
-
-<Callout icon="📘" theme="info">
-  ## Affiliation parameter multisearch format
-
-  `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]`
-</Callout>
-
-The matching types used in the multisearch strategy include the following:
-
-* `PHRASE`: the entire phrase was matched to a variant of the organization's name
-* `COMMON TERMS`: the matching was done by comparing the words separately
-* `FUZZY`: the matching was done by a fuzzy comparison of the words separately
-* `HEURISTICS`: "University of X" was matched to "X University"
-* `ACRONYM`: matched by acronym
-* `EXACT`: exact match of the entered string in name values in the `names` field excluding acronyms
+Use the affiliation parameter to match a text string that includes an organization name to a ROR ID. If a likely match is found, it will be identified with the `chosen:true` indicator and can be automatically selected. No more than one result (if any) will include the `chosen:true` indicator.
 
 ## Example
 
-The default multisearch strategy allows you to find a matching ROR record for a long, complex affiliation text string such as "Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy".
+A text string such as "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104" can be matched to a ROR ID with the affiliation parameter. Note that the string must be URL-encoded
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Civil%20and%20Industrial%20Engineering%2C%20University%20of%20Pisa%2C%20Largo%20Lucio%20Lazzarino%202%2C%20Pisa%2056126%2C%20Italy' | json_pp
+curl 'https://api.ror.org/v2/organizations?affiliation=Dept.%20of%20Microbiology%2C%20University%20of%20Pennsylvania%20School%20of%20Medicine%2C%20Philadelphia%2C%20PA%2C%2019104' | json_pp
 ```
 
-The first item in the results list, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
-
-The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
-
-The substring used to find the match in this case is "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa Italy", or the entire text content of the entered string excluding punctuation and the numeric postcode.
+The list of results includes a `chosen:true` indicator that correctly matches the string to the ROR record for the University of Pennsylvania, [https://ror.org/00b30xv10](https://ror.org/00b30xv10).
 
 ```json
 {
    "items" : [
       {
          "chosen" : true,
-         "matching_type" : "COMMON TERMS",
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
@@ -104,78 +85,89 @@ The substring used to find the match in this case is "Department of Civil and In
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2025-01-22",
+                  "date" : "2025-05-05",
                   "schema_version" : "2.1"
                }
             },
             "domains" : [
-               "unipi.it"
+               "upenn.edu"
             ],
-            "established" : 1343,
+            "established" : 1740,
             "external_ids" : [
                {
                   "all" : [
-                     "501100007514"
+                     "100006920",
+                     "100005312",
+                     "100007929",
+                     "100007928",
+                     "100005882",
+                     "100005467",
+                     "100008435",
+                     "100010410",
+                     "100010490",
+                     "100009949",
+                     "100007486",
+                     "100017303"
                   ],
-                  "preferred" : null,
+                  "preferred" : "100006920",
                   "type" : "fundref"
                },
                {
                   "all" : [
-                     "grid.5395.a"
+                     "grid.25879.31"
                   ],
-                  "preferred" : "grid.5395.a",
+                  "preferred" : "grid.25879.31",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 1757 3729"
+                     "0000 0004 1936 8972"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                },
                {
                   "all" : [
-                     "Q645663"
+                     "Q49117"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/03ad39j10",
+            "id" : "https://ror.org/00b30xv10",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.unipi.it"
+                  "value" : "https://www.upenn.edu"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Pisa"
+                  "value" : "http://en.wikipedia.org/wiki/University_of_Pennsylvania"
                }
             ],
             "locations" : [
                {
                   "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 39.95238,
+                     "lng" : -75.16362,
+                     "name" : "Philadelphia"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 4560349
                }
             ],
             "names" : [
                {
                   "lang" : null,
                   "types" : [
-                     "acronym"
+                     "alias"
                   ],
-                  "value" : "UniPi"
+                  "value" : "UPenn"
                },
                {
                   "lang" : "en",
@@ -183,39 +175,53 @@ The substring used to find the match in this case is "Department of Civil and In
                      "ror_display",
                      "label"
                   ],
-                  "value" : "University of Pisa"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Università di Pisa"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Universität Pisa"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Université de Pise"
+                  "value" : "University of Pennsylvania"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/00mc91w09",
-                  "label" : "Ospedale Cisanello",
+                  "id" : "https://ror.org/047939x15",
+                  "label" : "Penn Center for AIDS Research",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05hs3x327",
+                  "label" : "American Research Institute in Turkey",
                   "type" : "related"
                },
                {
-                  "id" : "https://ror.org/05symbg58",
-                  "label" : "Istituto Nazionale di Fisica Nucleare, Sezione di Pisa",
+                  "id" : "https://ror.org/01z7r7q48",
+                  "label" : "Children's Hospital of Philadelphia",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/02917wp91",
+                  "label" : "Hospital of the University of Pennsylvania",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/00swv7d52",
+                  "label" : "Penn Presbyterian Medical Center",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/03mvdc478",
+                  "label" : "Pennsylvania Hospital",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/03j05zz84",
+                  "label" : "Philadelphia VA Medical Center",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/04h81rw26",
+                  "label" : "University of Pennsylvania Health System",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/03xwa9562",
+                  "label" : "University of Pennsylvania Press",
                   "type" : "related"
                }
             ],
@@ -226,11 +232,114 @@ The substring used to find the match in this case is "Department of Civil and In
             ]
          },
          "score" : 1,
-         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
       },
       {
          "chosen" : false,
-         "matching_type" : "FUZZY",
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2024-04-06",
+                  "schema_version" : "2.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : null,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "0000 0001 2296 1126"
+                  ],
+                  "preferred" : "0000 0001 2296 1126",
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q2123017"
+                  ],
+                  "preferred" : "Q2123017",
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02ets8c94",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://medicine.iu.edu"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Indiana_University_School_of_Medicine"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "IN",
+                     "country_subdivision_name" : "Indiana",
+                     "lat" : 39.76838,
+                     "lng" : -86.15804,
+                     "name" : "Indianapolis"
+                  },
+                  "geonames_id" : 4259418
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "IU School of Medicine"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IUSM"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Indiana University School of Medicine"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/01kg8sb98",
+                  "label" : "Indiana University",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/01aaptx40",
+                  "label" : "Indiana University Health",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.95,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
@@ -238,115 +347,107 @@ The substring used to find the match in this case is "Department of Civil and In
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2025-01-22",
+                  "date" : "2025-03-26",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [
-               "unisalento.it"
-            ],
-            "established" : 1955,
+            "domains" : [],
+            "established" : 1970,
             "external_ids" : [
                {
                   "all" : [
-                     "501100005728",
-                     "501100005729",
-                     "501100006195"
+                     "100008571"
                   ],
-                  "preferred" : "501100005728",
+                  "preferred" : null,
                   "type" : "fundref"
                },
                {
                   "all" : [
-                     "grid.9906.6"
+                     "grid.280418.7"
                   ],
-                  "preferred" : "grid.9906.6",
+                  "preferred" : "grid.280418.7",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0001 2289 7785"
+                     "0000 0001 0705 8684"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                },
                {
                   "all" : [
-                     "Q1230902"
+                     "Q7570024"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/03fc1k060",
+            "id" : "https://ror.org/0232r4451",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://unisalento.it"
+                  "value" : "http://www.siumed.edu/"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Salento"
+                  "value" : "http://en.wikipedia.org/wiki/Southern_Illinois_University_School_of_Medicine"
                }
             ],
             "locations" : [
                {
                   "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "75",
-                     "country_subdivision_name" : "Apulia",
-                     "lat" : 40.35481,
-                     "lng" : 18.17244,
-                     "name" : "Lecce"
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "IL",
+                     "country_subdivision_name" : "Illinois",
+                     "lat" : 39.80172,
+                     "lng" : -89.64371,
+                     "name" : "Springfield"
                   },
-                  "geonames_id" : 3174953
+                  "geonames_id" : 4250542
                }
             ],
             "names" : [
                {
                   "lang" : "en",
                   "types" : [
-                     "ror_display",
-                     "label"
+                     "alias"
                   ],
-                  "value" : "University of Salento"
+                  "value" : "SIU Medicine"
                },
                {
-                  "lang" : "it",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Università degli Studi di Lecce"
-               },
-               {
-                  "lang" : "it",
+                  "lang" : "en",
                   "types" : [
                      "alias"
                   ],
-                  "value" : "Università del Salento"
+                  "value" : "SIU School of Medicine"
                },
                {
-                  "lang" : "de",
+                  "lang" : "en",
                   "types" : [
+                     "ror_display",
                      "label"
                   ],
-                  "value" : "Universität Salento"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Université du salento"
+                  "value" : "Southern Illinois University School of Medicine"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/00qrf6g60",
-                  "label" : "Istituto Nazionale di Fisica Nucleare, Sezione di Lecce",
+                  "id" : "https://ror.org/05vz28418",
+                  "label" : "Southern Illinois University System",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/02hxrag63",
+                  "label" : "Memorial Medical Center",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/04p4s5b35",
+                  "label" : "St. John's Hospital",
                   "type" : "related"
                }
             ],
@@ -356,127 +457,103 @@ The substring used to find the match in this case is "Department of Civil and In
                "funder"
             ]
          },
-         "score" : 0.82,
-         "substring" : "University of Pisa"
+         "score" : 0.91,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
       },
       {
          "chosen" : false,
-         "matching_type" : "HEURISTICS",
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
-                  "date" : "2024-09-14",
-                  "schema_version" : "2.0"
+                  "date" : "2024-03-28",
+                  "schema_version" : "1.0"
                },
                "last_modified" : {
                   "date" : "2024-12-11",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [
-               "liceodini.it"
-            ],
-            "established" : 1924,
+            "domains" : [],
+            "established" : 1890,
             "external_ids" : [
                {
                   "all" : [
-                     "Q30889474"
+                     "0000 0001 0634 5307"
                   ],
-                  "preferred" : "Q30889474",
+                  "preferred" : "0000 0001 0634 5307",
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q2037236"
+                  ],
+                  "preferred" : "Q2037236",
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/006xg2x43",
+            "id" : "https://ror.org/03xwa9562",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.liceodini.it"
+                  "value" : "https://www.pennpress.org"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "https://it.wikipedia.org/wiki/Liceo_scientifico_statale_Ulisse_Dini"
+                  "value" : "https://en.wikipedia.org/wiki/University_of_Pennsylvania_Press"
                }
             ],
             "locations" : [
                {
                   "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 39.95238,
+                     "lng" : -75.16362,
+                     "name" : "Philadelphia"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 4560349
                }
             ],
             "names" : [
                {
-                  "lang" : "it",
+                  "lang" : "en",
                   "types" : [
                      "alias"
                   ],
-                  "value" : "Liceo Dini"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Liceo Scientifico \"Ulisse Dini\""
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Liceo Scientifico 'Ulisse Dini' - Pisa"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Liceo Scientifico Ulisse Dini"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label",
-                     "ror_display"
-                  ],
-                  "value" : "Liceo scientifico statale Ulisse Dini"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "U. Dini"
+                  "value" : "Penn Press"
                },
                {
                   "lang" : "en",
                   "types" : [
+                     "ror_display",
                      "label"
                   ],
-                  "value" : "Ulisse Dini Scientific High School"
+                  "value" : "University of Pennsylvania Press"
                }
             ],
-            "relationships" : [],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00b30xv10",
+                  "label" : "University of Pennsylvania",
+                  "type" : "related"
+               }
+            ],
             "status" : "active",
             "types" : [
-               "education"
+               "nonprofit"
             ]
          },
-         "score" : 0.8,
-         "substring" : "Pisa University"
+         "score" : 0.88,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
       },
       {
          "chosen" : false,
-         "matching_type" : "COMMON TERMS",
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
@@ -489,290 +566,48 @@ The substring used to find the match in this case is "Department of Civil and In
                }
             },
             "domains" : [],
-            "established" : null,
+            "established" : 1837,
             "external_ids" : [
                {
                   "all" : [
-                     "grid.144189.1"
+                     "grid.254107.5"
                   ],
-                  "preferred" : "grid.144189.1",
+                  "preferred" : "grid.254107.5",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 1756 8209"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               }
-            ],
-            "id" : "https://ror.org/05xrcj819",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "http://www.ao-pisa.toscana.it/"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
-                  },
-                  "geonames_id" : 3170647
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Azienda Ospedaliera Universitaria Pisana"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "University Hospital of Pisa"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/00mc91w09",
-                  "label" : "Ospedale Cisanello",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/04069k268",
-                  "label" : "ERN ReCONNET",
-                  "type" : "related"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "healthcare"
-            ]
-         },
-         "score" : 0.8,
-         "substring" : "University of Pisa"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2025-01-22",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "pi.infn.it"
-            ],
-            "established" : null,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.470216.6"
-                  ],
-                  "preferred" : "grid.470216.6",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "Q30265297"
+                     "Q3445541"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/05symbg58",
+            "id" : "https://ror.org/02nckwn80",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.pi.infn.it"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
-                  },
-                  "geonames_id" : 3170647
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "INFN Pisa"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "INFN Pisa Division"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "INFN Pisa Unit"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "INFN Sezione di Pisa"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "INFN-PI"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label",
-                     "ror_display"
-                  ],
-                  "value" : "Istituto Nazionale di Fisica Nucleare, Sezione di Pisa"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "National Institute for Nuclear Physics, Pisa Division"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/005ta0471",
-                  "label" : "Istituto Nazionale di Fisica Nucleare",
-                  "type" : "parent"
-               },
-               {
-                  "id" : "https://ror.org/02w0r2764",
-                  "label" : "MAGIC Telescopes",
-                  "type" : "related"
-               },
-               {
-                  "id" : "https://ror.org/03ad39j10",
-                  "label" : "University of Pisa",
-                  "type" : "related"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "facility"
-            ]
-         },
-         "score" : 0.71,
-         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "FUZZY",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "unibs.it"
-            ],
-            "established" : 1982,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "501100007343"
-                  ],
-                  "preferred" : null,
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.7637.5"
-                  ],
-                  "preferred" : "grid.7637.5",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0004 1757 1846"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q1781263"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/02q2d2610",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.unibs.it"
+                  "value" : "http://www.cheyney.edu/"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Brescia"
+                  "value" : "http://en.wikipedia.org/wiki/Cheyney_University_of_Pennsylvania"
                }
             ],
             "locations" : [
                {
                   "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "25",
-                     "country_subdivision_name" : "Lombardy",
-                     "lat" : 45.53558,
-                     "lng" : 10.21472,
-                     "name" : "Brescia"
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 39.96097,
+                     "lng" : -75.60804,
+                     "name" : "West Chester"
                   },
-                  "geonames_id" : 3181554
+                  "geonames_id" : 4562144
                }
             ],
             "names" : [
@@ -782,43 +617,41 @@ The substring used to find the match in this case is "Department of Civil and In
                      "ror_display",
                      "label"
                   ],
-                  "value" : "University of Brescia"
+                  "value" : "Cheyney University of Pennsylvania"
                },
                {
-                  "lang" : "it",
+                  "lang" : "es",
                   "types" : [
                      "label"
                   ],
-                  "value" : "Università degli Studi di Brescia"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Universität Brescia"
+                  "value" : "Universidad de Cheyney de Pensilvania"
                },
                {
                   "lang" : "fr",
                   "types" : [
                      "label"
                   ],
-                  "value" : "Université de brescia"
+                  "value" : "Université cheyney de pennsylvanie"
                }
             ],
-            "relationships" : [],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00m2s0z68",
+                  "label" : "Pennsylvania State System of Higher Education",
+                  "type" : "parent"
+               }
+            ],
             "status" : "active",
             "types" : [
-               "education",
-               "funder"
+               "education"
             ]
          },
-         "score" : 0.67,
-         "substring" : "University of Pisa"
+         "score" : 0.82,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
       },
       {
          "chosen" : false,
-         "matching_type" : "FUZZY",
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
@@ -831,64 +664,57 @@ The substring used to find the match in this case is "Department of Civil and In
                }
             },
             "domains" : [
-               "unical.it"
+               "iup.edu"
             ],
-            "established" : 1972,
+            "established" : 1875,
             "external_ids" : [
                {
                   "all" : [
-                     "501100007069"
+                     "grid.257427.1"
                   ],
-                  "preferred" : null,
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.7778.f"
-                  ],
-                  "preferred" : "grid.7778.f",
+                  "preferred" : "grid.257427.1",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 1937 0319"
+                     "0000 0000 8874 0847"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                },
                {
                   "all" : [
-                     "Q1752540"
+                     "Q1661325"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/02rc97e94",
+            "id" : "https://ror.org/0511cmw96",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.unical.it"
+                  "value" : "https://www.iup.edu"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Calabria"
+                  "value" : "http://en.wikipedia.org/wiki/Indiana_University_of_Pennsylvania"
                }
             ],
             "locations" : [
                {
                   "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "78",
-                     "country_subdivision_name" : "Calabria",
-                     "lat" : 39.33154,
-                     "lng" : 16.18041,
-                     "name" : "Rende"
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 40.62146,
+                     "lng" : -79.15253,
+                     "name" : "Indiana"
                   },
-                  "geonames_id" : 2523623
+                  "geonames_id" : 5194868
                }
             ],
             "names" : [
@@ -897,7 +723,7 @@ The substring used to find the match in this case is "Department of Civil and In
                   "types" : [
                      "acronym"
                   ],
-                  "value" : "UNICAL"
+                  "value" : "IUP"
                },
                {
                   "lang" : "en",
@@ -905,49 +731,139 @@ The substring used to find the match in this case is "Department of Civil and In
                      "ror_display",
                      "label"
                   ],
-                  "value" : "University of Calabria"
+                  "value" : "Indiana University of Pennsylvania"
                },
                {
-                  "lang" : "it",
+                  "lang" : "es",
                   "types" : [
                      "label"
                   ],
-                  "value" : "Università della Calabria"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Universität Kalabrien"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Université de la calabre"
+                  "value" : "Universidad de Pensilvania en Indiana"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/039epzh36",
-                  "label" : "Istituto Nazionale di Fisica Nucleare, Gruppo Collegato di Cosenza",
-                  "type" : "related"
+                  "id" : "https://ror.org/00m2s0z68",
+                  "label" : "Pennsylvania State System of Higher Education",
+                  "type" : "parent"
                }
             ],
             "status" : "active",
             "types" : [
-               "education",
-               "funder"
+               "education"
             ]
          },
-         "score" : 0.65,
-         "substring" : "University of Pisa"
+         "score" : 0.82,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
       },
       {
          "chosen" : false,
-         "matching_type" : "FUZZY",
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2019-11-07",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1914,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.507405.3"
+                  ],
+                  "preferred" : "grid.507405.3",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 0740 3062"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q3267626"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02gsb6172",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.philadelphiafed.org/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Federal_Reserve_Bank_of_Philadelphia"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 39.95238,
+                     "lng" : -75.16362,
+                     "name" : "Philadelphia"
+                  },
+                  "geonames_id" : 4560349
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Federal Reserve Bank of Philadelphia"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Philadelphia Fed"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Philly Fed"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/05fk5tr28",
+                  "label" : "Federal Reserve",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "other"
+            ]
+         },
+         "score" : 0.81,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
@@ -960,68 +876,86 @@ The substring used to find the match in this case is "Department of Civil and In
                }
             },
             "domains" : [],
-            "established" : 1982,
+            "established" : 1995,
             "external_ids" : [
                {
                   "all" : [
-                     "100012783"
+                     "100004906"
                   ],
-                  "preferred" : "100012783",
+                  "preferred" : null,
                   "type" : "fundref"
                },
                {
                   "all" : [
-                     "grid.425554.7"
+                     "grid.448596.2"
                   ],
-                  "preferred" : "grid.425554.7",
+                  "preferred" : "grid.448596.2",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 1773 7551"
+                     "0000 0004 0509 3701"
                   ],
                   "preferred" : null,
                   "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q15265911"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/050xp5d36",
+            "id" : "https://ror.org/00wd70b02",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "http://www.protezionecivile.gov.it/jcms/en/homepage.wp"
+                  "value" : "http://www.dep.pa.gov/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Pennsylvania_Department_of_Environmental_Protection"
                }
             ],
             "locations" : [
                {
                   "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "62",
-                     "country_subdivision_name" : "Lazio",
-                     "lat" : 41.89193,
-                     "lng" : 12.51133,
-                     "name" : "Rome"
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 40.21924,
+                     "lng" : -79.60948,
+                     "name" : "New Stanton"
                   },
-                  "geonames_id" : 3169070
+                  "geonames_id" : 5203263
                }
             ],
             "names" : [
                {
-                  "lang" : "en",
+                  "lang" : null,
                   "types" : [
-                     "label"
+                     "acronym"
                   ],
-                  "value" : "Civil Protection Department"
+                  "value" : "DEP"
                },
                {
-                  "lang" : "it",
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Pennsylvania DEP"
+               },
+               {
+                  "lang" : "en",
                   "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "Dipartimento della Protezione Civile"
+                  "value" : "Pennsylvania Department of Environmental Protection"
                }
             ],
             "relationships" : [],
@@ -1031,16 +965,1675 @@ The substring used to find the match in this case is "Department of Civil and In
                "government"
             ]
          },
-         "score" : 0.58,
-         "substring" : "Department of Civil and Industrial Engineering"
+         "score" : 0.81,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
       },
       {
          "chosen" : false,
-         "matching_type" : "COMMON TERMS",
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
-                  "date" : "2023-09-14",
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2008,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.472391.a"
+                  ],
+                  "preferred" : "grid.472391.a",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 4689 1304"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q16901997"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/00z50t224",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.trinityschoolofmedicine.org/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Trinity_School_of_Medicine"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "VC",
+                     "country_name" : "St Vincent and Grenadines",
+                     "country_subdivision_code" : "04",
+                     "country_subdivision_name" : "Saint George Parish",
+                     "lat" : 13.15527,
+                     "lng" : -61.22742,
+                     "name" : "Kingstown"
+                  },
+                  "geonames_id" : 3577887
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "TSOM"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Trinity School of Medicine"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.81,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "kutztown.edu"
+            ],
+            "established" : 1866,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.258769.7"
+                  ],
+                  "preferred" : "grid.258769.7",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 0160 0129"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q1340908"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/056veft20",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://kutztown.edu"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "http://en.wikipedia.org/wiki/Kutztown_University_of_Pennsylvania"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "PA",
+                     "country_subdivision_name" : "Pennsylvania",
+                     "lat" : 40.51732,
+                     "lng" : -75.77742,
+                     "name" : "Kutztown"
+                  },
+                  "geonames_id" : 5196621
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "KU"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Kutztown University"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Kutztown University of Pennsylvania"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00m2s0z68",
+                  "label" : "Pennsylvania State System of Higher Education",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.8,
+         "substring" : "Dept. of Microbiology, University of Pennsylvania School of Medicine, Philadelphia, PA, 19104"
+      }
+   ],
+   "number_of_results" : 10
+}
+```
+
+## Example
+
+Relatively simple text strings for organization names alone, such as "Virginia Tech," can also be matched to ROR IDs.
+
+```curl
+curl 'https://api.ror.org/v2/organizations?affiliation=Virginia%20Tech' | json_pp
+```
+
+The list of results includes a `chosen:true` indicator that correctly matches the string to the ROR ID for Virginia Tech, [https://ror.org/02smfhw86](https://ror.org/02smfhw86).
+
+```json
+{
+   "items" : [
+      {
+         "chosen" : true,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-05-05",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "vt.edu"
+            ],
+            "established" : 1872,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100007263",
+                     "100006601",
+                     "100009522",
+                     "100009778",
+                     "100011501",
+                     "100014523",
+                     "100016447",
+                     "100016464",
+                     "100018638"
+                  ],
+                  "preferred" : "100007263",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.438526.e"
+                  ],
+                  "preferred" : "grid.438526.e",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 0694 4940"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q65379"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02smfhw86",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.vt.edu"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "http://en.wikipedia.org/wiki/Virginia_Tech"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "VA",
+                     "country_subdivision_name" : "Virginia",
+                     "lat" : 37.22957,
+                     "lng" : -80.41394,
+                     "name" : "Blacksburg"
+                  },
+                  "geonames_id" : 4747845
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Institut polytechnique et université d'État de virginie"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Instituto Politécnico y Universidad Estatal de Virginia"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Virginia Polytechnic Institute and State University"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Virginia Tech"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/01q1y4t48",
+                  "label" : "Virginia Tech - Wake Forest University School of Biomedical Engineering & Sciences",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/010prmy50",
+                  "label" : "Virginia–Maryland College of Veterinary Medicine",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/05953j253",
+                  "label" : "Virginia Tech Transportation Institute",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0073tn017",
+                  "label" : "Virginia Agricultural Experiment Station",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/036nxkh98",
+                  "label" : "Carilion Roanoke Memorial Hospital",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/00mkh7345",
+                  "label" : "Hubbard Brook Long Term Ecological Research",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/04r3s7465",
+                  "label" : "McMurdo Dry Valleys Long Term Ecological Research",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/013zder45",
+                  "label" : "Virginia Coast Reserve Long Term Ecological Research",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education",
+               "funder"
+            ]
+         },
+         "score" : 1,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1998,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.422831.e"
+                  ],
+                  "preferred" : "grid.422831.e",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q30283944"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/009rbsv73",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.thetech.org/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/The_Tech_Interactive"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "CA",
+                     "country_subdivision_name" : "California",
+                     "lat" : 37.33939,
+                     "lng" : -121.89496,
+                     "name" : "San Jose"
+                  },
+                  "geonames_id" : 5392171
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Tech Museum of Innovation"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "The Tech"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "The Tech Interactive"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "archive"
+            ]
+         },
+         "score" : 1,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2019-05-06",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1993,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.504909.1"
+                  ],
+                  "preferred" : "grid.504909.1",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/04h6dxr28",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.natech-inc.com/index.htm"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "CO",
+                     "country_subdivision_name" : "Colorado",
+                     "lat" : 39.75554,
+                     "lng" : -105.2211,
+                     "name" : "Golden"
+                  },
+                  "geonames_id" : 5423294
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "NA Tech"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Native American Technologies (United States)"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.96,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1961,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.461948.6"
+                  ],
+                  "preferred" : "grid.461948.6",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0000 9627 7653"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q5439067"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02twzqt54",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.faytechcc.edu/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Fayetteville_Technical_Community_College"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "NC",
+                     "country_subdivision_name" : "North Carolina",
+                     "lat" : 35.05266,
+                     "lng" : -78.87836,
+                     "name" : "Fayetteville"
+                  },
+                  "geonames_id" : 4466033
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "FTCC"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Fay Tech"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Fayetteville Technical Community College"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.92,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1967,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.469186.4"
+                  ],
+                  "preferred" : "grid.469186.4",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 0605 6419"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q16900342"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/03be58a36",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.sautech.edu/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Southern_Arkansas_University_Tech"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "AR",
+                     "country_subdivision_name" : "Arkansas",
+                     "lat" : 33.58456,
+                     "lng" : -92.83433,
+                     "name" : "Camden"
+                  },
+                  "geonames_id" : 4104182
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "SAU Tech"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Southern Arkansas University Tech"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.92,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2019-05-06",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2009,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.504699.7"
+                  ],
+                  "preferred" : "grid.504699.7",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/05qzrmp73",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://instrumentalpolymer.com/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "CA",
+                     "country_subdivision_name" : "California",
+                     "lat" : 34.14584,
+                     "lng" : -118.80565,
+                     "name" : "Westlake Village"
+                  },
+                  "geonames_id" : 5408395
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "IP TECH"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Instrumental Polymer Technologies (United States)"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.92,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2025-09-19",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2025-09-22",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2013,
+            "external_ids" : [],
+            "id" : "https://ror.org/03amy1q65",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.cea.fr/cea-tech"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "FR",
+                     "country_name" : "France",
+                     "country_subdivision_code" : "ARA",
+                     "country_subdivision_name" : "Auvergne-Rhône-Alpes",
+                     "lat" : 45.17869,
+                     "lng" : 5.71479,
+                     "name" : "Grenoble"
+                  },
+                  "geonames_id" : 3014728
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "CEA PRTT"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "CEA Tech"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "CEA-TECH-REG"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "CEATechRegion"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Plateformes régionales de transferts technologiques"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00jjx8s55",
+                  "label" : "Commissariat à l'Énergie Atomique et aux Énergies Alternatives",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility",
+               "government"
+            ]
+         },
+         "score" : 0.92,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1989,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.455267.7"
+                  ],
+                  "preferred" : "grid.455267.7",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/03gc99a64",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.cftechnologies.com/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "MA",
+                     "country_subdivision_name" : "Massachusetts",
+                     "lat" : 42.35843,
+                     "lng" : -71.05977,
+                     "name" : "Boston"
+                  },
+                  "geonames_id" : 4930956
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "CF Tech"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "CF Technologies (United States)"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.92,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2007,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.470461.0"
+                  ],
+                  "preferred" : "grid.470461.0",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/018m4ac75",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.nutechtransfer.org/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "NC",
+                     "country_subdivision_name" : "North Carolina",
+                     "lat" : 35.82348,
+                     "lng" : -78.82556,
+                     "name" : "Morrisville"
+                  },
+                  "geonames_id" : 4480285
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "NU Tech"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Technology Partnership of Nagoya University"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "nonprofit"
+            ]
+         },
+         "score" : 0.92,
+         "substring" : "Virginia Tech"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2025-02-26",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2025-11-24",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "sut.edu.eg"
+            ],
+            "established" : 2023,
+            "external_ids" : [],
+            "id" : "https://ror.org/05kay3028",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://sut.edu.eg"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "AF",
+                     "continent_name" : "Africa",
+                     "country_code" : "EG",
+                     "country_name" : "Egypt",
+                     "country_subdivision_code" : "C",
+                     "country_subdivision_name" : "Cairo",
+                     "lat" : 30.06263,
+                     "lng" : 31.24967,
+                     "name" : "Cairo"
+                  },
+                  "geonames_id" : 360630
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "ElSewedy University of Technology"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "ElSewedy University of Technology - POLYTECHNIC OF EGYPT"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "SU Tech"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "SU Tech ElSewedy University"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "SUT"
+               },
+               {
+                  "lang" : "ar",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "جامعة السويدي للتكنولوجيا"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.92,
+         "substring" : "Virginia Tech"
+      }
+   ],
+   "number_of_results" : 10
+}
+```
+
+<br />
+
+# No matches found
+
+When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed.
+
+<Callout icon="❗️" theme="error">
+  ## Don't automatically select results by score or order
+
+  When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true` indicator. If there is no result with `chosen:true`, leave the string unmatched or add an additional layer of human or machine matching, at your discretion. Don't automatically select results higher than a particular confidence score, and don't automatically select the first result in the list.
+</Callout>
+
+## Example
+
+An affiliation string such as "UCL School of Slavonic and East European Studies" does not contain enough identifying information for the ROR API affiliation matching service to choose a matching ROR record.
+
+```curl
+curl 'https://api.ror.org/v2/organizations?affiliation=UCL%20School%20of%20Slavonic%20and%20East%20European%20Studies' | json_pp
+```
+
+The response returns results with confidence scores ranging from .79 to .7 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match. In such cases, best practice is to add additional human or machine review or to leave the string unmatched. 
+
+```json
+{
+   "items" : [
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1950,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.493342.b"
+                  ],
+                  "preferred" : "grid.493342.b",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 0384 5818"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/030v00e77",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.iesabroad.org/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Institute_for_the_International_Education_of_Students"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "IL",
+                     "country_subdivision_name" : "Illinois",
+                     "lat" : 41.85003,
+                     "lng" : -87.65005,
+                     "name" : "Chicago"
+                  },
+                  "geonames_id" : 4887398
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IES"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "IES Abroad"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Institute for the International Education of Students"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Institute of European Studies"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "nonprofit"
+            ]
+         },
+         "score" : 0.79,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2024-12-09",
+                  "schema_version" : "2.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "ies.rs"
+            ],
+            "established" : 1992,
+            "external_ids" : [],
+            "id" : "https://ror.org/018v7v020",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://ies.rs"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "RS",
+                     "country_name" : "Serbia",
+                     "country_subdivision_code" : null,
+                     "country_subdivision_name" : "Central Serbia",
+                     "lat" : 44.80401,
+                     "lng" : 20.46513,
+                     "name" : "Belgrade"
+                  },
+                  "geonames_id" : 792680
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IES"
+               },
+               {
+                  "lang" : "sr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Institut za evropske studije"
+               },
+               {
+                  "lang" : "sr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Institut za evropske studije, Beograd, Trg Nikole Pašića 11"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Institute of European Studies"
+               },
+               {
+                  "lang" : "sr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Институт за европске студије"
+               },
+               {
+                  "lang" : "sr",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Институт за европске студије, Београд, Трг Николе Пашића 11"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.79,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1994,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100009050"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.458378.5"
+                  ],
+                  "preferred" : "grid.458378.5",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 5900 8576"
+                  ],
+                  "preferred" : "0000 0004 5900 8576",
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/055mqk127",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://ostersjostiftelsen.se/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "SE",
+                     "country_name" : "Sweden",
+                     "country_subdivision_code" : "AB",
+                     "country_subdivision_name" : "Stockholm",
+                     "lat" : 59.23705,
+                     "lng" : 17.98192,
+                     "name" : "Huddinge"
+                  },
+                  "geonames_id" : 2704620
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Foundation for Baltic and East European Studies"
+               },
+               {
+                  "lang" : "sv",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Östersjöstiftelsen"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "facility",
+               "funder"
+            ]
+         },
+         "score" : 0.78,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2000,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.445206.1"
+                  ],
+                  "preferred" : "grid.445206.1",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q12788728"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/04jj9d877",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://fds.nova-uni.si"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "SI",
+                     "country_name" : "Slovenia",
+                     "country_subdivision_code" : "052",
+                     "country_subdivision_name" : "Kranj",
+                     "lat" : 46.23887,
+                     "lng" : 14.35561,
+                     "name" : "Kranj"
+                  },
+                  "geonames_id" : 3197378
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "FSS"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Graduate School of Government and European Studies"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.76,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2001,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.445954.d"
+                  ],
+                  "preferred" : "grid.445954.d",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 0399 1962"
+                  ],
+                  "preferred" : "0000 0004 0399 1962",
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q2304477"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/00m04y575",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.seeu.edu.mk/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/South_East_European_University"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "MK",
+                     "country_name" : "North Macedonia",
+                     "country_subdivision_code" : "609",
+                     "country_subdivision_name" : "Tetovo",
+                     "lat" : 42.00973,
+                     "lng" : 20.97155,
+                     "name" : "Tetovo"
+                  },
+                  "geonames_id" : 785082
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "tr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Güneydoğu Avrupa Üniversitesi"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "SEEU"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "South East European University"
+               },
+               {
+                  "lang" : "sq",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Universiteti i Evropës Juglindore"
+               },
+               {
+                  "lang" : "mk",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Универзитет на Југоисточна Европа"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.73,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2024-03-13",
                   "schema_version" : "1.0"
                },
                "last_modified" : {
@@ -1050,20 +2643,12 @@ The substring used to find the match in this case is "Department of Civil and In
             },
             "domains" : [],
             "established" : null,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "0000 0004 1758 7813"
-                  ],
-                  "preferred" : "0000 0004 1758 7813",
-                  "type" : "isni"
-               }
-            ],
-            "id" : "https://ror.org/00vfm5970",
+            "external_ids" : [],
+            "id" : "https://ror.org/007bytg49",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.pi.ingv.it"
+                  "value" : "https://www.acadsudest.ro"
                }
             ],
             "locations" : [
@@ -1071,52 +2656,52 @@ The substring used to find the match in this case is "Department of Civil and In
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "country_code" : "RO",
+                     "country_name" : "Romania",
+                     "country_subdivision_code" : "B",
+                     "country_subdivision_name" : "București",
+                     "lat" : 44.43225,
+                     "lng" : 26.10626,
+                     "name" : "Bucharest"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 683506
                }
             ],
             "names" : [
                {
-                  "lang" : "it",
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Institute for South-East European Studies"
+               },
+               {
+                  "lang" : "ro",
                   "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "INGV Sezione di Pisa"
+                  "value" : "Institutul de Studii Sud-Est Europene"
                },
                {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "INGV-PI"
-               },
-               {
-                  "lang" : "it",
+                  "lang" : "ro",
                   "types" : [
                      "alias"
                   ],
-                  "value" : "Istituto Nazionale di Geofisica e Vulcanologia Sezione di Pisa"
+                  "value" : "Institutul de Studii Sud-Est Europene al Academiei Române"
                },
                {
                   "lang" : "en",
                   "types" : [
                      "alias"
                   ],
-                  "value" : "National Institute of Geophysics and Volcanology, Pisa Section"
+                  "value" : "The Romanian Academy’s Institute for South-East European Studies"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/00qps9a02",
-                  "label" : "Istituto Nazionale di Geofisica e Vulcanologia",
+                  "id" : "https://ror.org/0561n6946",
+                  "label" : "Romanian Academy",
                   "type" : "parent"
                }
             ],
@@ -1125,34 +2710,12 @@ The substring used to find the match in this case is "Department of Civil and In
                "facility"
             ]
          },
-         "score" : 0.55,
-         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
-      }
-   ],
-   "number_of_results" : 9
-}
-```
-
-## Example
-
-The default multisearch strategy uses multiple search algorithms to find matching ROR records for complex affiliation text strings such as "International Centre for Theoretical Physics (ICTP), Trieste, Italy".
-
-```curl
-curl 'https://api.ror.org/v2/organizations?affiliation=International%20Centre%20for%20Theoretical%20Physics%20(ICTP),%20Trieste,%20Italy' | json_pp
-```
-
-The ROR record for the Abdus Salam International Centre for Theoretical Physics (ICTP) has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
-
-The `matching_type` is given as _"PHRASE"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is .95, with 1 being the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
-
-The substring used to find the match in this case is "International Centre for Theoretical Physics ICTP", which is the text of the organization name and its acronym excluding punctuation and the organization's location in Trieste, Italy.
-
-```json
-{
-   "items" : [
+         "score" : 0.71,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
       {
-         "chosen" : true,
-         "matching_type" : "PHRASE",
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
          "organization" : {
             "admin" : {
                "created" : {
@@ -1160,106 +2723,83 @@ The substring used to find the match in this case is "International Centre for T
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2025-06-24",
+                  "date" : "2024-12-11",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [
-               "ictp.it"
-            ],
-            "established" : 1964,
+            "domains" : [],
+            "established" : 1971,
             "external_ids" : [
                {
                   "all" : [
-                     "501100001681"
+                     "100010177"
                   ],
                   "preferred" : null,
                   "type" : "fundref"
                },
                {
                   "all" : [
-                     "grid.419330.c"
+                     "grid.431734.6"
                   ],
-                  "preferred" : "grid.419330.c",
+                  "preferred" : "grid.431734.6",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0001 2184 9917"
+                     "0000 0001 0558 9641"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                },
                {
                   "all" : [
-                     "Q1190606"
+                     "Q6023582"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/009gyvm78",
+            "id" : "https://ror.org/046z54t28",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.ictp.it"
+                  "value" : "http://www.iue.edu/"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/International_Centre_for_Theoretical_Physics"
+                  "value" : "https://en.wikipedia.org/wiki/Indiana_University_East"
                }
             ],
             "locations" : [
                {
                   "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "36",
-                     "country_subdivision_name" : "Friuli Venezia Giulia",
-                     "lat" : 45.64953,
-                     "lng" : 13.77678,
-                     "name" : "Trieste"
+                     "continent_code" : "NA",
+                     "continent_name" : "North America",
+                     "country_code" : "US",
+                     "country_name" : "United States",
+                     "country_subdivision_code" : "IN",
+                     "country_subdivision_name" : "Indiana",
+                     "lat" : 39.82894,
+                     "lng" : -84.89024,
+                     "name" : "Richmond"
                   },
-                  "geonames_id" : 3165185
+                  "geonames_id" : 4263681
                }
             ],
             "names" : [
                {
-                  "lang" : "en",
+                  "lang" : null,
                   "types" : [
                      "alias"
                   ],
-                  "value" : "Abdus Salam International Centre for Theoretical Physics"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Centro Internazionale di Fisica Teorica Abdus Salam"
+                  "value" : "IU East"
                },
                {
                   "lang" : null,
                   "types" : [
                      "acronym"
                   ],
-                  "value" : "ICTP"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "International Centre for Theoretical Physics"
-               },
-               {
-                  "lang" : "sl",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Mednarodno središče Abdusa Salama za teoretično fiziko"
+                  "value" : "IUE"
                },
                {
                   "lang" : "en",
@@ -1267,43 +2807,303 @@ The substring used to find the match in this case is "International Centre for T
                      "ror_display",
                      "label"
                   ],
-                  "value" : "The Abdus Salam International Centre for Theoretical Physics (ICTP)"
+                  "value" : "Indiana University East"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/04ys00n93",
-                  "label" : "Institute for Geometry and Physics",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/01r4aq231",
-                  "label" : "ICTP - East Africa Institute for Fundamental Research",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/04h4z8k05",
-                  "label" : "UNESCO",
+                  "id" : "https://ror.org/01kg8sb98",
+                  "label" : "Indiana University",
                   "type" : "parent"
                }
             ],
             "status" : "active",
             "types" : [
-               "facility",
+               "education",
                "funder"
             ]
          },
-         "score" : 0.95,
-         "substring" : "International Centre for Theoretical Physics ICTP"
+         "score" : 0.71,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1987,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.497069.5"
+                  ],
+                  "preferred" : "grid.497069.5",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2181 997X"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/00mh5ga26",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.jreast.co.jp/e/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/East_Japan_Railway_Company"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "AS",
+                     "continent_name" : "Asia",
+                     "country_code" : "JP",
+                     "country_name" : "Japan",
+                     "country_subdivision_code" : "13",
+                     "country_subdivision_name" : "Tokyo",
+                     "lat" : 35.6895,
+                     "lng" : 139.69171,
+                     "name" : "Tokyo"
+                  },
+                  "geonames_id" : 1850147
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "East Japan Railway (Japan)"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "JR East"
+               },
+               {
+                  "lang" : "ja",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "東日本旅客鉄道株式会社"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "company"
+            ]
+         },
+         "score" : 0.71,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1994,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.496171.c"
+                  ],
+                  "preferred" : "grid.496171.c",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 5940 048X"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/01h6y6f73",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.europe.ac.kr/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "AS",
+                     "continent_name" : "Asia",
+                     "country_code" : "KR",
+                     "country_name" : "South Korea",
+                     "country_subdivision_code" : "11",
+                     "country_subdivision_name" : "Seoul",
+                     "lat" : 37.566,
+                     "lng" : 126.9784,
+                     "name" : "Seoul"
+                  },
+                  "geonames_id" : 1835848
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "KSCES"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Korea European Institute"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "The Korean Society of Contemporary European Studies"
+               },
+               {
+                  "lang" : "ko",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "한국유럽학회"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "other"
+            ]
+         },
+         "score" : 0.71,
+         "substring" : "UCL School of Slavonic and East European Studies"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "SINGLE SEARCH",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2025-05-19",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2025-05-20",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "eessc.org.ua"
+            ],
+            "established" : 2022,
+            "external_ids" : [],
+            "id" : "https://ror.org/048sjjr07",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://eessc.org.ua"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "UA",
+                     "country_name" : "Ukraine",
+                     "country_subdivision_code" : "46",
+                     "country_subdivision_name" : "Lviv",
+                     "lat" : 49.83826,
+                     "lng" : 24.02324,
+                     "name" : "Lviv"
+                  },
+                  "geonames_id" : 702550
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "EESSC"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "East European Scientific Studies Center"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "The East European Scientific Studies Center"
+               },
+               {
+                  "lang" : "uk",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Центр східноєвропейських наукових студій"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "nonprofit"
+            ]
+         },
+         "score" : 0.7,
+         "substring" : "UCL School of Slavonic and East European Studies"
       }
    ],
-   "number_of_results" : 1
+   "number_of_results" : 10
 }
 ```
 
+<br />
 # Single search strategy
 
-As of November 2025, the affiliation parameter also supports a single search strategy that outperforms the multisearch strategy in terms of precision and recall while also being faster and more computationally efficient.
+As of May 2026, the default search strategy for the affiliation parameter is a "single search" strategy that outperforms the multisearch strategy in terms of precision and recall while also being faster and more computationally efficient.
 
 <Callout icon="📘" theme="info">
   ## Affiliation parameter single search format
@@ -3055,1222 +4855,50 @@ The substring used to find the match in this case is "Department of Urology, Gre
 }
 ```
 
-# No matches found
 
-When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed.
+# Multisearch strategy
 
-<Callout icon="❗️" theme="error">
-  ## Don't automatically select results by score or order
+The original matching strategy for the ROR API affiliation parameter, in place [since November 2019](https://doi.org/10.71938/36jw-rs79), remains available in the ROR API and can be invoked by appending `&multisearch` to a query. 
 
-  When no result has the `chosen: true` indicator, there might be no match with a high score, or several results might have the exact same score. In these cases, it is best to respect the absence of the `chosen:true` indicator. If there is no result with `chosen:true`, leave the string unmatched or add an additional layer of human or machine matching, at your discretion. Don't automatically select results higher than a particular confidence score, and don't automatically select the first result in the list.
+This strategy breaks long search strings into separate substrings, performing multiple searches with these values and limiting results to records matching any countries that can be derived from the text.  It then returns (if possible) the most likely match to a ROR record, as identified by a `chosen:true` indicator.
+
+Additional candidates also appear in the results list and are ranked in descending order by confidence `score`. Only results with a score of at least .5 are returned. 
+
+<Callout icon="📘" theme="info">
+  ## Affiliation parameter multisearch format
+
+  `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]&multisearch`
 </Callout>
 
-## Example
+The matching types used in the multisearch strategy include the following:
 
-An affiliation string such as "UCL School of Slavonic and East European Studies" does not contain enough identifying information for the ROR API affiliation matching service to choose a matching ROR record.
-
-```curl
-curl 'https://api.ror.org/v2/organizations?affiliation=UCL%20School%20of%20Slavonic%20and%20East%20European%20Studies' | json_pp
-```
-
-The response returns results with confidence scores ranging from .7 to .54 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match.
-
-````json
-{
-   "items" : [
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1989,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "501100000687"
-                  ],
-                  "preferred" : null,
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.470732.5"
-                  ],
-                  "preferred" : "grid.470732.5",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0001 1958 8607"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               }
-            ],
-            "id" : "https://ror.org/02xxmjs88",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "http://www.basees.org/"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "GB",
-                     "country_name" : "United Kingdom",
-                     "country_subdivision_code" : "ENG",
-                     "country_subdivision_name" : "England",
-                     "lat" : 53.79648,
-                     "lng" : -1.54785,
-                     "name" : "Leeds"
-                  },
-                  "geonames_id" : 2644688
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "BASEES"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "British Association for Slavonic and East European Studies"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "funder",
-               "other"
-            ]
-         },
-         "score" : 0.7,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2025-05-19",
-                  "schema_version" : "2.1"
-               },
-               "last_modified" : {
-                  "date" : "2025-05-20",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "eessc.org.ua"
-            ],
-            "established" : 2022,
-            "external_ids" : [],
-            "id" : "https://ror.org/048sjjr07",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://eessc.org.ua"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "UA",
-                     "country_name" : "Ukraine",
-                     "country_subdivision_code" : "46",
-                     "country_subdivision_name" : "Lviv",
-                     "lat" : 49.83826,
-                     "lng" : 24.02324,
-                     "name" : "Lviv"
-                  },
-                  "geonames_id" : 702550
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "EESSC"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "East European Scientific Studies Center"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "label",
-                     "ror_display"
-                  ],
-                  "value" : "The East European Scientific Studies Center"
-               },
-               {
-                  "lang" : "uk",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Центр східноєвропейських наукових студій"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "nonprofit"
-            ]
-         },
-         "score" : 0.67,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1948,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "100005346"
-                  ],
-                  "preferred" : null,
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.446841.b"
-                  ],
-                  "preferred" : "grid.446841.b",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0000 8678 3376"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               }
-            ],
-            "id" : "https://ror.org/04n3hjx90",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "http://aseees.org/"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/Association_for_Slavic,_East_European,_and_Eurasian_Studies"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "NA",
-                     "continent_name" : "North America",
-                     "country_code" : "US",
-                     "country_name" : "United States",
-                     "country_subdivision_code" : "PA",
-                     "country_subdivision_name" : "Pennsylvania",
-                     "lat" : 40.44062,
-                     "lng" : -79.99589,
-                     "name" : "Pittsburgh"
-                  },
-                  "geonames_id" : 5206379
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "ASEEES"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "American Association for the Advancement of Slavic Studies"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Association for Slavic East European and Eurasian Studies"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "funder",
-               "nonprofit"
-            ]
-         },
-         "score" : 0.67,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1994,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "100009050"
-                  ],
-                  "preferred" : null,
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.458378.5"
-                  ],
-                  "preferred" : "grid.458378.5",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0004 5900 8576"
-                  ],
-                  "preferred" : "0000 0004 5900 8576",
-                  "type" : "isni"
-               }
-            ],
-            "id" : "https://ror.org/055mqk127",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "http://ostersjostiftelsen.se/"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "SE",
-                     "country_name" : "Sweden",
-                     "country_subdivision_code" : "AB",
-                     "country_subdivision_name" : "Stockholm",
-                     "lat" : 59.23705,
-                     "lng" : 17.98192,
-                     "name" : "Huddinge"
-                  },
-                  "geonames_id" : 2704620
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Foundation for Baltic and East European Studies"
-               },
-               {
-                  "lang" : "sv",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Östersjöstiftelsen"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "facility",
-               "funder"
-            ]
-         },
-         "score" : 0.67,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2020-03-15",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 2016,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.507643.3"
-                  ],
-                  "preferred" : "grid.507643.3",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0004 8023 4156"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q61781089"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/00a0w0523",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.zois-berlin.de/"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "DE",
-                     "country_name" : "Germany",
-                     "country_subdivision_code" : "BE",
-                     "country_subdivision_name" : "Berlin",
-                     "lat" : 52.52437,
-                     "lng" : 13.41053,
-                     "name" : "Berlin"
-                  },
-                  "geonames_id" : 2950159
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Centre for East European and International Studies"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "ZOiS"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Zentrum für Osteuropa- und internationale Studien"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "education"
-            ]
-         },
-         "score" : 0.65,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "slu.cas.cz"
-            ],
-            "established" : 1922,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.448289.b"
-                  ],
-                  "preferred" : "grid.448289.b",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0004 0428 7272"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q12153738"
-                  ],
-                  "preferred" : "Q12153738",
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/03qq0n189",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.slu.cas.cz"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "CZ",
-                     "country_name" : "Czechia",
-                     "country_subdivision_code" : "10",
-                     "country_subdivision_name" : "Prague",
-                     "lat" : 50.08804,
-                     "lng" : 14.42076,
-                     "name" : "Prague"
-                  },
-                  "geonames_id" : 3067696
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Czech Acad Sci, Inst Slav Studies"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Czech Academy of Sciences, Institute of Slavonic Studies"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Institute of Slavonic Studies CAS"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Institute of Slavonic Studies of the Czech Academy of Sciences"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "SLÚ AV ČR"
-               },
-               {
-                  "lang" : "cs",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Slovanský ústav AV ČR"
-               },
-               {
-                  "lang" : "cs",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Slovanský ústav AV ČR, v. v. i."
-               },
-               {
-                  "lang" : "cs",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Slovanský ústav AV ČR, veřejná výzkumná instituce"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/053avzc18",
-                  "label" : "Czech Academy of Sciences",
-                  "type" : "parent"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "facility"
-            ]
-         },
-         "score" : 0.64,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "FUZZY",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "vsers.cz"
-            ],
-            "established" : 2003,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.486536.a"
-                  ],
-                  "preferred" : "grid.486536.a",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0000 9364 6708"
-                  ],
-                  "preferred" : "0000 0000 9364 6708",
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q8310981"
-                  ],
-                  "preferred" : "Q8310981",
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/040qrz805",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://vsers.cz/"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "CZ",
-                     "country_name" : "Czechia",
-                     "country_subdivision_code" : "31",
-                     "country_subdivision_name" : "Jihočeský kraj",
-                     "lat" : 48.97447,
-                     "lng" : 14.47434,
-                     "name" : "České Budějovice"
-                  },
-                  "geonames_id" : 3077916
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "College of European and Regional Studies"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "The College of European and Regional Studies"
-               },
-               {
-                  "lang" : "cs",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Vysoká škola Evropských a Regionálních Studií"
-               },
-               {
-                  "lang" : "cs",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Vysoká škola evropských a regionálních studií"
-               },
-               {
-                  "lang" : "cs",
-                  "types" : [
-                     "label",
-                     "ror_display"
-                  ],
-                  "value" : "Vysoká škola evropských a regionálních studií, z. ú."
-               },
-               {
-                  "lang" : "cs",
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "VŠERS"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "education"
-            ]
-         },
-         "score" : 0.64,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "FUZZY",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2024-03-13",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : null,
-            "external_ids" : [],
-            "id" : "https://ror.org/007bytg49",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.acadsudest.ro"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "RO",
-                     "country_name" : "Romania",
-                     "country_subdivision_code" : "B",
-                     "country_subdivision_name" : "București",
-                     "lat" : 44.43225,
-                     "lng" : 26.10626,
-                     "name" : "Bucharest"
-                  },
-                  "geonames_id" : 683506
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Institute for South-East European Studies"
-               },
-               {
-                  "lang" : "ro",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Institutul de Studii Sud-Est Europene"
-               },
-               {
-                  "lang" : "ro",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Institutul de Studii Sud-Est Europene al Academiei Române"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "The Romanian Academy’s Institute for South-East European Studies"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/0561n6946",
-                  "label" : "Romanian Academy",
-                  "type" : "parent"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "facility"
-            ]
-         },
-         "score" : 0.63,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 2012,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "501100019860"
-                  ],
-                  "preferred" : "501100019860",
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.462368.d"
-                  ],
-                  "preferred" : "grid.462368.d",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "Q1664940"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/039s64n79",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "http://www.ios-regensburg.de/en"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "DE",
-                     "country_name" : "Germany",
-                     "country_subdivision_code" : "BY",
-                     "country_subdivision_name" : "Bavaria",
-                     "lat" : 49.01513,
-                     "lng" : 12.10161,
-                     "name" : "Regensburg"
-                  },
-                  "geonames_id" : 2849483
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "IOS"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Leibniz Institute for East and Southeast European Studies"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Leibniz-Institut für Ost- und Südosteuropaforschung"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/01n6r0e97",
-                  "label" : "Leibniz Association",
-                  "type" : "parent"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "facility",
-               "funder"
-            ]
-         },
-         "score" : 0.63,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 2000,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.445206.1"
-                  ],
-                  "preferred" : "grid.445206.1",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "Q12788728"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/04jj9d877",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://fds.nova-uni.si"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "SI",
-                     "country_name" : "Slovenia",
-                     "country_subdivision_code" : "052",
-                     "country_subdivision_name" : "Kranj",
-                     "lat" : 46.23887,
-                     "lng" : 14.35561,
-                     "name" : "Kranj"
-                  },
-                  "geonames_id" : 3197378
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "FSS"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Graduate School of Government and European Studies"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "education"
-            ]
-         },
-         "score" : 0.61,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "esmt.org"
-            ],
-            "established" : 2002,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.434239.b"
-                  ],
-                  "preferred" : "grid.434239.b",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0001 2288 2583"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q569528"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/024xejm70",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://esmt.berlin"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/European_School_of_Management_and_Technology"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "DE",
-                     "country_name" : "Germany",
-                     "country_subdivision_code" : "BE",
-                     "country_subdivision_name" : "Berlin",
-                     "lat" : 52.52437,
-                     "lng" : 13.41053,
-                     "name" : "Berlin"
-                  },
-                  "geonames_id" : 2950159
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "ESMT"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "European School of Management and Technology"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "education"
-            ]
-         },
-         "score" : 0.59,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "COMMON TERMS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2024-02-13",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1978,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "100012658"
-                  ],
-                  "preferred" : "100012658",
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "0000 0004 7744 075X"
-                  ],
-                  "preferred" : "0000 0004 7744 075X",
-                  "type" : "isni"
-               }
-            ],
-            "id" : "https://ror.org/04haakz20",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.nceeer.org"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "NA",
-                     "continent_name" : "North America",
-                     "country_code" : "US",
-                     "country_name" : "United States",
-                     "country_subdivision_code" : "DC",
-                     "country_subdivision_name" : "District of Columbia",
-                     "lat" : 38.89511,
-                     "lng" : -77.03637,
-                     "name" : "Washington"
-                  },
-                  "geonames_id" : 4140963
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "NCEEER"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "National Council For Eurasian & East European Research"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "National Council for Eurasian and East European Research"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "National Council/Eurasian & East European Research"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "funder",
-               "nonprofit"
-            ]
-         },
-         "score" : 0.54,
-         "substring" : "UCL School of Slavonic and East European Studies"
-      }
-   ],
-   "number_of_results" : 12
-}
-```
+* `PHRASE`: the entire phrase was matched to a variant of the organization's name
+* `COMMON TERMS`: the matching was done by comparing the words separately
+* `FUZZY`: the matching was done by a fuzzy comparison of the words separately
+* `HEURISTICS`: "University of X" was matched to "X University"
+* `ACRONYM`: matched by acronym
+* `EXACT`: exact match of the entered string in name values in the `names` field excluding acronyms
 
 ## Example
 
-The affiliation string "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France" represents an organization that is not in ROR, and therefore the ROR API affiliation matching service cannot find a matching ROR record.
+The multisearch strategy allows you to find a matching ROR record for a long, complex affiliation text string such as "Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy".
 
 ```curl
-
-curl 'https://api.ror.org/v2/organizations?affiliation=CNRS-CRHEA,%20rue%20Bernard%20Gr%C3%A9gory,%2006560%20Valbonne,%20France&single_search' | json_pp
-
+curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Civil%20and%20Industrial%20Engineering%2C%20University%20of%20Pisa%2C%20Largo%20Lucio%20Lazzarino%202%2C%20Pisa%2056126%2C%20Italy&multisearch' | json_pp
 ```
 
-The response returns results with confidence scores ranging from .82 to .74 listed in descending order, but the affiliation matching service does not rate any of these results as a recommended match.
+The first item in the results list, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. 
+
+The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
+
+The substring used to find the match in this case is "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa Italy", or the entire text content of the entered string excluding punctuation and the numeric postcode.
 
 ```json
 {
    "items" : [
       {
-         "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
+         "chosen" : true,
+         "matching_type" : "COMMON TERMS",
          "organization" : {
             "admin" : {
                "created" : {
@@ -4278,327 +4906,53 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2024-12-11",
+                  "date" : "2025-01-22",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [],
-            "established" : 1909,
+            "domains" : [
+               "unipi.it"
+            ],
+            "established" : 1343,
             "external_ids" : [
                {
                   "all" : [
-                     "grid.435539.d"
-                  ],
-                  "preferred" : "grid.435539.d",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "Q30290107"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/03f9m1k43",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.bp.com/"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/BP"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 49.05,
-                     "lng" : 2.1,
-                     "name" : "Pontoise"
-                  },
-                  "geonames_id" : 2986140
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "BP (France)"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "BP Amoco"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "The British Petroleum Company"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/01zctcs90",
-                  "label" : "BP (United Kingdom)",
-                  "type" : "parent"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "company"
-            ]
-         },
-         "score" : 0.78,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1902,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.423994.1"
-                  ],
-                  "preferred" : "grid.423994.1",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "Q30284639"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/02f12sz84",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.3mfrance.fr/3M/fr_FR/notre-societe-fr/"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/3M"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 49.03894,
-                     "lng" : 2.07805,
-                     "name" : "Cergy-Pontoise"
-                  },
-                  "geonames_id" : 8555643
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "3M (France)"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Minnesota Mining and Manufacturing Company"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/00mgss748",
-                  "label" : "3M (United States)",
-                  "type" : "parent"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "company"
-            ]
-         },
-         "score" : 0.78,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1997,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.432920.e"
-                  ],
-                  "preferred" : "grid.432920.e",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0004 0480 9536"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q30255546"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/056h1w707",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.onxeo.com/"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 48.85341,
-                     "lng" : 2.3488,
-                     "name" : "Paris"
-                  },
-                  "geonames_id" : 2988507
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Onxeo (France)"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/006psag97",
-                  "label" : "Onxeo (Denmark)",
-                  "type" : "child"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "company"
-            ]
-         },
-         "score" : 0.77,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1919,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "100007773"
+                     "501100007514"
                   ],
                   "preferred" : null,
                   "type" : "fundref"
                },
                {
                   "all" : [
-                     "grid.433367.6"
+                     "grid.5395.a"
                   ],
-                  "preferred" : "grid.433367.6",
+                  "preferred" : "grid.5395.a",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0001 2308 1825"
+                     "0000 0004 1757 3729"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                },
                {
                   "all" : [
-                     "Q28971348"
+                     "Q645663"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/00aj77a24",
+            "id" : "https://ror.org/03ad39j10",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "http://www.danone.com/en/"
+                  "value" : "https://www.unipi.it"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/Danone"
+                  "value" : "http://en.wikipedia.org/wiki/University_of_Pisa"
                }
             ],
             "locations" : [
@@ -4606,76 +4960,79 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 48.71828,
-                     "lng" : 2.2498,
-                     "name" : "Palaiseau"
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "52",
+                     "country_subdivision_name" : "Tuscany",
+                     "lat" : 43.70853,
+                     "lng" : 10.4036,
+                     "name" : "Pisa"
                   },
-                  "geonames_id" : 2988758
+                  "geonames_id" : 3170647
                }
             ],
             "names" : [
                {
                   "lang" : null,
                   "types" : [
+                     "acronym"
+                  ],
+                  "value" : "UniPi"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "Danone (France)"
+                  "value" : "University of Pisa"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Università di Pisa"
+               },
+               {
+                  "lang" : "de",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Universität Pisa"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Université de Pise"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/03ffpww43",
-                  "label" : "Danone (Canada)",
-                  "type" : "child"
+                  "id" : "https://ror.org/00mc91w09",
+                  "label" : "Ospedale Cisanello",
+                  "type" : "related"
                },
                {
-                  "id" : "https://ror.org/0515efc31",
-                  "label" : "Danone (China)",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/00b8vr735",
-                  "label" : "Danone (Czechia)",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/04kvtp152",
-                  "label" : "Danone (Germany)",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/022dg8423",
-                  "label" : "Danone (Morocco)",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/01c5aqt35",
-                  "label" : "Danone (Netherlands)",
-                  "type" : "child"
-               },
-               {
-                  "id" : "https://ror.org/03w8f2q69",
-                  "label" : "Danone (United Kingdom)",
-                  "type" : "child"
+                  "id" : "https://ror.org/05symbg58",
+                  "label" : "Istituto Nazionale di Fisica Nucleare, Sezione di Pisa",
+                  "type" : "related"
                }
             ],
             "status" : "active",
             "types" : [
-               "company",
+               "education",
                "funder"
             ]
          },
-         "score" : 0.77,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+         "score" : 1,
+         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
       },
       {
          "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
+         "matching_type" : "FUZZY",
          "organization" : {
             "admin" : {
                "created" : {
@@ -4683,119 +5040,55 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [],
-            "established" : 1953,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "grid.432476.0"
-                  ],
-                  "preferred" : "grid.432476.0",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "Q30255224"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/05frh7832",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.eni.com/"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/Eni"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "ARA",
-                     "country_subdivision_name" : "Auvergne-Rhône-Alpes",
-                     "lat" : 45.74846,
-                     "lng" : 4.84671,
-                     "name" : "Lyon"
-                  },
-                  "geonames_id" : 2996944
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "Eni (France)"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Ente Nazionale Idrocarburi"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/038483r84",
-                  "label" : "Eni (Italy)",
-                  "type" : "parent"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "company"
-            ]
-         },
-         "score" : 0.76,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2025-10-05",
-                  "schema_version" : "2.1"
-               },
-               "last_modified" : {
-                  "date" : "2025-10-28",
+                  "date" : "2025-01-22",
                   "schema_version" : "2.1"
                }
             },
             "domains" : [
-               "pmc.polytechnique.fr"
+               "unisalento.it"
             ],
-            "established" : 1961,
+            "established" : 1955,
             "external_ids" : [
                {
                   "all" : [
-                     "Q33121339"
+                     "501100005728",
+                     "501100005729",
+                     "501100006195"
                   ],
-                  "preferred" : "Q33121339",
+                  "preferred" : "501100005728",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.9906.6"
+                  ],
+                  "preferred" : "grid.9906.6",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2289 7785"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q1230902"
+                  ],
+                  "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/01z5d0q66",
+            "id" : "https://ror.org/03fc1k060",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://pmc.polytechnique.fr"
+                  "value" : "https://unisalento.it"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "http://en.wikipedia.org/wiki/University_of_Salento"
                }
             ],
             "locations" : [
@@ -4803,123 +5096,107 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 48.71828,
-                     "lng" : 2.2498,
-                     "name" : "Palaiseau"
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "75",
+                     "country_subdivision_name" : "Apulia",
+                     "lat" : 40.35481,
+                     "lng" : 18.17244,
+                     "name" : "Lecce"
                   },
-                  "geonames_id" : 2988758
+                  "geonames_id" : 3174953
                }
             ],
             "names" : [
                {
-                  "lang" : "fr",
+                  "lang" : "en",
                   "types" : [
-                     "acronym"
+                     "ror_display",
+                     "label"
                   ],
-                  "value" : "LPMC"
+                  "value" : "University of Salento"
                },
                {
-                  "lang" : "fr",
+                  "lang" : "it",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Università degli Studi di Lecce"
+               },
+               {
+                  "lang" : "it",
                   "types" : [
                      "alias"
                   ],
-                  "value" : "Laboratoire Bernard Grégory"
+                  "value" : "Università del Salento"
+               },
+               {
+                  "lang" : "de",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Universität Salento"
                },
                {
                   "lang" : "fr",
                   "types" : [
-                     "alias"
+                     "label"
                   ],
-                  "value" : "Laboratoire PMC"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label",
-                     "ror_display"
-                  ],
-                  "value" : "Laboratoire de Physique de la Matière Condensée"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "PMC"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "UMR 7643"
-               },
-               {
-                  "lang" : null,
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "UMR7643"
+                  "value" : "Université du salento"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/05hy3tk52",
-                  "label" : "École Polytechnique",
-                  "type" : "parent"
-               },
-               {
-                  "id" : "https://ror.org/02cte4b68",
-                  "label" : "Institut de Chimie",
-                  "type" : "parent"
+                  "id" : "https://ror.org/00qrf6g60",
+                  "label" : "Istituto Nazionale di Fisica Nucleare, Sezione di Lecce",
+                  "type" : "related"
                }
             ],
             "status" : "active",
             "types" : [
-               "facility"
+               "education",
+               "funder"
             ]
          },
-         "score" : 0.74,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+         "score" : 0.82,
+         "substring" : "University of Pisa"
       },
       {
          "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
+         "matching_type" : "HEURISTICS",
          "organization" : {
             "admin" : {
                "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
+                  "date" : "2024-09-14",
+                  "schema_version" : "2.0"
                },
                "last_modified" : {
                   "date" : "2024-12-11",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [],
-            "established" : 1985,
+            "domains" : [
+               "liceodini.it"
+            ],
+            "established" : 1924,
             "external_ids" : [
                {
                   "all" : [
-                     "grid.431886.0"
+                     "Q30889474"
                   ],
-                  "preferred" : "grid.431886.0",
-                  "type" : "grid"
+                  "preferred" : "Q30889474",
+                  "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/008yw1q74",
+            "id" : "https://ror.org/006xg2x43",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "http://www.ptc.com/"
+                  "value" : "https://www.liceodini.it"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/PTC_(software_company)"
+                  "value" : "https://it.wikipedia.org/wiki/Liceo_scientifico_statale_Ulisse_Dini"
                }
             ],
             "locations" : [
@@ -4927,45 +5204,81 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "PAC",
-                     "country_subdivision_name" : "Provence-Alpes-Côte d'Azur",
-                     "lat" : 43.5283,
-                     "lng" : 5.44973,
-                     "name" : "Aix-en-Provence"
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "52",
+                     "country_subdivision_name" : "Tuscany",
+                     "lat" : 43.70853,
+                     "lng" : 10.4036,
+                     "name" : "Pisa"
                   },
-                  "geonames_id" : 3038354
+                  "geonames_id" : 3170647
                }
             ],
             "names" : [
                {
-                  "lang" : null,
+                  "lang" : "it",
                   "types" : [
-                     "ror_display",
+                     "alias"
+                  ],
+                  "value" : "Liceo Dini"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Liceo Scientifico \"Ulisse Dini\""
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Liceo Scientifico 'Ulisse Dini' - Pisa"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Liceo Scientifico Ulisse Dini"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Liceo scientifico statale Ulisse Dini"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "U. Dini"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
                      "label"
                   ],
-                  "value" : "PTC (France)"
+                  "value" : "Ulisse Dini Scientific High School"
                }
             ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/03qqbvj08",
-                  "label" : "PTC (United States)",
-                  "type" : "parent"
-               }
-            ],
+            "relationships" : [],
             "status" : "active",
             "types" : [
-               "company"
+               "education"
             ]
          },
-         "score" : 0.74,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+         "score" : 0.8,
+         "substring" : "Pisa University"
       },
       {
          "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
+         "matching_type" : "COMMON TERMS",
          "organization" : {
             "admin" : {
                "created" : {
@@ -4982,21 +5295,24 @@ The response returns results with confidence scores ranging from .82 to .74 list
             "external_ids" : [
                {
                   "all" : [
-                     "grid.436001.0"
+                     "grid.144189.1"
                   ],
-                  "preferred" : "grid.436001.0",
+                  "preferred" : "grid.144189.1",
                   "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 1756 8209"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
                }
             ],
-            "id" : "https://ror.org/00stasw52",
+            "id" : "https://ror.org/05xrcj819",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.sgsgroup.fr/"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/SGS_S.A."
+                  "value" : "http://www.ao-pisa.toscana.it/"
                }
             ],
             "locations" : [
@@ -5004,59 +5320,57 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 48.79993,
-                     "lng" : 2.33256,
-                     "name" : "Arcueil"
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "52",
+                     "country_subdivision_name" : "Tuscany",
+                     "lat" : 43.70853,
+                     "lng" : 10.4036,
+                     "name" : "Pisa"
                   },
-                  "geonames_id" : 3037157
+                  "geonames_id" : 3170647
                }
             ],
             "names" : [
                {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "General Society of Surveillance"
-               },
-               {
-                  "lang" : null,
+                  "lang" : "it",
                   "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "SGS (France)"
+                  "value" : "Azienda Ospedaliera Universitaria Pisana"
                },
                {
-                  "lang" : null,
+                  "lang" : "en",
                   "types" : [
-                     "alias"
+                     "label"
                   ],
-                  "value" : "Société Générale de Surveillance"
+                  "value" : "University Hospital of Pisa"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/05p30rt34",
-                  "label" : "SGS (Switzerland)",
-                  "type" : "parent"
+                  "id" : "https://ror.org/00mc91w09",
+                  "label" : "Ospedale Cisanello",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04069k268",
+                  "label" : "ERN ReCONNET",
+                  "type" : "related"
                }
             ],
             "status" : "active",
             "types" : [
-               "company"
+               "healthcare"
             ]
          },
-         "score" : 0.74,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+         "score" : 0.8,
+         "substring" : "University of Pisa"
       },
       {
          "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
+         "matching_type" : "COMMON TERMS",
          "organization" : {
             "admin" : {
                "created" : {
@@ -5064,33 +5378,35 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2024-12-11",
+                  "date" : "2025-01-22",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [],
-            "established" : 1948,
+            "domains" : [
+               "pi.infn.it"
+            ],
+            "established" : null,
             "external_ids" : [
                {
                   "all" : [
-                     "grid.436243.4"
+                     "grid.470216.6"
                   ],
-                  "preferred" : "grid.436243.4",
+                  "preferred" : "grid.470216.6",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "Q30290607"
+                     "Q30265297"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/02zkph911",
+            "id" : "https://ror.org/05symbg58",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.avl.com/"
+                  "value" : "https://www.pi.infn.it"
                }
             ],
             "locations" : [
@@ -5098,39 +5414,97 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 48.87925,
-                     "lng" : 2.13836,
-                     "name" : "Croissy-sur-Seine"
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "52",
+                     "country_subdivision_name" : "Tuscany",
+                     "lat" : 43.70853,
+                     "lng" : 10.4036,
+                     "name" : "Pisa"
                   },
-                  "geonames_id" : 3022380
+                  "geonames_id" : 3170647
                }
             ],
             "names" : [
                {
-                  "lang" : null,
+                  "lang" : "it",
                   "types" : [
-                     "ror_display",
+                     "alias"
+                  ],
+                  "value" : "INFN Pisa"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "INFN Pisa Division"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "INFN Pisa Unit"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "INFN Sezione di Pisa"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "INFN-PI"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Istituto Nazionale di Fisica Nucleare, Sezione di Pisa"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
                      "label"
                   ],
-                  "value" : "AVL (France)"
+                  "value" : "National Institute for Nuclear Physics, Pisa Division"
                }
             ],
-            "relationships" : [],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/005ta0471",
+                  "label" : "Istituto Nazionale di Fisica Nucleare",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/02w0r2764",
+                  "label" : "MAGIC Telescopes",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/03ad39j10",
+                  "label" : "University of Pisa",
+                  "type" : "related"
+               }
+            ],
             "status" : "active",
             "types" : [
-               "company"
+               "facility"
             ]
          },
-         "score" : 0.74,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+         "score" : 0.71,
+         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
       },
       {
          "chosen" : false,
-         "matching_type" : "SINGLE SEARCH",
+         "matching_type" : "FUZZY",
          "organization" : {
             "admin" : {
                "created" : {
@@ -5142,40 +5516,49 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [],
-            "established" : 1907,
+            "domains" : [
+               "unibs.it"
+            ],
+            "established" : 1982,
             "external_ids" : [
                {
                   "all" : [
-                     "grid.437685.b"
+                     "501100007343"
                   ],
-                  "preferred" : "grid.437685.b",
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.7637.5"
+                  ],
+                  "preferred" : "grid.7637.5",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 6362 1090"
+                     "0000 0004 1757 1846"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                },
                {
                   "all" : [
-                     "Q65167902"
+                     "Q1781263"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/04eqf8242",
+            "id" : "https://ror.org/02q2d2610",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.skf.com/fr"
+                  "value" : "https://www.unibs.it"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "https://en.wikipedia.org/wiki/SKF"
+                  "value" : "http://en.wikipedia.org/wiki/University_of_Brescia"
                }
             ],
             "locations" : [
@@ -5183,53 +5566,545 @@ The response returns results with confidence scores ranging from .82 to .74 list
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "FR",
-                     "country_name" : "France",
-                     "country_subdivision_code" : "IDF",
-                     "country_subdivision_name" : "Île-de-France",
-                     "lat" : 48.76636,
-                     "lng" : 2.03405,
-                     "name" : "Montigny-le-Bretonneux"
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "25",
+                     "country_subdivision_name" : "Lombardy",
+                     "lat" : 45.53558,
+                     "lng" : 10.21472,
+                     "name" : "Brescia"
                   },
-                  "geonames_id" : 2992415
+                  "geonames_id" : 3181554
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "University of Brescia"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Università degli Studi di Brescia"
+               },
+               {
+                  "lang" : "de",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Universität Brescia"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Université de brescia"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "education",
+               "funder"
+            ]
+         },
+         "score" : 0.67,
+         "substring" : "University of Pisa"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "unical.it"
+            ],
+            "established" : 1972,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100007069"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.7778.f"
+                  ],
+                  "preferred" : "grid.7778.f",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 1937 0319"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q1752540"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02rc97e94",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.unical.it"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "http://en.wikipedia.org/wiki/University_of_Calabria"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "78",
+                     "country_subdivision_name" : "Calabria",
+                     "lat" : 39.33154,
+                     "lng" : 16.18041,
+                     "name" : "Rende"
+                  },
+                  "geonames_id" : 2523623
                }
             ],
             "names" : [
                {
                   "lang" : null,
                   "types" : [
+                     "acronym"
+                  ],
+                  "value" : "UNICAL"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "SKF (France)"
+                  "value" : "University of Calabria"
                },
                {
-                  "lang" : null,
+                  "lang" : "it",
                   "types" : [
-                     "alias"
+                     "label"
                   ],
-                  "value" : "Svenska Kullagerfabriken"
+                  "value" : "Università della Calabria"
+               },
+               {
+                  "lang" : "de",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Universität Kalabrien"
+               },
+               {
+                  "lang" : "fr",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Université de la calabre"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/05fy2ba68",
-                  "label" : "SKF (Sweden)",
+                  "id" : "https://ror.org/039epzh36",
+                  "label" : "Istituto Nazionale di Fisica Nucleare, Gruppo Collegato di Cosenza",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education",
+               "funder"
+            ]
+         },
+         "score" : 0.65,
+         "substring" : "University of Pisa"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1982,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "100012783"
+                  ],
+                  "preferred" : "100012783",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.425554.7"
+                  ],
+                  "preferred" : "grid.425554.7",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 1773 7551"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/050xp5d36",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.protezionecivile.gov.it/jcms/en/homepage.wp"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "62",
+                     "country_subdivision_name" : "Lazio",
+                     "lat" : 41.89193,
+                     "lng" : 12.51133,
+                     "name" : "Rome"
+                  },
+                  "geonames_id" : 3169070
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Civil Protection Department"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Dipartimento della Protezione Civile"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "funder",
+               "government"
+            ]
+         },
+         "score" : 0.58,
+         "substring" : "Department of Civil and Industrial Engineering"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2023-09-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : null,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "0000 0004 1758 7813"
+                  ],
+                  "preferred" : "0000 0004 1758 7813",
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/00vfm5970",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.pi.ingv.it"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "52",
+                     "country_subdivision_name" : "Tuscany",
+                     "lat" : 43.70853,
+                     "lng" : 10.4036,
+                     "name" : "Pisa"
+                  },
+                  "geonames_id" : 3170647
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "INGV Sezione di Pisa"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "INGV-PI"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Istituto Nazionale di Geofisica e Vulcanologia Sezione di Pisa"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "National Institute of Geophysics and Volcanology, Pisa Section"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00qps9a02",
+                  "label" : "Istituto Nazionale di Geofisica e Vulcanologia",
                   "type" : "parent"
                }
             ],
             "status" : "active",
             "types" : [
-               "company"
+               "facility"
             ]
          },
-         "score" : 0.74,
-         "substring" : "CNRS-CRHEA, rue Bernard Grégory, 06560 Valbonne, France"
+         "score" : 0.55,
+         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
       }
    ],
-   "number_of_results" : 10
+   "number_of_results" : 9
 }
-````
+```
+
+## Example
+
+The default multisearch strategy uses multiple search algorithms to find matching ROR records for complex affiliation text strings such as "International Centre for Theoretical Physics (ICTP), Trieste, Italy".
+
+```curl
+curl 'https://api.ror.org/v2/organizations?affiliation=International%20Centre%20for%20Theoretical%20Physics%20(ICTP),%20Trieste,%20Italy' | json_pp
+```
+
+The ROR record for the Abdus Salam International Centre for Theoretical Physics (ICTP) has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
+
+The `matching_type` is given as _"PHRASE"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is .95, with 1 being the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
+
+The substring used to find the match in this case is "International Centre for Theoretical Physics ICTP", which is the text of the organization name and its acronym excluding punctuation and the organization's location in Trieste, Italy.
+
+```json
+{
+   "items" : [
+      {
+         "chosen" : true,
+         "matching_type" : "PHRASE",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-06-24",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "ictp.it"
+            ],
+            "established" : 1964,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100001681"
+                  ],
+                  "preferred" : null,
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.419330.c"
+                  ],
+                  "preferred" : "grid.419330.c",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2184 9917"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q1190606"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/009gyvm78",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.ictp.it"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/International_Centre_for_Theoretical_Physics"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "IT",
+                     "country_name" : "Italy",
+                     "country_subdivision_code" : "36",
+                     "country_subdivision_name" : "Friuli Venezia Giulia",
+                     "lat" : 45.64953,
+                     "lng" : 13.77678,
+                     "name" : "Trieste"
+                  },
+                  "geonames_id" : 3165185
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Abdus Salam International Centre for Theoretical Physics"
+               },
+               {
+                  "lang" : "it",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Centro Internazionale di Fisica Teorica Abdus Salam"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "ICTP"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "International Centre for Theoretical Physics"
+               },
+               {
+                  "lang" : "sl",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Mednarodno središče Abdusa Salama za teoretično fiziko"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "The Abdus Salam International Centre for Theoretical Physics (ICTP)"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/04ys00n93",
+                  "label" : "Institute for Geometry and Physics",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01r4aq231",
+                  "label" : "ICTP - East Africa Institute for Fundamental Research",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04h4z8k05",
+                  "label" : "UNESCO",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility",
+               "funder"
+            ]
+         },
+         "score" : 0.95,
+         "substring" : "International Centre for Theoretical Physics ICTP"
+      }
+   ],
+   "number_of_results" : 1
+}
+```
+
+
+
 
 # Other ways to match affiliations to ROR records
 
