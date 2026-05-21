@@ -15,9 +15,9 @@ metadata:
 
 When retrieving a single record, you can use any of these formats in the ID portion of your request:
 
-* **Full ROR ID URL:**  [https://ror.org/015w2mp89](https://ror.org/015w2mp89)
-* **Domain and ID:** ror.org/015w2mp89
-* **ID only:** 015w2mp89
+* **Full ROR ID URL:**  `https://ror.org/015w2mp89`
+* **Domain and unique string:** `ror.org/015w2mp89`
+* **Unique string only:** `015w2mp89`
 
 All formats will return the same record. See [ROR identifier pattern](doc:identifier) for more on ROR ID formats.
 
