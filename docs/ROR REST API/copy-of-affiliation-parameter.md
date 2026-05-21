@@ -3115,7 +3115,7 @@ As of May 2026, the default search strategy for the affiliation parameter is a "
   `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]&single_search`
 </Callout>
 
-The single search matching strategy uses only a single query and the entirety of the input text string to find potential matches between affiliation strings and ROR records. 
+The single search matching strategy uses only a single query and the entirety of the input text string to find potential matches between affiliation strings and ROR records. The strategy is benchmarked against an F.05 score, meaning that it weights precision (accuracy of matches) more than recall (quantity of matches), with 97% precision and 72% recall. 
 
 ## Example
 
