@@ -2120,8 +2120,6 @@ The list of results includes a `chosen:true` indicator that correctly matches th
 }
 ```
 
-<br />
-
 # No matches found
 
 When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed in order to match the string to a ROR ID.
@@ -3112,13 +3110,13 @@ The single search matching strategy, <Anchor label="available in the ROR API sin
 
 ## Example
 
-Find a matching ROR record for the string "Instituto de Investigación en Informática de Albacete (I3A), Universidad de Castilla-La Mancha, Albacete, Spain" specifying the single search strategy. 
+Find a matching ROR record for the string "Instituto de Investigación en Informática de Albacete (I3A), Universidad de Castilla-La Mancha, Albacete, Spain" specifying the single search strategy.
 
 ```curl
 curl 'https://api.ror.org/organizations?affiliation=Instituto%20de%20Investigaci%C3%B3n%20en%20Inform%C3%A1tica%20de%20Albacete%20%28I3A%29%2C%20Universidad%20de%20Castilla-La%20Mancha%2C%20Albacete%2C%20Spain&single_search' | json_pp 
 ```
 
-The first item in the results list, the ROR record https://ror.org/05r78ng12 for Universidad de Castilla La Mancha, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
+The first item in the results list, the ROR record [https://ror.org/05r78ng12](https://ror.org/05r78ng12) for Universidad de Castilla La Mancha, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
 
 The `matching_type` is given as "SINGLE SEARCH", which will always be the case for queries that use the `&single_search` parameter. The confidence `score` for the match is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score. Use the `chosen:true` indicator, not the confidence score or position in the list of results, to select matches.
 
