@@ -3108,7 +3108,7 @@ As of May 2026, the default search strategy for the affiliation parameter is a "
   `https://api.ror.org/v2/organizations?affiliation=[URL-encoded-string]&single_search`
 </Callout>
 
-The single search matching strategy uses only a single query and the entirety of the input text string to find potential matches between affiliation strings and ROR records. The strategy is benchmarked against an F.05 score, meaning that it weights precision (accuracy of matches) more than recall (quantity of matches), with 97% precision and 72% recall.
+The single search matching strategy, <Anchor label="available in the ROR API since December 2025" target="_blank" href="https://doi.org/10.71938/zz90-g810">available in the ROR API since December 2025</Anchor>, uses only a single query and the entirety of the input text string to find potential matches between affiliation strings and ROR records. The strategy is benchmarked against an F.05 score, meaning that it weights precision (accuracy of matches) more than recall (quantity of matches), with 97% precision and 72% recall.
 
 ## Example
 
@@ -4130,7 +4130,7 @@ Additional candidates also appear in the results list and are ranked in descendi
 
 The matching types used in the multisearch strategy include the following:
 
-* `PHRASE`: the entire phrase was matched to a variant of the organization's name
+* `PHRASE`: a phrase was matched to a variant of the organization's name
 * `COMMON TERMS`: the matching was done by comparing the words separately
 * `FUZZY`: the matching was done by a fuzzy comparison of the words separately
 * `HEURISTICS`: "University of X" was matched to "X University"
@@ -4139,24 +4139,24 @@ The matching types used in the multisearch strategy include the following:
 
 ## Example
 
-The multisearch strategy allows you to find a matching ROR record for a long, complex affiliation text string such as "Department of Civil and Industrial Engineering, University of Pisa, Largo Lucio Lazzarino 2, Pisa 56126, Italy".
+Find a matching ROR record for the string "Instituto de Investigación en Informática de Albacete (I3A), Universidad de Castilla-La Mancha, Albacete, Spain" specifying the multisearch strategy.
 
 ```curl
-curl 'https://api.ror.org/v2/organizations?affiliation=Department%20of%20Civil%20and%20Industrial%20Engineering%2C%20University%20of%20Pisa%2C%20Largo%20Lucio%20Lazzarino%202%2C%20Pisa%2056126%2C%20Italy&multisearch' | json_pp
+curl 'https://api.ror.org/organizations?affiliation=Instituto%20de%20Investigaci%C3%B3n%20en%20Inform%C3%A1tica%20de%20Albacete%20%28I3A%29%2C%20Universidad%20de%20Castilla-La%20Mancha%2C%20Albacete%2C%20Spain&multisearch' | json_pp
 ```
 
-The first item in the results list, the ROR record for the University of Pisa, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string.
+The first item in the results list, the ROR record [https://ror.org/05r78ng12](https://ror.org/05r78ng12) for Universidad de Castilla La Mancha, has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
 
-The `matching_type` is given as _"COMMON TERMS"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
+The `matching_type` is given as _"PHRASE"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is 1, the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
 
-The substring used to find the match in this case is "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa Italy", or the entire text content of the entered string excluding punctuation and the numeric postcode.
+The substring used to find the match in this case is "Universidad de Castilla La Mancha."
 
 ```json
 {
    "items" : [
       {
          "chosen" : true,
-         "matching_type" : "COMMON TERMS",
+         "matching_type" : "PHRASE",
          "organization" : {
             "admin" : {
                "created" : {
@@ -4164,53 +4164,53 @@ The substring used to find the match in this case is "Department of Civil and In
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2025-01-22",
+                  "date" : "2024-12-11",
                   "schema_version" : "2.1"
                }
             },
             "domains" : [
-               "unipi.it"
+               "uclm.es"
             ],
-            "established" : 1343,
+            "established" : 1982,
             "external_ids" : [
                {
                   "all" : [
-                     "501100007514"
+                     "501100007480"
                   ],
                   "preferred" : null,
                   "type" : "fundref"
                },
                {
                   "all" : [
-                     "grid.5395.a"
+                     "grid.8048.4"
                   ],
-                  "preferred" : "grid.5395.a",
+                  "preferred" : "grid.8048.4",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 1757 3729"
+                     "0000 0001 2194 2329"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                },
                {
                   "all" : [
-                     "Q645663"
+                     "Q941806"
                   ],
                   "preferred" : null,
                   "type" : "wikidata"
                }
             ],
-            "id" : "https://ror.org/03ad39j10",
+            "id" : "https://ror.org/05r78ng12",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.unipi.it"
+                  "value" : "https://www.uclm.es"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Pisa"
+                  "value" : "http://en.wikipedia.org/wiki/University_of_Castilla%E2%80%93La_Mancha"
                }
             ],
             "locations" : [
@@ -4218,15 +4218,15 @@ The substring used to find the match in this case is "Department of Civil and In
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CM",
+                     "country_subdivision_name" : "Castille-La Mancha",
+                     "lat" : 38.98626,
+                     "lng" : -3.92907,
+                     "name" : "Ciudad Real"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 2519402
                }
             ],
             "names" : [
@@ -4235,7 +4235,14 @@ The substring used to find the match in this case is "Department of Civil and In
                   "types" : [
                      "acronym"
                   ],
-                  "value" : "UniPi"
+                  "value" : "UCLM"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Universidad de Castilla-La Mancha"
                },
                {
                   "lang" : "en",
@@ -4243,39 +4250,33 @@ The substring used to find the match in this case is "Department of Civil and In
                      "ror_display",
                      "label"
                   ],
-                  "value" : "University of Pisa"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Università di Pisa"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Universität Pisa"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Université de Pise"
+                  "value" : "University of Castilla-La Mancha"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/00mc91w09",
-                  "label" : "Ospedale Cisanello",
+                  "id" : "https://ror.org/03xw5ev35",
+                  "label" : "ORFEO-CINQA Research Network",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/0140hpe71",
+                  "label" : "Instituto de Investigación en Recursos Cinegéticos",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04a5hr295",
+                  "label" : "Complejo Hospitalario Universitario de Albacete",
                   "type" : "related"
                },
                {
-                  "id" : "https://ror.org/05symbg58",
-                  "label" : "Istituto Nazionale di Fisica Nucleare, Sezione di Pisa",
+                  "id" : "https://ror.org/055p2yz63",
+                  "label" : "Hospital General Universitario de Albacete",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/02f30ff69",
+                  "label" : "Hospital General Universitario de Ciudad Real",
                   "type" : "related"
                }
             ],
@@ -4286,11 +4287,11 @@ The substring used to find the match in this case is "Department of Civil and In
             ]
          },
          "score" : 1,
-         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
+         "substring" : "Universidad de Castilla La Mancha"
       },
       {
          "chosen" : false,
-         "matching_type" : "FUZZY",
+         "matching_type" : "COMMON TERMS",
          "organization" : {
             "admin" : {
                "created" : {
@@ -4298,163 +4299,37 @@ The substring used to find the match in this case is "Department of Civil and In
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2025-01-22",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "unisalento.it"
-            ],
-            "established" : 1955,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "501100005728",
-                     "501100005729",
-                     "501100006195"
-                  ],
-                  "preferred" : "501100005728",
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.9906.6"
-                  ],
-                  "preferred" : "grid.9906.6",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0001 2289 7785"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q1230902"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/03fc1k060",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://unisalento.it"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Salento"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "75",
-                     "country_subdivision_name" : "Apulia",
-                     "lat" : 40.35481,
-                     "lng" : 18.17244,
-                     "name" : "Lecce"
-                  },
-                  "geonames_id" : 3174953
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "University of Salento"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Università degli Studi di Lecce"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Università del Salento"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Universität Salento"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Université du salento"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/00qrf6g60",
-                  "label" : "Istituto Nazionale di Fisica Nucleare, Sezione di Lecce",
-                  "type" : "related"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "education",
-               "funder"
-            ]
-         },
-         "score" : 0.82,
-         "substring" : "University of Pisa"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "HEURISTICS",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2024-09-14",
-                  "schema_version" : "2.0"
-               },
-               "last_modified" : {
                   "date" : "2024-12-11",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [
-               "liceodini.it"
-            ],
-            "established" : 1924,
+            "domains" : [],
+            "established" : 2008,
             "external_ids" : [
                {
                   "all" : [
-                     "Q30889474"
+                     "grid.465942.8"
                   ],
-                  "preferred" : "Q30889474",
-                  "type" : "wikidata"
+                  "preferred" : "grid.465942.8",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 4682 7468"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
                }
             ],
-            "id" : "https://ror.org/006xg2x43",
+            "id" : "https://ror.org/055sgt471",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.liceodini.it"
+                  "value" : "https://www.ui1.es/"
                },
                {
                   "type" : "wikipedia",
-                  "value" : "https://it.wikipedia.org/wiki/Liceo_scientifico_statale_Ulisse_Dini"
+                  "value" : "https://en.wikipedia.org/wiki/Universidad_Isabel_I"
                }
             ],
             "locations" : [
@@ -4462,67 +4337,32 @@ The substring used to find the match in this case is "Department of Civil and In
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CL",
+                     "country_subdivision_name" : "Castille and León",
+                     "lat" : 42.34106,
+                     "lng" : -3.70184,
+                     "name" : "Burgos"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 3127461
                }
             ],
             "names" : [
                {
-                  "lang" : "it",
+                  "lang" : "es",
                   "types" : [
-                     "alias"
-                  ],
-                  "value" : "Liceo Dini"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Liceo Scientifico \"Ulisse Dini\""
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Liceo Scientifico 'Ulisse Dini' - Pisa"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "Liceo Scientifico Ulisse Dini"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label",
-                     "ror_display"
-                  ],
-                  "value" : "Liceo scientifico statale Ulisse Dini"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "U. Dini"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
+                     "ror_display",
                      "label"
                   ],
-                  "value" : "Ulisse Dini Scientific High School"
+                  "value" : "Universidad Isabel I"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Universidad Isabel I de Castilla"
                }
             ],
             "relationships" : [],
@@ -4532,7 +4372,100 @@ The substring used to find the match in this case is "Department of Civil and In
             ]
          },
          "score" : 0.8,
-         "substring" : "Pisa University"
+         "substring" : "Universidad de Castilla La Mancha"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2025-11-21",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2025-11-24",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "i3a.es"
+            ],
+            "established" : 2002,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "Q5811553"
+                  ],
+                  "preferred" : "Q5811553",
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/04eqgej32",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://i3a.es"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://es.wikipedia.org/wiki/Instituto_de_Investigaci%C3%B3n_en_Ingenier%C3%ADa_de_Arag%C3%B3n"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "AR",
+                     "country_subdivision_name" : "Aragon",
+                     "lat" : 41.65606,
+                     "lng" : -0.87734,
+                     "name" : "Zaragoza"
+                  },
+                  "geonames_id" : 3104324
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Aragon Institute for Engineering Research"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "I3A"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Instituto de Investigación en Ingeniería de Aragón"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/012a91z28",
+                  "label" : "Universidad de Zaragoza",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education"
+            ]
+         },
+         "score" : 0.77,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
       },
       {
          "chosen" : false,
@@ -4553,24 +4486,24 @@ The substring used to find the match in this case is "Department of Civil and In
             "external_ids" : [
                {
                   "all" : [
-                     "grid.144189.1"
+                     "grid.426047.3"
                   ],
-                  "preferred" : "grid.144189.1",
+                  "preferred" : "grid.426047.3",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 1756 8209"
+                     "0000 0001 1530 8903"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                }
             ],
-            "id" : "https://ror.org/05xrcj819",
+            "id" : "https://ror.org/03k8zj440",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "http://www.ao-pisa.toscana.it/"
+                  "value" : "http://sescam.castillalamancha.es/"
                }
             ],
             "locations" : [
@@ -4578,43 +4511,1190 @@ The substring used to find the match in this case is "Department of Civil and In
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CM",
+                     "country_subdivision_name" : "Castille-La Mancha",
+                     "lat" : 39.8581,
+                     "lng" : -4.02263,
+                     "name" : "Toledo"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 2510409
                }
             ],
             "names" : [
                {
-                  "lang" : "it",
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "SESCAM"
+               },
+               {
+                  "lang" : "es",
                   "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "Azienda Ospedaliera Universitaria Pisana"
+                  "value" : "Servicio de Salud de Castilla La Mancha"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/04a5hr295",
+                  "label" : "Complejo Hospitalario Universitario de Albacete",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04q4ppz72",
+                  "label" : "Complejo Hospitalario Universitario de Toledo",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00k5pj069",
+                  "label" : "Hospital General Nuestra Señora del Prado",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/02f30ff69",
+                  "label" : "Hospital General Universitario de Ciudad Real",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01wc63152",
+                  "label" : "Hospital General de Almansa",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01zbsrk34",
+                  "label" : "Hospital General de Tomelloso",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/04xzgfg07",
+                  "label" : "Hospital Nacional de Parapléjicos",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00jkz9152",
+                  "label" : "Hospital Universitario de Guadalajara",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/00k49k182",
+                  "label" : "Hospital Virgen de la Luz",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/01gaptw32",
+                  "label" : "Hospital de Hellín",
+                  "type" : "child"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "healthcare"
+            ]
+         },
+         "score" : 0.72,
+         "substring" : "Universidad de Castilla La Mancha"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2019-11-07",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2012,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.507088.2"
+                  ],
+                  "preferred" : "grid.507088.2",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "Q18397927"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/026yy9j15",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.ibsgranada.es"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "AN",
+                     "country_subdivision_name" : "Andalusia",
+                     "lat" : 37.18817,
+                     "lng" : -3.60667,
+                     "name" : "Granada"
+                  },
+                  "geonames_id" : 2517117
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Instituto de Investigación Biosanitaria"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Instituto de Investigación Biosanitaria de Granada"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "ibs.GRANADA"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.71,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : null,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.424652.3"
+                  ],
+                  "preferred" : "grid.424652.3",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/05jdfph84",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://ajuntament.barcelona.cat/imi"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CT",
+                     "country_subdivision_name" : "Catalonia",
+                     "lat" : 41.38879,
+                     "lng" : 2.15899,
+                     "name" : "Barcelona"
+                  },
+                  "geonames_id" : 3128760
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IMI"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Institut Municipal D'Informática de Barcelona"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Instituto Municipal de Informática de Barcelona"
                },
                {
                   "lang" : "en",
                   "types" : [
                      "label"
                   ],
-                  "value" : "University Hospital of Pisa"
+                  "value" : "The Municipal Institute for Information Technology"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "government"
+            ]
+         },
+         "score" : 0.71,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2026-03-31",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "udc.gal"
+            ],
+            "established" : 1989,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100014597"
+                  ],
+                  "preferred" : "501100014597",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.8073.c"
+                  ],
+                  "preferred" : "grid.8073.c",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2176 8535"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q280305"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/01qckj285",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.udc.gal/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/University_of_A_Coru%C3%B1a"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "GA",
+                     "country_subdivision_name" : "Galicia",
+                     "lat" : 43.37135,
+                     "lng" : -8.396,
+                     "name" : "A Coruña"
+                  },
+                  "geonames_id" : 3119841
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Universidad de La Coruña"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Universidade da Coruña"
+               },
+               {
+                  "lang" : "ca",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Universitat de la Corunya"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "University of A Coruña"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/00mc91w09",
-                  "label" : "Ospedale Cisanello",
+                  "id" : "https://ror.org/044knj408",
+                  "label" : "Complexo Hospitalario Universitario A Coruña",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/019z56k76",
+                  "label" : "Consorcio Interuniversitario do Sistema Universitario de Galicia (CISUG)",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "education",
+               "funder"
+            ]
+         },
+         "score" : 0.7,
+         "substring" : "Universidad de Castilla La Mancha"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2023-12-07",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 2008,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "0000 0004 7590 6907"
+                  ],
+                  "preferred" : "0000 0004 7590 6907",
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q56685817"
+                  ],
+                  "preferred" : "Q56685817",
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/01wfb3668",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.ub.edu/irbio"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CT",
+                     "country_subdivision_name" : "Catalonia",
+                     "lat" : 41.38879,
+                     "lng" : 2.15899,
+                     "name" : "Barcelona"
+                  },
+                  "geonames_id" : 3128760
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Biodiversity Research Institute"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Biodiversity Research Institute of the Universiy of Barcelona"
+               },
+               {
+                  "lang" : "ca",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "IRBio-UB"
+               },
+               {
+                  "lang" : "ca",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Institut de Recerca de la Biodiversitat"
+               },
+               {
+                  "lang" : "ca",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Institut de Recerca de la Biodiversitat de la Universitat de Barcelona"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Instituto de Investigación de la Biodiversidad"
+               },
+               {
+                  "lang" : "zh",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Instituto de Investigación de la Biodiversidad de la Universidad de Barcelona"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/021018s57",
+                  "label" : "Universitat de Barcelona",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/01y43zx14",
+                  "label" : "Institut de Biomedicina de la Universitat de Barcelona",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/044mj7r89",
+                  "label" : "Institut de Biologia Evolutiva",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/05ect0289",
+                  "label" : "Institut de Ciències del Mar",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/03abrgd14",
+                  "label" : "Centre for Research on Ecology and Forestry Applications",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.68,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A Universidad de Castilla La Mancha Albacete Spain"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2025-08-06",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2025-12-15",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "iriaf.castillalamancha.es"
+            ],
+            "established" : 2015,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "0000 0005 1089 1377"
+                  ],
+                  "preferred" : "0000 0005 1089 1377",
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/029sr0q57",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://iriaf.castillalamancha.es"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CM",
+                     "country_subdivision_name" : "Castille-La Mancha",
+                     "lat" : 39.15759,
+                     "lng" : -3.02156,
+                     "name" : "Tomelloso"
+                  },
+                  "geonames_id" : 2510392
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IRIAF"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Instituto Regional de Investigación y Desarrollo Agroalimentario y Forestal"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Instituto Regional de Investigación y Desarrollo Agroalimentario y Forestal (IRIAF)"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Instituto Regional de Investigación y Desarrollo Agroalimentario y Forestal de Castilla-La Mancha"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Regional Institute for Agri-Food and Forestry Research and Development"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Regional Institute for Agri-Food and Forestry Research and Development of Castilla-La Mancha"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/02jv91m18",
+                  "label" : "Regional Government of Castile-La Mancha",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility",
+               "government"
+            ]
+         },
+         "score" : 0.67,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A Universidad de Castilla La Mancha Albacete Spain"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2020-03-15",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-04-28",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "iri.upc.edu"
+            ],
+            "established" : 1995,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.507641.1"
+                  ],
+                  "preferred" : "grid.507641.1",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 1763 2928"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q3815300"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/00mcdyn90",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.iri.upc.edu"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Institut_de_Rob%C3%B2tica_i_Inform%C3%A0tica_Industrial"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CT",
+                     "country_subdivision_name" : "Catalonia",
+                     "lat" : 41.38879,
+                     "lng" : 2.15899,
+                     "name" : "Barcelona"
+                  },
+                  "geonames_id" : 3128760
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IRII"
+               },
+               {
+                  "lang" : "ca",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Institut de Robòtica i Informàtica Industrial"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Institute of Robotics and Industrial Informatics"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Instituto de Robótica e Informática Industrial"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/02gfc7t72",
+                  "label" : "Consejo Superior de Investigaciones Científicas",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/03mb6wj31",
+                  "label" : "Universitat Politècnica de Catalunya",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.66,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "FUZZY",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1967,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.470634.2"
+                  ],
+                  "preferred" : "grid.470634.2",
+                  "type" : "grid"
+               }
+            ],
+            "id" : "https://ror.org/02yp1e416",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://castellon.san.gva.es/hospital-general"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "VC",
+                     "country_subdivision_name" : "Valencia",
+                     "lat" : 39.98567,
+                     "lng" : -0.04935,
+                     "name" : "Castellon"
+                  },
+                  "geonames_id" : 2519752
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Hospital General Universitari de Castelló"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "healthcare"
+            ]
+         },
+         "score" : 0.65,
+         "substring" : "Universidad de Castilla La Mancha"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2026-02-24",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2026-02-24",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "innocam.castillalamancha.es"
+            ],
+            "established" : 2023,
+            "external_ids" : [],
+            "id" : "https://ror.org/04cmtj866",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://innocam.castillalamancha.es"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CM",
+                     "country_subdivision_name" : "Castille-La Mancha",
+                     "lat" : 38.68712,
+                     "lng" : -4.10734,
+                     "name" : "Puertollano"
+                  },
+                  "geonames_id" : 2512177
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Agencia de Investigación e Innovación de Castilla-La-Mancha"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "INNOCAM"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "government"
+            ]
+         },
+         "score" : 0.63,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A Universidad de Castilla La Mancha Albacete Spain"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2023-11-21",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : null,
+            "external_ids" : [],
+            "id" : "https://ror.org/02cp22d42",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.unioviedo.es/IMIB/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "AS",
+                     "country_subdivision_name" : "Asturias",
+                     "lat" : 43.25,
+                     "lng" : -5.76667,
+                     "name" : "Mieres"
+                  },
+                  "geonames_id" : 3116789
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Biodiversity Research Institute"
+               },
+               {
+                  "lang" : null,
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "IMIB"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Instituto Mixto de Investigación en Biodiversidad"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/02gfc7t72",
+                  "label" : "Consejo Superior de Investigaciones Científicas",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/006gksa02",
+                  "label" : "Universidad de Oviedo",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/05mj4yh71",
+                  "label" : "Gobierno del Principado de Asturias",
+                  "type" : "parent"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "facility"
+            ]
+         },
+         "score" : 0.62,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-12-15",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1982,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "501100011698"
+                  ],
+                  "preferred" : "501100011698",
+                  "type" : "fundref"
+               },
+               {
+                  "all" : [
+                     "grid.454818.4"
+                  ],
+                  "preferred" : "grid.454818.4",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0001 2198 1344"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               },
+               {
+                  "all" : [
+                     "Q3113875"
+                  ],
+                  "preferred" : null,
+                  "type" : "wikidata"
+               }
+            ],
+            "id" : "https://ror.org/02jv91m18",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.jccm.es/"
+               },
+               {
+                  "type" : "wikipedia",
+                  "value" : "https://en.wikipedia.org/wiki/Regional_Government_of_Castile-La_Mancha"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CM",
+                     "country_subdivision_name" : "Castille-La Mancha",
+                     "lat" : 40.62862,
+                     "lng" : -3.16185,
+                     "name" : "Guadalajara"
+                  },
+                  "geonames_id" : 3121070
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Junta de Comunidades de Castilla-La Mancha"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Regional Government of Castile-La Mancha"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/0140hpe71",
+                  "label" : "Instituto de Investigación en Recursos Cinegéticos",
                   "type" : "child"
                },
                {
-                  "id" : "https://ror.org/04069k268",
-                  "label" : "ERN ReCONNET",
+                  "id" : "https://ror.org/029sr0q57",
+                  "label" : "Instituto Regional de Investigación y Desarrollo Agroalimentario y Forestal de Castilla-La Mancha",
+                  "type" : "child"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "funder",
+               "government"
+            ]
+         },
+         "score" : 0.6,
+         "substring" : "Universidad de Castilla La Mancha"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2024-12-11",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [],
+            "established" : 1985,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.411839.6"
+                  ],
+                  "preferred" : "grid.411839.6",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0000 9321 9781"
+                  ],
+                  "preferred" : null,
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/04a5hr295",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "http://www.chospab.es/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CM",
+                     "country_subdivision_name" : "Castille-La Mancha",
+                     "lat" : 38.99424,
+                     "lng" : -1.85643,
+                     "name" : "Albacete"
+                  },
+                  "geonames_id" : 2522258
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Complejo Hospitalario Universitario de Albacete"
+               },
+               {
+                  "lang" : "en",
+                  "types" : [
+                     "label"
+                  ],
+                  "value" : "Hospital General Universitario de Albacete"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/055p2yz63",
+                  "label" : "Hospital General Universitario de Albacete",
+                  "type" : "child"
+               },
+               {
+                  "id" : "https://ror.org/03k8zj440",
+                  "label" : "Servicio de Salud de Castilla La Mancha",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/05r78ng12",
+                  "label" : "University of Castilla-La Mancha",
                   "type" : "related"
                }
             ],
@@ -4623,8 +5703,8 @@ The substring used to find the match in this case is "Department of Civil and In
                "healthcare"
             ]
          },
-         "score" : 0.8,
-         "substring" : "University of Pisa"
+         "score" : 0.59,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
       },
       {
          "chosen" : false,
@@ -4636,35 +5716,33 @@ The substring used to find the match in this case is "Department of Civil and In
                   "schema_version" : "1.0"
                },
                "last_modified" : {
-                  "date" : "2025-01-22",
+                  "date" : "2024-12-11",
                   "schema_version" : "2.1"
                }
             },
-            "domains" : [
-               "pi.infn.it"
-            ],
-            "established" : null,
+            "domains" : [],
+            "established" : 1985,
             "external_ids" : [
                {
                   "all" : [
-                     "grid.470216.6"
+                     "grid.411094.9"
                   ],
-                  "preferred" : "grid.470216.6",
+                  "preferred" : "grid.411094.9",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "Q30265297"
+                     "0000 0004 0506 8127"
                   ],
                   "preferred" : null,
-                  "type" : "wikidata"
+                  "type" : "isni"
                }
             ],
-            "id" : "https://ror.org/05symbg58",
+            "id" : "https://ror.org/055p2yz63",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.pi.infn.it"
+                  "value" : "http://www.chospab.es/noticiario/TextoNoticia.php?ID=0642&AN=17"
                }
             ],
             "locations" : [
@@ -4672,338 +5750,141 @@ The substring used to find the match in this case is "Department of Civil and In
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CM",
+                     "country_subdivision_name" : "Castille-La Mancha",
+                     "lat" : 38.99424,
+                     "lng" : -1.85643,
+                     "name" : "Albacete"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 2522258
                }
             ],
             "names" : [
                {
-                  "lang" : "it",
+                  "lang" : "es",
+                  "types" : [
+                     "ror_display",
+                     "label"
+                  ],
+                  "value" : "Hospital General Universitario de Albacete"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/04a5hr295",
+                  "label" : "Complejo Hospitalario Universitario de Albacete",
+                  "type" : "parent"
+               },
+               {
+                  "id" : "https://ror.org/05r78ng12",
+                  "label" : "University of Castilla-La Mancha",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "healthcare"
+            ]
+         },
+         "score" : 0.59,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2026-05-04",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2026-05-05",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "grupoice.ugr.es"
+            ],
+            "established" : 2008,
+            "external_ids" : [],
+            "id" : "https://ror.org/01hn2ae91",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://grupoice.ugr.es"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "AN",
+                     "country_subdivision_name" : "Andalusia",
+                     "lat" : 37.18817,
+                     "lng" : -3.60667,
+                     "name" : "Granada"
+                  },
+                  "geonames_id" : 2517117
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
                   "types" : [
                      "alias"
                   ],
-                  "value" : "INFN Pisa"
+                  "value" : "Grupo de Investigación ICE"
                },
                {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "INFN Pisa Division"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "INFN Pisa Unit"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "INFN Sezione di Pisa"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "acronym"
-                  ],
-                  "value" : "INFN-PI"
-               },
-               {
-                  "lang" : "it",
+                  "lang" : "es",
                   "types" : [
                      "label",
                      "ror_display"
                   ],
-                  "value" : "Istituto Nazionale di Fisica Nucleare, Sezione di Pisa"
+                  "value" : "Grupo de Investigación en Comunicación Educativa"
                },
                {
-                  "lang" : "en",
+                  "lang" : "es",
                   "types" : [
-                     "label"
+                     "alias"
                   ],
-                  "value" : "National Institute for Nuclear Physics, Pisa Division"
-               }
-            ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/005ta0471",
-                  "label" : "Istituto Nazionale di Fisica Nucleare",
-                  "type" : "parent"
+                  "value" : "HUM 871"
                },
                {
-                  "id" : "https://ror.org/02w0r2764",
-                  "label" : "MAGIC Telescopes",
-                  "type" : "related"
-               },
-               {
-                  "id" : "https://ror.org/03ad39j10",
-                  "label" : "University of Pisa",
-                  "type" : "related"
-               }
-            ],
-            "status" : "active",
-            "types" : [
-               "facility"
-            ]
-         },
-         "score" : 0.71,
-         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "FUZZY",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "unibs.it"
-            ],
-            "established" : 1982,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "501100007343"
-                  ],
-                  "preferred" : null,
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.7637.5"
-                  ],
-                  "preferred" : "grid.7637.5",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0004 1757 1846"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q1781263"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/02q2d2610",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.unibs.it"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Brescia"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "25",
-                     "country_subdivision_name" : "Lombardy",
-                     "lat" : 45.53558,
-                     "lng" : 10.21472,
-                     "name" : "Brescia"
-                  },
-                  "geonames_id" : 3181554
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "ror_display",
-                     "label"
-                  ],
-                  "value" : "University of Brescia"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Università degli Studi di Brescia"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Universität Brescia"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Université de brescia"
-               }
-            ],
-            "relationships" : [],
-            "status" : "active",
-            "types" : [
-               "education",
-               "funder"
-            ]
-         },
-         "score" : 0.67,
-         "substring" : "University of Pisa"
-      },
-      {
-         "chosen" : false,
-         "matching_type" : "FUZZY",
-         "organization" : {
-            "admin" : {
-               "created" : {
-                  "date" : "2018-11-14",
-                  "schema_version" : "1.0"
-               },
-               "last_modified" : {
-                  "date" : "2024-12-11",
-                  "schema_version" : "2.1"
-               }
-            },
-            "domains" : [
-               "unical.it"
-            ],
-            "established" : 1972,
-            "external_ids" : [
-               {
-                  "all" : [
-                     "501100007069"
-                  ],
-                  "preferred" : null,
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.7778.f"
-                  ],
-                  "preferred" : "grid.7778.f",
-                  "type" : "grid"
-               },
-               {
-                  "all" : [
-                     "0000 0004 1937 0319"
-                  ],
-                  "preferred" : null,
-                  "type" : "isni"
-               },
-               {
-                  "all" : [
-                     "Q1752540"
-                  ],
-                  "preferred" : null,
-                  "type" : "wikidata"
-               }
-            ],
-            "id" : "https://ror.org/02rc97e94",
-            "links" : [
-               {
-                  "type" : "website",
-                  "value" : "https://www.unical.it"
-               },
-               {
-                  "type" : "wikipedia",
-                  "value" : "http://en.wikipedia.org/wiki/University_of_Calabria"
-               }
-            ],
-            "locations" : [
-               {
-                  "geonames_details" : {
-                     "continent_code" : "EU",
-                     "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "78",
-                     "country_subdivision_name" : "Calabria",
-                     "lat" : 39.33154,
-                     "lng" : 16.18041,
-                     "name" : "Rende"
-                  },
-                  "geonames_id" : 2523623
-               }
-            ],
-            "names" : [
-               {
-                  "lang" : null,
+                  "lang" : "es",
                   "types" : [
                      "acronym"
                   ],
-                  "value" : "UNICAL"
+                  "value" : "ICE"
                },
                {
-                  "lang" : "en",
+                  "lang" : "es",
                   "types" : [
-                     "ror_display",
-                     "label"
+                     "alias"
                   ],
-                  "value" : "University of Calabria"
-               },
-               {
-                  "lang" : "it",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Università della Calabria"
-               },
-               {
-                  "lang" : "de",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Universität Kalabrien"
-               },
-               {
-                  "lang" : "fr",
-                  "types" : [
-                     "label"
-                  ],
-                  "value" : "Université de la calabre"
+                  "value" : "Investigación en Comunicación Educativa"
                }
             ],
             "relationships" : [
                {
-                  "id" : "https://ror.org/039epzh36",
-                  "label" : "Istituto Nazionale di Fisica Nucleare, Gruppo Collegato di Cosenza",
-                  "type" : "related"
+                  "id" : "https://ror.org/04njjy449",
+                  "label" : "Universidad de Granada",
+                  "type" : "parent"
                }
             ],
             "status" : "active",
             "types" : [
-               "education",
-               "funder"
+               "nonprofit"
             ]
          },
-         "score" : 0.65,
-         "substring" : "University of Pisa"
+         "score" : 0.55,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
       },
       {
          "chosen" : false,
@@ -5011,7 +5892,7 @@ The substring used to find the match in this case is "Department of Civil and In
          "organization" : {
             "admin" : {
                "created" : {
-                  "date" : "2018-11-14",
+                  "date" : "2021-09-23",
                   "schema_version" : "1.0"
                },
                "last_modified" : {
@@ -5020,35 +5901,28 @@ The substring used to find the match in this case is "Department of Civil and In
                }
             },
             "domains" : [],
-            "established" : 1982,
+            "established" : 2004,
             "external_ids" : [
                {
                   "all" : [
-                     "100012783"
+                     "grid.512895.2"
                   ],
-                  "preferred" : "100012783",
-                  "type" : "fundref"
-               },
-               {
-                  "all" : [
-                     "grid.425554.7"
-                  ],
-                  "preferred" : "grid.425554.7",
+                  "preferred" : "grid.512895.2",
                   "type" : "grid"
                },
                {
                   "all" : [
-                     "0000 0004 1773 7551"
+                     "0000 0004 9296 2302"
                   ],
                   "preferred" : null,
                   "type" : "isni"
                }
             ],
-            "id" : "https://ror.org/050xp5d36",
+            "id" : "https://ror.org/00c77q313",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "http://www.protezionecivile.gov.it/jcms/en/homepage.wp"
+                  "value" : "http://www.redris.es/"
                }
             ],
             "locations" : [
@@ -5056,43 +5930,55 @@ The substring used to find the match in this case is "Department of Civil and In
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "62",
-                     "country_subdivision_name" : "Lazio",
-                     "lat" : 41.89193,
-                     "lng" : 12.51133,
-                     "name" : "Rome"
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "MD",
+                     "country_subdivision_name" : "Madrid",
+                     "lat" : 40.47353,
+                     "lng" : -3.87182,
+                     "name" : "Majadahonda"
                   },
-                  "geonames_id" : 3169070
+                  "geonames_id" : 3117667
                }
             ],
             "names" : [
                {
-                  "lang" : "en",
+                  "lang" : null,
                   "types" : [
-                     "label"
+                     "acronym"
                   ],
-                  "value" : "Civil Protection Department"
+                  "value" : "RIS ISCIII"
                },
                {
-                  "lang" : "it",
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Red Española de Investigación del Sida"
+               },
+               {
+                  "lang" : "es",
                   "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "Dipartimento della Protezione Civile"
+                  "value" : "Red de Investigación en Sida"
                }
             ],
-            "relationships" : [],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/00ca2c886",
+                  "label" : "Instituto de Salud Carlos III",
+                  "type" : "parent"
+               }
+            ],
             "status" : "active",
             "types" : [
-               "funder",
-               "government"
+               "facility"
             ]
          },
-         "score" : 0.58,
-         "substring" : "Department of Civil and Industrial Engineering"
+         "score" : 0.53,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A"
       },
       {
          "chosen" : false,
@@ -5100,7 +5986,111 @@ The substring used to find the match in this case is "Department of Civil and In
          "organization" : {
             "admin" : {
                "created" : {
-                  "date" : "2023-09-14",
+                  "date" : "2026-04-14",
+                  "schema_version" : "2.1"
+               },
+               "last_modified" : {
+                  "date" : "2026-04-14",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "consorciobucle.es"
+            ],
+            "established" : 2002,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "0000 0004 0447 2048"
+                  ],
+                  "preferred" : "0000 0004 0447 2048",
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/051jb1k20",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://consorciobucle.es"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CL",
+                     "country_subdivision_name" : "Castille and León",
+                     "lat" : 42.34106,
+                     "lng" : -3.70184,
+                     "name" : "Burgos"
+                  },
+                  "geonames_id" : 3127461
+               }
+            ],
+            "names" : [
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "acronym"
+                  ],
+                  "value" : "BUCLE"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Consorcio de Bibliotecas Universitarias de Castilla y León"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "label",
+                     "ror_display"
+                  ],
+                  "value" : "Consorcio de Bibliotecas Universitarias de Castilla y León (BUCLE)"
+               }
+            ],
+            "relationships" : [
+               {
+                  "id" : "https://ror.org/049da5t36",
+                  "label" : "Universidad de Burgos",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/040r3xq19",
+                  "label" : "Universidad de León",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/02f40zc51",
+                  "label" : "Universidad de Salamanca",
+                  "type" : "related"
+               },
+               {
+                  "id" : "https://ror.org/01fvbaw18",
+                  "label" : "Universidad de Valladolid",
+                  "type" : "related"
+               }
+            ],
+            "status" : "active",
+            "types" : [
+               "nonprofit"
+            ]
+         },
+         "score" : 0.53,
+         "substring" : "Universidad de Castilla La Mancha"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
                   "schema_version" : "1.0"
                },
                "last_modified" : {
@@ -5109,21 +6099,21 @@ The substring used to find the match in this case is "Department of Civil and In
                }
             },
             "domains" : [],
-            "established" : null,
+            "established" : 2011,
             "external_ids" : [
                {
                   "all" : [
-                     "0000 0004 1758 7813"
+                     "grid.454765.1"
                   ],
-                  "preferred" : "0000 0004 1758 7813",
-                  "type" : "isni"
+                  "preferred" : "grid.454765.1",
+                  "type" : "grid"
                }
             ],
-            "id" : "https://ror.org/00vfm5970",
+            "id" : "https://ror.org/00t864161",
             "links" : [
                {
                   "type" : "website",
-                  "value" : "https://www.pi.ingv.it"
+                  "value" : "https://www.educa.jcyl.es/"
                }
             ],
             "locations" : [
@@ -5131,81 +6121,146 @@ The substring used to find the match in this case is "Department of Civil and In
                   "geonames_details" : {
                      "continent_code" : "EU",
                      "continent_name" : "Europe",
-                     "country_code" : "IT",
-                     "country_name" : "Italy",
-                     "country_subdivision_code" : "52",
-                     "country_subdivision_name" : "Tuscany",
-                     "lat" : 43.70853,
-                     "lng" : 10.4036,
-                     "name" : "Pisa"
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CL",
+                     "country_subdivision_name" : "Castille and León",
+                     "lat" : 41.65518,
+                     "lng" : -4.72372,
+                     "name" : "Valladolid"
                   },
-                  "geonames_id" : 3170647
+                  "geonames_id" : 3106672
                }
             ],
             "names" : [
                {
-                  "lang" : "it",
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Consejería de Educación"
+               },
+               {
+                  "lang" : "es",
                   "types" : [
                      "ror_display",
                      "label"
                   ],
-                  "value" : "INGV Sezione di Pisa"
+                  "value" : "Consejería de Educación de la Junta de Castilla y León"
                },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Educacyl"
+               },
+               {
+                  "lang" : "es",
+                  "types" : [
+                     "alias"
+                  ],
+                  "value" : "Portal de Educación de la Junta de Castilla y León"
+               }
+            ],
+            "relationships" : [],
+            "status" : "active",
+            "types" : [
+               "government"
+            ]
+         },
+         "score" : 0.51,
+         "substring" : "Universidad de Castilla La Mancha"
+      },
+      {
+         "chosen" : false,
+         "matching_type" : "COMMON TERMS",
+         "organization" : {
+            "admin" : {
+               "created" : {
+                  "date" : "2018-11-14",
+                  "schema_version" : "1.0"
+               },
+               "last_modified" : {
+                  "date" : "2025-10-28",
+                  "schema_version" : "2.1"
+               }
+            },
+            "domains" : [
+               "icscyl.com"
+            ],
+            "established" : null,
+            "external_ids" : [
+               {
+                  "all" : [
+                     "grid.488835.a"
+                  ],
+                  "preferred" : "grid.488835.a",
+                  "type" : "grid"
+               },
+               {
+                  "all" : [
+                     "0000 0004 8495 0651"
+                  ],
+                  "preferred" : "0000 0004 8495 0651",
+                  "type" : "isni"
+               }
+            ],
+            "id" : "https://ror.org/00vn23s59",
+            "links" : [
+               {
+                  "type" : "website",
+                  "value" : "https://www.icscyl.com/"
+               }
+            ],
+            "locations" : [
+               {
+                  "geonames_details" : {
+                     "continent_code" : "EU",
+                     "continent_name" : "Europe",
+                     "country_code" : "ES",
+                     "country_name" : "Spain",
+                     "country_subdivision_code" : "CL",
+                     "country_subdivision_name" : "Castille and León",
+                     "lat" : 41.76401,
+                     "lng" : -2.46883,
+                     "name" : "Soria"
+                  },
+                  "geonames_id" : 3108681
+               }
+            ],
+            "names" : [
                {
                   "lang" : null,
                   "types" : [
                      "acronym"
                   ],
-                  "value" : "INGV-PI"
+                  "value" : "IECSCYL"
                },
                {
-                  "lang" : "it",
+                  "lang" : "es",
                   "types" : [
-                     "alias"
+                     "ror_display",
+                     "label"
                   ],
-                  "value" : "Istituto Nazionale di Geofisica e Vulcanologia Sezione di Pisa"
-               },
-               {
-                  "lang" : "en",
-                  "types" : [
-                     "alias"
-                  ],
-                  "value" : "National Institute of Geophysics and Volcanology, Pisa Section"
+                  "value" : "Instituto de Estudios de Ciencias de la Salud de Castilla y León"
                }
             ],
-            "relationships" : [
-               {
-                  "id" : "https://ror.org/00qps9a02",
-                  "label" : "Istituto Nazionale di Geofisica e Vulcanologia",
-                  "type" : "parent"
-               }
-            ],
+            "relationships" : [],
             "status" : "active",
             "types" : [
-               "facility"
+               "nonprofit"
             ]
          },
-         "score" : 0.55,
-         "substring" : "Department of Civil and Industrial Engineering University of Pisa Largo Lucio Lazzarino 2 Pisa  Italy"
+         "score" : 0.51,
+         "substring" : "Instituto de Investigación en Informática de Albacete I3A Universidad de Castilla La Mancha Albacete Spain"
       }
    ],
-   "number_of_results" : 9
+   "number_of_results" : 21
 }
 ```
 
-## Example
-
-The default multisearch strategy uses multiple search algorithms to find matching ROR records for complex affiliation text strings such as "International Centre for Theoretical Physics (ICTP), Trieste, Italy".
-
-```curl
-curl 'https://api.ror.org/v2/organizations?affiliation=International%20Centre%20for%20Theoretical%20Physics%20(ICTP),%20Trieste,%20Italy' | json_pp
-```
-
-The ROR record for the Abdus Salam International Centre for Theoretical Physics (ICTP) has a `chosen` value of _true_, indicating that the affiliation service considers this record a sufficiently likely match to the text string. Not all affiliation searches will produce a "chosen" result.
-
-The `matching_type` is given as _"PHRASE"_, indicating the method by which the affiliation parameter chose the matching record. The confidence `score` is .95, with 1 being the highest possible level of confidence in the match. Results are listed in descending order by matching confidence score.
-
-The substring used to find the match in this case is "International Centre for Theoretical Physics ICTP", which is the text of the organization name and its acronym excluding punctuation and the organization's location in Trieste, Italy.
+<br />
 
 # Other ways to match affiliations to ROR records
 
