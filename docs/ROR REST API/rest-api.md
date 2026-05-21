@@ -40,7 +40,7 @@ The ROR API supports three primary parameters, each of which has different use c
 
 No registration is currently required to use the ROR API, but note that the rate limit is a **maximum of 2000 requests in a 5-minute period** per IP address, and API traffic can be quite heavy at popular times like midnight UTC. If you need to make more requests or want to ensure faster response times, you can also run the entire ROR API locally in Docker. [See the README on the ROR API GitHub repository](https://github.com/ror-community/ror-api#readme) for instructions on running the ROR API locally.
 
-The API is best for use cases that involve querying or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that **it is currently not possible to retrieve all 110,000+ records from the ROR API**. If you need to use the entire ROR dataset in your application, please download the [data dump](https://ror.readme.io/docs/data-dump).
+The API is best for use cases that involve querying or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that **it is currently not possible to retrieve all 120,000+ records from the ROR API**. If you need to use the entire ROR dataset in your application, please download the [data dump](https://ror.readme.io/docs/data-dump).
 
 <Callout icon="🚧" theme="warn">
   ## Register for a client ID by Q3 2026
