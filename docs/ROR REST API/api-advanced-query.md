@@ -55,7 +55,7 @@ In version 2 of the ROR API, you can search by created and last modified dates u
 
 ## Example
 
-Search for all records of any [status](https://ror.readme.io/v2/docs/data-structure#status)  modified between two dates.
+Search for all records of any [status](https://ror.readme.io/v2/docs/ror-data-structure#status)  modified between two dates.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query.advanced=admin.last_modified.date:%5B2024-12-27%20TO%202025-01-27%5D&all_status' | json_pp
