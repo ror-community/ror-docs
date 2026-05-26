@@ -2125,6 +2125,8 @@ The list of results includes a `chosen:true` indicator that correctly matches th
 
 When there's no result with the `chosen:true` indicator (i.e., all results of a query are `chosen:false`) it can mean that the string does not include enough information for the algorithm to find a match, or that there are several good matches but no clear winner, or that the organization is not in ROR. If there is no result with `chosen:true`, some additional review by humans or machines is almost always needed in order to match the string to a ROR ID.
 
+In some cases, a change to ROR data such as adding a common `alias` or `label` to a ROR record can improve matching results. If you encounter this, please <Anchor label="submit a curation request" target="_blank" href="https://curation-request.ror.org">submit a curation request</Anchor> to request a specific change or reach out to us at [support@ror.org](mailto:support@ror.org) if it is unclear what should be changed.
+
 <Callout icon="❗️" theme="error">
   ## Don't automatically select results by score or order
 
