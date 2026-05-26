@@ -43,7 +43,7 @@ All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_url
 
 # Paging and filtering
 
-The affiliation parameter **does not accept filters** and results **are not paginated**. If [filter](doc:api-filtering) syntax is added to the end of an affiliation search, the terms will be treated as part of the affiliation search. Results are listed in descending order by matching confidence score.
+The affiliation parameter **does not accept filters** and results **are not paginated**. If [filter](doc:api-filtering) syntax is added to the end of an affiliation query, the terms will be treated as part of the affiliation search and will produce unwanted results. Results are listed in descending order by matching confidence score.
 
 <Callout icon="🚧" theme="warn">
   ## Be aware of differences between the affiliation parameter and the query parameters
