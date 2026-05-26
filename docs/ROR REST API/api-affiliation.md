@@ -3095,8 +3095,6 @@ The response returns results with confidence scores ranging from .79 to .7 liste
 }
 ```
 
-<br />
-
 # Single search strategy
 
 As of May 2026, the default search strategy for the affiliation parameter is a "single search" strategy that outperforms the legacy multisearch strategy in terms of precision and recall while also being faster and more computationally efficient. You can specify the single search strategy by appending `&single_search` to the query, but it is not necessary, since single search is the default.
