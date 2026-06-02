@@ -25,7 +25,9 @@ next:
 
 For many years, publishers of scholarly information often captured author and contributor affiliation information as unstructured data, sometimes storing an organization's name, a sub-unit or department's name, a street address, and a geographical location along with copious irregular punctuation as a text string in a single field. Some affiliation strings even include multiple affiliations.
 
-The affiliation parameter of the ROR API is designed to match these messy text strings to ROR records automatically to produce cleaner affiliation data. The affiliation service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator that can be used in ROR integration code. Not all affiliation searches will produce a "chosen" result. The method of matching is also indicated in the `matching_type` field.
+The affiliation parameter of the ROR API is designed to match these messy text strings to ROR records automatically to produce cleaner affiliation data. The affiliation service attempts to find the active ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator that can be used in ROR integration code. 
+
+Not all affiliation searches will produce a "chosen" result. The method of matching is indicated in the `matching_type` field. Only records with a <Anchor label="status" target="_blank" href="https://ror.readme.io/docs/ror-data-structure#status">status</Anchor> of `active` are returned. 
 
 Additional possibilities that might match the string are also included in results, listed in descending order by confidence `score`. Note that **we do not recommend using the confidence `score` to select matches**; use the `chosen:true` indicator instead.
 
@@ -43,7 +45,7 @@ All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_url
 
 # Paging and filtering
 
-The affiliation parameter **does not accept filters** and results **are not paginated**. If [filter](doc:api-filtering) syntax is added to the end of an affiliation query, the terms will be treated as part of the affiliation search and will produce unwanted results. Results are listed in descending order by matching confidence score.
+The affiliation parameter **does not accept filters** and results **are not paginated**. If [filter](doc:api-filtering) syntax is added to the end of an affiliation query, the terms will be treated as part of the affiliation search and will produce unwanted results. Results are listed in descending order by matching confidence score. 
 
 <Callout icon="🚧" theme="warn">
   ## Be aware of differences between the affiliation parameter and the query parameters
