@@ -56,16 +56,6 @@ See [ROR OpenRefine Reconciler](doc:openrefine-reconciler) for written usage ins
 
 The [ROR REST API](doc:rest-api) offers several ways to search ROR that all work differently and return different results. Choose the best method for your data.
 
-<Callout icon="📘" theme="info">
-  ## What kind of data do you have?
-
-  - Organization identifiers (Wikidata, ISNI, Funder IDs, GRID) - use the [Query parameter](doc:api-query) and see our guide to [mapping other organization IDs to ROR IDs](doc:mapping)
-  - Organization names only - use the [Query parameter](doc:api-query)
-  - Organization names and locations as structured data - use the [Query parameter](doc:api-query) and [Filtering](doc:api-filtering) by location
-  - Organization websites as structured data - use the [Advanced query parameter](doc:api-advanced-query)
-  - Unstructured affiliation strings that often include sub-affiliations and addresses - use the [Affiliation parameter](doc:api-affiliation)
-</Callout>
-
 ## Query approach
 
 In cases where you have Wikidata, ISNI, Funder IDs, or GRID identifiers or when you have organization names stored as structured data, use the [Query parameter](doc:api-query) of the ROR API to match organizations to ROR IDs. This approach searches only the `names` and `external_ids` fields in ROR records and returns all matching records. Will return the same results as the ROR [Web search](doc:web-search). Best for one-at-a-time queries with results chosen by a person.
