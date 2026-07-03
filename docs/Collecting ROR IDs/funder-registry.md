@@ -13,7 +13,7 @@ metadata:
 next:
   description: ''
 ---
-In September 2023, Crossref and ROR <Anchor label="announced a long-term plan to deprecate the Open Funder Registry" target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">announced a long-term plan to deprecate the Open Funder Registry</Anchor> (formerly known as FundRef) and merge it into ROR, the Research Organization Registry. We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs to using ROR IDs.
+In September 2023, Crossref and ROR <Anchor target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">announced a long-term plan to deprecate the Open Funder Registry</Anchor> (formerly known as FundRef) and merge it into ROR, the Research Organization Registry. We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs to using ROR IDs.
 
 # Why is this transition happening?
 
@@ -29,7 +29,7 @@ Yes, you can! If you are a Crossref member, you can [now use ROR IDs to identify
 
 # Will every Funder ID have a corresponding ROR ID?
 
-Our aim is to provide comprehensive coverage of Funder IDs that are widely used, are not duplicates or errors, and are in [scope](https://ror.org/registry/#scope-and-criteria-for-inclusion) for ROR. Based on our analysis of funding data in Crossref, DataCite, and ORCID metadata, about one-third of the Funder Registry accounts for the majority of actual usage, so we’re creating and updating ROR IDs for funders on this basis. Currently, there are ROR IDs for over 94% of cases where a Funder ID is used in DataCite and Crossref DOI records. We will continue to improve this coverage to better support the funder identification use case. See [How ROR and the Funder Registry Overlap](https://ror.org/blog/2023-10-12-ror-funder-registry-overlap/) to learn more and check the [ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/) for current data on Funder ID to ROR ID mapping.
+Our aim is to provide comprehensive coverage of Funder IDs that are widely used, are not duplicates or errors, and are in [scope](https://ror.org/registry/#scope-and-criteria-for-inclusion) for ROR. Based on our analysis of funding data in Crossref, DataCite, and ORCID metadata, about one-third of the Funder Registry accounts for the majority of actual usage, so we’re creating and updating ROR IDs for funders on this basis. Currently, there are ROR IDs for over 94% of cases where a Funder ID is used in DataCite and Crossref DOI records. We will continue to improve this coverage to better support the funder identification use case. See <Anchor target="_blank" href="https://ror.org/blog/2023-10-12-ror-funder-registry-overlap/">How ROR and the Funder Registry Overlap</Anchor> to learn more.
 
 # Will Funder IDs continue to resolve?
 
@@ -48,26 +48,23 @@ Yes, Crossref will maintain the current [funding data search](https://search.cro
 We're here to help! Take a look at the guidance below and write [support@ror.org](mailto:support@ror.org) with any questions.
 
 <Callout icon="👍" theme="okay">
-  ## Three quick resources for switching from Funder IDs to ROR IDs
+  ## Two quick resources for switching from Funder IDs to ROR IDs
 
-  * [ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/) - web application for searching, visualizing, and downloading ROR ID & Funder ID data
-  * [Map other organization IDs to ROR IDs](doc:mapping) - guide to help you map Funder IDs to ROR IDs using the ROR API, data dump, or sample scripts
-  * [Create ROR-powered forms](doc:forms) - guide to creating a funder lookup field in your system using ROR
+  - [Map other organization IDs to ROR IDs](doc:mapping) - guide to help you map Funder IDs to ROR IDs using the ROR API, data dump, or sample scripts
+  - [Create ROR-powered forms](doc:forms) - guide to creating a funder lookup field in your system using ROR
 </Callout>
 
 ## Find both IDs for a single funder
 
-Here are two ways to find both the Funder ID and the ROR ID for a single funder.
+To find both the Funder ID and the ROR ID for a single funder, go to [https://ror.org/search](https://ror.org/search) and search for a funder name to determine whether that funder has a ROR record. If the ROR record exists and is mapped to a Funder ID, the ROR record will include both the ROR ID and the Crossref Funder ID.&#x20;
 
-1. Go to [https://ror.org/search](https://ror.org/search) and search for a funder name to determine whether that funder has a ROR record. If the ROR record exists and is mapped to a Funder ID, the ROR record will include both the ROR ID and the Crossref Funder ID.
+You can also type the suffix of the Crossref Funder ID itself in the ROR web search to find the record. For the Alfred P. Sloan Foundation, the search term `100000879` returns the ROR record. &#x20;
 
-<Image align="center" alt="ROR record for the Alfred P Sloan Foundation" border={true} caption="ROR web record for the Alfred P. Sloan Foundation" src="https://files.readme.io/7221b92-Screenshot_2024-04-04_at_3.24.41_PM.png" width="500px" />
 
-2. Use the [Funder Mapping Lookup](https://rorfunderregistryoverlap.streamlit.app/) to search for a funder name and find its corresponding Funder ID and ROR ID:
+<Image src="https://files.readme.io/7221b92-Screenshot_2024-04-04_at_3.24.41_PM.png" alt="ROR record for the Alfred P Sloan Foundation" align="center" width="500px" caption="ROR web record for the Alfred P. Sloan Foundation" border={true} />
 
-<Image align="center" border={true} width="500px" src="https://files.readme.io/8bf7879-Screenshot_2024-03-13_at_3.10.55_PM.png" className="border" />
 
-## Get a CSV file of all Funder ID to ROR ID mappings
+<br />
 
 <Callout icon="🚧" theme="warn">
   ## ROR IDs and Funder IDs are not always mapped on a one-to-one basis
@@ -75,34 +72,13 @@ Here are two ways to find both the Funder ID and the ROR ID for a single funder.
   A single ROR ID can often be mapped to multiple Funder IDs. When a ROR ID has multiple corresponding Funder IDs, the preferred Funder ID is stored in the field `external_ids.preferred` in v2 of the ROR metadata schema. Be sure to check the [status](https://ror.readme.io/docs/ror-data-structure#/status) of the mapped ROR record to ensure that it has a status of "active."
 </Callout>
 
-Here are two ways to get a CSV file of all Funder ID to ROR ID mappings.
+## Get a CSV file of all Funder ID to ROR ID mappings
 
-1. Get the latest copy of the ROR [Data dump](doc:data-dump) from Zenodo at [https://zenodo.org/doi/10.5281/zenodo.6347574](https://zenodo.org/doi/10.5281/zenodo.6347574) and download and unzip the .zip file. The provided CSV will show mappings between ROR IDs and, where available, one or more Funder IDs in the `external_ids.all` field. Remember that one ROR ID can have multiple corresponding Funder IDs. When this is the case, the preferred match is stored in the field `external_ids.preferred`.
-2. In the [ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/), click the "Download mapped funders as CSV" button on either "Aggregate overlap" page to download a CSV file that maps Funder IDs to ROR IDs.
-
-<Image align="center" border={true} width="300px" src="https://files.readme.io/6676c0b-Screenshot_2024-03-14_at_11.58.11_AM.png" className="border" />
-
-The resulting CSV file will have two columns: Funder ID and ROR ID. Additional metadata is not included. Remember that one ROR ID can have multiple corresponding Funder IDs.
-
-Note that the [ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/) is manually updated periodically with both new ROR records and new Open Funder Registry records. Be sure to check the last updated date on the left-hand side of the screen to see which versions of the registries have been loaded.
-
-## Get a CSV file of Funder ID to ROR ID mappings by Crossref member
-
-When Crossref members deposit DOI metadata for a journal article or other research output, they can include Funder IDs to identify the sources of funding for that research. For instance, the Royal Society of Chemistry (RSC) is the publisher of an article that acknowledges three funding sources, and each funder is identified by name and by Funder ID. This single article therefore has three "funding assertions":
-
-<Image align="center" border={true} width="500px" src="https://files.readme.io/b145196-Screenshot_2024-03-14_at_12.32.26_PM.png" className="border" />
-
-A single funder such as the Japan Society for the Promotion of Science may be referenced in many funding assertions, but that funder has a single Funder ID (`501100001691` or `10.13039/501100001691` or [https://doi.org/10.13039/501100001691](https://doi.org/10.13039/501100001691) ) and a single corresponding ROR ID ( [https://ror.org/00hhkn466](https://ror.org/00hhkn466) ).
-
-You can use the [ROR / Funder Registry Overlap tool](https://rorfunderregistryoverlap.streamlit.app/) to look up a Crossref member, see how many funding assertions they have made in Crossref DOI records, and download CSV files that map the Funder IDs the member has used to ROR IDs.
-
-The resulting CSV file will have two columns: Funder ID and ROR ID. Additional metadata is not included. Remember that one ROR ID can have multiple corresponding Funder IDs.
-
-<Image align="center" border={true} width="500px" src="https://files.readme.io/df86e8c-Screenshot_2024-03-13_at_3.20.17_PM.png" className="border" />
+To get a CSV file of Funder ID to ROR ID mappings, retrieve the latest copy of the ROR [Data dump](doc:data-dump) from Zenodo at [https://zenodo.org/doi/10.5281/zenodo.6347574](https://zenodo.org/doi/10.5281/zenodo.6347574) and download and unzip the .zip file. The provided CSV will show mappings between ROR IDs and, where available, one or more Funder IDs in the `external_ids.all` field. Remember that one ROR ID can have multiple corresponding Funder IDs. When this is the case, the preferred match is stored in the field `external_ids.preferred`.
 
 ## Map a custom list of Funder IDs to ROR IDs
 
-Because Funder IDs are included in ROR records in the [external_ids](https://ror.readme.io/docs/ror-data-structure#external_ids)  field, you can map a custom list of Funder IDs to ROR IDs using the ROR API or ROR data dump. This method will also allow you to retrieve additional ROR metadata. For more information and examples, see our guide [Map other organization IDs to ROR IDs](doc:mapping).
+Because Funder IDs are included in ROR records in the [external\_ids](https://ror.readme.io/docs/ror-data-structure#external_ids)  field, you can map a custom list of Funder IDs to ROR IDs using the ROR API or ROR data dump. This method will also allow you to retrieve additional ROR metadata. For more information and examples, see our guide [Map other organization IDs to ROR IDs](doc:mapping).
 
 ## Build ROR-powered forms
 
@@ -110,19 +86,18 @@ You can build ROR-powered funder lookups into your system so that researchers, e
 
 # How can I give feedback on or get support for this transition?
 
-* For ROR technical or metadata questions, write [support@ror.org](mailto:support@ror.org).
-* For Open Funder Registry technical or metadata questions, [contact Crossref](https://support.crossref.org/hc/en-us/requests/new).
+- For ROR technical or metadata questions, write [support@ror.org](mailto:support@ror.org).
+- For Open Funder Registry technical or metadata questions, [contact Crossref](https://support.crossref.org/hc/en-us/requests/new).
 
 # Where can I learn more?
 
-* **<Anchor label="Crossref Services - Open Funder Registry" target="_blank" href="https://www.crossref.org/services/funder-registry/">Crossref Services - Open Funder Registry</Anchor>** - general information about the Open Funder Registry
-* **<Anchor label="Crossref Open Funder Registry - GitLab" target="_blank" href="https://gitlab.com/crossref/open_funder_registry">Crossref Open Funder Registry - GitLab</Anchor>** - complete downloadable Open Funder Registry data
-* **<Anchor label="Crossref Funder Advisory Group" target="_blank" href="https://www.crossref.org/working-groups/funders/">Crossref Funder Advisory Group</Anchor>** - advisory group for Crossref funder members
-* **<Anchor label="ROR / Funder Registry Overlap tool" target="_blank" href="https://rorfunderregistryoverlap.streamlit.app/">ROR / Funder Registry Overlap tool</Anchor>** - tool to help analyze and export ROR ID and Funder ID information
-* **<Anchor label="Open Funder Registry to transition into ROR" target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">Open Funder Registry to transition into ROR</Anchor>**, blog post, September 7, 2023
-* **<Anchor label="How ROR and the Open Funder Registry Overlap: A Closer Look at the Data" target="_blank" href="https://ror.org/blog/2023-10-12-ror-funder-registry-overlap/">How ROR and the Open Funder Registry Overlap: A Closer Look at the Data</Anchor>**, blog post, October 12, 2023
-* **<Anchor label="ROR-ing ahead: using ROR in place of the Open Funder Registry" target="_blank" href="https://www.crossref.org/blog/roring-ahead-using-ror-in-place-of-the-open-funder-registry/">ROR-ing ahead: using ROR in place of the Open Funder Registry</Anchor>**, blog post, January 30, 2024
-* **<Anchor label="Why We All Need Good Funding Metadata" target="_blank" href="https://ror.org/events/2024-01-31-why-we-all-need-good-funding-metadata/">Why We All Need Good Funding Metadata</Anchor>**, panel slides and recording, January 31, 2024
-* **<Anchor label="Come ROR with us: Using ROR IDs in place of Funder IDs" target="_blank" href="https://www.crossref.org/blog/come-ror-with-us-using-ror-ids-in-place-of-funder-ids/">Come ROR with us: Using ROR IDs in place of Funder IDs</Anchor>**, blog post, March 4, 2025
+- **<Anchor target="_blank" href="https://www.crossref.org/services/funder-registry/">Crossref Services - Open Funder Registry</Anchor>** - general information about the Open Funder Registry
+- **<Anchor target="_blank" href="https://gitlab.com/crossref/open_funder_registry">Crossref Open Funder Registry - GitLab</Anchor>** - complete downloadable Open Funder Registry data
+- **<Anchor target="_blank" href="https://www.crossref.org/working-groups/funders/">Crossref Funder Advisory Group</Anchor>** - advisory group for Crossref funder members
+- **<Anchor target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">Open Funder Registry to transition into ROR</Anchor>**, blog post, September 7, 2023
+- **<Anchor target="_blank" href="https://ror.org/blog/2023-10-12-ror-funder-registry-overlap/">How ROR and the Open Funder Registry Overlap: A Closer Look at the Data</Anchor>**, blog post, October 12, 2023
+- **<Anchor target="_blank" href="https://www.crossref.org/blog/roring-ahead-using-ror-in-place-of-the-open-funder-registry/">ROR-ing ahead: using ROR in place of the Open Funder Registry</Anchor>**, blog post, January 30, 2024
+- **<Anchor target="_blank" href="https://ror.org/events/2024-01-31-why-we-all-need-good-funding-metadata/">Why We All Need Good Funding Metadata</Anchor>**, panel slides and recording, January 31, 2024
+- **<Anchor target="_blank" href="https://www.crossref.org/blog/come-ror-with-us-using-ror-ids-in-place-of-funder-ids/">Come ROR with us: Using ROR IDs in place of Funder IDs</Anchor>**, blog post, March 4, 2025
 
 <br />
