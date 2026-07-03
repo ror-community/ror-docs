@@ -84,6 +84,8 @@ In cases where you have complex, unstructured affiliation strings, use the [Affi
 
 The affiliation matching service attempts to find the ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator. Additional possibilities that might match the string are also included in results, listed in descending order by confidence score. Note that we do not recommend selecting matches by confidence score: use the `chosen:true` indicator instead.
 
+<br />
+
 <Callout icon="📘" theme="info">
   ## Retrieving active and inactive organizations
 
