@@ -60,7 +60,7 @@ The [ROR REST API](doc:rest-api) offers several ways to search ROR that all work
 
 In cases where you have Wikidata, ISNI, Funder IDs, or GRID identifiers or when you have organization names stored as structured data, use the [Query parameter](doc:api-query) of the ROR API to match organizations to ROR IDs.&#x20;
 
-This approach searches only the `names` and `external_ids` fields in ROR records and returns all matching records. Will return the same results as the ROR [Web search](doc:web-search). Best for one-at-a-time queries with results chosen by a person.
+This approach searches only the `names` and `external_ids` fields in ROR records and returns all matching records. Will return the same results as the ROR [Web search](doc:web-search). This approach is best for one-at-a-time queries with results chosen by a person.
 
 For best results, search for an identifier, for unique keywords from the organization's name, or for the exact name of the organization surrounded by double quotation marks and if possible [filter](doc:api-filtering) the results by organization type and/or location. See also our guide to [Mapping other organization IDs to ROR IDs](doc:mapping).
 
@@ -70,7 +70,7 @@ You should also use the [Query parameter](doc:api-query) if you are building a u
 
 In cases where you do not have organization identifiers or locations, but do have organization websites or Wikipedia pages stored as structured data, use the [Advanced query parameter](doc:api-advanced-query) of the ROR API to match organizations to ROR IDs.&#x20;
 
-This approach allows you to search fields not indexed by the [Query parameter](doc:api-query) such as `domains` and `links`. Best for one-at-a-time queries with results chosen by a person.&#x20;
+This approach allows you to search fields not indexed by the [Query parameter](doc:api-query) such as `domains` and `links`. This approach is best for one-at-a-time queries with results chosen by a person.&#x20;
 
 ## Affiliation approach
 
