@@ -76,7 +76,7 @@ California Digital Library, ROR ID [https://ror.org/03yrm5c26](https://ror.org/0
 
 ***
 
-Optionally, include the ROR icon before or after the ID URL:&#x20;
+Optionally, include the ROR icon before or after the ID URL:
 
 <a href="https://ror.org/03yrm5c26">
   <img alt="ROR logo" src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" height="24" /> https://ror.org/03yrm5c26
