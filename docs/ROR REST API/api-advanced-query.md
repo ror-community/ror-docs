@@ -12,12 +12,12 @@ metadata:
 
 The advanced query parameter allows thorough and precise searching of any and all ROR record fields. Complex queries using field names, wildcards, and Boolean operators can be constructed using [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax). The advanced query approach is recommended for the following purposes:
 
-* Analysis of the ROR registry to answer research questions
-* Searching for records with very specific characteristics or combinations of characteristics
+- Analysis of the ROR registry to answer research questions
+- Searching for records with very specific characteristics or combinations of characteristics
 
 While the [Query parameter](doc:api-query) is designed to help users find organization names quickly with a lightweight keyword search, the advanced query parameter is designed to help users construct more complex and powerful searches. The query parameter searches only the `names` and `external_ids` fields in a ROR record, whereas the advanced query parameter allows for searching of **all fields and sub-fields** in ROR records, including location fields, web address fields, relationship fields, and more.
 
-See [All ROR fields and sub-fields](doc:fields) for a complete alphabetical list of the fields and sub-fields that can be searched with the advanced query parameter. All advanced queries support [Filtering](doc:api-filtering) and [Paging](doc:api-paging).
+See [All ROR fields and sub-fields](doc:fields) for a complete alphabetical list of the fields and sub-fields that can be searched with the advanced query parameter. All advanced queries support [Filte`ing`](doc:api-filtering)`  and  `[`Paging`](doc:api-paging)`.`
 
 # Formatting searches
 
@@ -27,9 +27,9 @@ All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_url
 
 Some organization names contain characters like &, (), : and /, which have special meaning in URI syntax, Elasticsearch syntax or both. To avoid error responses or bad results:
 
-* Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all advanced query parameter values.
-* Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
-* When searching for URLs and ROR IDs as values, make sure that colons and slashes are both escaped and URL-encoded. For example, `https://ror.org/` is `https%5C%3A%5C%2F%5C%2Fror.org%5C%2F`.
+- Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all advanced query parameter values.
+- Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
+- When searching for URLs and ROR IDs as values, make sure that colons and slashes are both escaped and URL-encoded. For example, `https://ror.org/` is `https%5C%3A%5C%2F%5C%2Fror.org%5C%2F`.
 
 ## Spaces and quotation marks
 
@@ -13433,7 +13433,7 @@ The response is a list of records for inactive child organizations of UniversitÃ
 
 # Paging and filtering
 
-Search results from the advanced query parameter are [paginated](doc:api-paging) and can be [filtered](doc:api-filtering) by status, type, country name, country code, continent name, and continent code. The [all_status](doc:api-list) parameter can also be appended to advanced query parameter searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records. See [Paging](doc:api-paging) and [Filtering](doc:api-filtering) for more information.
+Search results from the advanced query parameter are [paginated](doc:api-paging) and can be [filtered](doc:api-filtering) by status, type, country name, country code, continent name, and continent code. The [all\_status](doc:api-list) parameter can also be appended to advanced query parameter searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records. See [Paging](doc:api-paging) and [Filtering](doc:api-filtering) for more information.
 
 ## Example
 
@@ -15889,8 +15889,8 @@ The response is the 12th page of a list of active, inactive, and withdrawn recor
 
 The following cases will cause a field name validation error:
 
-* Performing fielded searches that contain field names not listed in the table of [All ROR fields and sub-fields](doc:fields)
-* Searching a parent field name without using a wildcard operator, e.g., `locations:Melbourne` rather than `locations.%5c*:Melbourne`
+- Performing fielded searches that contain field names not listed in the table of [All ROR fields and sub-fields](doc:fields)
+- Searching a parent field name without using a wildcard operator, e.g., `locations:Melbourne` rather than `locations.%5c*:Melbourne`
 
 A query with an incorrect field name will return an error.
 
@@ -15926,9 +15926,9 @@ curl 'https://api.ror.org/v2/organizations?query.advanced=names.value:Cornell&qu
 
 [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /` used within your search terms must be escaped with a URL-encoded `\` character, `%5c`. If these characters are not escaped, the following issues may occur:
 
-* Illegal field name error due to non-escaped `:` character, which is interpreted as a field name
-* 500 error due to non-terminated or non-escaped special characters
-* Unexpected or non-relevant results due to special characters being interpreted as query operators rather than as part of your search terms
+- Illegal field name error due to non-escaped `:` character, which is interpreted as a field name
+- 500 error due to non-terminated or non-escaped special characters
+- Unexpected or non-relevant results due to special characters being interpreted as query operators rather than as part of your search terms
 
 Be especially sure to escape and URL-encode colons and slashes when searching for URLs and ROR IDs.
 
@@ -21526,3 +21526,5 @@ The response includes all records whose city contains the capitalized term _Berl
    "time_taken" : 21
 }
 ```
+
+<br />
