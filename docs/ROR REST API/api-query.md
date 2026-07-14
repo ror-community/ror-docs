@@ -12,17 +12,17 @@ metadata:
 
 The query parameter is a "quick search" of only the `names` and `external_ids` fields in ROR. The query parameter works best for the following purposes:
 
-* Keyword-based searching for organization names
-* Form field auto-suggests / typeaheads
-* Searching for exact matches of an organization name
-* Searching for external identifiers
+- Keyword-based searching for organization names
+- Form field auto-suggests / typeaheads
+- Searching for exact matches of an organization name
+- Searching for external identifiers
 
-We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at [https://ror.org/search](https://ror.org/search) also uses the query parameter.
+We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at https\://ror.org/search also uses the query parameter.
 
-Search results from the query parameter can be [filtered](doc:api-filtering) and [paged](doc:api-paging). By default, only records with an _active_ status are returned, but records with _inactive_ or _withdrawn_ status can be retrieved with the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter.
+Search results from the query parameter can be [filtered](doc:api-filtering) and [paged](doc:api-paging). By default, only records with an _active_ status are returned, but records with _inactive_ or _withdrawn_ status can be retrieved with the [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter.
 
 <Callout icon="📘" theme="info">
-  ## Query parameter format
+  ## Query parameter form
 
   `https://api.ror.org/v2/organizations?query=[value]`
 </Callout>
@@ -35,8 +35,8 @@ All request strings must be [URL-encoded](https://www.w3schools.com/tags/ref_url
 
 Some organization names contain characters like &, (), : and /, which have special meaning in URI syntax, Elasticsearch syntax or both. To avoid error responses or bad results:
 
-* Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all query parameter values.
-* Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
+- Be sure to [URL-encode](https://www.w3schools.com/tags/ref_urlencode.asp) all query parameter values.
+- Escape any [Elasticsearch reserved characters](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_reserved_characters) in the organization name with a URL-encoded backslash \ character. Reserved characters include `+ - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /`
 
 ## Spaces and quotation marks
 
@@ -3690,7 +3690,7 @@ When the `&` is URL-encoded, the response returns the active record for Franklin
 
 # Searching for identifiers
 
-The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. Remember that only active ROR records will be returned by default: use the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter to retrieve results that include _inactive_ and _withdrawn_ ROR records.
+The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. Remember that only active ROR records will be returned by default: use the [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter to retrieve results that include _inactive_ and _withdrawn_ ROR records.
 
 ## Example
 
@@ -4100,7 +4100,7 @@ The response is a single active record for the U.S. Department of Energy that co
 
 # Retrieve records with any status
 
-By default, queries of the ROR API return only records with _active_ status. The [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can be appended to searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records.
+By default, queries of the ROR API return only records with _active_ status. The [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can be appended to searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records.
 
 ## Example
 
@@ -6348,3 +6348,5 @@ Here is a truncated example of a `names_ids` document searched by the query para
             },
 ...
 ```
+
+<br />
