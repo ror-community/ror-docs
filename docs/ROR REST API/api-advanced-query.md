@@ -17,7 +17,7 @@ The advanced query parameter allows thorough and precise searching of any and al
 
 While the [Query parameter](doc:api-query) is designed to help users find organization names quickly with a lightweight keyword search, the advanced query parameter is designed to help users construct more complex and powerful searches. The query parameter searches only the `names` and `external_ids` fields in a ROR record, whereas the advanced query parameter allows for searching of **all fields and sub-fields** in ROR records, including location fields, web address fields, relationship fields, and more.
 
-See [All ROR fields and sub-fields](doc:fields) for a complete alphabetical list of the fields and sub-fields that can be searched with the advanced query parameter. All advanced queries support [Filtering`](doc:api-filtering)`  and  `[`Paging`](doc:api-paging)`.`
+See [All ROR fields and sub-fields](doc:fields) for a complete alphabetical list of the fields and sub-fields that can be searched with the advanced query parameter. All advanced queries support [Filtering](doc:api-filtering) and [Paging.](doc:api-paging)
 
 # Formatting searches
 
