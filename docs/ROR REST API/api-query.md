@@ -24,7 +24,7 @@ Search results from the query parameter can be [filtered](doc:api-filtering) and
 <Callout icon="📘" theme="info">
   ## Query parameter form
 
-  `https://api.ror.org/v2/organizations?query=[value]`
+  `https://api.ror.org/v2/organizations?query=[URL-encoded string]`
 </Callout>
 
 # Formatting searches
