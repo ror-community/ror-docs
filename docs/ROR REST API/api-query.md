@@ -17,9 +17,9 @@ The query parameter is a "quick search" of only the `names` and `external_ids` f
 - Searching for exact matches of an organization name
 - Searching for external identifiers
 
-We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at https\://ror.org/search also uses the query parameter.
+We recommend using the query parameter to build [ROR-powered typeaheads in forms](doc:forms) that suggest organization names to users. The ROR [Web search interface](doc:web-search) at [https://ror.org/search](https://ror.org/search) also uses the query parameter.
 
-Search results from the query parameter can be [filtered](doc:api-filtering) and [paged](doc:api-paging). By default, only records with an _active_ status are returned, but records with _inactive_ or _withdrawn_ status can be retrieved with the [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter.
+Search results from the query parameter can be [filtered](doc:api-filtering) and [paged](doc:api-paging). By default, only records with an _active_ status are returned, but records with _inactive_ or _withdrawn_ status can be retrieved with the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter.
 
 <Callout icon="📘" theme="info">
   ## Query parameter form
@@ -41,6 +41,10 @@ Some organization names contain characters like &, (), : and /, which have speci
 ## Spaces and quotation marks
 
 [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) will treat words separated by a space as separate parts of a query. It is therefore advisable to surround multi-word search terms of the ROR API with URL-encoded quotation marks.
+
+## Wildcards, Boolean operators, and date ranges
+
+Consult the <Anchor target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string syntax</Anchor> documentation for any additional help not provided by the examples below on how to use wildcards and Boolean operators with the query parameter of the ROR REST API.
 
 # Keyword searching
 
@@ -3690,7 +3694,7 @@ When the `&` is URL-encoded, the response returns the active record for Franklin
 
 # Searching for identifiers
 
-The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. Remember that only active ROR records will be returned by default: use the [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter to retrieve results that include _inactive_ and _withdrawn_ ROR records.
+The query parameter searches the `external_ids` field and so can be used to search for ROR records that match an external unique identifier. Use URL-encoded quotation marks before and after the identifier search string for best results. This search will work for all identifier schemes supported in the `external_ids` field, including GRID, ISNI, Wikidata, and the Crossref Open Funder Registry. Remember that only active ROR records will be returned by default: use the [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter to retrieve results that include _inactive_ and _withdrawn_ ROR records.
 
 ## Example
 
@@ -4100,7 +4104,7 @@ The response is a single active record for the U.S. Department of Energy that co
 
 # Retrieve records with any status
 
-By default, queries of the ROR API return only records with _active_ status. The [all\_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can be appended to searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records.
+By default, queries of the ROR API return only records with _active_ status. The [all_status](doc:api-list#retrieve-a-list-of-records-with-all-statuses) parameter can be appended to searches in order to retrieve _inactive_ and _withdrawn_ records as well as _active_ records.
 
 ## Example
 
@@ -6348,5 +6352,3 @@ Here is a truncated example of a `names_ids` document searched by the query para
             },
 ...
 ```
-
-<br />
