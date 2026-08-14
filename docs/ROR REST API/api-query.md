@@ -44,7 +44,7 @@ Some organization names contain characters like &, (), : and /, which have speci
 
 ## Wildcards, Boolean operators, and date ranges
 
-Consult the <Anchor target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string syntax</Anchor> documentation for any additional help not provided by the examples below on how to use wildcards and Boolean operators with the query parameter of the ROR REST API.
+Consult the <Anchor target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string syntax</Anchor> documentation for help on how to use wildcards and Boolean operators with the query parameter of the ROR REST API.
 
 # Keyword searching
 
