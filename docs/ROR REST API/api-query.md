@@ -42,7 +42,7 @@ Some organization names contain characters like &, (), : and /, which have speci
 
 [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) will treat words separated by a space as separate parts of a query. It is therefore advisable to surround multi-word search terms of the ROR API with URL-encoded quotation marks.
 
-## Wildcards, Boolean operators, and date ranges
+## Boolean operators
 
 Consult the <Anchor target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string syntax</Anchor> documentation for help on how to use Boolean operators with the query parameter of the ROR REST API.
 
