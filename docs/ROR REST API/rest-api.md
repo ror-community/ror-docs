@@ -42,6 +42,14 @@ No registration is currently required to use the ROR API, but note that the rate
 
 The API is best for use cases that involve querying or retrieving individual records. The maximum number of results that can be retrieved via the API is 10,000, which means that **it is currently not possible to retrieve all 120,000+ records from the ROR API**. If you need to use the entire ROR dataset in your application, please download the [data dump](https://ror.readme.io/docs/data-dump).
 
+<Callout icon="🚧" theme="warn">
+  ## Register for a client ID by Q3 2026
+
+  Beginning sometime in the third quarter of 2026, ROR API requests will need to use a client ID in order to receive the current rate limit of 2000 requests per 5 minute period. Requests without identification will receive a lower rate limit of 50 requests per 5 minute period. There is no cost to register a client ID.
+
+  You can register now for a client ID at [https://ror.org/api-client-id](https://ror.org/api-client-id) and read more about ROR API client IDs at [https://ror.readme.io/docs/client-id](https://ror.readme.io/docs/client-id).
+</Callout>
+
 # News and support
 
 Users of the ROR API are strongly encouraged to sign up for the [ROR Technical Forum](https://groups.google.com/a/ror.org/g/ror-tech) Google Group in order to receive announcements, calls for feedback, release notifications, and other important information about the ROR API. Message volume is about twice monthly. ROR API users are also welcome to ask technical questions in the group.
@@ -54,7 +62,7 @@ If your application uses the ROR API and you'd like it to send a quick health ch
 
 If you'd like to check manually on the status of the ROR API or assess its uptime, see [https://ror1.statuspage.io/](https://ror1.statuspage.io) for full API status details and history. Our current API status and recent history is below.
 
-<Embed title="" typeOfEmbed="iframe" url="https://ror1.statuspage.io" height="580px" href="https://ror1.statuspage.io" />
+<Embed url="https://ror1.statuspage.io" href="https://ror1.statuspage.io" height="580px" iframe="true" />
 
 # Usage insights
 
