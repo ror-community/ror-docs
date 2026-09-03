@@ -20,6 +20,12 @@ The ROR API allows retrieving, searching and filtering the organizations indexed
 
 To suggest features for or report problems with the ROR API, [open an issue on the ROR roadmap](https://github.com/ror-community/ror-roadmap) or email [support@ror.org.](mailto:support@ror.org.)
 
+<Callout icon="📘" theme="info">
+  ## ROR API&#x20;
+
+  `https://api.ror.org/v2/organizations/`
+</Callout>
+
 # Responses
 
 Queries to the ROR API will return all [Fields and sub-fields](doc:fields) in ROR's [Data structure](doc:ror-data-structure) regardless of whether they have a value. JSON will include null values and empty arrays and objects if there is no value available for the given organization.
