@@ -21,7 +21,7 @@ The ROR API allows retrieving, searching and filtering the organizations indexed
 To suggest features for or report problems with the ROR API, [open an issue on the ROR roadmap](https://github.com/ror-community/ror-roadmap) or email [support@ror.org.](mailto:support@ror.org.)
 
 <Callout icon="📘" theme="info">
-  ### ROR API request format
+  ### ROR API location
 
   `https://api.ror.org/v2/organizations`
 </Callout>
