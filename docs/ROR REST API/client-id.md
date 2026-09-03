@@ -13,12 +13,12 @@ next:
       type: link
       url: https://ror.org/api-client-id
 ---
-<Callout icon="❗️">
+<Callout icon="❗️" theme="error">
   ## Client ID registration is temporarily paused
 
   We've paused new ROR API client ID registrations while we make updates to the service. No rate limits are currently enforced based on the presence or absence of a client ID, and none will be introduced before registration is restored, so API usage is not affected by this pause.
 
-  Join the [ROR Technical Forum](https://groups.google.com/a/ror.org/g/ror-tech/) to make sure you receive notifications about the timeline for implementation of client IDs on the ROR API. We'll provide plenty of lead time to allow you to make any necessary changes to your code. Write support@ror.org with any questions.
+  Join the [ROR Technical Forum](https://groups.google.com/a/ror.org/g/ror-tech/) to make sure you receive notifications about the timeline for implementation of client IDs on the ROR API. We'll provide plenty of lead time to allow you to make any necessary changes to your code. Write [support@ror.org](mailto:support@ror.org) with any questions.
 </Callout>
 
 In October 2024, ROR [asked for community feedback](https://ror.readme.io/docs/feedback-docs#ror-api-client-identification--rate-limiting) on ways to ensure the health and stability of the free ROR REST API amid growing use, including an increase in "impolite" use. After extensive community discussion, the final proposal adopted was to **add lightweight API client identification to the ROR API** that will be required in order to receive a rate limit of **2000 requests per 5-minute period**. Requests without identification will receive a lower rate limit of 50 requests per 5-minute period.
@@ -38,10 +38,6 @@ Note that ROR API client IDs are not used for either authentication or authoriza
 ### July 2025
 
 Beginning in July 2025, client IDs for the ROR REST API will be in a preview period. Users can obtain a valid client ID, but no special rate limiting will be applied to unidentified users; both identified and unidentified users of the ROR API will continue to receive a rate limit of 2000 requests per 5-minute period.
-
-### Q3 2026
-
-**In Q3 of 2026, the ROR API will require a client ID in HTTP request headers in order to receive a rate limit of 2000 requests per 5-minute period.** ROR API requests without a valid client ID will receive a lower rate limit of 50 requests per 5-minute period.
 
 ## How to use a client ID
 
