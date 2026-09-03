@@ -33,12 +33,6 @@ Note that ROR API client IDs are not used for either authentication or authoriza
 
 **Register now for a ROR API client ID:[ https://ror.org/api-client-id](https://ror.org/api-client-id).**
 
-## When to register a client ID
-
-### July 2025
-
-Beginning in July 2025, client IDs for the ROR REST API will be in a preview period. Users can obtain a valid client ID, but no special rate limiting will be applied to unidentified users; both identified and unidentified users of the ROR API will continue to receive a rate limit of 2000 requests per 5-minute period.
-
 ## How to use a client ID
 
 When you submit the [client ID registration form](https://ror.org/api-client-id), you will receive an email at the address you have provided that contains the client ID. In order to receive a rate limit of 2000 requests per 5-minute period, please include this client ID with your ROR API requests in a custom HTTP header named `Client-Id` as in the following example.
