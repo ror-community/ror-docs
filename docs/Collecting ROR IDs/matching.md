@@ -100,30 +100,25 @@ Remember, too, that you can run the ROR API locally with a copy of the ROR data 
 
 # Match organization names to ROR IDs using third-party tools
 
-Several projects and researchers have developed scripts and/or machine learning and artificial intelligence tools that match textual organization information to ROR IDs. These tools are not officially supported by ROR, but we list them here in case you find them useful.
+Several projects and researchers have developed open source scripts and/or machine learning and artificial intelligence tools that match textual organization information to ROR IDs. These tools are not officially supported by ROR, but we list them here in case you find them useful.
 
-- Selected Python scripts that match organization names to ROR IDs area available in the [ror-utilities Github repository](https://github.com/ror-community/ror-utilities).
+* <Anchor target="_blank" href="https://github.com/tnq-tech-pub/ROR-review">ROR Review</Anchor> by [TNQTech](https://tnqtech.com/) is a web application that helps reviewers match author affiliation strings against the Research Organization Registry (ROR), inspect candidate matches, capture review comments, prepare organization insertion drafts, and export files for further ROR curation workflows.
+* Selected Python scripts that match organization names to ROR IDs area available in the <Anchor target="_blank" href="https://github.com/ror-community/ror-utilities">ror-utilities GitHub repository</Anchor>.
 
-- [OpenAlex Institution Parsing](https://github.com/ourresearch/openalex-institution-parsing) by OurResearch
+- <Anchor target="_blank" href="https://github.com/ourresearch/openalex-institution-parsing">OpenAlex Institution Parsing</Anchor> by <Anchor target="_blank" href="https://ourresearch.org">OurResearch</Anchor> is an OpenAlex model that assigns institutional affiliations to works.
 
-- [S2AFF - Semantic Scholar Affiliations Linker](https://github.com/allenai/S2AFF/) by the Allen AI Institute
+- <Anchor target="_blank" href="https://github.com/allenai/S2AFF/">S2AFF - Semantic Scholar Affiliations Linker</Anchor> by the <Anchor target="_blank" href="https://allenai.org/">Allen AI Institute</Anchor> contains code that links raw affiliation strings to ROR IDs.&#x20;
 
-- [RORRetriever](https://github.com/Metadata-Game-Changers/RORRetriever) by Metadata Game Changers
+- <Anchor target="_blank" href="https://github.com/Metadata-Game-Changers/RORRetriever">RORRetriever</Anchor> by Metadata Game Changers (Python) is tool developed to help repositories and others to add identifiers to large collections with many affiliations.
 
-- [EMBL-EBI ROR Predictor prototype](https://gitlab.ebi.ac.uk/literature-services/public-projects/ROR-proto-EMBL) by EMBL-EBI for <Anchor target="_blank" href="https://www.project-freya.eu/">Project FREYA</Anchor>
+- <Anchor target="_blank" href="https://github.com/dataesr/affiliation-matcher">dataESR affiliation matcher</Anchor> developed by Anne L'Hôte and Eric Jeangirard for the <Anchor target="_blank" href="https://www.enseignementsup-recherche.gouv.fr/">French Ministry of Higher Education</Anchor> aims to automatically align an affiliation with different reference systems, including country (ISO 3166), GRID, ROR, Wikidata, and specifically for French affiliations FINESS, RNSR, and <br />Siren.&#x20;
 
-- [dataESR affiliation matcher](https://github.com/dataesr/affiliation-matcher) developed by Anne L'Hôte and Eric Jeangirard for the French Ministry of Higher Education
+- <Anchor target="_blank" href="https://github.com/adambuttrick/openalex-ror-predictor">OpenAlex ROR Predictor (gpu-based)</Anchor> by Adam Buttrick is a modified version of an OpenAlex institution ID prediction service that predicts both OpenAlex institution IDs and ROR IDs from affiliation strings.
 
-- [OpenAlex ROR Predictor (gpu-based)](https://github.com/adambuttrick/openalex-ror-predictor) by Adam Buttrick
-
-- [fastText ROR Predictor (cpu-based)](https://github.com/adambuttrick/ror-predictor-fasttext) by Adam Buttrick
-
-- [lr\_predictor](https://github.com/adambuttrick/lr_matches) by Adam Buttrick
-
-- [ROR experimental affiliation matching](https://github.com/ror-community/affiliation-matching-experimental) - A collection of data and code for training models and experimenting with automatically matching affiliation strings to ROR IDs. Not production code, and not officially supported by ROR.
+- <Anchor target="_blank" href="https://github.com/adambuttrick/ror-predictor-fasttext">fastText ROR Predictor (cpu-based)</Anchor> by Adam Buttrick is ROR prediction service, trained with fastText.
 
 # Testing and training data
 
-ROR has collected sets of data from Springer Nature, the American Physical Society, OpenAlex, and Crossref for testing and training affiliation matching strategies, and these datasets are openly available at [https://github.com/ror-community/affiliation-matching-experimental/tree/main/test\_data](https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data). These datasets include affiliation text strings from production systems that have been matched to ROR IDs with varying levels of human review.
+ROR has collected sets of data from Springer Nature, the American Physical Society, OpenAlex, and Crossref for testing and training affiliation matching strategies, and these datasets are openly available at [https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data](https://github.com/ror-community/affiliation-matching-experimental/tree/main/test_data). These datasets include affiliation text strings from production systems that have been matched to ROR IDs with varying levels of human review.
 
 Crossref has also <Anchor target="_blank" href="https://doi.org/10.13003/ich4dosh">published a dataset of DOI metadata</Anchor> with over 140 million affiliation assertions from Crossref metadata records through March 2025 that has been used to test the ROR API [single search affiliation matching strategy](https://ror.readme.io/docs/api-affiliation#/single-search-strategy). It includes automatically-detected matches for over 94 million affiliation assertions.
