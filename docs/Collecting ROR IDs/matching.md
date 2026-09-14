@@ -111,7 +111,7 @@ Several projects and researchers have developed open source scripts and/or machi
 
 - <Anchor target="_blank" href="https://github.com/Metadata-Game-Changers/RORRetriever">RORRetriever</Anchor> by Metadata Game Changers (Python) is tool developed to help repositories and others to add identifiers to large collections with many affiliations.
 
-- <Anchor target="_blank" href="https://github.com/dataesr/affiliation-matcher">dataESR affiliation matcher</Anchor> developed by Anne L'Hôte and Eric Jeangirard for the <Anchor target="_blank" href="https://www.enseignementsup-recherche.gouv.fr/">French Ministry of Higher Education</Anchor> aims to automatically align an affiliation with different reference systems, including country (ISO 3166), GRID, ROR, Wikidata, and specifically for French affiliations FINESS, RNSR, and <br />Siren.&#x20;
+- <Anchor target="_blank" href="https://github.com/dataesr/affiliation-matcher">dataESR affiliation matcher</Anchor> by Anne L'Hôte and Eric Jeangirard for the <Anchor target="_blank" href="https://www.enseignementsup-recherche.gouv.fr/">French Ministry of Higher Education</Anchor> aims to automatically align an affiliation with different reference systems, including country (ISO 3166), GRID, ROR, Wikidata, and specifically for French affiliations FINESS, RNSR, and <br />Siren.&#x20;
 
 - <Anchor target="_blank" href="https://github.com/adambuttrick/openalex-ror-predictor">OpenAlex ROR Predictor (gpu-based)</Anchor> by Adam Buttrick is a modified version of an OpenAlex institution ID prediction service that predicts both OpenAlex institution IDs and ROR IDs from affiliation strings.
 
