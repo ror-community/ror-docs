@@ -100,7 +100,7 @@ Remember, too, that you can run the ROR API locally with a copy of the ROR data 
 
 # Match organization names to ROR IDs using third-party tools
 
-Several projects and researchers have developed open source scripts, models, and tools that match textual organization information to ROR IDs. These utilities are not officially supported by ROR, but we list them here in case you find them useful.
+Several ROR users have developed open source scripts, models, and tools that match text strings with organization information to ROR IDs. These utilities are not officially supported by ROR, but we list them here in case you find them useful.
 
 * <Anchor target="_blank" href="https://github.com/tnq-tech-pub/ROR-review">ROR Review</Anchor> by [TNQTech](https://tnqtech.com/) is a web application that helps reviewers match author affiliation strings against the Research Organization Registry (ROR), inspect candidate matches, capture review comments, prepare organization insertion drafts, and export files for further ROR curation workflows.
 * Selected Python scripts that match organization names to ROR IDs area available in the <Anchor target="_blank" href="https://github.com/ror-community/ror-utilities">ror-utilities GitHub repository</Anchor>.
