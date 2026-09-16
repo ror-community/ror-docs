@@ -13,11 +13,13 @@ metadata:
 next:
   description: ''
 ---
-In September 2023, Crossref and ROR <Anchor target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">announced a long-term plan to deprecate the Open Funder Registry</Anchor> (formerly known as FundRef) and merge it into ROR, the Research Organization Registry. We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs to using ROR IDs.
+In September 2023, Crossref and ROR <Anchor target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">announced a long-term plan to deprecate the Open Funder Registry</Anchor> (formerly known as FundRef) and merge it into ROR, the Research Organization Registry. In September 2026, Crossref <Anchor target="_blank" href="https://doi.org/10.71938/vwjc-1725">began adding ROR IDs to publisher-supplied metadata</Anchor> that includes funder names but no identifiers.
+
+We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs to using ROR IDs.
 
 # Why is this transition happening?
 
-Merging the two registries will make workflows more efficient and less confusing for all concerned and will enable the development of robust new services that use organization identifiers. The [Open Funder Registry](https://www.crossref.org/services/funder-registry/) currently includes about 44,000 IDs and records for funders, and a large majority of the most-used of these Funder IDs already exist in ROR, with others being continually added through ongoing curation work. Funders, publishers, and others should not need to decide whether to use Funder IDs or ROR IDs and should not need to use both: a single registry, ROR, can fulfill the purpose of identifying research organizations -- including funders.
+Merging the two registries will make workflows more efficient and less confusing for all concerned and will enable the development of robust new services that use organization identifiers. The <Anchor target="_blank" href="https://www.crossref.org/services/funder-registry/">Open Funder Registry</Anchor> currently includes about 45,000 IDs and records for funders, and a large majority of the most-used of these Funder IDs already exist in ROR, with others being continually added through ongoing curation work. Funders, publishers, and others should not need to decide whether to use Funder IDs or ROR IDs and should not need to use both: a single registry, ROR, can fulfill the purpose of identifying research organizations -- including funders.
 
 # When is this transition happening?
 
@@ -78,7 +80,7 @@ To get a CSV file of Funder ID to ROR ID mappings, retrieve the latest copy of t
 
 ## Map a custom list of Funder IDs to ROR IDs
 
-Because Funder IDs are included in ROR records in the [external\_ids](https://ror.readme.io/docs/ror-data-structure#external_ids)  field, you can map a custom list of Funder IDs to ROR IDs using the ROR API or ROR data dump. This method will also allow you to retrieve additional ROR metadata. For more information and examples, see our guide [Map other organization IDs to ROR IDs](doc:mapping).
+Because Funder IDs are included in ROR records in the [external_ids](https://ror.readme.io/docs/ror-data-structure#external_ids)  field, you can map a custom list of Funder IDs to ROR IDs using the ROR API or ROR data dump. This method will also allow you to retrieve additional ROR metadata. For more information and examples, see our guide [Map other organization IDs to ROR IDs](doc:mapping).
 
 ## Build ROR-powered forms
 
@@ -99,5 +101,4 @@ You can build ROR-powered funder lookups into your system so that researchers, e
 - **<Anchor target="_blank" href="https://www.crossref.org/blog/roring-ahead-using-ror-in-place-of-the-open-funder-registry/">ROR-ing ahead: using ROR in place of the Open Funder Registry</Anchor>**, blog post, January 30, 2024
 - **<Anchor target="_blank" href="https://ror.org/events/2024-01-31-why-we-all-need-good-funding-metadata/">Why We All Need Good Funding Metadata</Anchor>**, panel slides and recording, January 31, 2024
 - **<Anchor target="_blank" href="https://www.crossref.org/blog/come-ror-with-us-using-ror-ids-in-place-of-funder-ids/">Come ROR with us: Using ROR IDs in place of Funder IDs</Anchor>**, blog post, March 4, 2025
-
-<br />
+- <Anchor target="_blank" href="https://doi.org/10.64000/rg83r-2ft15">**Improving How Funding Connects to Research Outputs**</Anchor>, blog post, September 15, 2026
