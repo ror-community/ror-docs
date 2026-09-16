@@ -15,7 +15,7 @@ next:
 ---
 In September 2023, Crossref and ROR <Anchor target="_blank" href="https://www.crossref.org/blog/open-funder-registry-to-transition-into-research-organisation-registry-ror/">announced a long-term plan to deprecate the Open Funder Registry</Anchor> (formerly known as FundRef) and merge it into ROR, the Research Organization Registry. In September 2026, Crossref <Anchor target="_blank" href="https://doi.org/10.71938/vwjc-1725">began adding ROR IDs to publisher-supplied metadata</Anchor> that includes funder names but no identifiers.
 
-We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs to using ROR IDs.
+We're thrilled that ROR is set to become the standard identifier for funders, and we're determined to help make this transition as easy as possible for all concerned. Here are some answers to frequently asked questions about this transition, including guidance on how to switch from using Funder IDs in your metadata to using ROR IDs.
 
 # Why is this transition happening?
 
