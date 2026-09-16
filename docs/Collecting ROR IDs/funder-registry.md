@@ -9,8 +9,6 @@ metadata:
     Crossref and ROR are transitioning from the Open Funder Registry to the
     Research Organization Registry (ROR) as the standard identifier for funders,
     with answers to frequently asked questions provided for a smooth transition.
-  image: >-
-    https://files.readme.io/9d56e4410fdc18ece19fce2b803d23ac1a78e89dcc3aa072699d42e99cd19aa7-ror-small.png
   robots: index
 next:
   description: ''
