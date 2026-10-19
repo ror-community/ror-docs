@@ -229,7 +229,7 @@ The search returns 0 results, since the only city named Chapel Hill is in North 
 
 <Image src="https://files.readme.io/7492b307b7ab1273019d271690ed249e86d5943f91945f0a39a292019d82373d-ror-search-cities-not-continent-chapel-hill-results.png" alt="0 organizations found." border={true} />
 
-## Example: wildcard in name
+## Example: Wildcard in name
 
 Find all organizations whose name includes a term that begins with "Clim".&#x20;
 
@@ -241,7 +241,7 @@ The search returns 186 organizations whose name includes a term that begins with
 
 <Image src="https://files.readme.io/b51c9dc8bd330558eb8bf3f5a14d02b59081b13d69a96b21bfbe888469ca9d81-ror-search-wildcard-name-results.png" alt="Results for name wildcard search." border={true} />
 
-## Example: wildcard in city
+## Example: Wildcard in city
 
 Find all organizations whose city name begins with "Chapel" that are not in North America.&#x20;
 
