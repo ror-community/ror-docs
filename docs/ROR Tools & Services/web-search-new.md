@@ -130,11 +130,11 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 
 The first condition you choose in Advanced mode will find all organizations where that condition is true. You can add up to 9 additional conditions by selecting them from the list on the left of the Advanced window.&#x20;
 
-Conditions can be combined with the Boolean operators AND, OR, or NOT. **Note that the Boolean operator applies only to the most recent previous condition added, not to any earlier conditions in the same query.**&#x20;
+Conditions can be combined with the Boolean operators AND, OR, or NOT.&#x20;
 
-* AND - Both the first and the second chosen conditions are present in each of the resulting records. Produces fewer results.&#x20;
-* OR - Either the first or the second chosen conditions are present in the resulting records. Produces more results.&#x20;
-* NOT - The first chosen condition is present in the resulting records, but records with the second condition are excluded. Produces fewer results.&#x20;
+* AND - All chosen conditions are present in each of the resulting records. Produces fewer results.&#x20;
+* OR - Any chosen condition is present in the resulting records. Produces more results.&#x20;
+* NOT - Records with the condition are excluded. Produces fewer results. **Note that if you have multiple conditions connected with OR before adding a NOT, the NOT condition will apply only to the immediately previous condition.&#x20;**
 
 ## Example - city
 
@@ -184,6 +184,20 @@ The search returns 0 results because there are no organizations located both in 
 
 <br />
 
+Find all organizations whose record includes both the Facility and the Funder type.&#x20;
+
+
+<Image src="https://files.readme.io/6b000d20c7cb1b5aa70ef2a5407b21b6d47919537e1ce7a342f8afa85abf1820-ror-search-type-and-type.png" alt="Two Type conditions." border={true} />
+
+<br />
+
+The search returns 2,431 records whose Organization type includes both Funder and Facility. Some results may include additional Organization types as well.&#x20;
+
+
+<Image src="https://files.readme.io/24560322e635f20e8625d6850fba3d220aed7d06dc4a906af4d371bd5f1bd3f1-ror-search-type-and-type-results.png" alt="Results for combined Type search." border={true} />
+
+<br />
+
 ## Example - OR
 
 Find all organizations whose city is Raleigh OR Chapel Hill OR Durham.&#x20;
@@ -200,15 +214,72 @@ The search returns 415 organization records where the city is Raleigh, Chapel Hi
 
 <br />
 
-## Example - NOT&#x20;
+Find all organizations whose type is either Funder OR Facility.&#x20;
 
-Find all organizations whose city is Raleigh OR Chapel Hill OR Durham that are NOT in the United States.&#x20;
+
+<Image src="https://files.readme.io/814e6ca92ce8f482ab916d00204dd802e2dda4fdde5a2584596c709a593a48ea-ror-search-type-or-type.png" alt="Combine type searches with OR." border={true} />
 
 <br />
+
+The search returns 36,501 results where the organization type includes either Funder or Facility. Some results may include both types or additional organization types.
+
+
+<Image src="https://files.readme.io/73828e078b509d13ea875ac05871e035433a1df15688d0f8bd7535b49aaccb2c-ror-search-type-or-type-results.png" alt="Results for two type searches combines with OR." border={true} />
+
+<br />
+
+## Example - NOT&#x20;
+
+Find all organizations whose record includes both the Facility and the Funder type but NOT the Government type.&#x20;
+
+
+<Image src="https://files.readme.io/c65a0a784f6bd237081f77c17c7116ed4a0a9564d1f4886e8ea4bd75c31aa3a1-ror-search-types-and-not.png" alt="Two AND conditions and a NOT condition." border={true} />
+
+
+<br />
+
+The search returns 2,409 results for records that include both the Facility and the Funder type but do NOT include the Government type.
+
+
+<Image src="https://files.readme.io/23cda2b05ed85012d87c340b065b93bf7dbe538290926f1ee31ee5d929b5e811-ror-search-types-and-not-results.png" alt="Search results for two AND conditions and a NOT." border={true} />
+
+
+<br />
+
+Find all organizations whose city is Raleigh OR Chapel Hill OR Durham that are NOT on the continent of North America.&#x20;
+
+
+<Image src="https://files.readme.io/cb624da567dd30d96ebd35112ad1cd5a5ca2d0bb84549fed0e4b9657e7432892-ror-search-cities-not-continent.png" border={true} />
+
+
+<br />
+
+The search returns 21 organizations whose city is Durham that are not located in North America. **Note that if you have multiple conditions connected with OR before adding a NOT, the NOT condition will apply only to the immediately previous condition.** Therefore, this search is equivalent to a search for organizations whose city is Durham that are not located in North America: the first two conditions pertaining to Raleigh and Chapel Hill become irrelevant.&#x20;
+
+
+<Image src="https://files.readme.io/afe7dad46b136fcfbba8a8f4187af9ac8a61414549ec5827425e30b86d44bfcf-ror-search-cities-not-continent.png" border={true} />
+
+
+<br />
+
+Find all organizations whose city is Raleigh OR Durham OR Chapel Hill that are NOT on the continent of North America.&#x20;
+
+
+<Image src="https://files.readme.io/b306bc57e32e0d5ab89aa00cdbc6afd4b5d8005d601bf83be8b8e845b6edc50e-ror-search-cities-not-continent-failure.png" border={true} />
+
+
+<br />
+
+The search returns 0 results, since the only city named Chapel Hill is in North America. **Note that if you have multiple conditions connected with OR before adding a NOT, the NOT condition will apply only to the immediately previous condition.** Therefore, this search is equivalent to a search for organizations whose city is Chapel Hill that are not located in North America: the first two conditions pertaining to Raleigh and Durham become irrelevant.
+
+
+<Image src="https://files.readme.io/7492b307b7ab1273019d271690ed249e86d5943f91945f0a39a292019d82373d-ror-search-cities-not-continent-chapel-hill-results.png" alt="0 organizations found." border={true} />
 
 ## Example - wildcard
 
 Find all organizations whose city name begins with Chapel.&#x20;
+
+<br />
 
 <br />
 
