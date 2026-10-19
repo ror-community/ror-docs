@@ -73,15 +73,14 @@ You can choose filters before or after you search to fine-tune your search resul
   In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by location, type, or other criteria, use the sidebar filters or Advanced mode.
 </Callout>
 
-## Example - filters
+## Example: filters
 
 Search for inactive and withdrawn records for organizations in Finland with the word "energy" in the name.
 
 
 <Image src="https://files.readme.io/a0082843c0d52f3c80187db16cd934daeb1765bc4e316b0b9c58772e04088550-ror-search-filters.png" alt="Results using filters." align="center" border={true} />
 
-
-## Example - quotation marks
+## Example: quotation marks
 
 Search for an active organization with the exact phrase "solar energy" in the name by surrounding it with quotation marks.
 
@@ -132,7 +131,7 @@ Conditions can be combined with the Boolean operators AND, OR, or NOT.&#x20;
 * OR - Any chosen condition is present in the resulting records. Produces more results.&#x20;
 * NOT - Records with the condition are excluded. Produces fewer results. **Note that if you have multiple conditions connected with OR before adding a NOT, the NOT condition will apply only to the immediately previous condition.&#x20;**
 
-## Example - city
+## Example: City
 
 Find all organizations whose city is Raleigh.&#x20;
 
@@ -144,7 +143,7 @@ The search returns 138 organizations whose city is "Raleigh." Note that neither 
 
 <Image src="https://files.readme.io/9fb4173e8ae7dadad3c35bc02f9f0e3ad56f8c6c92ee8b69a4f055ed12fa2edc-ror-search-city-results.png" border={true} />
 
-## Example - AND
+## Example: AND
 
 Find all organizations whose city is Raleigh AND where the record Creation date is on or after January 1, 2026.&#x20;
 
@@ -176,7 +175,7 @@ The search returns 2,431 records whose Organization type includes both Funder an
 
 <Image src="https://files.readme.io/24560322e635f20e8625d6850fba3d220aed7d06dc4a906af4d371bd5f1bd3f1-ror-search-type-and-type-results.png" alt="Results for combined Type search." border={true} />
 
-## Example - OR
+## Example: OR
 
 Find all organizations whose city is Raleigh OR Chapel Hill OR Durham.&#x20;
 
@@ -198,7 +197,7 @@ The search returns 36,501 results where the organization type includes either Fu
 
 <Image src="https://files.readme.io/73828e078b509d13ea875ac05871e035433a1df15688d0f8bd7535b49aaccb2c-ror-search-type-or-type-results.png" alt="Results for two type searches combines with OR." border={true} />
 
-## Example - NOT&#x20;
+## Example: NOT
 
 Find all organizations whose record includes both the Facility and the Funder type but NOT the Government type.&#x20;
 
@@ -230,7 +229,7 @@ The search returns 0 results, since the only city named Chapel Hill is in North 
 
 <Image src="https://files.readme.io/7492b307b7ab1273019d271690ed249e86d5943f91945f0a39a292019d82373d-ror-search-cities-not-continent-chapel-hill-results.png" alt="0 organizations found." border={true} />
 
-## Example - wildcard in name&#x20;
+## Example: wildcard in name
 
 Find all organizations whose name includes a term that begins with "Clim".&#x20;
 
@@ -242,7 +241,7 @@ The search returns 186 organizations whose name includes a term that begins with
 
 <Image src="https://files.readme.io/b51c9dc8bd330558eb8bf3f5a14d02b59081b13d69a96b21bfbe888469ca9d81-ror-search-wildcard-name-results.png" alt="Results for name wildcard search." border={true} />
 
-## Example: wildcard in city&#x20;
+## Example: wildcard in city
 
 Find all organizations whose city name begins with "Chapel" that are not in North America.&#x20;
 
