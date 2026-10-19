@@ -33,11 +33,15 @@ Note that in both modes, only records with an [Active status](https://ror.readme
 
 ## Wildcards and quotation marks
 
-Both modes support wildcards * and ? as well as searching for exact strings by surrounding a term with quotation marks. 
+Both modes support wildcards `*` and `?` as well as searching for exact strings by surrounding a term with quotation marks `" "`.
 
 # View details
 
+Clicking the **View details** button from the Search home page or from any results list will take you to the full ROR record.
+
 <br />
+
+&#x20;
 
 # Search
 
