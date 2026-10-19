@@ -38,7 +38,7 @@ The ROR search home page and results pages show only some information about ROR 
 On the single ROR record, you can see additional information such as other names by type and links to the ROR records of related organizations. At the bottom of the record are buttons that allow you to view the underlying record data in JSON format or to request a change to the record. The date the record was last modified is available at the bottom of the record on the right.&#x20;
 
 
-<Image src="https://files.readme.io/cae5e60558873c0b4b90d43e71973e4e899a4fe2aa7c400bec48d3e792e5e088-ror-single-record.png" alt="ROR record with features circled." align="center" caption="Single ROR record with View JSON, Suggest a change, and Record last modified." border={true} />
+<Image src="https://files.readme.io/cae5e60558873c0b4b90d43e71973e4e899a4fe2aa7c400bec48d3e792e5e088-ror-single-record.png" alt="ROR record with features circled." align="center" caption="Single ROR record with actions and information at the bottom of the record." border={true} />
 
 # Search
 
