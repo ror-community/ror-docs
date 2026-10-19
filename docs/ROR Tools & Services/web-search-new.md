@@ -73,7 +73,12 @@ You can choose filters before or after you search to fine-tune your search resul
   In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by website, location, type, or other criteria, use the sidebar filters or Advanced Search mode.
 </Callout>
 
-## Examples 
+## Example
+
+Search for inactive and withdrawn records for organizations in Finland with the word "energy" in the name.
+
+
+<Image src="https://files.readme.io/a0082843c0d52f3c80187db16cd934daeb1765bc4e316b0b9c58772e04088550-ror-search-filters.png" alt="Select status and country filters." align="center" caption="Example search using filters for Record status and Country." border={true} />
 
 <br />
 
