@@ -193,6 +193,8 @@ Find all organizations whose city is Raleigh OR Chapel Hill OR Durham.&#x20;
 
 <br />
 
+The search returns 415 organization records where the city is Raleigh, Chapel Hill, or Durham.&#x20;
+
 
 <Image src="https://files.readme.io/f04059e74e5ca80c1ffa057598c407b787dfbe5a48cb36e51a73ebcccacc5702-ror-search-city-or-city-results.png" border={true} />
 
