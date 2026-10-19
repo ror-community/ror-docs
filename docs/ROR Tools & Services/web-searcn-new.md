@@ -33,6 +33,10 @@ Note that in both modes, only records with an [Active status](https://ror.readme
 
 Both modes support wildcards * and ? as well as searching for exact strings by surrounding a term with quotation marks. 
 
+# View details
+
+<br />
+
 # Search
 
 <br />
