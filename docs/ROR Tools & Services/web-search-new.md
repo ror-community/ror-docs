@@ -242,7 +242,7 @@ The search returns 186 organizations whose name includes a term that begins with
 
 <Image src="https://files.readme.io/b51c9dc8bd330558eb8bf3f5a14d02b59081b13d69a96b21bfbe888469ca9d81-ror-search-wildcard-name-results.png" alt="Results for name wildcard search." border={true} />
 
-## Example - wildcard in city&#x20;
+## Example: wildcard in city&#x20;
 
 Find all organizations whose city name begins with "Chapel" that are not in North America.&#x20;
 
