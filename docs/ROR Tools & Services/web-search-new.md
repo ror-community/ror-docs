@@ -162,11 +162,10 @@ Find all organizations whose city is Raleigh AND where the record Creation date 
 
 <br />
 
-The search returns 10 organizations where the city is Raleigh and the record was created after January 1, 2026.&#x20;
+The search returns 10 organizations where the city is Raleigh and the record was created on or after January 1, 2026.&#x20;
 
-![]()
 
-<br />
+<Image src="https://files.readme.io/30644780bfcc1d4243a0ff170262d436fae017eda8673c0c61d4eba2e0d29bac-ror-search-city-and-created-date-results.png" border={true} />
 
 <br />
 
@@ -175,6 +174,13 @@ Find all organizations whose city is Raleigh AND Chapel Hill.&#x20;
 
 <Image src="https://files.readme.io/6648372b1702e08f812c7b0f7d7c8e3df32a51491dbf6c2c4851905a6a50579c-ror-search-city-and-city.png" border={true} />
 
+
+<br />
+
+The search returns 0 results because there are no organizations located both in Raleigh and Chapel Hill. Note that nearly all ROR records are located in only a single city.&#x20;
+
+
+<Image src="https://files.readme.io/9a67c86aa85f8f719dc1306e5b24ce4856ce95560840db713416448a77810972-ror-search-city-and-city-results.png" border={true} />
 
 <br />
 
