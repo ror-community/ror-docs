@@ -33,11 +33,18 @@ Both modes support the wildcard character `*` as well as searching for exact str
 The ROR search home page and results pages show only some information about ROR records. Clicking the **View details** button will take you to a single ROR record with extended information about that organization.
 
 
-<Image src="https://files.readme.io/82f980ea784ba618bec608887d4a6879d70d21b57dfb9885b762c2638c7da186-ror-search-results-view-details.png" alt="ROR search results list." align="center" border={true} />
+<Image src="https://files.readme.io/44b41bf0fb1aa33338afd155ade77002ae1110d035c1d6290162479a471d8a31-ror-search-results-view-details.png" alt="ROR search results list." align="center" border={true} />
 
 <br />
 
-On the single ROR record, you can see additional information such as name types and links to the ROR records of related organizations. You can also&#x20;
+On the single ROR record, you can see additional information such as other names by type and links to the ROR records of related organizations. At the bottom of the record are buttons that allow you to view the underlying record data in JSON format or to request a change to the record. The date the record was last modified is available at the bottom of the record on the right.&#x20;
+
+
+<Image src="https://files.readme.io/4558c4ea85b5aee5c32b2eb40d6a0af9884fd15a0f244ae08894e88f0867d721-ror-single-record.png" alt="ROR record with features circled." border={true} />
+
+<br />
+
+<br />
 
 <br />
 
