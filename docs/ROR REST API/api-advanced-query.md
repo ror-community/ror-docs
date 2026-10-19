@@ -39,9 +39,9 @@ Some organization names contain characters like &, (), : and /, which have speci
 
 Consult the [Elasticsearch query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax) documentation for any additional help not provided by the examples below on how to search within single fields and use wildcards, Boolean operators, and date ranges with the advanced query parameter of the ROR REST API.
 
-## Case sensitivity
+## Case sensitivity and accents
 
-Currently, the advanced query parameter is case-sensitive, meaning that the same search may return different results depending on the letter case of the input string. For best results, capitalize location names (_Panama_ not _panama_) and be aware of uppercase and lowercase differences in other field data. We [may change this behavior in future](https://github.com/ror-community/ror-roadmap/issues/175) to support case insensitivity for all searches.
+<Anchor target="_blank" href="https://github.com/ror-community/ror-api/pull/592">As of October 2026</Anchor>, the advanced query parameter is insensitive to letter case and to diacritics and accents, meaning that input strings with upper case characters will return the same results as for strings lower case characters and that input strings with accented characters will return the same results as for strings with unaccented characters.&#x20;
 
 # Search by date
 
@@ -21526,5 +21526,3 @@ The response includes all records whose city contains the capitalized term _Berl
    "time_taken" : 21
 }
 ```
-
-<br />
