@@ -177,12 +177,10 @@ Find all organizations whose city is Raleigh AND Chapel Hill.&#x20;
 
 <br />
 
-The search returns 0 results because there are no organizations located both in Raleigh and Chapel Hill. Note that nearly all ROR records are located in only a single city.&#x20;
+The search returns 0 results because there are no organizations located both in Raleigh and in Chapel Hill. Note that nearly all ROR records are located in only a single city.&#x20;
 
 
 <Image src="https://files.readme.io/9a67c86aa85f8f719dc1306e5b24ce4856ce95560840db713416448a77810972-ror-search-city-and-city-results.png" border={true} />
-
-<br />
 
 <br />
 
@@ -191,8 +189,14 @@ The search returns 0 results because there are no organizations located both in 
 Find all organizations whose city is Raleigh OR Chapel Hill OR Durham.&#x20;
 
 
-<Image src="https://files.readme.io/bbcb09481492ed8c3b14e882cf6738b163aa66225bd970c81c121c1df8fc74ca-ror-search-or.png" alt="Combine searches with OR." align="center" caption="Example search with the OR operator." border={true} />
+<Image src="https://files.readme.io/bbcb09481492ed8c3b14e882cf6738b163aa66225bd970c81c121c1df8fc74ca-ror-search-or.png" alt="Combine searches with OR." align="center" border={true} />
 
+<br />
+
+
+<Image src="https://files.readme.io/f04059e74e5ca80c1ffa057598c407b787dfbe5a48cb36e51a73ebcccacc5702-ror-search-city-or-city-results.png" border={true} />
+
+<br />
 
 ## Example - NOT&#x20;
 
