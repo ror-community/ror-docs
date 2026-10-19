@@ -26,7 +26,7 @@ Note that in both modes, only records with an [Active status](https://ror.readme
 
 ## Wildcards and quotation marks
 
-Both Search and Advanced modes support searching for partial words in organization names with the wildcard character `*` as well as searching for exact strings in organization names by surrounding a multi-word phrase with quotation marks `" "`.
+Both Search and Advanced modes support searching for partial words with the wildcard character `*` as well as searching for exact strings by surrounding a multi-word phrase with quotation marks `" "`.
 
 ## View details
 
@@ -117,9 +117,9 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 - **Website** - Enter a website such as `https://israbat.ac.ma/`.&#x20;
 - **Domain** - Enter a web domain such as `ucla.edu`.
 - **Year established** - Enter the year an organization was established. This must match the established year exactly.
-- **Created date**
-- **Modified date**
-- **GeoNames ID**
+- **Created date** - Search for records created on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD.&#x20;
+- **Modified date** - Search for records modified on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD.
+- **GeoNames ID** - Search for records in a location using a <Anchor target="_blank" href="https://www.geonames.org/">GeoNames</Anchor> ID in the format 2988507.&#x20;
 
 ## Boolean searching
 
