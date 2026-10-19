@@ -33,8 +33,9 @@ Note that in both modes, only records with an [Active status](https://ror.readme
 
 Both modes support wildcards * and ? as well as searching for exact strings by surrounding a term with quotation marks. 
 
-# Search mode
+# Search
 
+<br />
 
 ## Filtering
 
@@ -46,11 +47,13 @@ Both modes support wildcards * and ? as well as searching for exact strings by s
 
 ### Continent
 
+<br />
+
 ## Examples 
 
+<br />
 
-# Advanced Search mode
-
+# Advanced Search
 
 ## Boolean 
 
@@ -94,5 +97,6 @@ Both modes support wildcards * and ? as well as searching for exact strings by s
 
 ### GeoNames ID
 
+<br />
 
 ## Examples
