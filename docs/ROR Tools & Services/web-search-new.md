@@ -125,15 +125,39 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 
 ## Combining conditions
 
-The first condition you choose in Advanced mode will find all organizations where that condition is true. You can add up to 9 additional conditions and combine them with the Boolean operators AND, OR, or NOT. **Note that the Boolean operator applies only to the most recent previous condition added, not to any earlier conditions in the same query.**&#x20;
+The first condition you choose in Advanced mode will find all organizations where that condition is true. You can add up to 9 additional conditions by selecting them from the list on the left of the Advanced window.&#x20;
+
+Conditions can be combined with the Boolean operators AND, OR, or NOT. **Note that the Boolean operator applies only to the most recent previous condition added, not to any earlier conditions in the same query.**&#x20;
 
 * AND - Both the first and the second chosen conditions are present in each of the resulting records. Produces fewer results.&#x20;
 * OR - Either the first or the second chosen conditions are present in the resulting records. Produces more results.&#x20;
 * NOT - The first chosen condition is present in the resulting records, but records with the second condition are excluded. Produces fewer results.&#x20;
 
-## Examples
+## Example - city
+
+Find all organizations whose city is Raleigh.&#x20;
+
+## Example - AND
+
+<br />
+
+## Example - OR
 
 Find all organizations whose city is Raleigh OR Durham OR Chapel Hill.&#x20;
+
+
+<Image src="https://files.readme.io/bbcb09481492ed8c3b14e882cf6738b163aa66225bd970c81c121c1df8fc74ca-ror-search-or.png" alt="Combine searches with OR." align="center" caption="Example search with the OR operator." border={true} />
+
+
+## Example - NOT&#x20;
+
+<br />
+
+## Example - wildcard
+
+<br />
+
+<br />
 
 <br />
 
