@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name or ID using the default Search or construct complex queries using Advanced Search.
+Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name or ID using the default Search, or construct complex queries using Advanced Search.
 
 <Callout icon="🚧" theme="warn">
   ## Don't send requests from an application to the ROR web search!
@@ -15,7 +15,7 @@ Search the ROR registry in your web browser at [https://ror.org/search](https://
 
 # About the web search
 
-The ROR web search has two modes: **Search** and **Advanced**_._ The default Search uses the [query parameter](https://ror.readme.io/docs/api-query) of the ROR API, which is designed to help you find one or more organizations by name or identifier. From Search, you can go directly to a suggested single ROR record or you can see all results. Results can be filtered using sidebar options for **Record status, Organization type, Country, or Continent.**
+The ROR web search has two modes: **Search** and **Advanced**_._ The default Search uses the [query parameter](https://ror.readme.io/docs/api-query) of the ROR API, which is designed to help you find one or more organizations by name or identifier. From Search, you can go directly to a suggested single ROR record, or you can see all results. Results can be filtered using sidebar options for **Record status, Organization type, Country,** or **Continent.**
 
 Selecting Advanced allows you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR, and NOT.&#x20;**&#x41;dvanced mode uses the [Advanced query parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API.&#x20;
 
@@ -38,15 +38,28 @@ The ROR search home page and results pages show only some information about ROR 
 On the single ROR record, you can see additional information such as other names by type and links to the ROR records of related organizations. At the bottom of the record are buttons that allow you to view the underlying record data in JSON format or to request a change to the record. The date the record was last modified is available at the bottom of the record on the right.&#x20;
 
 
-<Image src="https://files.readme.io/4558c4ea85b5aee5c32b2eb40d6a0af9884fd15a0f244ae08894e88f0867d721-ror-single-record.png" alt="ROR record with features circled." align="center" caption="Single ROR record with View JSON, Suggest a change, and Record last modified." border={true} />
-
-<br />
-
-<br />
-
-<br />
+<Image src="https://files.readme.io/cae5e60558873c0b4b90d43e71973e4e899a4fe2aa7c400bec48d3e792e5e088-ror-single-record.png" alt="ROR record with features circled." align="center" caption="Single ROR record with View JSON, Suggest a change, and Record last modified." border={true} />
 
 # Search
+
+The ROR search default is designed to help you find organizations by name or by identifier. You can type or paste an organization name or identifier to see suggestions, then click a suggestion to jump straight to that record. To see all results for a search, click the magnifying glass icon or hit Enter.
+
+## Jump straight to a suggestion
+
+When you've typed or pasted at least three characters, the ROR search bar will offer a list of suggested organizations with their name, city, and country. Click a suggestion to go directly to that record.&#x20;
+
+
+<Image src="https://files.readme.io/89f335a0279b5a860e108af4d9db24eaa6b283ab686cd1538d7db59fb7ad3de8-ror-search-suggestions.gif" alt="Suggestions for the word Lincoln." align="center" caption="Begin searching and then click a suggestion to go quickly and directly to a single record." border={true} />
+
+<br />
+
+<br />
+
+<br />
+
+## Go to the results list
+
+<br />
 
 <br />
 
