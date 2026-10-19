@@ -26,7 +26,7 @@ Note that in both modes, only records with an [Active status](https://ror.readme
 
 ## Wildcards and quotation marks
 
-Both modes support the wildcard character `*` as well as searching for exact strings by surrounding a term with quotation marks `" "`.
+Both Search and Advanced modes support searching for partial words with the wildcard character `*` as well as searching for exact strings by surrounding a multi-word phrase with quotation marks `" "`.
 
 ## View details
 
