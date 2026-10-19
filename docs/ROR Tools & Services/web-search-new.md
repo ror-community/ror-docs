@@ -59,19 +59,14 @@ If you'd like to see the whole results list, you can click the magnifying glass 
 
 <Image src="https://files.readme.io/6edf5f06da4430289cb6bfcbee856f9161e65f586a522ab1da06c156e0505d9c-ror-search-results-list.gif" alt="Search for Lincoln and go to results list." align="center" caption="Begin searching and then click the search icon to go to the results list." border={true} />
 
-<br />
-
-<br />
-
 ## Filtering
 
-### Record status
+<br />
 
-### Organization type
-
-### Country
-
-### Continent
+- **Record status**
+- **Organization type**
+- **Country**
+- **Continent**
 
 <br />
 
@@ -87,47 +82,35 @@ If you'd like to see the whole results list, you can click the magnifying glass 
 
 # Advanced
 
+<br />
+
 ## Boolean 
+
+<br />
 
 ## Conditions
 
-### Name
+<br />
 
-### Country
-
-### Continent
-
-### City
-
-### Organization type
-
-### Record status
-
-### Related organization
-
-### Relationship type
-
-### Funder ID
-
-### ISNI ID
-
-### Wikidata ID
-
-### Funder ID
-
-### GRID ID
-
-### Website
-
-### Domain
-
-### Year established
-
-### Created date
-
-### Modified date
-
-### GeoNames ID
+- **Name**
+- **Country**
+- **Continent**
+- **City**
+- **Organization type**
+- **Record status**
+- **Related organization**
+- **Relationship type**
+- **Funder ID**
+- **ISNI ID**
+- **Wikidata ID**
+- **Funder ID**
+- **GRID ID**
+- **Website**
+- **Domain**
+- **Year established**
+- **Created date**
+- **Modified date**
+- **GeoNames ID**
 
 <br />
 
