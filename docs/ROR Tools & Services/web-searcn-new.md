@@ -1,7 +1,7 @@
 ---
-title: Web searcn (new)
+title: Web search (new)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
