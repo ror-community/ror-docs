@@ -15,12 +15,11 @@ Search the ROR registry in your web browser at [https://ror.org/search](https://
 
 # About the web search
 
-The ROR web search has two modes: *Search* and *Advanced Search.* The default Search uses the [query parameter of the ROR API](https://ror.readme.io/docs/api-query), which is designed to help you find one or more organizations by name or identifier. From Search, you can go directly to a suggested single ROR record or you can see all results. Results can be filtered using sidebar options for *Record status*, *Organization type*, *Country*, or *Continent.*
+The ROR web search has two modes: **Search** and **Advanced Search**_._ The default Search uses the [query parameter of the ROR API](https://ror.readme.io/docs/api-query), which is designed to help you find one or more organizations by name or identifier. From Search, you can go directly to a suggested single ROR record or you can see all results. Results can be filtered using sidebar options for **Record status, Organization type, Country, or Continent.**
 
-Selecting Advanced Search allows you to construct complex searches with multiple conditions that can be combined with Boolean operators *AND*, *OR*, and *NOT.* 
+Selecting Advanced Search allows you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR, and NOT.**
 
-
-
+<br />
 
 Note that in both modes, only records with an [Active status](https://ror.readme.io/docs/ror-data-structure#status) are returned by default, but Inactive and Withdrawn records can be returned by selecting the desired record status options. 
 
