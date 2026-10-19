@@ -49,15 +49,15 @@ The ROR search default is designed to help you find organizations by name or by 
 When you've typed or pasted at least three characters, the ROR search bar will offer a list of suggested organizations with their name, city, and country. Click a suggestion to go directly to that record.&#x20;
 
 
-<Image src="https://files.readme.io/89f335a0279b5a860e108af4d9db24eaa6b283ab686cd1538d7db59fb7ad3de8-ror-search-suggestions.gif" alt="Suggestions for the word Lincoln." align="center" caption="Begin searching and then click a suggestion to go quickly and directly to a single record." border={true} />
+<Image src="https://files.readme.io/89f335a0279b5a860e108af4d9db24eaa6b283ab686cd1538d7db59fb7ad3de8-ror-search-suggestions.gif" alt="Suggestions for the word Lincoln." align="center" caption="Begin searching and then click a suggestion to go quickly and directly to a single ROR record." border={true} />
 
-<br />
-
-<br />
-
-<br />
 
 ## Go to the results list
+
+If you'd like to see the whole results list, you can click the magnifying glass or hit Enter to bypass the suggestions.&#x20;
+
+
+<Image src="https://files.readme.io/6edf5f06da4430289cb6bfcbee856f9161e65f586a522ab1da06c156e0505d9c-ror-search-results-list.gif" alt="Search for Lincoln and go to results list." align="center" caption="Begin searching and then click the search icon to go to the results list." border={true} />
 
 <br />
 
