@@ -20,7 +20,7 @@ The ROR web search has two modes: **Search** and **Advanced**_._ The default Sea
 Selecting Advanced allows you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR, and NOT.&#x20;**&#x41;dvanced mode uses the [Advanced query parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API.&#x20;
 
 
-<Image src="https://files.readme.io/498d9274cae8a1c44e6da0a3ee6c09ee2a53d73d07a1444b2a2881553d6a92ad-ror-search-selector.png" alt="Select Search or Advanced." align="center" border={true} />
+<Image src="https://files.readme.io/498d9274cae8a1c44e6da0a3ee6c09ee2a53d73d07a1444b2a2881553d6a92ad-ror-search-selector.png" alt="Select Search or Advanced." align="center" caption="ROR search mode selector." border={true} />
 
 Note that in both modes, only records with an [Active status](https://ror.readme.io/docs/ror-data-structure#status) are returned by default, but Inactive and Withdrawn records can be returned by selecting the desired options.
 
@@ -33,14 +33,12 @@ Both modes support the wildcard character `*` as well as searching for exact str
 The ROR search home page and results pages show only some information about ROR records. Clicking the **View details** button will take you to a single ROR record with extended information about that organization.
 
 
-<Image src="https://files.readme.io/44b41bf0fb1aa33338afd155ade77002ae1110d035c1d6290162479a471d8a31-ror-search-results-view-details.png" alt="ROR search results list." align="center" border={true} />
-
-<br />
+<Image src="https://files.readme.io/44b41bf0fb1aa33338afd155ade77002ae1110d035c1d6290162479a471d8a31-ror-search-results-view-details.png" alt="ROR search results list." align="center" caption="Search results list with View details button leading to single ROR record." border={true} />
 
 On the single ROR record, you can see additional information such as other names by type and links to the ROR records of related organizations. At the bottom of the record are buttons that allow you to view the underlying record data in JSON format or to request a change to the record. The date the record was last modified is available at the bottom of the record on the right.&#x20;
 
 
-<Image src="https://files.readme.io/4558c4ea85b5aee5c32b2eb40d6a0af9884fd15a0f244ae08894e88f0867d721-ror-single-record.png" alt="ROR record with features circled." border={true} />
+<Image src="https://files.readme.io/4558c4ea85b5aee5c32b2eb40d6a0af9884fd15a0f244ae08894e88f0867d721-ror-single-record.png" alt="ROR record with features circled." align="center" caption="Single ROR record with View JSON, Suggest a change, and Record last modified." border={true} />
 
 <br />
 
