@@ -139,11 +139,15 @@ Find all organizations whose city is Raleigh.&#x20;
 
 ## Example - AND
 
+Find all organizations whose city is Raleigh AND where the record creation date is on or after January 1, 2026.&#x20;
+
 <br />
+
+Find all organizations whose city is Raleigh AND Chapel Hill.&#x20;
 
 ## Example - OR
 
-Find all organizations whose city is Raleigh OR Durham OR Chapel Hill.&#x20;
+Find all organizations whose city is Raleigh OR Chapel Hill OR Durham.&#x20;
 
 
 <Image src="https://files.readme.io/bbcb09481492ed8c3b14e882cf6738b163aa66225bd970c81c121c1df8fc74ca-ror-search-or.png" alt="Combine searches with OR." align="center" caption="Example search with the OR operator." border={true} />
@@ -151,9 +155,13 @@ Find all organizations whose city is Raleigh OR Durham OR Chapel Hill.&#x20;
 
 ## Example - NOT&#x20;
 
+Find all organizations whose city is Raleigh OR Chapel Hill OR Durham that are NOT in the United States.&#x20;
+
 <br />
 
 ## Example - wildcard
+
+Find all organizations whose city name begins with Chapel.&#x20;
 
 <br />
 
