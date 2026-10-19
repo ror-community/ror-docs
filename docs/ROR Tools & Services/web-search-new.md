@@ -117,8 +117,8 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 - **Website** - Enter a website such as `https://israbat.ac.ma/`.&#x20;
 - **Domain** - Enter a web domain such as `ucla.edu`.
 - **Year established** - Enter the year an organization was established. This must match the established year exactly.
-- **Created date** - Search for records created on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD.&#x20;
-- **Modified date** - Search for records modified on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD.
+- **Created date** - Search for records created on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD. Note that because ROR records are created on a rolling basis, created dates will not always correspond to ROR registry release dates.&#x20;
+- **Modified date** - Search for records modified on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD. Note that because ROR records are modified on a rolling basis, modified dates will not always correspond to ROR registry release dates.
 - **GeoNames ID** - Search for records in a location using a <Anchor target="_blank" href="https://www.geonames.org/">GeoNames</Anchor> ID in the format 2988507.&#x20;
 
 ## Combining conditions
