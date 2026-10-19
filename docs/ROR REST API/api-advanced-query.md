@@ -42,7 +42,7 @@ Consult the [Elasticsearch query string syntax](https://www.elastic.co/guide/en/
 
 ## Case sensitivity and accents
 
-<Anchor target="_blank" href="https://github.com/ror-community/ror-api/pull/592">As of October 2026</Anchor>, the advanced query parameter is insensitive to letter case and to diacritics and accents, meaning that input strings with upper case characters will return the same results as for strings with lower case characters and that input strings with diacritics / accented characters will return the same results as for strings with unaccented characters.&#x20;
+<Anchor target="_blank" href="https://github.com/ror-community/ror-api/pull/592">As of October 2026</Anchor>, the advanced query parameter is insensitive to letter case and to diacritics, meaning that input strings with upper case characters will return the same results as for strings with lower case characters and that input strings with diacritics / accented characters will return the same results as for strings with unaccented characters.&#x20;
 
 # Search by date
 
