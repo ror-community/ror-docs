@@ -23,10 +23,10 @@ Selecting Advanced Search allows you to construct complex searches with multiple
 
 Note that in both modes, only records with an [Active status](https://ror.readme.io/docs/ror-data-structure#status) are returned by default, but Inactive and Withdrawn records can be returned by selecting the desired record status options. 
 
-<Callout icon="🚧" theme="warn">
-## Remember that the default search does not include all elements of a ROR record
+<Callout icon="far fa-circle-info" theme="info">
+  ## Remember that the default search does not include all elements of a ROR record
 
-In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by website, location, type, or other criteria, use the sidebar filters or Advanced Search mode. 
+  In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by website, location, type, or other criteria, use the sidebar filters or Advanced Search mode.
 </Callout>
 
 ## Wildcards and quotation marks
