@@ -15,27 +15,20 @@ Search the ROR registry in your web browser at [https://ror.org/search](https://
 
 # About the web search
 
-The ROR web search has two modes: **Search** and **Advanced Search**_._ The default Search uses the [query parameter of the ROR API](https://ror.readme.io/docs/api-query), which is designed to help you find one or more organizations by name or identifier. From Search, you can go directly to a suggested single ROR record or you can see all results. Results can be filtered using sidebar options for **Record status, Organization type, Country, or Continent.**
+The ROR web search has two modes: **Search** and **Advanced Search**_._ The default Search uses the [query parameter](https://ror.readme.io/docs/api-query) of the ROR API, which is designed to help you find one or more organizations by name or identifier. From Search, you can go directly to a suggested single ROR record or you can see all results. Results can be filtered using sidebar options for **Record status, Organization type, Country, or Continent.**
 
-Selecting Advanced Search allows you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR, and NOT.**
-
+Selecting Advanced Search allows you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR, and NOT.&#x20;**&#x54;he Advanced Search uses the [Advanced query parameter](https://ror.readme.io/docs/api-advanced-query) query parameter of the ROR API.&#x20;
 
 <Image src="https://files.readme.io/498d9274cae8a1c44e6da0a3ee6c09ee2a53d73d07a1444b2a2881553d6a92ad-ror-search-selector.png" align="center" border={true} />
 
 
 Note that in both modes, only records with an [Active status](https://ror.readme.io/docs/ror-data-structure#status) are returned by default, but Inactive and Withdrawn records can be returned by selecting the desired options.
 
-<Callout icon="far fa-circle-info" theme="info">
-  ## Remember that the default search does not include all elements of a ROR record
-
-  In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by website, location, type, or other criteria, use the sidebar filters or Advanced Search mode.
-</Callout>
-
 ## Wildcards and quotation marks
 
-Both modes support wildcards `*` and `?` as well as searching for exact strings by surrounding a term with quotation marks `" "`.
+Both modes support the wildcard character `*` as well as searching for exact strings by surrounding a term with quotation marks `" "`.
 
-# View details
+## View details
 
 Clicking the **View details** button from the Search home page or from any results list will take you to the full ROR record.
 
@@ -58,6 +51,12 @@ Clicking the **View details** button from the Search home page or from any resul
 ### Continent
 
 <br />
+
+<Callout icon="far fa-circle-info" theme="info">
+  ## Remember that the default search does not include all elements of a ROR record
+
+  In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by website, location, type, or other criteria, use the sidebar filters or Advanced Search mode.
+</Callout>
 
 ## Examples 
 
