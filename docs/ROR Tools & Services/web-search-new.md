@@ -100,19 +100,19 @@ Advanced search mode is designed to help you construct precise, complex, multi-f
 
 ## Conditions
 
-<br />
+You can choose up to 10 of the following conditions in Advanced search mode. Conditions are based on fields from the ROR [data structure.](https://ror.readme.io/docs/ror-data-structure)
 
-- **Name**
-- **Country**
-- **Continent**
-- **City**
-- **Organization type**
-- **Record status**
-- **Related organization**
-- **Relationship type**
-- **Funder ID**
-- **ISNI ID**
-- **Wikidata ID**
+- **Name** - Enter an organization's name. Note that the Name condition in Advanced search mode does not offer suggestions. &#x20;
+- **Country** - Select a country.
+- **Continent** - Select a continent.
+- **City&#x20;**- Enter a city.&#x20;
+- **Organization type** - Select an organization type.&#x20;
+- **Record status** - Select a record status.
+- **Related organization(s)** - Search for an organization and select it to find any organizations [related](https://ror.readme.io/docs/relationships) to it in any way. This condition will return all values listed in the selected organization's `relationships` field, including Related, Child, Parent, Predecessor, and Successor organizations.
+- **Relationship type** - Select a relationship type to include or exclude records that include a [relationship](https://ror.readme.io/docs/relationships) of that type in the `relationships` field. For instance, searching for records where the "Parent" relationship type is included will return organizations that _have_ a parent as distinct from organizations that _are_ a parent. Note, however, that any one organization can both have a parent and be a parent.&#x20;
+- **Funder ID** - Enter a Crossref Funder ID in the format 100009717 or 10.13039/100009717.&#x20;
+- **ISNI ID** - Enter an ISNI ID in the format 0000000119575136 or 0000 0001 1957 5136.&#x20;
+- **Wikidata ID** -&#x20;
 - **Funder ID**
 - **GRID ID**
 - **Website**
@@ -125,5 +125,9 @@ Advanced search mode is designed to help you construct precise, complex, multi-f
 ## Boolean searching
 
 The Boolean terms AND, OR, and NOT
+
+## Filtering
+
+The Country, Continent, Organization type, and Record status conditions in Advanced search mode operate on the same fields and in similar ways as the sidebar filters, but they function separately, so choosing (for example) a specific Country in Advanced mode will not affect the Country sidebar options. Results from Advanced searches can be filtered using the sidebar filters.&#x20;
 
 ## Examples
