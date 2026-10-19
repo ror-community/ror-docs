@@ -88,6 +88,12 @@ Search for an active organization with the exact phrase "solar energy" in the na
 
 <Image src="https://files.readme.io/f57904a052b26888d15b917cd185aff8e334bac67a7f18bd19790b03f2f8e5a0-ror-search-quotation-marks.png" alt="Results of an exact phrase search." align="center" caption="Example results from a ROR search using quotation marks to search for an exact text string." border={true} />
 
+
+Note that searching for the term "solar energy" _without_ using quotation marks produces many more results, since the ROR web search is looking for records with _either_ the term "solar" _or_ the term "energy" in the organization name.
+
+
+<Image src="https://files.readme.io/2ec30c431d4f3bb626e41ddd5a8d461792875c0458d721030b081ab4a3ca9d3e-ror-search-no-quotation-marks.png" alt="Results of a keyword search." align="center" caption="Example results from a multi-term ROR search without quotation marks.&#x20;" border={true} />
+
 # Advanced
 
 Advanced search mode is designed to help you construct precise, complex, multi-field searches of the ROR registry. Add conditions such as City, Website, and Modified Date and combine them with AND, OR, or NOT.
