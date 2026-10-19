@@ -30,11 +30,16 @@ Both modes support the wildcard character `*` as well as searching for exact str
 
 ## View details
 
-Clicking the **View details** button from the Search home page or from any results list will take you to the full ROR record.
+The ROR search home page and results pages show only some information about ROR records. Clicking the **View details** button will take you to a single ROR record with extended information about that organization.
+
+
+<Image src="https://files.readme.io/d3d2c20dac5d9e1caa47a663bd1aabc61d963370688f8d0c5e641501ad1adf8f-ror-search-results-view-details.png" align="center" border={true} />
 
 <br />
 
-&#x20;
+On the single ROR record, you can see all&#x20;
+
+<br />
 
 # Search
 
