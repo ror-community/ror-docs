@@ -98,6 +98,8 @@ Note that searching for the term "solar energy" _without_ using quotation marks 
 
 Advanced search mode is designed to help you construct precise, complex, multi-field searches of the ROR registry. Add conditions such as City, Website, and Modified Date and combine them with AND, OR, or NOT.
 
+The Country, Continent, Organization type, and Record status conditions in Advanced search mode operate on the same fields and in similar ways as the sidebar filters, but they function separately, so choosing (for example) a specific Country in Advanced mode will not affect the Country sidebar options. Results from Advanced searches can be further limited using the sidebar filters.&#x20;
+
 ## Conditions
 
 You can choose up to 10 of the following conditions in Advanced search mode. Conditions are based on fields from the ROR [data structure.](https://ror.readme.io/docs/ror-data-structure)
@@ -123,15 +125,11 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 
 ## Combining conditions
 
-The first condition you choose will find all organizations where that condition is true. You can add up to 9 additional conditions and combine them with the Boolean operators AND, OR, or NOT. **Note that the Boolean operator applies only to the most recent condition added, not to all conditions.**&#x20;
+The first condition you choose in Advanced mode will find all organizations where that condition is true. You can add up to 9 additional conditions and combine them with the Boolean operators AND, OR, or NOT. **Note that the Boolean operator applies only to the most recent previous condition added, not to any earlier conditions in the same query.**&#x20;
 
-* AND - Both the first and the second chosen conditions are present in each of the resulting records.&#x20;
-* OR - Either the first or the second chosen conditions are present in the resulting records.&#x20;
-* NOT - The first chosen condition is present in the resulting records, but records with the second condition are excluded.&#x20;
-
-## Filtering
-
-The Country, Continent, Organization type, and Record status conditions in Advanced search mode operate on the same fields and in similar ways as the sidebar filters, but they function separately, so choosing (for example) a specific Country in Advanced mode will not affect the Country sidebar options. Results from Advanced searches can be filtered using the sidebar filters.&#x20;
+* AND - Both the first and the second chosen conditions are present in each of the resulting records. Produces fewer results.&#x20;
+* OR - Either the first or the second chosen conditions are present in the resulting records. Produces more results.&#x20;
+* NOT - The first chosen condition is present in the resulting records, but records with the second condition are excluded. Produces fewer results.&#x20;
 
 ## Examples
 
