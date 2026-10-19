@@ -70,7 +70,7 @@ You can choose filters before or after you search to fine-tune your search resul
 <Callout icon="far fa-circle-info" theme="info">
   ## Remember that the default search does not include all elements of a ROR record
 
-  In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by location, type, or other criteria, use the sidebar filters or Advanced Search mode.
+  In Search mode, the ROR web search searches only three elements: `names`, `external_ids`, and `id`, which means that only organization names and identifiers should be used as search terms. To find organizations by location, type, or other criteria, use the sidebar filters or Advanced mode.
 </Callout>
 
 ## Example - filters
@@ -90,11 +90,7 @@ Search for an active organization with the exact phrase "solar energy" in the na
 
 # Advanced
 
-<br />
-
-## Boolean 
-
-<br />
+Advanced search mode is designed to help you construct precise, complex, multi-field searches of the ROR registry. Add conditions such as City, Website, and Modified Date and combine them with AND, OR, or NOT.
 
 ## Conditions
 
@@ -120,6 +116,8 @@ Search for an active organization with the exact phrase "solar energy" in the na
 - **Modified date**
 - **GeoNames ID**
 
-<br />
+## Boolean searching
+
+The Boolean terms AND, OR, and NOT
 
 ## Examples
