@@ -54,8 +54,7 @@ When you've typed or pasted at least three characters, the ROR search bar will o
 
 ## Go to the results list
 
-If you'd like to see the whole results list, you can click the magnifying glass or hit Enter to bypass the suggestions.&#x20;
-
+If you'd like to see the whole results list, you can click the magnifying glass icon or hit Enter after typing or pasting your search terms to bypass the suggestions.&#x20;
 
 <Image src="https://files.readme.io/6edf5f06da4430289cb6bfcbee856f9161e65f586a522ab1da06c156e0505d9c-ror-search-results-list.gif" alt="Search for Lincoln and go to results list." align="center" caption="Begin searching and then click the search icon to go to the results list." border={true} />
 
