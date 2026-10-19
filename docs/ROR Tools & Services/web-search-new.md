@@ -121,12 +121,22 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 - **Modified date** - Search for records modified on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD.
 - **GeoNames ID** - Search for records in a location using a <Anchor target="_blank" href="https://www.geonames.org/">GeoNames</Anchor> ID in the format 2988507.&#x20;
 
-## Boolean searching
+## Combining conditions
 
-The Boolean terms AND, OR, and NOT
+The first condition you choose will find all organizations where that condition is true. You can add up to 9 additional conditions and combine them with the Boolean operators AND, OR, or NOT. **Note that the Boolean operator applies only to the most recent condition added, not to all conditions.**&#x20;
+
+* AND - Both the first and the second chosen conditions are present in each of the resulting records.&#x20;
+* OR - Either the first or the second chosen conditions are present in the resulting records.&#x20;
+* NOT - The first chosen condition is present in the resulting records, but records with the second condition are excluded.&#x20;
 
 ## Filtering
 
 The Country, Continent, Organization type, and Record status conditions in Advanced search mode operate on the same fields and in similar ways as the sidebar filters, but they function separately, so choosing (for example) a specific Country in Advanced mode will not affect the Country sidebar options. Results from Advanced searches can be filtered using the sidebar filters.&#x20;
 
 ## Examples
+
+Find all organizations whose city is Raleigh OR Durham OR Chapel Hill.&#x20;
+
+<br />
+
+<br />
