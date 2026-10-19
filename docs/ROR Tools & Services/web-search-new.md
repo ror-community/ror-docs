@@ -112,11 +112,10 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 - **Relationship type** - Select a relationship type to include or exclude records that include a [relationship](https://ror.readme.io/docs/relationships) of that type in the `relationships` field. For instance, searching for records where the "Parent" relationship type is included will return organizations that _have_ a parent as distinct from organizations that _are_ a parent. Note, however, that any one organization can both have a parent and be a parent.&#x20;
 - **Funder ID** - Enter a Crossref Funder ID in the format 100009717 or 10.13039/100009717.&#x20;
 - **ISNI ID** - Enter an ISNI ID in the format 0000000119575136 or 0000 0001 1957 5136.&#x20;
-- **Wikidata ID** -&#x20;
-- **Funder ID**
-- **GRID ID**
-- **Website**
-- **Domain**
+- **Wikidata ID** - Enter a Wikidata ID in the format Q643674 or 643674.&#x20;
+- **GRID ID** - Enter a GRID ID in the format grid.452594.b.&#x20;
+- **Website** - Enter a website such as `https://israbat.ac.ma/`.&#x20;
+- **Domain** - Enter a web domain such as `ucla.edu`.
 - **Year established**
 - **Created date**
 - **Modified date**
