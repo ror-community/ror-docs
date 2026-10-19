@@ -60,7 +60,7 @@ If you'd like to see the whole results list, you can click the magnifying glass 
 
 ## Filtering
 
-You can choose filters before or after you search to fine-tune your search results. These filters are available in the sidebar on the ROR search home page, on results lists, and on single ROR record pages.&#x20;
+You can choose filters before or after you search to fine-tune your search results. These filters are available in the sidebar on the ROR search home page and on results lists.&#x20;
 
 - **Record status** - Each ROR record has a [status](https://ror.readme.io/docs/ror-data-structure#status) of active, inactive, or withdrawn. By default, all searches return only active records. This filter allows you to include inactive or withdrawn records as well or instead of active records in your search results.&#x20;
 - **Organization type&#x20;**- Each ROR record has at least one [organization type](https://ror.readme.io/docs/ror-data-structure#types). This filter allows you to choose the organization type(s) in your search results.&#x20;
