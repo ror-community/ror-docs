@@ -275,15 +275,42 @@ The search returns 0 results, since the only city named Chapel Hill is in North 
 
 <Image src="https://files.readme.io/7492b307b7ab1273019d271690ed249e86d5943f91945f0a39a292019d82373d-ror-search-cities-not-continent-chapel-hill-results.png" alt="0 organizations found." border={true} />
 
-## Example - wildcard
-
-Find all organizations whose city name begins with Chapel.&#x20;
 
 <br />
 
-<br />
+## Example - wildcard in name&#x20;
+
+Find all organizations whose name includes a term that begins with "Clim".&#x20;
+
+
+<Image src="https://files.readme.io/7cc18bd567228717c61ce1587771357a66b6cf4f10fd04b700953e1f6c7f53b4-ror-search-wildcard-name.png" alt="Name wildcard search." border={true} />
+
 
 <br />
+
+The search returns 186 organizations whose name includes a term that begins with "Clim" such as "Climat," "Climate," and "Climatique."&#x20;
+
+
+<Image src="https://files.readme.io/b51c9dc8bd330558eb8bf3f5a14d02b59081b13d69a96b21bfbe888469ca9d81-ror-search-wildcard-name-results.png" alt="Results for name wildcard search." border={true} />
+
+
+<br />
+
+## Example - wildcard in city&#x20;
+
+Find all organizations whose city name begins with "Chapel" that are not in North America.&#x20;
+
+
+<Image src="https://files.readme.io/7e7f7c8aa85baee68aaa4165c00211b2b14217484dccab5121952d59c43f6a9d-ror-search-wildcard-city.png" alt="Wildcard in city." border={true} />
+
+
+<br />
+
+The search returns 2 results for organizations located in Chapelhall and Chapeltown in the UK.&#x20;
+
+
+<Image src="https://files.readme.io/7e131ddac8a794eb28c78e38bb75311491b5e1e54ed41907ea92d55f729db5cf-ror-search-wildcard-city-results.png" alt="2 results for city wildcard search." border={true} />
+
 
 <br />
 
