@@ -67,8 +67,6 @@ You can choose filters before or after you search to fine-tune your search resul
 - **Country** - Each ROR record includes the country of the organization's [location](https://ror.readme.io/docs/ror-data-structure#locations). Country names are derived from <Anchor target="_blank" href="https://geonames.org">GeoNames</Anchor>. This filter allows you to include organizations located in specific countries in your results. If you do not see a country among the available options, use the "Search countries" field in the filter to find and select a country.&#x20;
 - **Continent** - Each ROR record includes the continent of the organization's [location](https://ror.readme.io/docs/ror-data-structure#locations). Continent names are derived from <Anchor target="_blank" href="https://geonames.org">GeoNames</Anchor>. This filter allows you to include organizations located on one or more specific continents in your results.&#x20;
 
-<br />
-
 <Callout icon="far fa-circle-info" theme="info">
   ## Remember that the default search does not include all elements of a ROR record
 
