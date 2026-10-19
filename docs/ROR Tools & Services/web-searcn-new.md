@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-Search the ROR registry in your web browser at <https://ror.org/search>. Find organizations by name keywords in any language, filter results, or construct complex searches. 
+Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name or ID using the default Search or construct complex queries using Advanced Search.
 
 <Callout icon="🚧" theme="warn">
   ## Don't send requests from an application to the ROR web search!
