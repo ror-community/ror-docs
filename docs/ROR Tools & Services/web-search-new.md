@@ -35,8 +35,6 @@ The ROR search home page and results pages show only some information about ROR 
 
 <Image src="https://files.readme.io/44b41bf0fb1aa33338afd155ade77002ae1110d035c1d6290162479a471d8a31-ror-search-results-view-details.png" alt="ROR search results list." align="center" border={true} />
 
-<br />
-
 On the single ROR record, you can see additional information such as other names by type and links to the ROR records of related organizations. At the bottom of the record are buttons that allow you to view the underlying record data in JSON format or to request a change to the record. The date the record was last modified is available at the bottom of the record on the right.&#x20;
 
 
@@ -90,8 +88,6 @@ Search for an active organization with the exact phrase "solar energy" in the na
 
 <Image src="https://files.readme.io/f57904a052b26888d15b917cd185aff8e334bac67a7f18bd19790b03f2f8e5a0-ror-search-quotation-marks.png" alt="Results of an exact phrase search." align="center" border={true} />
 
-<br />
-
 Note that searching for the term "solar energy" _without_ using quotation marks produces many more results, since the ROR web search is looking for records with _either_ the term "solar" _or_ the term "energy" in the organization name.
 
 
@@ -143,14 +139,10 @@ Find all organizations whose city is Raleigh.&#x20;
 
 <Image src="https://files.readme.io/c755cc4bd1e00c573ebaf1caf11f3b5c8dc0fe31ffdad1d135392d30877684f4-ror-search-city.png" align="center" border={true} />
 
-<br />
-
 The search returns 138 organizations whose city is "Raleigh." Note that neither country nor continent is specified in the search.&#x20;
 
 
 <Image src="https://files.readme.io/9fb4173e8ae7dadad3c35bc02f9f0e3ad56f8c6c92ee8b69a4f055ed12fa2edc-ror-search-city-results.png" border={true} />
-
-<br />
 
 ## Example - AND
 
@@ -159,44 +151,30 @@ Find all organizations whose city is Raleigh AND where the record Creation date 
 
 <Image src="https://files.readme.io/2bd3b0e813f09f2d3ffd1c8a371426160df93d664a3a8207897df0e8058159ca-ror-search-city-and-created-date.png" border={true} />
 
-
-<br />
-
 The search returns 10 organizations where the city is Raleigh and the record was created on or after January 1, 2026.&#x20;
 
 
 <Image src="https://files.readme.io/30644780bfcc1d4243a0ff170262d436fae017eda8673c0c61d4eba2e0d29bac-ror-search-city-and-created-date-results.png" border={true} />
-
-<br />
 
 Find all organizations whose city is Raleigh AND Chapel Hill.&#x20;
 
 
 <Image src="https://files.readme.io/6648372b1702e08f812c7b0f7d7c8e3df32a51491dbf6c2c4851905a6a50579c-ror-search-city-and-city.png" border={true} />
 
-
-<br />
-
 The search returns 0 results because there are no organizations located both in Raleigh and in Chapel Hill. Note that nearly all ROR records are located in only a single city.&#x20;
 
 
 <Image src="https://files.readme.io/9a67c86aa85f8f719dc1306e5b24ce4856ce95560840db713416448a77810972-ror-search-city-and-city-results.png" border={true} />
-
-<br />
 
 Find all organizations whose record includes both the Facility and the Funder type.&#x20;
 
 
 <Image src="https://files.readme.io/6b000d20c7cb1b5aa70ef2a5407b21b6d47919537e1ce7a342f8afa85abf1820-ror-search-type-and-type.png" alt="Two Type conditions." border={true} />
 
-<br />
-
 The search returns 2,431 records whose Organization type includes both Funder and Facility. Some results may include additional Organization types as well.&#x20;
 
 
 <Image src="https://files.readme.io/24560322e635f20e8625d6850fba3d220aed7d06dc4a906af4d371bd5f1bd3f1-ror-search-type-and-type-results.png" alt="Results for combined Type search." border={true} />
-
-<br />
 
 ## Example - OR
 
@@ -205,28 +183,20 @@ Find all organizations whose city is Raleigh OR Chapel Hill OR Durham.&#x20;
 
 <Image src="https://files.readme.io/bbcb09481492ed8c3b14e882cf6738b163aa66225bd970c81c121c1df8fc74ca-ror-search-or.png" alt="Combine searches with OR." align="center" border={true} />
 
-<br />
-
 The search returns 415 organization records where the city is Raleigh, Chapel Hill, or Durham. Note again that neither the country nor the continent is specified in the search.&#x20;
 
 
 <Image src="https://files.readme.io/f04059e74e5ca80c1ffa057598c407b787dfbe5a48cb36e51a73ebcccacc5702-ror-search-city-or-city-results.png" border={true} />
-
-<br />
 
 Find all organizations whose type is either Funder OR Facility.&#x20;
 
 
 <Image src="https://files.readme.io/814e6ca92ce8f482ab916d00204dd802e2dda4fdde5a2584596c709a593a48ea-ror-search-type-or-type.png" alt="Combine type searches with OR." border={true} />
 
-<br />
-
 The search returns 36,501 results where the organization type includes either Funder or Facility. Some results may include both types or additional organization types.
 
 
 <Image src="https://files.readme.io/73828e078b509d13ea875ac05871e035433a1df15688d0f8bd7535b49aaccb2c-ror-search-type-or-type-results.png" alt="Results for two type searches combines with OR." border={true} />
-
-<br />
 
 ## Example - NOT&#x20;
 
@@ -235,48 +205,30 @@ Find all organizations whose record includes both the Facility and the Funder ty
 
 <Image src="https://files.readme.io/c65a0a784f6bd237081f77c17c7116ed4a0a9564d1f4886e8ea4bd75c31aa3a1-ror-search-types-and-not.png" alt="Two AND conditions and a NOT condition." border={true} />
 
-
-<br />
-
 The search returns 2,409 results for records that include both the Facility and the Funder type but do NOT include the Government type.
 
 
 <Image src="https://files.readme.io/23cda2b05ed85012d87c340b065b93bf7dbe538290926f1ee31ee5d929b5e811-ror-search-types-and-not-results.png" alt="Search results for two AND conditions and a NOT." border={true} />
-
-
-<br />
 
 Find all organizations whose city is Raleigh OR Chapel Hill OR Durham that are NOT on the continent of North America.&#x20;
 
 
 <Image src="https://files.readme.io/cb624da567dd30d96ebd35112ad1cd5a5ca2d0bb84549fed0e4b9657e7432892-ror-search-cities-not-continent.png" border={true} />
 
-
-<br />
-
 The search returns 21 organizations whose city is Durham that are not located in North America. **Note that if you have multiple conditions connected with OR before adding a NOT, the NOT condition will apply only to the immediately previous condition.** Therefore, this search is equivalent to a search for organizations whose city is Durham that are not located in North America: the first two conditions pertaining to Raleigh and Chapel Hill become irrelevant.&#x20;
 
 
 <Image src="https://files.readme.io/afe7dad46b136fcfbba8a8f4187af9ac8a61414549ec5827425e30b86d44bfcf-ror-search-cities-not-continent.png" border={true} />
-
-
-<br />
 
 Find all organizations whose city is Raleigh OR Durham OR Chapel Hill that are NOT on the continent of North America.&#x20;
 
 
 <Image src="https://files.readme.io/b306bc57e32e0d5ab89aa00cdbc6afd4b5d8005d601bf83be8b8e845b6edc50e-ror-search-cities-not-continent-failure.png" border={true} />
 
-
-<br />
-
 The search returns 0 results, since the only city named Chapel Hill is in North America. **Note that if you have multiple conditions connected with OR before adding a NOT, the NOT condition will apply only to the immediately previous condition.** Therefore, this search is equivalent to a search for organizations whose city is Chapel Hill that are not located in North America: the first two conditions pertaining to Raleigh and Durham become irrelevant.
 
 
 <Image src="https://files.readme.io/7492b307b7ab1273019d271690ed249e86d5943f91945f0a39a292019d82373d-ror-search-cities-not-continent-chapel-hill-results.png" alt="0 organizations found." border={true} />
-
-
-<br />
 
 ## Example - wildcard in name&#x20;
 
@@ -285,16 +237,10 @@ Find all organizations whose name includes a term that begins with "Clim".&#x20;
 
 <Image src="https://files.readme.io/7cc18bd567228717c61ce1587771357a66b6cf4f10fd04b700953e1f6c7f53b4-ror-search-wildcard-name.png" alt="Name wildcard search." border={true} />
 
-
-<br />
-
 The search returns 186 organizations whose name includes a term that begins with "Clim" such as "Climat," "Climate," and "Climatique."&#x20;
 
 
 <Image src="https://files.readme.io/b51c9dc8bd330558eb8bf3f5a14d02b59081b13d69a96b21bfbe888469ca9d81-ror-search-wildcard-name-results.png" alt="Results for name wildcard search." border={true} />
-
-
-<br />
 
 ## Example - wildcard in city&#x20;
 
@@ -302,9 +248,6 @@ Find all organizations whose city name begins with "Chapel" that are not in Nort
 
 
 <Image src="https://files.readme.io/7e7f7c8aa85baee68aaa4165c00211b2b14217484dccab5121952d59c43f6a9d-ror-search-wildcard-city.png" alt="Wildcard in city." border={true} />
-
-
-<br />
 
 The search returns 2 results for organizations located in Chapelhall and Chapeltown in the UK.&#x20;
 
