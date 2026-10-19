@@ -26,7 +26,7 @@ Note that in both modes, only records with an [Active status](https://ror.readme
 
 ## Wildcards and quotation marks
 
-Both Search and Advanced modes support searching for partial words with the wildcard character `*` as well as searching for exact strings by surrounding a multi-word phrase with quotation marks `" "`.
+Both Search and Advanced modes support searching for partial words in organization names with the wildcard character `*` as well as searching for exact strings in organization names by surrounding a multi-word phrase with quotation marks `" "`.
 
 ## View details
 
@@ -116,7 +116,7 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 - **GRID ID** - Enter a GRID ID in the format grid.452594.b.&#x20;
 - **Website** - Enter a website such as `https://israbat.ac.ma/`.&#x20;
 - **Domain** - Enter a web domain such as `ucla.edu`.
-- **Year established**
+- **Year established** - Enter the year an organization was established. This must match the established year exactly.
 - **Created date**
 - **Modified date**
 - **GeoNames ID**
