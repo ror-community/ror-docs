@@ -6148,7 +6148,7 @@ Search for multiple terms in a single field and form complex queries with [Elast
 curl 'https://api.ror.org/v2/organizations?query.advanced=id:(https%5C%3A%5C%2F%5C%2Fror.org%5C%2F02bfwt286+OR+https%5C%3A%5C%2F%5C%2Fror.org%5C%2F00rqy9422+OR+https%5C%3A%5C%2F%5C%2Fror.org%5C%2F01sf06y89+OR+https%5C%3A%5C%2F%5C%2Fror.org%5C%2F045s9b323)' | json_pp
 ```
 
-Alternately, use the wildcard `*` (which can be URL-encoded at `%2A`) in place of the ROR ID protocol and domain.
+Alternately, use the wildcard `*` (which can be URL-encoded as `%2A`) in place of the ROR ID protocol and domain.
 
 ```curl
 curl 'https://api.ror.org/v2/organizations?query.advanced=id:(*02bfwt286+OR+*00rqy9422+OR+*01sf06y89+OR+*045s9b323)' | json_pp
