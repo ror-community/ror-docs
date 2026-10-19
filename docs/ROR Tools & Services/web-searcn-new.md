@@ -19,9 +19,11 @@ The ROR web search has two modes: **Search** and **Advanced Search**_._ The defa
 
 Selecting Advanced Search allows you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR, and NOT.**
 
-<br />
 
-Note that in both modes, only records with an [Active status](https://ror.readme.io/docs/ror-data-structure#status) are returned by default, but Inactive and Withdrawn records can be returned by selecting the desired record status options. 
+<Image src="https://files.readme.io/498d9274cae8a1c44e6da0a3ee6c09ee2a53d73d07a1444b2a2881553d6a92ad-ror-search-selector.png" align="center" border={true} />
+
+
+Note that in both modes, only records with an [Active status](https://ror.readme.io/docs/ror-data-structure#status) are returned by default, but Inactive and Withdrawn records can be returned by selecting the desired options.
 
 <Callout icon="far fa-circle-info" theme="info">
   ## Remember that the default search does not include all elements of a ROR record
