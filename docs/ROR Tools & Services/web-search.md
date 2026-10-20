@@ -113,7 +113,7 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 - **Country** - Select a country.
 - **Continent** - Select a continent.
 - **City&#x20;**- Enter a city. This condition supports wildcards.
-- **Organization type** - Select an organization type.&#x20;
+- **Organization type** - Select an organization type. Single records can have multiple types.
 - **Record status** - Select a record status.
 - **Related organization(s)** - Search for an organization and select it to find organizations [related](https://ror.readme.io/docs/relationships) to it in any way. This condition applies to all entities in the selected organization's `relationships` field, including Related, Child, Parent, Predecessor, and Successor organizations.
 - **Relationship type** - Select a relationship type to include or exclude records that include a [relationship](https://ror.readme.io/docs/relationships) of that type in the `relationships` field. For instance, searching for records where the "Parent" relationship type is included will return organizations that _have_ a parent as distinct from organizations that _are_ a parent. Note, however, that any one organization can both have a parent and be a parent.&#x20;
@@ -236,13 +236,11 @@ The search returns 0 results, since the only city named Chapel Hill is in North 
 
 ## Example: Wildcard in name
 
-Find all organizations whose name includes a term that begins with "Clim".&#x20;
-
+Find all organizations where any name field includes a term that begins with "Clim".&#x20;
 
 <Image src="https://files.readme.io/7cc18bd567228717c61ce1587771357a66b6cf4f10fd04b700953e1f6c7f53b4-ror-search-wildcard-name.png" alt="Name wildcard search." border={true} />
 
-The search returns 186 organizations whose name includes a term that begins with "Clim" such as "Climat," "Climate," and "Climatique."&#x20;
-
+The search returns 186 organizations where a name field includes a term that begins with "Clim" such as "Climat," "Climate," and "Climatique."&#x20;
 
 <Image src="https://files.readme.io/b51c9dc8bd330558eb8bf3f5a14d02b59081b13d69a96b21bfbe888469ca9d81-ror-search-wildcard-name-results.png" alt="Results for name wildcard search." border={true} />
 
