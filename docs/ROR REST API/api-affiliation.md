@@ -25,7 +25,7 @@ next:
 
 For many years, publishers of scholarly information often captured author and contributor affiliation information as unstructured data, sometimes storing an organization's name, a sub-unit or department's name, a street address, and a geographical location along with copious irregular punctuation as a text string in a single field. Some affiliation strings even include multiple affiliations.
 
-The affiliation parameter of the ROR API is designed to match these messy text strings to ROR records automatically to produce cleaner affiliation data. The affiliation service attempts to find the active ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a `chosen:true` indicator that can be used in ROR integration code. 
+The affiliation parameter of the ROR API is designed to match these messy text strings to ROR records automatically to produce cleaner affiliation data. The affiliation service attempts to find the active ROR record that is the most probable match for the given affiliation string; if it finds a likely candidate, it returns that result with a single `chosen:true` indicator that can be used in ROR integration code.
 
 Not all affiliation searches will produce a "chosen" result. The method of matching is indicated in the `matching_type` field. Only records with a <Anchor label="status" target="_blank" href="https://ror.readme.io/docs/ror-data-structure#status">status</Anchor> of `active` are returned. 
 
@@ -59,7 +59,7 @@ The affiliation parameter **does not accept filters** and results **are not pagi
 
 # Matching a string
 
-Use the affiliation parameter to match a text string that includes an organization name to a ROR ID. If a likely match is found, it will be identified with the `chosen:true` indicator and can be automatically selected. No more than one result (if any) will include the `chosen:true` indicator.
+Use the affiliation parameter to match a text string that includes an organization name to a ROR ID. If a likely match is found, it will be identified with the `chosen:true` indicator and can be automatically selected. **Only one result, if any, will include the&#x20;**`chosen:true`**&#x20;indicator.**
 
 ## Example
 
