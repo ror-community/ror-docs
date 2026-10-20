@@ -175,8 +175,7 @@ Find all organizations whose record includes both the Facility and the Funder ty
 
 <Image src="https://files.readme.io/6b000d20c7cb1b5aa70ef2a5407b21b6d47919537e1ce7a342f8afa85abf1820-ror-search-type-and-type.png" alt="Two Type conditions." border={true} />
 
-The search returns 2,431 records whose Organization type includes both Funder and Facility. Some results may include additional Organization types as well.&#x20;
-
+The search returns 2,431 records whose organization type includes both Funder and Facility. Some results may include additional organization types as well.&#x20;
 
 <Image src="https://files.readme.io/24560322e635f20e8625d6850fba3d220aed7d06dc4a906af4d371bd5f1bd3f1-ror-search-type-and-type-results.png" alt="Results for combined Type search." border={true} />
 
