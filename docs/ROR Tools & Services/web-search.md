@@ -85,20 +85,17 @@ You can choose filters before or after you search to fine-tune your search resul
 
 ## Example: Filters
 
-Search for inactive and withdrawn records for organizations in Finland with the word "energy" in the name.
-
+Search for inactive and withdrawn records for organizations in Finland with the word "energy" in any name field.
 
 <Image src="https://files.readme.io/a0082843c0d52f3c80187db16cd934daeb1765bc4e316b0b9c58772e04088550-ror-search-filters.png" alt="Results using filters." align="center" border={true} />
 
 ## Example: Quotation marks
 
-Search for an active organization with the exact phrase "solar energy" in the name by surrounding it with quotation marks.
-
+Search for an active organization with the exact phrase "solar energy" in any name field by surrounding it with quotation marks.
 
 <Image src="https://files.readme.io/f57904a052b26888d15b917cd185aff8e334bac67a7f18bd19790b03f2f8e5a0-ror-search-quotation-marks.png" alt="Results of an exact phrase search." align="center" border={true} />
 
-Note that searching for the term "solar energy" _without_ using quotation marks produces many more results, since the ROR web search is looking for records with _either_ the term "solar" _or_ the term "energy" in the organization name.
-
+Note that searching for the term "solar energy" _without_ using quotation marks produces many more results, since the ROR web search is looking for records with _either_ the term "solar" _or_ the term "energy" in any of the organization names.
 
 <Image src="https://files.readme.io/2ec30c431d4f3bb626e41ddd5a8d461792875c0458d721030b081ab4a3ca9d3e-ror-search-no-quotation-marks.png" alt="Results of a keyword search." align="center" border={true} />
 
@@ -112,20 +109,20 @@ The Country, Continent, Organization type, and Record status conditions in Advan
 
 You can choose up to 10 of the following conditions in Advanced search mode. Conditions are based on fields from the ROR [data structure.](https://ror.readme.io/docs/ror-data-structure)
 
-- **Name** - Enter an organization's name. Note that the Name condition in Advanced search mode does not offer suggestions. &#x20;
+- **Name** - Enter any version of an organization's name in any language: full name, alias, acronym, or name keywords. Note that the Name condition in Advanced search mode does not offer suggestions. This condition supports wildcards.&#x20;
 - **Country** - Select a country.
 - **Continent** - Select a continent.
-- **City&#x20;**- Enter a city.&#x20;
+- **City&#x20;**- Enter a city. This condition supports wildcards.
 - **Organization type** - Select an organization type.&#x20;
 - **Record status** - Select a record status.
 - **Related organization(s)** - Search for an organization and select it to find organizations [related](https://ror.readme.io/docs/relationships) to it in any way. This condition applies to all entities in the selected organization's `relationships` field, including Related, Child, Parent, Predecessor, and Successor organizations.
 - **Relationship type** - Select a relationship type to include or exclude records that include a [relationship](https://ror.readme.io/docs/relationships) of that type in the `relationships` field. For instance, searching for records where the "Parent" relationship type is included will return organizations that _have_ a parent as distinct from organizations that _are_ a parent. Note, however, that any one organization can both have a parent and be a parent.&#x20;
-- **Funder ID** - Enter a Crossref Funder ID in the format 100009717 or 10.13039/100009717.&#x20;
-- **ISNI ID** - Enter an ISNI ID in the format 0000000119575136 or 0000 0001 1957 5136.&#x20;
-- **Wikidata ID** - Enter a Wikidata ID in the format Q643674 or 643674.&#x20;
-- **GRID ID** - Enter a GRID ID in the format grid.452594.b.&#x20;
-- **Website** - Enter a website such as `https://israbat.ac.ma/`.&#x20;
-- **Domain** - Enter a web domain such as `ucla.edu`.
+- **Funder ID** - Enter a Crossref Funder ID in the format 100009717 or 10.13039/100009717. This condition supports wildcards.
+- **ISNI ID** - Enter an ISNI ID in the format 0000000119575136 or 0000 0001 1957 5136. This condition supports wildcards.
+- **Wikidata ID** - Enter a Wikidata ID in the format Q643674 or 643674. This condition supports wildcards.
+- **GRID ID** - Enter a GRID ID in the format grid.452594.b. This condition supports wildcards.
+- **Website** - Enter a website such as `https://israbat.ac.ma/`. This condition supports wildcards.
+- **Domain** - Enter a web domain such as `ucla.edu`. This condition supports wildcards.
 - **Year established** - Enter the year an organization was established. This must match the established year exactly.
 - **Created date** - Search for records created on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD. Note that because ROR records are created on a rolling basis, created dates will not always correspond to ROR registry release dates.&#x20;
 - **Modified date** - Search for records modified on a specific date, on or before a date, on or after a date, or between two dates. Enter dates in ISO format: YYYY-MM-DD. Note that because ROR records are modified on a rolling basis, modified dates will not always correspond to ROR registry release dates.
@@ -261,6 +258,18 @@ The search returns 2 results for organizations located in Chapelhall and Chapelt
 
 <Image src="https://files.readme.io/7e131ddac8a794eb28c78e38bb75311491b5e1e54ed41907ea92d55f729db5cf-ror-search-wildcard-city-results.png" alt="2 results for city wildcard search." border={true} />
 
+## Example: Wildcard in Funder ID
+
+Find all ROR records that include a Funder ID.&#x20;
+
+
+<Image src="https://files.readme.io/78aaa6ea0a49fdb818bf2e31c9471f33c2c91c1314d30235253ec7aefae161d1-ror-search-wildcard-funder-id.png" alt="Wildcard to find all records in ID field." border={true} />
+
+
+The search returns all 24,390 ROR records that include a Funder ID.&#x20;
+
+
+<Image src="https://files.readme.io/943e32995240214a00612e4735a391b19f41490ac442da4e1873bac9d66a6076-ror-search-wildcard-funder-id-results.png" alt="Results for wildcard search for all results." border={true} />
 
 <br />
 
