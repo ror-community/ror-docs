@@ -112,7 +112,7 @@ You can choose up to 10 of the following conditions in Advanced search mode. Con
 - **Name** - Enter any version of an organization's name in any language: full name, alias, acronym, or name keywords. Note that the Name condition in Advanced search mode does not offer suggestions. This condition supports wildcards and quotation marks.&#x20;
 - **Country** - Select a country.
 - **Continent** - Select a continent.
-- **City&#x20;**- Enter a city. This condition supports wildcards.
+- **City&#x20;**- Enter a city. This condition supports wildcards. Multi-word terms in this field are automatically treated as specific phrases (e.g., "San Francisco"), so no quotation marks are necessary.
 - **Organization type** - Select an organization type. Single records can have multiple types.
 - **Record status** - Select a record status.
 - **Related organization(s)** - Search for an organization and select it to find organizations [related](https://ror.readme.io/docs/relationships) to it in any way. This condition applies to all entities in the selected organization's `relationships` field, including Related, Child, Parent, Predecessor, and Successor organizations.
