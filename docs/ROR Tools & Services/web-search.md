@@ -85,7 +85,7 @@ You can choose filters before or after you search to fine-tune your search resul
 
 ## Example: Filters
 
-Search for inactive and withdrawn records for organizations in Finland with the word "energy" in any name field.
+Search for inactive and withdrawn records for organizations in Finland with the word "solar" in any name field.
 
 <Image src="https://files.readme.io/a0082843c0d52f3c80187db16cd934daeb1765bc4e316b0b9c58772e04088550-ror-search-filters.png" alt="Results using filters." align="center" border={true} />
 
