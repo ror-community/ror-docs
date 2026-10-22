@@ -28,7 +28,7 @@ Search the ROR registry in your web browser at [https://ror.org/search](https://
 
 The ROR web search has two modes: **Search** and **Advanced**_._ The default Search uses the [query parameter](https://ror.readme.io/docs/api-query) of the ROR API, which is designed to help you find one or more organizations by name or identifier. From Search, you can go directly to a suggested single ROR record, or you can see all results. Results can be filtered using sidebar options for **Record status, Organization type, Country,** or **Continent.**
 
-Advanced search allows you to look for organizations using criteria beyond names and identifiers (e.g., Website or City) and enables you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR,&#x20;**&#x61;n&#x64;**&#x20;NOT.&#x20;**&#x41;dvanced mode uses the [Advanced query parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API.&#x20;
+Advanced search allows you to look for organizations using criteria beyond names and identifiers (such as its website or its city) and enables you to construct complex searches with multiple conditions that can be combined with Boolean operators **AND, OR,&#x20;**&#x61;n&#x64;**&#x20;NOT.&#x20;**&#x41;dvanced mode uses the [Advanced query parameter](https://ror.readme.io/docs/api-advanced-query) of the ROR API.&#x20;
 
 <Image src="https://files.readme.io/498d9274cae8a1c44e6da0a3ee6c09ee2a53d73d07a1444b2a2881553d6a92ad-ror-search-selector.png" alt="Select Search or Advanced." align="center" border={true} />
 
