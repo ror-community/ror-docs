@@ -36,7 +36,17 @@ Note that in both modes, only records with an [active status](https://ror.readme
 
 ## Wildcards and quotation marks
 
-Both Search and Advanced modes support searching with the wildcard character `*` as well as searching for exact strings by surrounding a multi-word phrase with quotation marks `" "`. Not all Advanced fields support wildcards and quotation marks.&#x20;
+Both Search and Advanced modes support searching with the wildcard character `*` . Search mode also supports searching for exact strings by surrounding a multi-word phrase with quotation marks `" "`. Not all&#x20;
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+Terms entered into Advanced fields support wildcards and quotation marks.&#x20;
 
 ## View details
 
