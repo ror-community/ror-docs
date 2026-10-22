@@ -109,7 +109,7 @@ The Country, Continent, Organization type, and Record status conditions in Advan
 
 You can choose up to 10 of the following conditions in Advanced search mode. Conditions are based on fields from the ROR [data structure.](https://ror.readme.io/docs/ror-data-structure)
 
-- **Name** - Enter any version of an organization's name in any language: full name, alias, acronym, or name keywords. Note that the Name condition in Advanced search mode does not offer suggestions. This condition supports wildcards and quotation marks.&#x20;
+- **Name** - Enter any version of an organization's name in any language: full name, alias, acronym, or name keywords. Note that the Name condition in Advanced search mode does not offer suggestions. This condition supports wildcards. Multi-word terms in this field are automatically treated as specific phrases (e.g., "Notre Dame"), so no quotation marks are necessary.
 - **Country** - Select a country.
 - **Continent** - Select a continent.
 - **City&#x20;**- Enter a city. This condition supports wildcards. Multi-word terms in this field are automatically treated as specific phrases (e.g., "San Francisco"), so no quotation marks are necessary.
