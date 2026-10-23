@@ -101,7 +101,7 @@ Note that searching for the term "solar energy" in Search mode _without_ using q
 
 # Advanced
 
-Advanced search mode is designed to help you construct precise, complex, multi-field searches of the ROR registry. Add conditions such as City, Website, and Modified Date and combine them with AND, OR, or NOT.
+Advanced search mode is designed to help you construct precise, complex, multi-field searches of the ROR registry. Add conditions such as City, Website, and Modified Date and combine them with AND, OR, and NOT.
 
 The Country, Continent, Organization type, and Record status conditions in Advanced search mode operate on the same fields and in similar ways as the sidebar filters, but they function separately, so choosing (for example) a specific Country in Advanced mode will not affect the Country sidebar options. Results from Advanced searches can be further limited using the sidebar filters.&#x20;
 
