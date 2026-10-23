@@ -16,7 +16,7 @@ next:
       type: link
       url: https://ror.org/search
 ---
-Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name or ID using the default Search, or use Advanced Search to find organizations using other search criteria and to construct complex queries.
+Search the ROR registry in your web browser at [https://ror.org/search](https://ror.org/search). Find organizations by name or ID using the default Search, or use Advanced Search to find organizations using other criteria or complex queries.
 
 <Callout icon="🚧" theme="warn">
   ## Don't send requests from an application to the ROR web search!
